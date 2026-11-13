@@ -23,7 +23,7 @@ NEW_POSTS = [
  ('a2l-tools-leak-detectors-recovery-machines', 'A2L Tools: Leak Detectors, Recovery Machines and What Changes',
   'Which tools must change for A2L refrigerants like R-454B and R-32: non-sparking recovery machines and vacuum pumps, sealed leak detectors, red-band cylinders.', '2026-11-13'),
  ('refrigerant-temperature-glide', 'Refrigerant Temperature Glide: Why Blends Have Two Pressures',
-  'Temperature glide explained: why zeotropic blends show bubble and dew columns, glide values for 19 blends from our charts, and how glide changes charging.', '2026-11-13'),
+  'Temperature glide explained: why zeotropic blends show bubble and dew columns, glide values for 20 blends from our charts, and how glide changes charging.', '2026-11-13'),
 ]
 
 

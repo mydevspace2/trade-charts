@@ -21,3 +21,8 @@
 - Monthly: GSC/Bing coverage + CTR review and data-correction inbox check.
 - Weekly for 15 weeks: publish 2 posts from blog-calendar.md.
 - Yearly: re-verify serial-format sources and code-cycle tables.
+
+## Daily build-out task (scheduled, "Trade Charts: 10-day completion, then daily management")
+- Method is in the task runbook. New posts, FAQs for all posts, launch-post expansions and RELATED_GUIDES (tool page → guide links) live in build/posts2.py.
+- 2026-11-13 run: posts #7 R-454B service basics, #8 A2L tools, #9 temperature glide live (commit e0ae994/0d7b8fd); 5 launch posts expanded to 600+ words; FAQ + FAQPage schema on all 9 posts; related-guide links on 18 tool pages. 138 pages. Still under 600 words: ~43 pages (calculators, conduit-size, ampacity, offset, hubs, Home, legal).
+- Other agents also commit to repo/ (AI-HANDOVER.md, _source/docs via sync-repo.sh). Pull before syncing; check the commit for unexpected deletions.
