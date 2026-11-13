@@ -105,12 +105,20 @@ def post_bodies():
     return b
 
 def site_pages():
+    import posts2
+    POSTS.extend(p for p in posts2.NEW_POSTS if p[0] not in {x[0] for x in POSTS})
     bodies = post_bodies()
+    bodies.update(posts2.new_bodies())
     for slug, title, desc, d in POSTS:
         path = f'/blog/{slug}/'
-        body = f'<article class="post"><h1>{esc(title)}</h1><p class="meta">Guide \u00b7 Updated {UPDATED_H}</p>{bodies[slug]}</article>'
+        main = bodies[slug]
+        if slug in posts2.EXPAND:
+            main = main.replace('<h2>Sources</h2>', posts2.EXPAND[slug] + '<h2>Sources</h2>', 1) if '<h2>Sources</h2>' in main else main + posts2.EXPAND[slug]
+        faqs = posts2.FAQS.get(slug, [])
+        body = f'<article class="post"><h1>{esc(title)}</h1><p class="meta">Guide \u00b7 Updated {UPDATED_H}</p>{main}{faq_html(faqs) if faqs else ""}</article>'
+        sch = [article_ld(title, desc, path, d)] + ([faq_ld(faqs)] if faqs else [])
         page(path, title, desc, body, crumbs=[('Guides', '/blog/'), (title.split(':')[0][:50], path)], section='/blog/', og_type='article',
-             schema=[article_ld(title, desc, path, d)])
+             schema=sch)
     body = '<article><h1>Guides</h1><p class="lead">Short, practical explanations behind the charts and calculators.</p><ul class="cards">' + ''.join(
         f'<li><a href="{url(f"/blog/{s}/")}"><b>{esc(t)}</b><span>{esc(dd)}</span></a></li>' for s, t, dd, _ in POSTS) + '</ul></article>'
     page('/blog/', 'Field Guides for HVAC, Electrical & Gas Techs', 'Practical guides for trades: reading PT charts, superheat vs subcooling, conduit fill, voltage drop, gas pipe sizing and water heater age.',

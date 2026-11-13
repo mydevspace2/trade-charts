@@ -78,8 +78,9 @@ def page(path, title, desc, body, crumbs=None, section=None, schema=(), og_type=
     """Write one HTML page. crumbs: list of (name, path) excluding Home."""
     assert len(desc) <= 160, (path, len(desc))
     from extra import EXTRA
-    if path in EXTRA:
-        x = EXTRA[path]
+    from posts2 import related_html
+    x = EXTRA.get(path, '') + related_html(path)
+    if x:
         body = body.replace('<section class="faq"', x + '<section class="faq"', 1) if '<section class="faq"' in body else body.replace('</article>', x + '</article>', 1)
     crumbs = crumbs or []
     allc = [('Home', '/')] + crumbs

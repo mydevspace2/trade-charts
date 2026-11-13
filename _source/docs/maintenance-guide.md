@@ -1,5 +1,7 @@
 # Trade Charts — maintenance guide
 
+> Continuing with another AI? Start with [AI-HANDOVER.md](AI-HANDOVER.md).
+
 Free US trades reference: refrigerant PT charts, HVAC calculators, NEC conduit fill / ampacity / voltage drop / offsets / box fill,
 IFGC gas pipe sizing, age-by-serial decoders and welding starting points. Static multi-page site, no trackers, no build server.
 

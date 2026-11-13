@@ -1,4 +1,4 @@
-# Blog calendar — 30 posts (6 written at launch ✔)
+# Blog calendar — 30 posts (✔ = live)
 | # | Title | Target query | Status |
 |---|---|---|---|
 | 1 | How to Read a PT Chart (Dew, Bubble and Glide) | how to read a pt chart | ✔ live |
@@ -7,9 +7,9 @@
 | 4 | Voltage Drop and the 3% Rule | 3 percent voltage drop | ✔ live |
 | 5 | How to Size Gas Pipe: Longest Length Method | how to size gas pipe | ✔ live |
 | 6 | How to Tell the Age of a Water Heater | how old is my water heater | ✔ live |
-| 7 | R-454B Service Basics for R-410A Techs | r454b service | planned |
-| 8 | A2L Leak Detectors and Recovery Machines: What Changes | a2l tools | planned |
-| 9 | Temperature Glide: Why Blends Have Two Pressures | refrigerant glide | planned |
+| 7 | R-454B Service Basics for R-410A Techs | r454b service | ✔ live 2026-11-13 |
+| 8 | A2L Leak Detectors and Recovery Machines: What Changes | a2l tools | ✔ live 2026-11-13 |
+| 9 | Temperature Glide: Why Blends Have Two Pressures | refrigerant glide | ✔ live 2026-11-13 |
 | 10 | Charging a Heat Pump in Heating Mode | charge heat pump in winter | planned |
 | 11 | Fixed Orifice vs TXV: How to Tell Which You Have | piston vs txv | planned |
 | 12 | Non-Condensables: Reading High Standing Pressure | air in refrigerant system | planned |
