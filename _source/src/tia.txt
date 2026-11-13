@@ -1,0 +1,124 @@
+NFPA 70®-2023 Edition
+National Electrical Code®
+TIA Log No.: 1691
+Reference: Table 310.16
+Comment Closing Date: February 10, 2023
+Submitter: David Hittinger, Independent Electrical Contractors
+www.nfpa.org/70
+
+1. Revise Table 310.16 to read as follows:
+
+Table 310.16 Ampacities of Insulated Conductors with Not More Than Three Current-Carrying
+Conductors in Raceway, Cable, or Earth (Directly Buried)
+                      Temperature Rating of Conductor [See Table 310.4(A)]
+       60°C                                        60°C        75°C
+              75°C (167°F)     90°C (194°F)                                90°C (194°F)
+      (140°F)                                    (140°F)     (167°F)
+                            Types TBS, SA, SIS,
+                                                                       Types TBS, SA, SIS,
+ Size          Types RHW,   FEP, FEPB, MI, PFA,                                             Size
+                                                           Types RHW, THHN, THHW, THW-
+AWG           THHW, THW, RHH, RHW-2, THHN,                                                 AWG
+                                                          THHW, THW, 2, THWN-2, RHH,
+  or   Types     THWN,     THHW, THW-2, THWN- Types                                          or
+                                                              THWN,      RHW-2, USE-2,
+kcmil TW, UF     XHHW,     2, USE-2, XHH, XHHW, TW, UF                                     kcmil
+                                                             XHHW,     XHH, XHHW, XHHW-
+              XHWN, USE,      XHHW-2, XHWN,
+                                                           XHWN, USE 2, XHWN, XHWN-2,
+                   ZW      XHWN-2, XHHN, Z, ZW-
+                                                                              XHHN
+                                      2
+                        COPPER                    ALUMINUM OR COPPER-CLAD ALUMINUM
+ 18*    —       —            14                    —        —            —                  —
+ 16*    —       —            18                    —        —            —                  —
+ 14*    15      20           25                    10   †
+                                                            —            —                      14*
+ 12*    20      25           30                    15       20           25                     12*
+ 10*    30      35           40                    25       30           35                     10*
+  8     40      50           55                    35       40           45                 8
+  6     55      65           75                    40       50           55                 6
+  4     70      85           95                    55       65           75                 4
+  3     85      100          115                   65       75           85                 3
+  2     95      115          130                   75       90           100                2
+  1     110     130          145                   85       100          115                1
+  1/0   125     150          170                   100      120          135                1/0
+  2/0   145     175          195                   115      135          150                2/0
+  3/0   165     200          225                   130      155          175                3/0
+  4/0   195     230          260                   150      180          205                4/0
+ 250    215     255          290                   170      205          230                250
+ 300    240     285          320                   195      230          260                300
+ 350    260     310          350                   210      250          280                350
+ 400    280     335          380                   225      270          305                400
+ 500    320     380          430                   260      310          350                500
+ 600    350     420          475                   285      340          385                600
+ 700    385     460          520                   315      375          425                700
+ 750    400     475          535                   320      385          435                750
+ 800    410     490          555                   330      395          445                800
+ 900    435     520          585                   355      425          480                900
+                          Temperature Rating of Conductor [See Table 310.4(A)]
+           60°C                                        60°C        75°C
+                  75°C (167°F)     90°C (194°F)                                90°C (194°F)
+          (140°F)                                    (140°F)     (167°F)
+                                Types TBS, SA, SIS,
+                                                                           Types TBS, SA, SIS,
+     Size          Types RHW,   FEP, FEPB, MI, PFA,                                             Size
+                                                               Types RHW, THHN, THHW, THW-
+    AWG           THHW, THW, RHH, RHW-2, THHN,                                                 AWG
+                                                              THHW, THW, 2, THWN-2, RHH,
+      or   Types     THWN,     THHW, THW-2, THWN- Types                                          or
+                                                                  THWN,      RHW-2, USE-2,
+    kcmil TW, UF     XHHW,     2, USE-2, XHH, XHHW, TW, UF                                     kcmil
+                                                                 XHHW,     XHH, XHHW, XHHW-
+                  XHWN, USE,      XHHW-2, XHWN,
+                                                               XHWN, USE 2, XHWN, XHWN-2,
+                       ZW      XHWN-2, XHHN, Z, ZW-
+                                                                                  XHHN
+                                          2
+                            COPPER                    ALUMINUM OR COPPER-CLAD ALUMINUM
+    1000   455       545            615                    375       445            500                   1000
+    1250   495       590            665                    405       485            545                   1250
+    1500   525       625            705                    435       520            585                   1500
+    1750   545       650            735                    455       545            615                   1750
+    2000   555       665            750                    470       560            630                   2000
+Notes:
+1. Section 310.15(B) shall be referenced for ampacity correction factors where the ambient temperature is other
+than 30°C (86°F).
+2. Section 310.15(C)(1) shall be referenced for more than three current-carrying conductors.
+3. Section 310.16 shall be referenced for conditions of use.
+*Section 240.4(D) shall be referenced for conductor overcurrent protection limitations, except as modified
+elsewhere in the Code.
+
+†
+    Applicable only to copper-clad aluminum conductors.
+
+Informational Note: See 300.26, 724.49, and Article 725, Part II for sizing of 18 AWG and 16 AWG
+copper and 14 AWG copper-clad aluminum control conductors as referenced in 330.104 and 336.104.
+
+
+Substantiation: Changes to the location of code requirements for control conductors resulted in
+the omission of information required to determine the size and construction of non-power-limited
+conductors used in these applications. To provide clear direction to Code users, Table 310.16 is
+revised to direct Code users to the appropriate Code sections for control conductor sizing. In
+Table 310.16, 14 AWG copper-clad aluminum is added to recognize the permitted use of this
+conductor for control conductors. The inclusion of 14 AWG copper-clad aluminum for controls
+in 330.104 and 336.104 without also providing appropriate ampacity information leaves users of
+the code without the necessary information to make safe installations. While the addition of
+240.4(D)(3) has some guidance, this is not where a user would go to find an ampacity. This
+language is intended to mirror the permitted uses that were in the 2020 NEC, with no technical
+changes. There are changes to the language to improve usability of the Code.
+
+Emergency Nature: The standard contains an error or an omission that was overlooked during
+the regular revision process. The NFPA Standard contains a conflict within the NFPA Standards
+or within another NFPA Standard. The proposed TIA intends to correct a circumstance in which
+the revised NFPA Standard has resulted in an adverse impact on a product or method that was
+inadvertently overlooked in the total revision process or was without adequate technical (safety)
+justification of the action.
+
+This information is essential to the correct sizing of non-power-limited control conductors. The
+misapplication due to lack of clarity of requirements can lead to installations with hazardous
+conditions, hence the emergency nature and the submission of this TIA.
+Anyone may submit a comment by the closing date indicated above. Please identify the TIA
+number, state whether you SUPPORT or OPPOSE the TIA along with your comment, and
+forward to the Secretary, Standards Council. SUBMIT A COMMENT
+

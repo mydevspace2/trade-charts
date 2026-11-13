@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Superheat Calculator: R-410A, R-454B, R-32, R-22 &amp; More</title>
+<meta name="description" content="Free superheat calculator for 32 refrigerants. Enter suction pressure and line temperature; uses dew point for blends. °F/°C and psig/kPa.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://mydevspace2.github.io/trade-charts/superheat-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Trade Charts">
+<meta property="og:title" content="Superheat Calculator: R-410A, R-454B, R-32, R-22 &amp; More">
+<meta property="og:description" content="Free superheat calculator for 32 refrigerants. Enter suction pressure and line temperature; uses dew point for blends. °F/°C and psig/kPa.">
+<meta property="og:url" content="https://mydevspace2.github.io/trade-charts/superheat-calculator/">
+<meta property="og:image" content="https://mydevspace2.github.io/trade-charts/assets/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14202b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
+<link rel="manifest" href="/trade-charts/site.webmanifest">
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=1">
+<script src="/trade-charts/assets/app.js?v=1" defer></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Superheat calculator","description":"Superheat from suction pressure and line temperature","url":"https://mydevspace2.github.io/trade-charts/superheat-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is superheat?","acceptedAnswer":{"@type":"Answer","text":"Superheat is how many degrees the suction vapor is above its saturation (boiling) temperature at the measured pressure: line temperature minus saturated (dew) temperature."}},{"@type":"Question","name":"What is a normal superheat?","acceptedAnswer":{"@type":"Answer","text":"It depends on the metering device and conditions. TXV systems usually hold roughly 8–12 °F at the evaporator outlet; fixed-orifice systems need a target that changes with indoor wet bulb and outdoor temperature. Always use the manufacturer’s charging chart."}},{"@type":"Question","name":"Where do I measure superheat?","acceptedAnswer":{"@type":"Answer","text":"Measure suction pressure and suction-line temperature at the same point, usually near the outdoor unit service valve for total superheat, with the system running at least 15 minutes."}},{"@type":"Question","name":"Which column do I use for a blend like R-454B?","acceptedAnswer":{"@type":"Answer","text":"The dew column. Superheat is measured from the dew point."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"HVAC Calcs","item":"https://mydevspace2.github.io/trade-charts/hvac-calculators/"},{"@type":"ListItem","position":3,"name":"Superheat calculator","item":"https://mydevspace2.github.io/trade-charts/superheat-calculator/"}]}</script>
+</head>
+<body data-base="/trade-charts">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+ <div class="wrap top-in">
+  <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
+  <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/" aria-current="page">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/">Guides</a></li></ul></nav>
+  <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
+ </div>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/trade-charts/">Home</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li aria-current="page">Superheat calculator</li></ol></nav>
+<article><h1>Superheat Calculator</h1>
+<p class="lead">Enter the refrigerant, the suction pressure and the suction-line temperature. The calculator converts pressure to the saturated (dew) temperature from our verified PT data and gives superheat instantly, in °F or °C.</p>
+<section class="tool"><h2>Calculate superheat</h2>
+<div class="calc" data-tool="sh"><div class="row"><label>Refrigerant <select data-ref><option value="r12">R-12</option><option value="r123">R-123</option><option value="r1233zd">R-1233zd(E)</option><option value="r1234yf">R-1234yf</option><option value="r1234ze">R-1234ze(E)</option><option value="r134a">R-134a</option><option value="r22">R-22</option><option value="r290">R-290</option><option value="r32">R-32</option><option value="r404a">R-404A</option><option value="r407a">R-407A</option><option value="r407c">R-407C</option><option value="r407f">R-407F</option><option value="r410a" selected>R-410A</option><option value="r417a">R-417A</option><option value="r421a">R-421A</option><option value="r422d">R-422D</option><option value="r427a">R-427A</option><option value="r438a">R-438A</option><option value="r448a">R-448A</option><option value="r449a">R-449A</option><option value="r450a">R-450A</option><option value="r452a">R-452A</option><option value="r454a">R-454A</option><option value="r454b">R-454B</option><option value="r455a">R-455A</option><option value="r466a">R-466A</option><option value="r507a">R-507A</option><option value="r513a">R-513A</option><option value="r600a">R-600a</option><option value="r717">R-717</option><option value="r744">R-744</option></select></label></div>
+<div class="row"><label>Suction pressure <input type="number" inputmode="decimal" step="any" data-p value="118"></label><label>Pressure unit <select data-pu><option value="psig">psig</option><option value="kpa">kPa (gauge)</option><option value="bar">bar (gauge)</option></select></label></div>
+<div class="row"><label>Suction line temp <input type="number" inputmode="decimal" step="any" data-t value="52"></label><label>Temp unit <select data-tu><option value="F">°F</option><option value="C">°C</option></select></label></div>
+<output class="res" data-out aria-live="polite"></output></div></section>
+<h2>How superheat is calculated</h2>
+<p><b>Superheat = suction line temperature − saturated suction temperature.</b> The saturated temperature comes from the PT chart at the measured suction pressure. For zeotropic blends (R-454B, R-407C, R-448A, R-449A and others) the calculator uses the <em>dew</em> temperature, because the refrigerant leaving the evaporator has finished boiling at the dew point.</p>
+<p>Example with R-410A: suction pressure 118 psig is a 40 °F saturated temperature. A suction line at 52 °F gives 52 − 40 = 12 °F of superheat.</p>
+<h2>Good measurement practice</h2>
+<ul><li>Let the system run 15 minutes or more with doors closed and filters clean before you judge the charge.</li>
+<li>Clamp the thermometer on clean bare copper within a few inches of the pressure port and insulate it from ambient air.</li>
+<li>On fixed-orifice (piston) systems compare the result with a target from indoor wet bulb and outdoor dry bulb, such as our <a href="/trade-charts/target-superheat-calculator/">target superheat calculator</a> or the manufacturer’s table.</li>
+<li>On TXV/EEV systems superheat is controlled by the valve; charge by <a href="/trade-charts/subcooling-calculator/">subcooling</a> unless the manufacturer says otherwise.</li>
+<li>Low superheat risks liquid floodback to the compressor; high superheat suggests low charge, a restriction or low airflow on the heat-transfer side.</li></ul>
+<h2>What high or low superheat usually means</h2>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Reading</th><th scope="col">Common causes to check first</th></tr></thead><tbody><tr><th scope="row">High superheat</th><td>Low charge or leak, restricted metering device or filter drier, low indoor load, kinked line</td></tr><tr><th scope="row">Low superheat</th><td>Overcharge (fixed orifice), low indoor airflow (dirty filter or coil, slow blower), TXV bulb loose or overfeeding</td></tr><tr><th scope="row">Superheat swinging</th><td>TXV hunting, very low load, intermittent restriction or moisture</td></tr></tbody></table></div>
+<h2>Saturated suction pressures (dew) for common refrigerants</h2>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Refrigerant</th><th scope="col">35 °F</th><th scope="col">40 °F</th><th scope="col">45 °F</th></tr></thead><tbody><tr><th scope="row">R-410A</th><td>107.3</td><td>118.4</td><td>130.1</td></tr><tr><th scope="row">R-454B</th><td>97.3</td><td>107.5</td><td>118.3</td></tr><tr><th scope="row">R-32</th><td>109.7</td><td>121.0</td><td>133.0</td></tr><tr><th scope="row">R-22</th><td>61.5</td><td>68.6</td><td>76.1</td></tr><tr><th scope="row">R-407C</th><td>56.1</td><td>63.2</td><td>70.7</td></tr><tr><th scope="row">R-134a</th><td>30.4</td><td>35.0</td><td>40.0</td></tr><tr><th scope="row">R-404A</th><td>77.1</td><td>85.4</td><td>94.2</td></tr><tr><th scope="row">R-448A</th><td>63.7</td><td>71.2</td><td>79.4</td></tr></tbody></table></div>
+<p>Full tables: <a href="/trade-charts/pt-chart/">all PT charts</a>.</p>
+<section class="faq" id="faq"><h2>Frequently asked questions</h2>
+<details><summary>What is superheat?</summary><div class="ans">Superheat is how many degrees the suction vapor is above its saturation (boiling) temperature at the measured pressure: line temperature minus saturated (dew) temperature.</div></details>
+<details><summary>What is a normal superheat?</summary><div class="ans">It depends on the metering device and conditions. TXV systems usually hold roughly 8–12 °F at the evaporator outlet; fixed-orifice systems need a target that changes with indoor wet bulb and outdoor temperature. Always use the manufacturer’s charging chart.</div></details>
+<details><summary>Where do I measure superheat?</summary><div class="ans">Measure suction pressure and suction-line temperature at the same point, usually near the outdoor unit service valve for total superheat, with the system running at least 15 minutes.</div></details>
+<details><summary>Which column do I use for a blend like R-454B?</summary><div class="ans">The dew column. Superheat is measured from the dew point.</div></details>
+</section>
+</article>
+<aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
+<p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
+</main>
+<footer class="foot">
+ <div class="wrap foot-in">
+  <div><strong>Trade Charts</strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
+  <ul><li><a href="/trade-charts/pt-chart/">Refrigerant PT charts</a></li><li><a href="/trade-charts/superheat-calculator/">Superheat calculator</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by serial number</a></li></ul>
+  <ul><li><a href="/trade-charts/about/">About &amp; sources</a></li><li><a href="/trade-charts/contact/">Contact</a></li><li><a href="/trade-charts/privacy/">Privacy</a></li><li><a href="/trade-charts/terms/">Terms</a></li><li><a href="/trade-charts/sitemap.xml">Sitemap</a></li></ul>
+ </div>
+ <p class="wrap fine">&copy; 2026 Trade Charts. Reference only &mdash; verify with code and manufacturer data. Not affiliated with any manufacturer, NFPA or ICC; trademarks belong to their owners.</p>
+</footer>
+</body>
+</html>

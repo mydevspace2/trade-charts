@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Voltage Drop Calculator (NEC Table 8, Copper &amp; Aluminum)</title>
+<meta name="description" content="Free voltage drop calculator for single- and three-phase circuits using NEC Chapter 9 Table 8 resistance. Shows % drop and the smallest wire under 3%.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://mydevspace2.github.io/trade-charts/voltage-drop-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Trade Charts">
+<meta property="og:title" content="Voltage Drop Calculator (NEC Table 8, Copper &amp; Aluminum)">
+<meta property="og:description" content="Free voltage drop calculator for single- and three-phase circuits using NEC Chapter 9 Table 8 resistance. Shows % drop and the smallest wire under 3%.">
+<meta property="og:url" content="https://mydevspace2.github.io/trade-charts/voltage-drop-calculator/">
+<meta property="og:image" content="https://mydevspace2.github.io/trade-charts/assets/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14202b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
+<link rel="manifest" href="/trade-charts/site.webmanifest">
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=1">
+<script src="/trade-charts/assets/app.js?v=1" defer></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Voltage drop calculator","description":"Voltage drop per NEC Table 8","url":"https://mydevspace2.github.io/trade-charts/voltage-drop-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What voltage drop is acceptable?","acceptedAnswer":{"@type":"Answer","text":"NEC informational notes recommend no more than 3% on a branch circuit and 5% total for feeder plus branch circuit. They are recommendations, not requirements, except where another rule (for example fire pumps) applies."}},{"@type":"Question","name":"Which formula does the calculator use?","acceptedAnswer":{"@type":"Answer","text":"Single-phase: VD = 2 × L × R × I ÷ 1000. Three-phase: VD = 1.732 × L × R × I ÷ 1000, with L the one-way length in feet and R the NEC Chapter 9 Table 8 resistance in ohms per 1,000 ft."}},{"@type":"Question","name":"Is Table 8 resistance accurate for AC?","acceptedAnswer":{"@type":"Answer","text":"It is DC resistance at 75 °C. For small conductors it is very close to AC impedance; for large conductors (1/0 and up) in steel conduit, Table 9 effective Z gives a more accurate AC result."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"Electrical","item":"https://mydevspace2.github.io/trade-charts/electrical/"},{"@type":"ListItem","position":3,"name":"Voltage drop calculator","item":"https://mydevspace2.github.io/trade-charts/voltage-drop-calculator/"}]}</script>
+</head>
+<body data-base="/trade-charts">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+ <div class="wrap top-in">
+  <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
+  <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/" aria-current="page">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/">Guides</a></li></ul></nav>
+  <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
+ </div>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/trade-charts/">Home</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li aria-current="page">Voltage drop calculator</li></ol></nav>
+<article><h1>Voltage Drop Calculator</h1>
+<p class="lead">Enter wire size and material, one-way length, load current and system voltage. The calculator uses NEC Chapter 9 Table 8 conductor resistance and also suggests the smallest size that keeps drop under 3%.</p>
+<section class="tool"><h2>Calculate voltage drop</h2><div class="calc" data-tool="vd"><div class="row">
+<label>Material <select data-m><option value="cu">Copper</option><option value="al">Aluminum</option></select></label>
+<label>Size <select data-s><option value="14">14 AWG</option><option value="12">12 AWG</option><option value="10" selected>10 AWG</option><option value="8">8 AWG</option><option value="6">6 AWG</option><option value="4">4 AWG</option><option value="3">3 AWG</option><option value="2">2 AWG</option><option value="1">1 AWG</option><option value="1/0">1/0 AWG</option><option value="2/0">2/0 AWG</option><option value="3/0">3/0 AWG</option><option value="4/0">4/0 AWG</option><option value="250">250 kcmil</option><option value="300">300 kcmil</option><option value="350">350 kcmil</option><option value="400">400 kcmil</option><option value="500">500 kcmil</option><option value="600">600 kcmil</option><option value="700">700 kcmil</option><option value="750">750 kcmil</option><option value="800">800 kcmil</option><option value="900">900 kcmil</option><option value="1000">1000 kcmil</option></select></label>
+<label>Phase <select data-ph><option value="1">Single-phase / DC</option><option value="3">Three-phase</option></select></label></div><div class="row">
+<label>One-way length (ft) <input type="number" inputmode="decimal" data-l value="100"></label>
+<label>Current (A) <input type="number" inputmode="decimal" data-i value="24"></label>
+<label>Voltage (V) <input type="number" inputmode="decimal" data-v value="240"></label></div>
+<output class="res" data-out aria-live="polite"></output></div></section>
+<h2>The formula</h2>
+<p class="formula">VD = (2 or 1.732) × L × R × I ÷ 1000</p>
+<p>Use 2 for single-phase and DC circuits (current flows out and back) and 1.732 (√3) for balanced three-phase circuits. L is the one-way length in feet, I the load in amperes and R the resistance in ohms per 1,000 ft. Example: 10 AWG copper (1.24 Ω/kft), 100 ft, 24 A, 240 V single-phase: 2 × 100 × 1.24 × 24 ÷ 1000 = 5.95 V, or 2.5%.</p>
+<h2>Why voltage drop matters</h2>
+<p>Motors and compressors run hotter and draw more current on low voltage, electronic loads can drop out, and lighting dims. Keeping drop near 3% on branch circuits and 5% overall is the NEC recommendation; equipment manufacturers may require tighter limits. Long runs to detached garages, wells, EV chargers, condensers and solar arrays are the usual problem cases.</p>
+<h2>Conductor resistance (NEC Chapter 9 Table 8, stranded, 75 °C)</h2>
+<div class="tblwrap"><table class="data chart"><thead><tr><th scope="col">Size</th><th scope="col">Area (cmil)</th><th scope="col">Copper Ω/kft</th><th scope="col">Aluminum Ω/kft</th></tr></thead><tbody><tr><th scope="row">14 AWG</th><td>4,110</td><td>3.14</td><td>5.17</td></tr><tr><th scope="row">12 AWG</th><td>6,530</td><td>1.98</td><td>3.25</td></tr><tr><th scope="row">10 AWG</th><td>10,380</td><td>1.24</td><td>2.04</td></tr><tr><th scope="row">8 AWG</th><td>16,510</td><td>0.778</td><td>1.28</td></tr><tr><th scope="row">6 AWG</th><td>26,240</td><td>0.491</td><td>0.808</td></tr><tr><th scope="row">4 AWG</th><td>41,740</td><td>0.308</td><td>0.508</td></tr><tr><th scope="row">3 AWG</th><td>52,620</td><td>0.245</td><td>0.403</td></tr><tr><th scope="row">2 AWG</th><td>66,360</td><td>0.194</td><td>0.319</td></tr><tr><th scope="row">1 AWG</th><td>83,690</td><td>0.154</td><td>0.253</td></tr><tr><th scope="row">1/0 AWG</th><td>105,600</td><td>0.122</td><td>0.201</td></tr><tr><th scope="row">2/0 AWG</th><td>133,100</td><td>0.0967</td><td>0.159</td></tr><tr><th scope="row">3/0 AWG</th><td>167,800</td><td>0.0766</td><td>0.126</td></tr><tr><th scope="row">4/0 AWG</th><td>211,600</td><td>0.0608</td><td>0.1</td></tr><tr><th scope="row">250 kcmil</th><td>250,000</td><td>0.0515</td><td>0.0847</td></tr><tr><th scope="row">300 kcmil</th><td>300,000</td><td>0.0429</td><td>0.0707</td></tr><tr><th scope="row">350 kcmil</th><td>350,000</td><td>0.0367</td><td>0.0605</td></tr><tr><th scope="row">400 kcmil</th><td>400,000</td><td>0.0321</td><td>0.0529</td></tr><tr><th scope="row">500 kcmil</th><td>500,000</td><td>0.0258</td><td>0.0424</td></tr><tr><th scope="row">600 kcmil</th><td>600,000</td><td>0.0214</td><td>0.0353</td></tr><tr><th scope="row">700 kcmil</th><td>700,000</td><td>0.0184</td><td>0.0303</td></tr><tr><th scope="row">750 kcmil</th><td>750,000</td><td>0.0171</td><td>0.0282</td></tr><tr><th scope="row">800 kcmil</th><td>800,000</td><td>0.0161</td><td>0.0265</td></tr><tr><th scope="row">900 kcmil</th><td>900,000</td><td>0.0143</td><td>0.0235</td></tr><tr><th scope="row">1000 kcmil</th><td>1,000,000</td><td>0.0129</td><td>0.0212</td></tr></tbody></table></div>
+<ul class="linkgrid"><li><a href="/trade-charts/wire-ampacity-chart/">Wire ampacity chart</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/blog/voltage-drop-3-percent-rule/">Guide: the 3% voltage drop rule</a></li></ul>
+<p class="src">Source: NEC (NFPA 70) Chapter 9 Table 8 (uncoated stranded copper and aluminum, DC resistance at 75 °C).</p>
+<h2>Quick reference: 3% maximum one-way length</h2>
+<p>For 240 V single-phase copper at 80% of the 75 °C rating (a common continuous-load case), using Table 8 resistance: 12 AWG at 16 A reaches 3% at about 114 ft; 10 AWG at 24 A at about 121 ft; 8 AWG at 40 A at about 116 ft; 6 AWG at 52 A at about 140 ft. Longer than that, upsize or accept more drop where the equipment allows it. Check your own numbers above; these are examples, not limits.</p><section class="faq" id="faq"><h2>Frequently asked questions</h2>
+<details><summary>What voltage drop is acceptable?</summary><div class="ans">NEC informational notes recommend no more than 3% on a branch circuit and 5% total for feeder plus branch circuit. They are recommendations, not requirements, except where another rule (for example fire pumps) applies.</div></details>
+<details><summary>Which formula does the calculator use?</summary><div class="ans">Single-phase: VD = 2 × L × R × I ÷ 1000. Three-phase: VD = 1.732 × L × R × I ÷ 1000, with L the one-way length in feet and R the NEC Chapter 9 Table 8 resistance in ohms per 1,000 ft.</div></details>
+<details><summary>Is Table 8 resistance accurate for AC?</summary><div class="ans">It is DC resistance at 75 °C. For small conductors it is very close to AC impedance; for large conductors (1/0 and up) in steel conduit, Table 9 effective Z gives a more accurate AC result.</div></details>
+</section>
+</article>
+<aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
+<p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
+</main>
+<footer class="foot">
+ <div class="wrap foot-in">
+  <div><strong>Trade Charts</strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
+  <ul><li><a href="/trade-charts/pt-chart/">Refrigerant PT charts</a></li><li><a href="/trade-charts/superheat-calculator/">Superheat calculator</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by serial number</a></li></ul>
+  <ul><li><a href="/trade-charts/about/">About &amp; sources</a></li><li><a href="/trade-charts/contact/">Contact</a></li><li><a href="/trade-charts/privacy/">Privacy</a></li><li><a href="/trade-charts/terms/">Terms</a></li><li><a href="/trade-charts/sitemap.xml">Sitemap</a></li></ul>
+ </div>
+ <p class="wrap fine">&copy; 2026 Trade Charts. Reference only &mdash; verify with code and manufacturer data. Not affiliated with any manufacturer, NFPA or ICC; trademarks belong to their owners.</p>
+</footer>
+</body>
+</html>

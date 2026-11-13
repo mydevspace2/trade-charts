@@ -1,0 +1,45 @@
+# Optional: copy to .github/workflows/indexnow.yml (needs a token with "workflow" scope to push).
+# On every push to main it (1) sets <lastmod> in sitemap.xml from each page's last git commit date and
+# (2) pings IndexNow (Bing, Yandex, Seznam, Naver...) with the URLs whose HTML changed in that push.
+name: sitemap-lastmod-and-indexnow
+on:
+  push:
+    branches: [main]
+    paths: ['**.html', 'sitemap.xml']
+permissions:
+  contents: write
+jobs:
+  ping:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Update sitemap lastmod from git history
+        run: |
+          python3 - <<'PY'
+          import re, subprocess
+          s = open('sitemap.xml').read()
+          base = re.search(r'<loc>(https?://[^<]+?)/</loc>', s).group(1)
+          def lm(m):
+              loc = m.group(1); rel = loc[len(base):].lstrip('/')
+              f = (rel + 'index.html') if (rel == '' or rel.endswith('/')) else rel
+              d = subprocess.run(['git', 'log', '-1', '--format=%cs', '--', f], capture_output=True, text=True).stdout.strip()
+              return f'<url><loc>{loc}</loc><lastmod>{d or m.group(2)}</lastmod></url>'
+          s2 = re.sub(r'<url><loc>([^<]+)</loc><lastmod>([^<]+)</lastmod></url>', lm, s)
+          if s2 != s: open('sitemap.xml', 'w').write(s2)
+          PY
+          if ! git diff --quiet sitemap.xml; then
+            git config user.name github-actions; git config user.email actions@users.noreply.github.com
+            git commit -m "sitemap lastmod [skip ci]" sitemap.xml && git push
+          fi
+      - name: Ping IndexNow with changed URLs
+        env:
+          KEY: 7f3c1e9a2b8d4f60a1c5e7b9d3f2a4c6
+        run: |
+          BASE=$(grep -oP '(?<=Sitemap: ).*(?=/sitemap.xml)' robots.txt)
+          HOST=$(echo "$BASE" | sed -E 's#https?://([^/]+).*#\1#')
+          URLS=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- '*.html' | grep -v '^_source/' | grep -v '404.html' | sed -E "s#index.html\$##; s#^#$BASE/#" | head -9000)
+          [ -z "$URLS" ] && { echo "no html changes"; exit 0; }
+          JSON=$(printf '%s\n' $URLS | python3 -c "import sys,json;print(json.dumps({'host':'$HOST','key':'$KEY','keyLocation':'$BASE/$KEY.txt','urlList':[l.strip() for l in sys.stdin if l.strip()]}))")
+          curl -s -o /dev/null -w "IndexNow HTTP %{http_code}\n" -H 'Content-Type: application/json; charset=utf-8' -d "$JSON" https://api.indexnow.org/indexnow

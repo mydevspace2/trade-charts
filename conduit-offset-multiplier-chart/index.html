@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Conduit Offset Multiplier Chart (10° to 60°) + Shrink</title>
+<meta name="description" content="Offset multiplier and shrink chart for 10, 15, 22.5, 30, 45 and 60 degree conduit offsets, exact and field values, with a quick offset calculator.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://mydevspace2.github.io/trade-charts/conduit-offset-multiplier-chart/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Trade Charts">
+<meta property="og:title" content="Conduit Offset Multiplier Chart (10° to 60°) + Shrink">
+<meta property="og:description" content="Offset multiplier and shrink chart for 10, 15, 22.5, 30, 45 and 60 degree conduit offsets, exact and field values, with a quick offset calculator.">
+<meta property="og:url" content="https://mydevspace2.github.io/trade-charts/conduit-offset-multiplier-chart/">
+<meta property="og:image" content="https://mydevspace2.github.io/trade-charts/assets/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14202b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
+<link rel="manifest" href="/trade-charts/site.webmanifest">
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=1">
+<script src="/trade-charts/assets/app.js?v=1" defer></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Offset calculator","description":"Conduit offset multiplier and shrink","url":"https://mydevspace2.github.io/trade-charts/conduit-offset-multiplier-chart/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an offset multiplier?","acceptedAnswer":{"@type":"Answer","text":"The number you multiply the offset depth by to get the distance between the two bends: 1 ÷ sin(angle), the cosecant."}},{"@type":"Question","name":"What is shrink?","acceptedAnswer":{"@type":"Answer","text":"How much shorter the conduit run gets because of the offset. Exact shrink per inch of offset = tan(angle ÷ 2); field tables round it to common fractions."}},{"@type":"Question","name":"Which angle should I use?","acceptedAnswer":{"@type":"Answer","text":"Shallow angles (10°–22.5°) pull easier and look cleaner in tight spaces; 30° and 45° make shorter offsets. Total bends between pull points may not exceed 360°."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"Electrical","item":"https://mydevspace2.github.io/trade-charts/electrical/"},{"@type":"ListItem","position":3,"name":"Offset multipliers","item":"https://mydevspace2.github.io/trade-charts/conduit-offset-multiplier-chart/"}]}</script>
+</head>
+<body data-base="/trade-charts">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+ <div class="wrap top-in">
+  <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
+  <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/" aria-current="page">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/">Guides</a></li></ul></nav>
+  <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
+ </div>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/trade-charts/">Home</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li aria-current="page">Offset multipliers</li></ol></nav>
+<article><h1>Conduit Offset Multiplier Chart</h1>
+<p class="lead">Multiply the offset depth by the multiplier to get the distance between bends, and add the shrink for each inch of offset to the run. Exact trigonometric values are shown next to the rounded numbers bending charts usually print.</p>
+<section class="tool"><h2>Offset calculator</h2><div class="calc" data-tool="off"><div class="row">
+<label>Angle <select data-a><option>10</option><option>15</option><option selected>22.5</option><option>30</option><option>45</option><option>60</option></select></label>
+<label>Offset depth (in) <input type="number" inputmode="decimal" step="any" data-o value="6"></label></div>
+<output class="res" data-out aria-live="polite"></output></div></section>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Bend angle</th><th scope="col">Exact multiplier (1/sin)</th><th scope="col">Field multiplier</th><th scope="col">Exact shrink per inch</th><th scope="col">Field shrink per inch</th></tr></thead><tbody><tr><th scope="row"><a href="/trade-charts/10-degree-offset-multiplier/">10°</a></th><td>5.759</td><td>6 (some use 5.75)</td><td>0.087 in</td><td>1/16 in</td></tr><tr><th scope="row"><a href="/trade-charts/15-degree-offset-multiplier/">15°</a></th><td>3.864</td><td>3.9 (some use 3.86)</td><td>0.132 in</td><td>1/8 in</td></tr><tr><th scope="row"><a href="/trade-charts/22-5-degree-offset-multiplier/">22.5°</a></th><td>2.613</td><td>2.6</td><td>0.199 in</td><td>3/16 in</td></tr><tr><th scope="row"><a href="/trade-charts/30-degree-offset-multiplier/">30°</a></th><td>2.000</td><td>2</td><td>0.268 in</td><td>1/4 in</td></tr><tr><th scope="row"><a href="/trade-charts/45-degree-offset-multiplier/">45°</a></th><td>1.414</td><td>1.4 (some use 1.41)</td><td>0.414 in</td><td>3/8 in</td></tr><tr><th scope="row"><a href="/trade-charts/60-degree-offset-multiplier/">60°</a></th><td>1.155</td><td>1.2 (some use 1.15)</td><td>0.577 in</td><td>1/2 in</td></tr></tbody></table></div>
+<h2>How to bend an offset</h2>
+<ol><li>Measure the offset depth (how far the conduit must move over).</li><li>Pick the angle; multiply depth × multiplier = distance between the two marks.</li>
+<li>Shrink = depth × shrink per inch. Add it to the measurement to the obstacle so the offset ends where you need it.</li>
+<li>Make the first bend, rotate the conduit 180°, line up the second mark and bend to the same angle.</li></ol>
+<p>Example: 6 in offset at 22.5°: 6 × 2.613 = 15.7 in between marks (about 15-11/16 in); shrink 6 × 0.199 = 1.2 in.</p>
+<p class="src">Math: multiplier = csc(θ); shrink per inch = csc(θ) − cot(θ) = tan(θ/2). Field values are the rounded numbers commonly printed on bender charts. Bender take-up/gain still depends on your bender; check its manual.</p>
+<section class="faq" id="faq"><h2>Frequently asked questions</h2>
+<details><summary>What is an offset multiplier?</summary><div class="ans">The number you multiply the offset depth by to get the distance between the two bends: 1 ÷ sin(angle), the cosecant.</div></details>
+<details><summary>What is shrink?</summary><div class="ans">How much shorter the conduit run gets because of the offset. Exact shrink per inch of offset = tan(angle ÷ 2); field tables round it to common fractions.</div></details>
+<details><summary>Which angle should I use?</summary><div class="ans">Shallow angles (10°–22.5°) pull easier and look cleaner in tight spaces; 30° and 45° make shorter offsets. Total bends between pull points may not exceed 360°.</div></details>
+</section>
+</article>
+<aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
+<p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
+</main>
+<footer class="foot">
+ <div class="wrap foot-in">
+  <div><strong>Trade Charts</strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
+  <ul><li><a href="/trade-charts/pt-chart/">Refrigerant PT charts</a></li><li><a href="/trade-charts/superheat-calculator/">Superheat calculator</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by serial number</a></li></ul>
+  <ul><li><a href="/trade-charts/about/">About &amp; sources</a></li><li><a href="/trade-charts/contact/">Contact</a></li><li><a href="/trade-charts/privacy/">Privacy</a></li><li><a href="/trade-charts/terms/">Terms</a></li><li><a href="/trade-charts/sitemap.xml">Sitemap</a></li></ul>
+ </div>
+ <p class="wrap fine">&copy; 2026 Trade Charts. Reference only &mdash; verify with code and manufacturer data. Not affiliated with any manufacturer, NFPA or ICC; trademarks belong to their owners.</p>
+</footer>
+</body>
+</html>

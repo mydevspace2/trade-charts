@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Gas Pipe Sizing Chart &amp; Calculator (Natural Gas &amp; Propane)</title>
+<meta name="description" content="Gas pipe sizing calculator and IFGC charts for natural gas and propane: black iron, CSST and PE at low pressure and 2 psi. Pick size from Btu and length.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://mydevspace2.github.io/trade-charts/gas-pipe-sizing/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Trade Charts">
+<meta property="og:title" content="Gas Pipe Sizing Chart &amp; Calculator (Natural Gas &amp; Propane)">
+<meta property="og:description" content="Gas pipe sizing calculator and IFGC charts for natural gas and propane: black iron, CSST and PE at low pressure and 2 psi. Pick size from Btu and length.">
+<meta property="og:url" content="https://mydevspace2.github.io/trade-charts/gas-pipe-sizing/">
+<meta property="og:image" content="https://mydevspace2.github.io/trade-charts/assets/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14202b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
+<link rel="manifest" href="/trade-charts/site.webmanifest">
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=1">
+<script src="/trade-charts/assets/app.js?v=1" defer></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Gas pipe sizing calculator","description":"IFGC gas pipe sizing","url":"https://mydevspace2.github.io/trade-charts/gas-pipe-sizing/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do you size natural gas pipe?","acceptedAnswer":{"@type":"Answer","text":"Total the Btu/h load, convert to CFH, find the longest run, and pick the size from the matching IFGC table row with enough capacity. Repeat for each branch."}},{"@type":"Question","name":"What size gas line for 100,000 Btu?","acceptedAnswer":{"@type":"Answer","text":"It depends on length and material. In Schedule 40 iron at under 2 psi with 0.5 in. w.c. drop, 100 CFH needs 1/2\" up to about 20 ft and 3/4\" up to about 70 ft (Table 402.4(2)). Use the calculator for your run."}},{"@type":"Question","name":"Is propane sized differently?","acceptedAnswer":{"@type":"Answer","text":"Yes. Propane has higher energy per cubic foot, so IFGC propane tables are in thousands of Btu/h and allow smaller pipe for the same load."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"Gas Pipe","item":"https://mydevspace2.github.io/trade-charts/gas-pipe-sizing/"}]}</script>
+</head>
+<body data-base="/trade-charts">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+ <div class="wrap top-in">
+  <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
+  <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/" aria-current="page">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/">Guides</a></li></ul></nav>
+  <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
+ </div>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/trade-charts/">Home</a></li><li aria-current="page">Gas Pipe</li></ol></nav>
+<article><h1>Gas Pipe Sizing Charts &amp; Calculator</h1>
+<p class="lead">Size natural gas and propane piping in black iron, CSST and polyethylene with the IFGC capacity tables. Enter the load and the longest run; the calculator picks the smallest size that works.</p>
+<section class="tool"><h2>Gas pipe sizing calculator</h2><div class="calc" data-tool="gas" data-table="2"><div class="row">
+<label>System / table <select data-tb><option value="2" selected>Natural gas, Schedule 40 black iron, under 2 psi, 0.5 in. w.c. drop</option><option value="1">Natural gas, Schedule 40 black iron, under 2 psi, 0.3 in. w.c. drop</option><option value="5">Natural gas, Schedule 40 black iron, 2 psi system, 1 psi drop</option><option value="15">Natural gas, CSST, under 2 psi, 0.5 in. w.c. drop</option><option value="18">Natural gas, CSST, 2 psi system, 1 psi drop</option><option value="21">Natural gas, polyethylene (PE) pipe, under 2 psi, 0.5 in. w.c. drop</option><option value="28">Propane (LP), Schedule 40 black iron, 11 in. w.c., 0.5 in. w.c. drop</option><option value="27">Propane (LP), Schedule 40 black iron, 2 psi, 1 psi drop</option><option value="32">Propane (LP), CSST, 11 in. w.c., 0.5 in. w.c. drop</option><option value="33">Propane (LP), CSST, 2 psi, 1 psi drop</option><option value="35">Propane (LP), polyethylene (PE) pipe, 11 in. w.c., 0.5 in. w.c. drop</option><option value="36">Propane (LP), polyethylene (PE) pipe, 2 psi, 1 psi drop</option></select></label></div><div class="row">
+<label>Total connected load (Btu/h) <input type="number" inputmode="numeric" data-btu value="120000"></label>
+<label>Longest run, meter to farthest appliance (ft) <input type="number" inputmode="numeric" data-len value="50"></label>
+<label class="hv">Gas heating value (Btu/ft³) <input type="number" inputmode="numeric" data-hv value="1000"></label></div>
+<output class="res" data-out aria-live="polite"></output></div></section>
+<h2>Natural gas tables</h2>
+<ul class="linkgrid"><li><a href="/trade-charts/natural-gas-pipe-sizing-chart/">Natural gas, Schedule 40 black iron, under 2 psi, 0.5 in. w.c. drop</a></li><li><a href="/trade-charts/natural-gas-pipe-sizing-chart-0-3-inch-drop/">Natural gas, Schedule 40 black iron, under 2 psi, 0.3 in. w.c. drop</a></li><li><a href="/trade-charts/2-psi-natural-gas-pipe-sizing-chart/">Natural gas, Schedule 40 black iron, 2 psi system, 1 psi drop</a></li><li><a href="/trade-charts/csst-gas-pipe-sizing-chart/">Natural gas, CSST, under 2 psi, 0.5 in. w.c. drop</a></li><li><a href="/trade-charts/2-psi-csst-gas-pipe-sizing-chart/">Natural gas, CSST, 2 psi system, 1 psi drop</a></li><li><a href="/trade-charts/polyethylene-gas-pipe-sizing-chart/">Natural gas, polyethylene (PE) pipe, under 2 psi, 0.5 in. w.c. drop</a></li></ul>
+<h2>Propane (LP) tables</h2>
+<ul class="linkgrid"><li><a href="/trade-charts/propane-gas-pipe-sizing-chart/">Propane (LP), Schedule 40 black iron, 11 in. w.c., 0.5 in. w.c. drop</a></li><li><a href="/trade-charts/2-psi-propane-pipe-sizing-chart/">Propane (LP), Schedule 40 black iron, 2 psi, 1 psi drop</a></li><li><a href="/trade-charts/propane-csst-sizing-chart/">Propane (LP), CSST, 11 in. w.c., 0.5 in. w.c. drop</a></li><li><a href="/trade-charts/2-psi-propane-csst-sizing-chart/">Propane (LP), CSST, 2 psi, 1 psi drop</a></li><li><a href="/trade-charts/propane-polyethylene-pipe-sizing-chart/">Propane (LP), polyethylene (PE) pipe, 11 in. w.c., 0.5 in. w.c. drop</a></li><li><a href="/trade-charts/2-psi-propane-polyethylene-pipe-sizing-chart/">Propane (LP), polyethylene (PE) pipe, 2 psi, 1 psi drop</a></li></ul>
+<h2>Before you size</h2>
+<p>Confirm the delivery pressure with the utility or propane supplier, the allowable pressure drop your design uses, and every appliance input on its rating plate. Plan for future appliances such as a generator, pool heater or range. The tables are the code’s capacities; the installation still needs permits, pressure testing and inspection per your local code.</p>
+<p>Read our guide: <a href="/trade-charts/blog/gas-pipe-sizing-longest-length-method/">how to size gas pipe with the longest length method</a>.</p>
+<h2>Choosing the right table</h2>
+<p>Pick the table by four things: <b>gas</b> (natural or propane), <b>material</b> (Schedule 40 steel, CSST, polyethylene for underground outdoor use), <b>system pressure</b> (low pressure under 2 psi, or a 2 psi / 5 psi system with a regulator at the appliances) and the <b>design pressure drop</b> you allow from the meter to the farthest appliance. A 0.5 in. w.c. drop is the most common low-pressure choice in residential work; a 0.3 in. drop is more conservative. Using a table with a larger drop than your design allows will undersize the pipe.</p>
+<h2>Example</h2>
+<p>A furnace (100,000 Btu/h) and water heater (40,000 Btu/h) on natural gas, black iron, low pressure, 0.5 in. w.c. drop, 40 ft to the farthest appliance: 140 CFH total. The 40 ft row of Table 402.4(2) gives 3/4 in = 170 CFH, so the main can be 3/4 in; the furnace branch (100 CFH) also needs 3/4 in and the water heater branch (40 CFH) 1/2 in (81 CFH).</p><section class="faq" id="faq"><h2>Frequently asked questions</h2>
+<details><summary>How do you size natural gas pipe?</summary><div class="ans">Total the Btu/h load, convert to CFH, find the longest run, and pick the size from the matching IFGC table row with enough capacity. Repeat for each branch.</div></details>
+<details><summary>What size gas line for 100,000 Btu?</summary><div class="ans">It depends on length and material. In Schedule 40 iron at under 2 psi with 0.5 in. w.c. drop, 100 CFH needs 1/2" up to about 20 ft and 3/4" up to about 70 ft (Table 402.4(2)). Use the calculator for your run.</div></details>
+<details><summary>Is propane sized differently?</summary><div class="ans">Yes. Propane has higher energy per cubic foot, so IFGC propane tables are in thousands of Btu/h and allow smaller pipe for the same load.</div></details>
+</section>
+</article>
+<aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
+<p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
+</main>
+<footer class="foot">
+ <div class="wrap foot-in">
+  <div><strong>Trade Charts</strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
+  <ul><li><a href="/trade-charts/pt-chart/">Refrigerant PT charts</a></li><li><a href="/trade-charts/superheat-calculator/">Superheat calculator</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by serial number</a></li></ul>
+  <ul><li><a href="/trade-charts/about/">About &amp; sources</a></li><li><a href="/trade-charts/contact/">Contact</a></li><li><a href="/trade-charts/privacy/">Privacy</a></li><li><a href="/trade-charts/terms/">Terms</a></li><li><a href="/trade-charts/sitemap.xml">Sitemap</a></li></ul>
+ </div>
+ <p class="wrap fine">&copy; 2026 Trade Charts. Reference only &mdash; verify with code and manufacturer data. Not affiliated with any manufacturer, NFPA or ICC; trademarks belong to their owners.</p>
+</footer>
+</body>
+</html>

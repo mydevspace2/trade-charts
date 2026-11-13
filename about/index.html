@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>About Trade Charts: Sources &amp; How We Verify Data</title>
+<meta name="description" content="Who runs Trade Charts, which manufacturer, NIST, NEC and IFGC sources the data comes from, and how every chart is verified before it is published.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://mydevspace2.github.io/trade-charts/about/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Trade Charts">
+<meta property="og:title" content="About Trade Charts: Sources &amp; How We Verify Data">
+<meta property="og:description" content="Who runs Trade Charts, which manufacturer, NIST, NEC and IFGC sources the data comes from, and how every chart is verified before it is published.">
+<meta property="og:url" content="https://mydevspace2.github.io/trade-charts/about/">
+<meta property="og:image" content="https://mydevspace2.github.io/trade-charts/assets/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14202b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
+<link rel="manifest" href="/trade-charts/site.webmanifest">
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=1">
+<script src="/trade-charts/assets/app.js?v=1" defer></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"About","item":"https://mydevspace2.github.io/trade-charts/about/"}]}</script>
+</head>
+<body data-base="/trade-charts">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+ <div class="wrap top-in">
+  <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
+  <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/">Guides</a></li></ul></nav>
+  <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
+ </div>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/trade-charts/">Home</a></li><li aria-current="page">About</li></ol></nav>
+<article><h1>About Trade Charts</h1>
+<p class="lead">Trade Charts is a free reference site for HVAC/R technicians, electricians, plumbers, gas fitters and welders in the United States. It is built to be fast on a phone, readable in sunlight or in the dark, and honest about where every number comes from.</p>
+<h2>Data sources</h2>
+<ul><li><b>Refrigerant properties:</b> CoolProp 8 (open-source implementation of the reference equations of state used by NIST REFPROP), ASHRAE Standard 34 blend compositions; R-438A from the DuPont/Chemours ISCEON MO99 chart.</li>
+<li><b>Verification charts:</b> Arkema Forane PT chart (2025, REFPROP 10), Honeywell Solstice/Genetron PT charts and pressure-based tool, Hudson Technologies PT charts, Chemours, NIST Chemistry WebBook, ASHRAE/UNEP refrigerant factsheet (2025).</li>
+<li><b>GWP:</b> IPCC AR4 values as listed by the UNEP Ozone Secretariat; ASHRAE/UNEP factsheet where noted.</li>
+<li><b>Electrical:</b> NEC (NFPA 70) Chapter 9 Tables 1, 4, 5 and 8; Table 310.16 (NFPA 70-2023 as printed in NFPA TIA 1691); 314.16 box fill tables.</li>
+<li><b>Gas piping:</b> 2021 International Fuel Gas Code Tables 402.4(1)–402.4(36).</li>
+<li><b>Serial number formats:</b> manufacturer documents (Bradford White, Rheem, A.O. Smith, Lennox, Trane, Carrier, Goodman) and the InterNACHI water heater dating chart.</li>
+<li><b>Welding:</b> Miller Electric published parameter guides.</li></ul>
+<h2>How we check</h2>
+<p>Every PT chart is generated by a script and compared point by point against at least one published chart before it can go live; the build fails if any point differs by more than 1 °F. Code tables are parsed from the source documents and the published values are compared again in automated tests. We publish fewer pages rather than guess: refrigerants, brands and machines we cannot verify are left out and named as such.</p>
+<h2>What we are not</h2>
+<p>We are not affiliated with NFPA, ICC, ASHRAE or any manufacturer, and this site is not a substitute for the code adopted in your jurisdiction, the equipment installation instructions, or a licensed professional.</p>
+<p><a href="/trade-charts/contact/">Contact us</a> with corrections or requests.</p></article>
+<aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
+<p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
+</main>
+<footer class="foot">
+ <div class="wrap foot-in">
+  <div><strong>Trade Charts</strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
+  <ul><li><a href="/trade-charts/pt-chart/">Refrigerant PT charts</a></li><li><a href="/trade-charts/superheat-calculator/">Superheat calculator</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by serial number</a></li></ul>
+  <ul><li><a href="/trade-charts/about/">About &amp; sources</a></li><li><a href="/trade-charts/contact/">Contact</a></li><li><a href="/trade-charts/privacy/">Privacy</a></li><li><a href="/trade-charts/terms/">Terms</a></li><li><a href="/trade-charts/sitemap.xml">Sitemap</a></li></ul>
+ </div>
+ <p class="wrap fine">&copy; 2026 Trade Charts. Reference only &mdash; verify with code and manufacturer data. Not affiliated with any manufacturer, NFPA or ICC; trademarks belong to their owners.</p>
+</footer>
+</body>
+</html>

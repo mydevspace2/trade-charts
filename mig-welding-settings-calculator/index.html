@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>MIG Welder Settings Calculator: Amps &amp; Wire Speed by Thickness</title>
+<meta name="description" content="MIG welding settings calculator for mild steel: amperage, wire size and wire feed speed by thickness using Miller rules, plus a voltage starting chart.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://mydevspace2.github.io/trade-charts/mig-welding-settings-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Trade Charts">
+<meta property="og:title" content="MIG Welder Settings Calculator: Amps &amp; Wire Speed by Thickness">
+<meta property="og:description" content="MIG welding settings calculator for mild steel: amperage, wire size and wire feed speed by thickness using Miller rules, plus a voltage starting chart.">
+<meta property="og:url" content="https://mydevspace2.github.io/trade-charts/mig-welding-settings-calculator/">
+<meta property="og:image" content="https://mydevspace2.github.io/trade-charts/assets/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14202b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
+<link rel="manifest" href="/trade-charts/site.webmanifest">
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=1">
+<script src="/trade-charts/assets/app.js?v=1" defer></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"MIG settings calculator","description":"MIG starting settings","url":"https://mydevspace2.github.io/trade-charts/mig-welding-settings-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many amps for 1/8 inch steel MIG?","acceptedAnswer":{"@type":"Answer","text":"About 125 A by Miller’s rule of 1 amp per 0.001 in of thickness. With .030 wire that is about 250 ipm wire speed, with .035 about 200 ipm."}},{"@type":"Question","name":"What wire size should I use?","acceptedAnswer":{"@type":"Answer","text":"Miller recommends .023 in for 30–130 A, .030 in for 40–145 A, .035 in for 50–180 A and .045 in for 75–250 A. Choose the wire that covers your most common thickness."}},{"@type":"Question","name":"Is this better than my door chart?","acceptedAnswer":{"@type":"Answer","text":"No. The chart inside your welder’s door is written for that machine and should be your first reference. Use these rules when you have no chart, then fine-tune on scrap."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"Welding","item":"https://mydevspace2.github.io/trade-charts/welding/"},{"@type":"ListItem","position":3,"name":"MIG settings calculator","item":"https://mydevspace2.github.io/trade-charts/mig-welding-settings-calculator/"}]}</script>
+</head>
+<body data-base="/trade-charts">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+ <div class="wrap top-in">
+  <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
+  <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/" aria-current="page">Welding</a></li><li><a href="/trade-charts/blog/">Guides</a></li></ul></nav>
+  <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
+ </div>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/trade-charts/">Home</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li aria-current="page">MIG settings calculator</li></ol></nav>
+<article><h1>MIG Welder Settings Calculator</h1>
+<p class="lead">Enter material thickness and wire diameter for a starting amperage and wire feed speed on mild steel, using Miller Electric’s published rules of thumb. Then fine-tune voltage on scrap with your machine’s door chart.</p>
+<section class="tool"><h2>Starting settings</h2><div class="calc" data-tool="mig"><div class="row">
+<label>Thickness (in) <input type="number" inputmode="decimal" step="any" data-th value="0.125"></label>
+<label>Wire <select data-w><option value=".023">.023 in</option><option value=".030">.030 in</option><option value=".035" selected>.035 in</option><option value=".045">.045 in</option></select></label></div>
+<output class="res" data-out aria-live="polite"></output></div></section>
+<h2>The three rules</h2>
+<ol><li><b>Amperage from thickness:</b> about 1 amp for every 0.001 in of material (1/8 in = 125 A).</li>
+<li><b>Wire size from amperage:</b> .023 in 30–130 A; .030 in 40–145 A; .035 in 50–180 A; .045 in 75–250 A.</li>
+<li><b>Wire feed speed from amperage:</b> multiply amps by 3.5 (.023), 2 (.030), 1.6 (.035) or 1 (.045) inches per minute per amp.</li></ol>
+<h2>Starting wire speed by thickness (mild steel, solid wire)</h2>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Thickness</th><th scope="col">Amps</th><th scope="col">.023 wire</th><th scope="col">.030 wire</th><th scope="col">.035 wire</th><th scope="col">.045 wire</th></tr></thead><tbody><tr><th scope="row">24 ga (0.024 in)</th><td>24 A</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><th scope="row">22 ga (0.030 in)</th><td>30 A</td><td>105 ipm</td><td>—</td><td>—</td><td>—</td></tr><tr><th scope="row">18 ga (0.048 in)</th><td>48 A</td><td>168 ipm</td><td>96 ipm</td><td>—</td><td>—</td></tr><tr><th scope="row">16 ga (0.060 in)</th><td>60 A</td><td>210 ipm</td><td>120 ipm</td><td>96 ipm</td><td>—</td></tr><tr><th scope="row">14 ga (0.075 in)</th><td>75 A</td><td>262 ipm</td><td>150 ipm</td><td>120 ipm</td><td>75 ipm</td></tr><tr><th scope="row">12 ga (0.105 in)</th><td>105 A</td><td>368 ipm</td><td>210 ipm</td><td>168 ipm</td><td>105 ipm</td></tr><tr><th scope="row">1/8 in (0.125 in)</th><td>125 A</td><td>438 ipm</td><td>250 ipm</td><td>200 ipm</td><td>125 ipm</td></tr><tr><th scope="row">3/16 in (0.188 in)</th><td>188 A</td><td>—</td><td>—</td><td>—</td><td>188 ipm</td></tr><tr><th scope="row">1/4 in (0.250 in)</th><td>250 A</td><td>—</td><td>—</td><td>—</td><td>250 ipm</td></tr></tbody></table></div>
+<h2>Miller starting voltage / wire speed (steel, ER70S-6, 75% Ar / 25% CO2)</h2>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Wire</th><th scope="col">3/16 in V/ipm</th><th scope="col">1/8 in V/ipm</th><th scope="col">14 ga V/ipm</th><th scope="col">18 ga V/ipm</th><th scope="col">22 ga V/ipm</th></tr></thead><tbody><tr><th scope="row">0.023 in</th><td>20.0/480</td><td>18.3/350</td><td>18.0/240</td><td>17.0/190</td><td>15.8/125</td></tr><tr><th scope="row">0.030 in</th><td>19.0/290</td><td>18.0/250</td><td>17.3/200</td><td>16.3/115</td><td>15.9/95</td></tr><tr><th scope="row">0.035 in</th><td>18.4/265</td><td>17.4/230</td><td>16.5/190</td><td>15.8/120</td><td>15.0/88</td></tr><tr><th scope="row">0.045 in</th><td>17.5/195</td><td>17.2/190</td><td>16.5/165</td><td>15.5/95</td><td>—</td></tr></tbody></table></div>
+<p>Wire stick-out about 3/8 in for short-circuit transfer. Flux-cored wire, stainless and aluminum need different settings; follow the wire maker’s data.</p>
+<p class="src">Sources: Miller Electric, “MIG Welding: Setting the Correct Parameters” (millerwelds.com) and Miller Canada “MIG welding parameter choices” table (millerwelds.ca). Starting points only; test on scrap.</p>
+<h2>Fine-tuning on scrap</h2>
+<ul><li>Run a bead on the same thickness and joint type. A steady “bacon frying” sound in short-circuit transfer means you are close.</li><li>Too much spatter and a narrow, ropey bead: raise voltage slightly or lower wire speed.</li><li>Wide, flat bead with poor penetration or burn-through: lower voltage or travel faster.</li><li>Change one setting at a time and write down what works; next time start there.</li></ul>
+<p>For TIG settings see the <a href="/trade-charts/tig-welding-amperage-chart/">TIG amperage chart</a>.</p><section class="faq" id="faq"><h2>Frequently asked questions</h2>
+<details><summary>How many amps for 1/8 inch steel MIG?</summary><div class="ans">About 125 A by Miller’s rule of 1 amp per 0.001 in of thickness. With .030 wire that is about 250 ipm wire speed, with .035 about 200 ipm.</div></details>
+<details><summary>What wire size should I use?</summary><div class="ans">Miller recommends .023 in for 30–130 A, .030 in for 40–145 A, .035 in for 50–180 A and .045 in for 75–250 A. Choose the wire that covers your most common thickness.</div></details>
+<details><summary>Is this better than my door chart?</summary><div class="ans">No. The chart inside your welder’s door is written for that machine and should be your first reference. Use these rules when you have no chart, then fine-tune on scrap.</div></details>
+</section>
+</article>
+<aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
+<p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
+</main>
+<footer class="foot">
+ <div class="wrap foot-in">
+  <div><strong>Trade Charts</strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
+  <ul><li><a href="/trade-charts/pt-chart/">Refrigerant PT charts</a></li><li><a href="/trade-charts/superheat-calculator/">Superheat calculator</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by serial number</a></li></ul>
+  <ul><li><a href="/trade-charts/about/">About &amp; sources</a></li><li><a href="/trade-charts/contact/">Contact</a></li><li><a href="/trade-charts/privacy/">Privacy</a></li><li><a href="/trade-charts/terms/">Terms</a></li><li><a href="/trade-charts/sitemap.xml">Sitemap</a></li></ul>
+ </div>
+ <p class="wrap fine">&copy; 2026 Trade Charts. Reference only &mdash; verify with code and manufacturer data. Not affiliated with any manufacturer, NFPA or ICC; trademarks belong to their owners.</p>
+</footer>
+</body>
+</html>

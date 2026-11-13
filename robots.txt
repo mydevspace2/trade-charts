@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /trade-charts/search/
+Disallow: /trade-charts/_source/
+
+Sitemap: https://mydevspace2.github.io/trade-charts/sitemap.xml

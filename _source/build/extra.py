@@ -1,0 +1,51 @@
+"""Extra editorial sections injected before the FAQ of selected pages (keeps page modules readable)."""
+from core import url
+
+def L(p, t): return f'<a href="{url(p)}">{t}</a>'
+
+EXTRA = {
+'/subcooling-calculator/': f'''<h2>Subcooling on TXV vs fixed-orifice systems</h2>
+<p>On a TXV or EEV system the valve keeps evaporator superheat in a narrow band, so extra refrigerant has nowhere to go except the condenser, where it backs up as subcooled liquid. That makes subcooling the most sensitive indicator of charge on those systems, and it is why outdoor units list a target subcooling (often with a tolerance such as \u00b13 \u00b0F). On fixed-orifice systems subcooling still tells you about the condenser, but the charge is set by superheat; use the {L('/target-superheat-calculator/', 'target superheat calculator')}.</p>
+<h2>Worked example with a blend</h2>
+<p>An R-454B system shows 300 psig at the liquid valve. The bubble temperature at 300 psig is about 99 \u00b0F (see the {L('/r454b-pt-chart/', 'R-454B PT chart')}). The liquid line measures 89 \u00b0F, so subcooling is about 10 \u00b0F. Using the dew column by mistake would give a slightly higher saturation temperature and over-state subcooling by the glide, which for some blends is several degrees.</p>''',
+'/target-superheat-calculator/': f'''<h2>Measuring the inputs correctly</h2>
+<ul><li><b>Indoor wet bulb:</b> measure in the return air close to the air handler with a psychrometer or a digital wet-bulb probe, after the system has run 15 minutes. Wet bulb includes humidity, which is the main load on the evaporator.</li>
+<li><b>Outdoor dry bulb:</b> measure the air entering the condenser coil in the shade, not the temperature reported by a weather app.</li>
+<li><b>Measured superheat:</b> suction pressure and suction line temperature at the outdoor service valve, converted with the {L('/superheat-calculator/', 'superheat calculator')}.</li></ul>
+<h2>Limits of the approximation</h2>
+<p>The formula reproduces the general shape of manufacturer charging tables for residential fixed-orifice systems with standard line sets. It does not account for unusual line lengths, airflow problems or units with special metering. When the manufacturer chart is on the unit or in the installation manual, use it; when the formula gives a number below about 5 \u00b0F, many manufacturers say the system should not be charged by superheat at those conditions.</p>''',
+'/hvac-calculators/': f'''<h2>Data behind the calculators</h2>
+<p>All three calculators read the same saturation tables as our {L('/pt-chart/', 'PT charts')}: 32 refrigerants computed with a REFPROP-equivalent equation of state (or taken from the manufacturer chart) and compared point by point with Arkema, Honeywell, Hudson Technologies and NIST data. For blends, superheat uses the dew point and subcooling uses the bubble point automatically, so you do not have to remember which column applies.</p>
+<h2>Typical workflow on a service call</h2>
+<ol><li>Confirm the refrigerant and metering device from the rating plate and the indoor coil.</li><li>Check airflow, filters and coils before anything else.</li><li>Run the system 15 minutes; record suction and liquid pressures and line temperatures.</li><li>Calculate superheat and subcooling and compare with the target or rating plate.</li><li>Adjust charge slowly, wait for the system to settle, and re-measure.</li></ol>
+<p>Field notes and examples: {L('/blog/superheat-vs-subcooling/', 'superheat vs subcooling')}, {L('/blog/how-to-read-a-pt-chart/', 'how to read a PT chart')}.</p>''',
+'/conduit-fill-calculator/': f'''<h2>Choosing a raceway size in practice</h2>
+<p>The NEC limit is a maximum, not a target. Many electricians size one trade size larger than the minimum when a run has several bends, is long, or may get extra circuits later; pulling is easier and the cost difference is small for short runs. Remember that more than three current-carrying conductors in one raceway triggers the ampacity adjustment in 310.15(C)(1), which can push you to larger wire anyway.</p>
+<p>Related charts: {L('/wire-ampacity-chart/', 'wire ampacity')}, {L('/voltage-drop-calculator/', 'voltage drop')}, {L('/box-fill-calculator/', 'box fill')}.</p>''',
+'/voltage-drop-calculator/': f'''<h2>Quick reference: 3% maximum one-way length</h2>
+<p>For 240 V single-phase copper at 80% of the 75 \u00b0C rating (a common continuous-load case), using Table 8 resistance: 12 AWG at 16 A reaches 3% at about 114 ft; 10 AWG at 24 A at about 121 ft; 8 AWG at 40 A at about 116 ft; 6 AWG at 52 A at about 140 ft. Longer than that, upsize or accept more drop where the equipment allows it. Check your own numbers above; these are examples, not limits.</p>''',
+'/gas-pipe-sizing/': f'''<h2>Choosing the right table</h2>
+<p>Pick the table by four things: <b>gas</b> (natural or propane), <b>material</b> (Schedule 40 steel, CSST, polyethylene for underground outdoor use), <b>system pressure</b> (low pressure under 2 psi, or a 2 psi / 5 psi system with a regulator at the appliances) and the <b>design pressure drop</b> you allow from the meter to the farthest appliance. A 0.5 in. w.c. drop is the most common low-pressure choice in residential work; a 0.3 in. drop is more conservative. Using a table with a larger drop than your design allows will undersize the pipe.</p>
+<h2>Example</h2>
+<p>A furnace (100,000 Btu/h) and water heater (40,000 Btu/h) on natural gas, black iron, low pressure, 0.5 in. w.c. drop, 40 ft to the farthest appliance: 140 CFH total. The 40 ft row of Table 402.4(2) gives 3/4 in = 170 CFH, so the main can be 3/4 in; the furnace branch (100 CFH) also needs 3/4 in and the water heater branch (40 CFH) 1/2 in (81 CFH).</p>''',
+'/mig-welding-settings-calculator/': f'''<h2>Fine-tuning on scrap</h2>
+<ul><li>Run a bead on the same thickness and joint type. A steady \u201cbacon frying\u201d sound in short-circuit transfer means you are close.</li><li>Too much spatter and a narrow, ropey bead: raise voltage slightly or lower wire speed.</li><li>Wide, flat bead with poor penetration or burn-through: lower voltage or travel faster.</li><li>Change one setting at a time and write down what works; next time start there.</li></ul>
+<p>For TIG settings see the {L('/tig-welding-amperage-chart/', 'TIG amperage chart')}.</p>''',
+'/tig-welding-amperage-chart/': f'''<h2>Setting up the machine</h2>
+<p>Set the maximum amperage on the machine about 10\u201320% above the starting value in the chart and control the actual current with the pedal; this gives room to push through a heat sink without changing settings. For DC steel and stainless, use DCEN (electrode negative). Pick the tungsten diameter whose current range covers the amperage you need, and grind it to a point lengthwise. Keep the cup size and gas flow appropriate to the joint access; a gas lens helps on outside corners and long stick-out.</p>
+<p>For MIG settings see the {L('/mig-welding-settings-calculator/', 'MIG settings calculator')}.</p>''',
+'/blog/superheat-vs-subcooling/': f'''<h2>Why airflow comes first</h2>
+<p>Both readings depend on heat transfer. Low indoor airflow reduces the load on the evaporator, so superheat falls and it can look like an overcharge; a dirty outdoor coil raises head pressure and changes subcooling. Correct airflow (typically about 350\u2013400 CFM per ton unless the manufacturer says otherwise), clean coils and a clean filter before adjusting the charge. Then use the {L('/pt-chart/', 'PT chart')} for the exact refrigerant on the rating plate.</p>
+<h2>A note on A2L systems</h2>
+<p>R-454B and R-32 systems are charged the same way, but service practices change: A2L-rated recovery and leak-detection equipment, no ignition sources, and the manufacturer\u2019s instructions for refrigerant detection sensors and mitigation controls.</p>''',
+'/blog/how-to-read-a-pt-chart/': f'''<h2>Printing a set for the truck</h2>
+<p>Every chart on this site has a print button that strips menus and tools and keeps the \u00b0F and \u00b0C tables. Printing the refrigerants you service most (for example R-410A, R-454B, R-32, R-22 and R-404A) gives a compact backup when your digital manifold does not list a refrigerant.</p>''',
+'/blog/conduit-fill-40-percent-rule/': f'''<h2>Quick reference</h2>
+<p>For a fast answer without arithmetic, open the same-size chart for your raceway, for example the {L('/3-4-emt-conduit-fill/', '3/4 in EMT page')} (16 \u00d7 12 AWG THHN) or the {L('/1-pvc-conduit-fill/', '1 in PVC page')}. For mixed sizes use the {L('/conduit-fill-calculator/', 'calculator')}.</p>''',
+'/blog/voltage-drop-3-percent-rule/': f'''<h2>DC and low-voltage circuits</h2>
+<p>On 12 V and 24 V DC systems, a few volts of drop is a large percentage, so wire size is often driven by voltage drop rather than ampacity. Use the single-phase/DC setting in the calculator, which uses the round-trip length (2 \u00d7 one-way).</p>''',
+'/blog/gas-pipe-sizing-longest-length-method/': f'''<h2>Branch length method</h2>
+<p>The IFGC also allows a branch length method (402.4.2), which sizes each section using the length from the point of delivery to the most remote outlet <em>served by that section</em>, and a hybrid pressure method for CSST systems (402.4.3). These can allow smaller pipe on some branches but take more measuring; the longest length method is simpler and always conservative.</p>''',
+'/blog/how-to-tell-water-heater-age/': f'''<h2>HVAC equipment too</h2>
+<p>Furnaces, air conditioners and heat pumps also hide the date in the serial number, with different formats: {L('/carrier-age-by-serial-number/', 'Carrier')}, {L('/goodman-age-by-serial-number/', 'Goodman')}, {L('/lennox-age-by-serial-number/', 'Lennox')}, {L('/trane-age-by-serial-number/', 'Trane')} and {L('/rheem-hvac-age-by-serial-number/', 'Rheem/Ruud')}.</p>''',
+}

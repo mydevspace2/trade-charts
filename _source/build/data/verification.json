@@ -1,0 +1,422 @@
+{
+ "r454b": {
+  "points": 194,
+  "max_dev_f": 0.85,
+  "sources": {
+   "Arkema Forane PT chart (2025, REFPROP 10)": {
+    "n": 74,
+    "max": 0.59
+   },
+   "Honeywell Solstice 454B PT chart": {
+    "n": 118,
+    "max": 0.45
+   },
+   "ASHRAE 34 bubble/dew at 1 atm": {
+    "n": 2,
+    "max": 0.85
+   }
+  }
+ },
+ "r32": {
+  "points": 76,
+  "max_dev_f": 0.08,
+  "sources": {
+   "Arkema Forane PT chart (2025, REFPROP 10)": {
+    "n": 41,
+    "max": 0.08
+   },
+   "Hudson Technologies PT chart": {
+    "n": 35,
+    "max": 0.06
+   }
+  }
+ },
+ "r410a": {
+  "points": 41,
+  "max_dev_f": 0.09,
+  "sources": {
+   "Arkema Forane PT chart (2025, REFPROP 10)": {
+    "n": 41,
+    "max": 0.09
+   }
+  }
+ },
+ "r22": {
+  "points": 71,
+  "max_dev_f": 0.21,
+  "sources": {
+   "Arkema Forane PT chart (2025, REFPROP 10)": {
+    "n": 38,
+    "max": 0.09
+   },
+   "Hudson Technologies PT chart": {
+    "n": 33,
+    "max": 0.21
+   }
+  }
+ },
+ "r407c": {
+  "points": 248,
+  "max_dev_f": 0.58,
+  "sources": {
+   "Arkema Forane PT chart (2025, REFPROP 10)": {
+    "n": 75,
+    "max": 0.11
+   },
+   "Honeywell pressure-based PT chart": {
+    "n": 112,
+    "max": 0.06
+   },
+   "Hudson Technologies PT chart": {
+    "n": 61,
+    "max": 0.58
+   }
+  }
+ },
+ "r466a": {
+  "points": 3,
+  "max_dev_f": 0.12,
+  "sources": {
+   "Honeywell Solstice N41 presentation (average pressure, bar)": {
+    "n": 3,
+    "max": 0.12
+   }
+  }
+ },
+ "r422d": {
+  "points": 176,
+  "max_dev_f": 0.52,
+  "sources": {
+   "Honeywell pressure-based PT chart": {
+    "n": 112,
+    "max": 0.39
+   },
+   "Hudson Technologies PT chart": {
+    "n": 64,
+    "max": 0.52
+   }
+  }
+ },
+ "r438a": {
+  "points": 34,
+  "max_dev_f": 0.1,
+  "sources": {
+   "Hudson Technologies PT chart (liquid)": {
+    "n": 34,
+    "max": 0.1
+   }
+  }
+ },
+ "r421a": {
+  "points": 33,
+  "max_dev_f": 0.08,
+  "sources": {
+   "Hudson Technologies PT chart (liquid)": {
+    "n": 33,
+    "max": 0.08
+   }
+  }
+ },
+ "r417a": {
+  "points": 33,
+  "max_dev_f": 0.99,
+  "sources": {
+   "Hudson Technologies PT chart (liquid)": {
+    "n": 33,
+    "max": 0.99
+   }
+  }
+ },
+ "r427a": {
+  "points": 107,
+  "max_dev_f": 0.48,
+  "sources": {
+   "Arkema Forane PT chart (2025, REFPROP 10)": {
+    "n": 73,
+    "max": 0.19
+   },
+   "Hudson Technologies PT chart (liquid)": {
+    "n": 34,
+    "max": 0.48
+   }
+  }
+ },
+ "r404a": {
+  "points": 148,
+  "max_dev_f": 0.07,
+  "sources": {
+   "Arkema Forane PT chart (2025, REFPROP 10)": {
+    "n": 40,
+    "max": 0.07
+   },
+   "Honeywell pressure-based PT chart": {
+    "n": 108,
+    "max": 0.06
+   }
+  }
+ },
+ "r507a": {
+  "points": 108,
+  "max_dev_f": 0.09,
+  "sources": {
+   "Honeywell pressure-based PT chart": {
+    "n": 108,
+    "max": 0.09
+   }
+  }
+ },
+ "r448a": {
+  "points": 248,
+  "max_dev_f": 0.63,
+  "sources": {
+   "Arkema Forane PT chart (2025, REFPROP 10)": {
+    "n": 75,
+    "max": 0.57
+   },
+   "Honeywell pressure-based PT chart": {
+    "n": 106,
+    "max": 0.57
+   },
+   "Hudson Technologies PT chart": {
+    "n": 65,
+    "max": 0.63
+   },
+   "ASHRAE 34 bubble/dew at 1 atm": {
+    "n": 2,
+    "max": 0.53
+   }
+  }
+ },
+ "r449a": {
+  "points": 142,
+  "max_dev_f": 0.51,
+  "sources": {
+   "Arkema Forane PT chart (2025, REFPROP 10)": {
+    "n": 75,
+    "max": 0.51
+   },
+   "Hudson Technologies PT chart": {
+    "n": 65,
+    "max": 0.45
+   },
+   "ASHRAE 34 bubble/dew at 1 atm": {
+    "n": 2,
+    "max": 0.22
+   }
+  }
+ },
+ "r407a": {
+  "points": 65,
+  "max_dev_f": 0.17,
+  "sources": {
+   "Hudson Technologies PT chart": {
+    "n": 65,
+    "max": 0.17
+   }
+  }
+ },
+ "r407f": {
+  "points": 127,
+  "max_dev_f": 0.11,
+  "sources": {
+   "Honeywell pressure-based PT chart": {
+    "n": 93,
+    "max": 0.05
+   },
+   "Hudson Technologies PT chart (liquid)": {
+    "n": 32,
+    "max": 0.04
+   },
+   "ASHRAE 34 bubble/dew at 1 atm": {
+    "n": 2,
+    "max": 0.11
+   }
+  }
+ },
+ "r452a": {
+  "points": 141,
+  "max_dev_f": 0.72,
+  "sources": {
+   "Arkema Forane PT chart (2025, REFPROP 10)": {
+    "n": 73,
+    "max": 0.72
+   },
+   "Hudson Technologies PT chart": {
+    "n": 66,
+    "max": 0.66
+   },
+   "ASHRAE 34 bubble/dew at 1 atm": {
+    "n": 2,
+    "max": 0.59
+   }
+  }
+ },
+ "r455a": {
+  "points": 36,
+  "max_dev_f": 0.91,
+  "sources": {
+   "Hudson Technologies PT chart (liquid)": {
+    "n": 35,
+    "max": 0.32
+   },
+   "ASHRAE 34 bubble/dew at 1 atm": {
+    "n": 1,
+    "max": 0.91
+   }
+  }
+ },
+ "r454a": {
+  "points": 37,
+  "max_dev_f": 0.52,
+  "sources": {
+   "Hudson Technologies PT chart (liquid)": {
+    "n": 35,
+    "max": 0.48
+   },
+   "ASHRAE 34 bubble/dew at 1 atm": {
+    "n": 2,
+    "max": 0.52
+   }
+  }
+ },
+ "r290": {
+  "points": 45,
+  "max_dev_f": 0.01,
+  "sources": {
+   "NIST Chemistry WebBook saturation data": {
+    "n": 45,
+    "max": 0.01
+   }
+  }
+ },
+ "r600a": {
+  "points": 21,
+  "max_dev_f": 0.01,
+  "sources": {
+   "NIST Chemistry WebBook saturation data": {
+    "n": 21,
+    "max": 0.01
+   }
+  }
+ },
+ "r744": {
+  "points": 107,
+  "max_dev_f": 0.03,
+  "sources": {
+   "Hudson Technologies PT chart": {
+    "n": 26,
+    "max": 0.03
+   },
+   "NIST Chemistry WebBook saturation data": {
+    "n": 81,
+    "max": 0.0
+   }
+  }
+ },
+ "r717": {
+  "points": 22,
+  "max_dev_f": 0.01,
+  "sources": {
+   "NIST Chemistry WebBook saturation data": {
+    "n": 22,
+    "max": 0.01
+   }
+  }
+ },
+ "r134a": {
+  "points": 60,
+  "max_dev_f": 0.26,
+  "sources": {
+   "Arkema Forane PT chart (2025, REFPROP 10)": {
+    "n": 32,
+    "max": 0.06
+   },
+   "Hudson Technologies PT chart": {
+    "n": 28,
+    "max": 0.26
+   }
+  }
+ },
+ "r513a": {
+  "points": 99,
+  "max_dev_f": 0.66,
+  "sources": {
+   "Arkema Forane PT chart (2025, REFPROP 10)": {
+    "n": 68,
+    "max": 0.49
+   },
+   "Hudson Technologies PT chart (liquid)": {
+    "n": 29,
+    "max": 0.66
+   },
+   "ASHRAE 34 bubble/dew at 1 atm": {
+    "n": 2,
+    "max": 0.4
+   }
+  }
+ },
+ "r450a": {
+  "points": 56,
+  "max_dev_f": 0.7,
+  "sources": {
+   "Hudson Technologies PT chart": {
+    "n": 54,
+    "max": 0.7
+   },
+   "ASHRAE 34 bubble/dew at 1 atm": {
+    "n": 2,
+    "max": 0.49
+   }
+  }
+ },
+ "r1234yf": {
+  "points": 25,
+  "max_dev_f": 0.09,
+  "sources": {
+   "Hudson Technologies PT chart": {
+    "n": 25,
+    "max": 0.09
+   }
+  }
+ },
+ "r1234ze": {
+  "points": 21,
+  "max_dev_f": 0.11,
+  "sources": {
+   "Hudson Technologies PT chart": {
+    "n": 21,
+    "max": 0.11
+   }
+  }
+ },
+ "r12": {
+  "points": 29,
+  "max_dev_f": 0.37,
+  "sources": {
+   "Hudson Technologies PT chart": {
+    "n": 29,
+    "max": 0.37
+   }
+  }
+ },
+ "r123": {
+  "points": 7,
+  "max_dev_f": 0.17,
+  "sources": {
+   "Hudson Technologies PT chart": {
+    "n": 7,
+    "max": 0.17
+   }
+  }
+ },
+ "r1233zd": {
+  "points": 12,
+  "max_dev_f": 0.41,
+  "sources": {
+   "Hudson Technologies PT chart": {
+    "n": 12,
+    "max": 0.41
+   }
+  }
+ }
+}

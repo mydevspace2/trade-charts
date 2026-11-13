@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Target Superheat Calculator for Fixed-Orifice A/C</title>
+<meta name="description" content="Target superheat from indoor wet bulb and outdoor dry bulb for piston/fixed-orifice systems, with a quick table and a check against your measured superheat.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://mydevspace2.github.io/trade-charts/target-superheat-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Trade Charts">
+<meta property="og:title" content="Target Superheat Calculator for Fixed-Orifice A/C">
+<meta property="og:description" content="Target superheat from indoor wet bulb and outdoor dry bulb for piston/fixed-orifice systems, with a quick table and a check against your measured superheat.">
+<meta property="og:url" content="https://mydevspace2.github.io/trade-charts/target-superheat-calculator/">
+<meta property="og:image" content="https://mydevspace2.github.io/trade-charts/assets/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14202b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
+<link rel="manifest" href="/trade-charts/site.webmanifest">
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=1">
+<script src="/trade-charts/assets/app.js?v=1" defer></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Target superheat calculator","description":"Target superheat for fixed orifice systems","url":"https://mydevspace2.github.io/trade-charts/target-superheat-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is target superheat?","acceptedAnswer":{"@type":"Answer","text":"The superheat a fixed-orifice (piston or capillary) system should have at current indoor wet-bulb and outdoor dry-bulb temperatures when correctly charged."}},{"@type":"Question","name":"What formula does this calculator use?","acceptedAnswer":{"@type":"Answer","text":"Target superheat ≈ (3 × indoor wet bulb − 80 − outdoor dry bulb) ÷ 2, a widely used approximation of manufacturers’ fixed-orifice charging tables. The equipment manufacturer’s chart always takes priority."}},{"@type":"Question","name":"Does target superheat apply to TXV systems?","acceptedAnswer":{"@type":"Answer","text":"No. TXV and electronic expansion valve systems are charged by subcooling; the valve controls superheat."}},{"@type":"Question","name":"Why does the result say below 5 °F?","acceptedAnswer":{"@type":"Answer","text":"At hot outdoor and dry indoor conditions the formula gives very low numbers. Many manufacturers say not to charge by superheat there; check airflow and use the manufacturer method."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"HVAC Calcs","item":"https://mydevspace2.github.io/trade-charts/hvac-calculators/"},{"@type":"ListItem","position":3,"name":"Target superheat","item":"https://mydevspace2.github.io/trade-charts/target-superheat-calculator/"}]}</script>
+</head>
+<body data-base="/trade-charts">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+ <div class="wrap top-in">
+  <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
+  <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/" aria-current="page">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/">Guides</a></li></ul></nav>
+  <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
+ </div>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/trade-charts/">Home</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li aria-current="page">Target superheat</li></ol></nav>
+<article><h1>Target Superheat Calculator</h1>
+<p class="lead">For fixed-orifice (piston) A/C systems: enter indoor wet bulb at the return and outdoor dry bulb at the condenser inlet to get the approximate target superheat. Then compare with your measured superheat.</p>
+<section class="tool"><h2>Calculate target superheat</h2>
+<div class="calc" data-tool="tsh"><div class="row"><label>Indoor wet bulb (°F) <input type="number" inputmode="decimal" step="any" data-wb value="63"></label>
+<label>Outdoor dry bulb (°F) <input type="number" inputmode="decimal" step="any" data-db value="85"></label>
+<label>Measured superheat (°F, optional) <input type="number" inputmode="decimal" step="any" data-sh></label></div>
+<output class="res" data-out aria-live="polite"></output></div></section>
+<h2>How the target is estimated</h2>
+<p>Fixed metering devices cannot adjust to load, so the correct superheat changes with the heat load on the evaporator (indoor wet bulb) and the condensing conditions (outdoor dry bulb). Manufacturers publish a charging table for each unit. A widely used approximation of those tables is:</p>
+<p class="formula">Target superheat ≈ (3 × WB<sub>indoor</sub> − 80 − DB<sub>outdoor</sub>) ÷ 2</p>
+<p>Example: 63 °F indoor wet bulb and 85 °F outdoor: (189 − 80 − 85) ÷ 2 = 12 °F. If you measure 20 °F superheat the system is likely undercharged or short on indoor airflow-related load; if you measure 5 °F it may be overcharged or have low indoor airflow. Correct airflow first (typically about 400 CFM per ton unless the manufacturer specifies otherwise), then adjust charge in small steps and let the system settle.</p>
+<h2>Approximate target superheat table (°F)</h2>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Indoor WB \ Outdoor DB</th><th scope="col">70 °F</th><th scope="col">80 °F</th><th scope="col">90 °F</th><th scope="col">100 °F</th><th scope="col">110 °F</th></tr></thead><tbody><tr><th scope="row">56 °F WB</th><td>9</td><td>below 5 — see notes</td><td>below 5 — see notes</td><td>below 5 — see notes</td><td>below 5 — see notes</td></tr><tr><th scope="row">60 °F WB</th><td>15</td><td>10</td><td>5</td><td>below 5 — see notes</td><td>below 5 — see notes</td></tr><tr><th scope="row">64 °F WB</th><td>21</td><td>16</td><td>11</td><td>6</td><td>below 5 — see notes</td></tr><tr><th scope="row">68 °F WB</th><td>27</td><td>22</td><td>17</td><td>12</td><td>7</td></tr><tr><th scope="row">72 °F WB</th><td>33</td><td>28</td><td>23</td><td>18</td><td>13</td></tr></tbody></table></div>
+<p>Results below about 5 °F are not shown because charging by superheat at those conditions risks floodback; follow the manufacturer’s procedure.</p>
+<p>Measure actual superheat with the <a href="/trade-charts/superheat-calculator/">superheat calculator</a>.</p>
+<h2>Measuring the inputs correctly</h2>
+<ul><li><b>Indoor wet bulb:</b> measure in the return air close to the air handler with a psychrometer or a digital wet-bulb probe, after the system has run 15 minutes. Wet bulb includes humidity, which is the main load on the evaporator.</li>
+<li><b>Outdoor dry bulb:</b> measure the air entering the condenser coil in the shade, not the temperature reported by a weather app.</li>
+<li><b>Measured superheat:</b> suction pressure and suction line temperature at the outdoor service valve, converted with the <a href="/trade-charts/superheat-calculator/">superheat calculator</a>.</li></ul>
+<h2>Limits of the approximation</h2>
+<p>The formula reproduces the general shape of manufacturer charging tables for residential fixed-orifice systems with standard line sets. It does not account for unusual line lengths, airflow problems or units with special metering. When the manufacturer chart is on the unit or in the installation manual, use it; when the formula gives a number below about 5 °F, many manufacturers say the system should not be charged by superheat at those conditions.</p><section class="faq" id="faq"><h2>Frequently asked questions</h2>
+<details><summary>What is target superheat?</summary><div class="ans">The superheat a fixed-orifice (piston or capillary) system should have at current indoor wet-bulb and outdoor dry-bulb temperatures when correctly charged.</div></details>
+<details><summary>What formula does this calculator use?</summary><div class="ans">Target superheat ≈ (3 × indoor wet bulb − 80 − outdoor dry bulb) ÷ 2, a widely used approximation of manufacturers’ fixed-orifice charging tables. The equipment manufacturer’s chart always takes priority.</div></details>
+<details><summary>Does target superheat apply to TXV systems?</summary><div class="ans">No. TXV and electronic expansion valve systems are charged by subcooling; the valve controls superheat.</div></details>
+<details><summary>Why does the result say below 5 °F?</summary><div class="ans">At hot outdoor and dry indoor conditions the formula gives very low numbers. Many manufacturers say not to charge by superheat there; check airflow and use the manufacturer method.</div></details>
+</section>
+</article>
+<aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
+<p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
+</main>
+<footer class="foot">
+ <div class="wrap foot-in">
+  <div><strong>Trade Charts</strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
+  <ul><li><a href="/trade-charts/pt-chart/">Refrigerant PT charts</a></li><li><a href="/trade-charts/superheat-calculator/">Superheat calculator</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by serial number</a></li></ul>
+  <ul><li><a href="/trade-charts/about/">About &amp; sources</a></li><li><a href="/trade-charts/contact/">Contact</a></li><li><a href="/trade-charts/privacy/">Privacy</a></li><li><a href="/trade-charts/terms/">Terms</a></li><li><a href="/trade-charts/sitemap.xml">Sitemap</a></li></ul>
+ </div>
+ <p class="wrap fine">&copy; 2026 Trade Charts. Reference only &mdash; verify with code and manufacturer data. Not affiliated with any manufacturer, NFPA or ICC; trademarks belong to their owners.</p>
+</footer>
+</body>
+</html>

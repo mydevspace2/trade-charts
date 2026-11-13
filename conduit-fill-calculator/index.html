@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Conduit Fill Calculator (NEC Chapter 9) – Mixed Wire Sizes</title>
+<meta name="description" content="Free NEC conduit fill calculator: mix THHN and XHHW sizes in EMT, PVC, rigid, IMC, flex or liquid-tight and get fill % and the smallest conduit that fits.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://mydevspace2.github.io/trade-charts/conduit-fill-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Trade Charts">
+<meta property="og:title" content="Conduit Fill Calculator (NEC Chapter 9) – Mixed Wire Sizes">
+<meta property="og:description" content="Free NEC conduit fill calculator: mix THHN and XHHW sizes in EMT, PVC, rigid, IMC, flex or liquid-tight and get fill % and the smallest conduit that fits.">
+<meta property="og:url" content="https://mydevspace2.github.io/trade-charts/conduit-fill-calculator/">
+<meta property="og:image" content="https://mydevspace2.github.io/trade-charts/assets/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14202b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
+<link rel="manifest" href="/trade-charts/site.webmanifest">
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=1">
+<script src="/trade-charts/assets/app.js?v=1" defer></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Conduit fill calculator","description":"NEC Chapter 9 conduit fill","url":"https://mydevspace2.github.io/trade-charts/conduit-fill-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate conduit fill?","acceptedAnswer":{"@type":"Answer","text":"Add the Table 5 areas of all conductors (including grounds) and compare with 40% of the conduit internal area from Table 4 when there are three or more conductors."}},{"@type":"Question","name":"Can I mix wire sizes?","acceptedAnswer":{"@type":"Answer","text":"Yes. Add each conductor’s area; the same-size Annex C style charts only apply when all conductors are identical."}},{"@type":"Question","name":"What about cables in conduit?","acceptedAnswer":{"@type":"Answer","text":"A multiconductor cable is treated as a single conductor using its outside diameter (Chapter 9 Note 9); an elliptical cable uses its major diameter."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"Electrical","item":"https://mydevspace2.github.io/trade-charts/electrical/"},{"@type":"ListItem","position":3,"name":"Conduit fill calculator","item":"https://mydevspace2.github.io/trade-charts/conduit-fill-calculator/"}]}</script>
+</head>
+<body data-base="/trade-charts">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+ <div class="wrap top-in">
+  <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
+  <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/" aria-current="page">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/">Guides</a></li></ul></nav>
+  <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
+ </div>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/trade-charts/">Home</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li aria-current="page">Conduit fill calculator</li></ol></nav>
+<article><h1>Conduit Fill Calculator</h1>
+<p class="lead">Mix any THHN/THWN-2 or XHHW-2 conductor sizes and counts in EMT, PVC Schedule 40/80, rigid, IMC, flex or liquid-tight. The calculator applies the NEC Chapter 9 53% / 31% / 40% limits and shows the smallest conduit that fits.</p>
+<section class="tool"><h2>Conduit fill calculator</h2>
+<div class="calc" data-tool="fill" data-type="EMT">
+<div class="row"><label>Conduit type <select data-ct><option value="EMT" selected>EMT</option><option value="PVC-40">PVC Schedule 40</option><option value="PVC-80">PVC Schedule 80</option><option value="RMC">Rigid (RMC)</option><option value="IMC">IMC</option><option value="FMC">Flex (FMC)</option><option value="LFMC">Liquid-tight (LFMC)</option></select></label><label>Trade size <select data-cs></select></label></div>
+<div class="wires" data-wires></div>
+<button type="button" class="btn ghost" data-add>+ Add conductors</button>
+<output class="res" data-out aria-live="polite"></output>
+</div></section>
+<h2>Rules the calculator applies</h2>
+<p>Fill limits come from Chapter 9 Table 1: one conductor 53%, two conductors 31%, three or more 40% of the raceway internal area (Table 4). Conductor areas come from Table 5 for THHN/THWN/THWN-2 and XHHW/XHHW-2. Equipment grounding conductors count. The result does not include ampacity adjustment, which you must apply separately for more than three current-carrying conductors.</p>
+<h2>Worked examples</h2>
+<p><b>Kitchen circuits in EMT.</b> Two 20 A circuits sharing a raceway: four 12 AWG THHN plus one 12 AWG ground = 5 × 0.0133 = 0.0665 in². 1/2" EMT allows 0.122 in² at 40%, so 1/2" works (21.9% fill).</p>
+<p><b>Subpanel feeder in PVC.</b> Three 2 AWG THHN (0.1158 in² each) plus one 8 AWG ground (0.0366) = 0.3840 in². 1" PVC Schedule 40 allows 0.333 in², too small; 1-1/4" allows 0.581 in² and works.</p>
+<p><b>Condenser whip.</b> Two 10 AWG THHN plus a 10 AWG ground in 1/2" liquid-tight: 3 × 0.0211 = 0.0633 in², within the 40% limit for 1/2" LFMC (0.125 in²).</p>
+<h2>Same-size fill charts by raceway</h2>
+<ul class="linkgrid"><li><a href="/trade-charts/emt-conduit-fill-chart/">EMT fill chart</a></li><li><a href="/trade-charts/pvc-conduit-fill-chart/">PVC Schedule 40 fill chart</a></li><li><a href="/trade-charts/pvc-schedule-80-conduit-fill-chart/">PVC Schedule 80 fill chart</a></li><li><a href="/trade-charts/rigid-conduit-fill-chart/">Rigid (RMC) fill chart</a></li><li><a href="/trade-charts/imc-conduit-fill-chart/">IMC fill chart</a></li><li><a href="/trade-charts/flex-conduit-fill-chart/">Flex (FMC) fill chart</a></li><li><a href="/trade-charts/liquid-tight-conduit-fill-chart/">Liquid-tight (LFMC) fill chart</a></li></ul>
+<h2>Popular sizes</h2>
+<ul class="linkgrid"><li><a href="/trade-charts/1-2-emt-conduit-fill/">1/2&quot; EMT conduit fill</a></li><li><a href="/trade-charts/3-4-emt-conduit-fill/">3/4&quot; EMT conduit fill</a></li><li><a href="/trade-charts/1-emt-conduit-fill/">1&quot; EMT conduit fill</a></li><li><a href="/trade-charts/1-1-4-emt-conduit-fill/">1-1/4&quot; EMT conduit fill</a></li><li><a href="/trade-charts/1-1-2-emt-conduit-fill/">1-1/2&quot; EMT conduit fill</a></li><li><a href="/trade-charts/2-emt-conduit-fill/">2&quot; EMT conduit fill</a></li><li><a href="/trade-charts/1-2-pvc-conduit-fill/">1/2&quot; PVC Schedule 40 conduit fill</a></li><li><a href="/trade-charts/3-4-pvc-conduit-fill/">3/4&quot; PVC Schedule 40 conduit fill</a></li><li><a href="/trade-charts/1-pvc-conduit-fill/">1&quot; PVC Schedule 40 conduit fill</a></li><li><a href="/trade-charts/1-1-4-pvc-conduit-fill/">1-1/4&quot; PVC Schedule 40 conduit fill</a></li></ul>
+<p class="src">Source: NEC (NFPA 70) Chapter 9, Table 1 (fill percentages), Table 4 (conduit areas) and Table 5 (conductor areas).</p>
+<h2>Choosing a raceway size in practice</h2>
+<p>The NEC limit is a maximum, not a target. Many electricians size one trade size larger than the minimum when a run has several bends, is long, or may get extra circuits later; pulling is easier and the cost difference is small for short runs. Remember that more than three current-carrying conductors in one raceway triggers the ampacity adjustment in 310.15(C)(1), which can push you to larger wire anyway.</p>
+<p>Related charts: <a href="/trade-charts/wire-ampacity-chart/">wire ampacity</a>, <a href="/trade-charts/voltage-drop-calculator/">voltage drop</a>, <a href="/trade-charts/box-fill-calculator/">box fill</a>.</p><section class="faq" id="faq"><h2>Frequently asked questions</h2>
+<details><summary>How do I calculate conduit fill?</summary><div class="ans">Add the Table 5 areas of all conductors (including grounds) and compare with 40% of the conduit internal area from Table 4 when there are three or more conductors.</div></details>
+<details><summary>Can I mix wire sizes?</summary><div class="ans">Yes. Add each conductor’s area; the same-size Annex C style charts only apply when all conductors are identical.</div></details>
+<details><summary>What about cables in conduit?</summary><div class="ans">A multiconductor cable is treated as a single conductor using its outside diameter (Chapter 9 Note 9); an elliptical cable uses its major diameter.</div></details>
+</section>
+</article>
+<aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
+<p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
+</main>
+<footer class="foot">
+ <div class="wrap foot-in">
+  <div><strong>Trade Charts</strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
+  <ul><li><a href="/trade-charts/pt-chart/">Refrigerant PT charts</a></li><li><a href="/trade-charts/superheat-calculator/">Superheat calculator</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by serial number</a></li></ul>
+  <ul><li><a href="/trade-charts/about/">About &amp; sources</a></li><li><a href="/trade-charts/contact/">Contact</a></li><li><a href="/trade-charts/privacy/">Privacy</a></li><li><a href="/trade-charts/terms/">Terms</a></li><li><a href="/trade-charts/sitemap.xml">Sitemap</a></li></ul>
+ </div>
+ <p class="wrap fine">&copy; 2026 Trade Charts. Reference only &mdash; verify with code and manufacturer data. Not affiliated with any manufacturer, NFPA or ICC; trademarks belong to their owners.</p>
+</footer>
+</body>
+</html>

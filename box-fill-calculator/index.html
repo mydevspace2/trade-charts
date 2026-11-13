@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Box Fill Calculator &amp; Chart (NEC 314.16)</title>
+<meta name="description" content="NEC 314.16 box fill calculator with cubic-inch allowances for 14–6 AWG, devices, clamps and grounds, plus the Table 314.16(A) metal box volume chart.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://mydevspace2.github.io/trade-charts/box-fill-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Trade Charts">
+<meta property="og:title" content="Box Fill Calculator &amp; Chart (NEC 314.16)">
+<meta property="og:description" content="NEC 314.16 box fill calculator with cubic-inch allowances for 14–6 AWG, devices, clamps and grounds, plus the Table 314.16(A) metal box volume chart.">
+<meta property="og:url" content="https://mydevspace2.github.io/trade-charts/box-fill-calculator/">
+<meta property="og:image" content="https://mydevspace2.github.io/trade-charts/assets/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14202b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
+<link rel="manifest" href="/trade-charts/site.webmanifest">
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=1">
+<script src="/trade-charts/assets/app.js?v=1" defer></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Box fill calculator","description":"NEC 314.16 box fill","url":"https://mydevspace2.github.io/trade-charts/box-fill-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate box fill?","acceptedAnswer":{"@type":"Answer","text":"Count conductors, then add allowances: each internal cable clamp set counts 1, each device yoke counts 2, all equipment grounding conductors together count 1 (plus 1/4 for each beyond four), each fixture stud/hickey counts 1, all based on the largest conductor (NEC 314.16(B))."}},{"@type":"Question","name":"How many cubic inches per 12 AWG wire?","acceptedAnswer":{"@type":"Answer","text":"2.25 in³ per conductor (Table 314.16(B)). 14 AWG is 2.00 in³ and 10 AWG is 2.50 in³."}},{"@type":"Question","name":"What volume does a plastic box have?","acceptedAnswer":{"@type":"Answer","text":"Nonmetallic boxes are marked with their volume by the manufacturer; use the marked value."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"Electrical","item":"https://mydevspace2.github.io/trade-charts/electrical/"},{"@type":"ListItem","position":3,"name":"Box fill calculator","item":"https://mydevspace2.github.io/trade-charts/box-fill-calculator/"}]}</script>
+</head>
+<body data-base="/trade-charts">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+ <div class="wrap top-in">
+  <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
+  <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/" aria-current="page">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/">Guides</a></li></ul></nav>
+  <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
+ </div>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/trade-charts/">Home</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li aria-current="page">Box fill calculator</li></ol></nav>
+<article><h1>Box Fill Calculator (NEC 314.16)</h1>
+<p class="lead">Pick a standard metal box or enter the marked volume, then count conductors, devices, clamps and grounds. The calculator adds the NEC 314.16(B) allowances and tells you whether the box is large enough.</p>
+<section class="tool"><h2>Calculate box fill</h2><div class="calc" data-tool="box"><div class="row">
+<label>Box <select data-b><option value="12.5">4 x 1-1/4 round/octagonal (12.5 in³)</option><option value="15.5">4 x 1-1/2 round/octagonal (15.5 in³)</option><option value="21.5">4 x 2-1/8 round/octagonal (21.5 in³)</option><option value="18.0">4 x 1-1/4 square (18.0 in³)</option><option value="21.0">4 x 1-1/2 square (21.0 in³)</option><option value="30.3">4 x 2-1/8 square (30.3 in³)</option><option value="25.5">4-11/16 x 1-1/4 square (25.5 in³)</option><option value="29.5">4-11/16 x 1-1/2 square (29.5 in³)</option><option value="42.0">4-11/16 x 2-1/8 square (42.0 in³)</option><option value="7.5">3 x 2 x 1-1/2 device (7.5 in³)</option><option value="10.0">3 x 2 x 2 device (10.0 in³)</option><option value="10.5">3 x 2 x 2-1/4 device (10.5 in³)</option><option value="12.5">3 x 2 x 2-1/2 device (12.5 in³)</option><option value="14.0">3 x 2 x 2-3/4 device (14.0 in³)</option><option value="18.0">3 x 2 x 3-1/2 device (18.0 in³)</option><option value="10.3">4 x 2-1/8 x 1-1/2 device (10.3 in³)</option><option value="13.0">4 x 2-1/8 x 1-7/8 device (13.0 in³)</option><option value="14.5">4 x 2-1/8 x 2-1/8 device (14.5 in³)</option><option value="14.0">3-3/4 x 2 x 2-1/2 masonry box/gang (14.0 in³)</option><option value="21.0">3-3/4 x 2 x 3-1/2 masonry box/gang (21.0 in³)</option><option value="custom">Marked volume (enter)</option></select></label>
+<label>Volume (in³) <input type="number" inputmode="decimal" step="any" data-v value="21.0"></label></div>
+<div class="row"><label>14 AWG <input type="number" min="0" data-w14 value="0"></label><label>12 AWG <input type="number" min="0" data-w12 value="4"></label><label>10 AWG <input type="number" min="0" data-w10 value="0"></label><label>8 AWG <input type="number" min="0" data-w8 value="0"></label><label>6 AWG <input type="number" min="0" data-w6 value="0"></label></div>
+<div class="row"><label>Devices (yokes) <input type="number" min="0" data-dev value="1"></label><label>Internal clamps present <select data-cl><option value="0">No</option><option value="1">Yes</option></select></label>
+<label>Grounding conductors <input type="number" min="0" data-eg value="2"></label><label>Fixture studs / hickeys <input type="number" min="0" data-st value="0"></label></div>
+<output class="res" data-out aria-live="polite"></output></div></section>
+<h2>Volume allowance per conductor (Table 314.16(B))</h2>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Conductor</th><th scope="col">Volume each</th></tr></thead><tbody><tr><th scope="row">18 AWG</th><td>1.50 in³</td></tr><tr><th scope="row">16 AWG</th><td>1.75 in³</td></tr><tr><th scope="row">14 AWG</th><td>2.00 in³</td></tr><tr><th scope="row">12 AWG</th><td>2.25 in³</td></tr><tr><th scope="row">10 AWG</th><td>2.50 in³</td></tr><tr><th scope="row">8 AWG</th><td>3.00 in³</td></tr><tr><th scope="row">6 AWG</th><td>5.00 in³</td></tr></tbody></table></div>
+<h2>Standard metal boxes (Table 314.16(A))</h2>
+<div class="tblwrap"><table class="data chart"><thead><tr><th scope="col">Box (trade size)</th><th scope="col">Volume in³</th><th scope="col">Max 14</th><th scope="col">Max 12</th><th scope="col">Max 10</th><th scope="col">Max 8</th><th scope="col">Max 6</th></tr></thead><tbody><tr><th scope="row">4 x 1-1/4 round/octagonal</th><td>12.5</td><td>6</td><td>5</td><td>5</td><td>4</td><td>2</td></tr><tr><th scope="row">4 x 1-1/2 round/octagonal</th><td>15.5</td><td>7</td><td>6</td><td>6</td><td>5</td><td>3</td></tr><tr><th scope="row">4 x 2-1/8 round/octagonal</th><td>21.5</td><td>10</td><td>9</td><td>8</td><td>7</td><td>4</td></tr><tr><th scope="row">4 x 1-1/4 square</th><td>18.0</td><td>9</td><td>8</td><td>7</td><td>6</td><td>3</td></tr><tr><th scope="row">4 x 1-1/2 square</th><td>21.0</td><td>10</td><td>9</td><td>8</td><td>7</td><td>4</td></tr><tr><th scope="row">4 x 2-1/8 square</th><td>30.3</td><td>15</td><td>13</td><td>12</td><td>10</td><td>6</td></tr><tr><th scope="row">4-11/16 x 1-1/4 square</th><td>25.5</td><td>12</td><td>11</td><td>10</td><td>8</td><td>5</td></tr><tr><th scope="row">4-11/16 x 1-1/2 square</th><td>29.5</td><td>14</td><td>13</td><td>11</td><td>9</td><td>5</td></tr><tr><th scope="row">4-11/16 x 2-1/8 square</th><td>42.0</td><td>21</td><td>18</td><td>16</td><td>14</td><td>8</td></tr><tr><th scope="row">3 x 2 x 1-1/2 device</th><td>7.5</td><td>3</td><td>3</td><td>3</td><td>2</td><td>1</td></tr><tr><th scope="row">3 x 2 x 2 device</th><td>10.0</td><td>5</td><td>4</td><td>4</td><td>3</td><td>2</td></tr><tr><th scope="row">3 x 2 x 2-1/4 device</th><td>10.5</td><td>5</td><td>4</td><td>4</td><td>3</td><td>2</td></tr><tr><th scope="row">3 x 2 x 2-1/2 device</th><td>12.5</td><td>6</td><td>5</td><td>5</td><td>4</td><td>2</td></tr><tr><th scope="row">3 x 2 x 2-3/4 device</th><td>14.0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>2</td></tr><tr><th scope="row">3 x 2 x 3-1/2 device</th><td>18.0</td><td>9</td><td>8</td><td>7</td><td>6</td><td>3</td></tr><tr><th scope="row">4 x 2-1/8 x 1-1/2 device</th><td>10.3</td><td>5</td><td>4</td><td>4</td><td>3</td><td>2</td></tr><tr><th scope="row">4 x 2-1/8 x 1-7/8 device</th><td>13.0</td><td>6</td><td>5</td><td>5</td><td>4</td><td>2</td></tr><tr><th scope="row">4 x 2-1/8 x 2-1/8 device</th><td>14.5</td><td>7</td><td>6</td><td>5</td><td>4</td><td>2</td></tr><tr><th scope="row">3-3/4 x 2 x 2-1/2 masonry box/gang</th><td>14.0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>2</td></tr><tr><th scope="row">3-3/4 x 2 x 3-1/2 masonry box/gang</th><td>21.0</td><td>10</td><td>9</td><td>8</td><td>7</td><td>4</td></tr></tbody></table></div>
+<p>The maximum-conductor columns assume conductors only, with no clamps, devices or grounds. Subtract the allowances for those first.</p>
+<h2>Counting rules in plain words</h2>
+<ul><li>Each conductor that enters the box and is spliced or terminated counts once; one that passes through unbroken counts once (a loop long enough to cut counts twice).</li>
+<li>Pigtails and jumpers that never leave the box do not count.</li><li>Each device (switch, receptacle) on a yoke counts twice, based on the largest conductor connected to it.</li>
+<li>Internal cable clamps count once in total; each type of fixture stud or hickey counts once.</li><li>All equipment grounding conductors count once, with 1/4 extra for each one beyond four.</li></ul>
+<p class="src">Source: NEC (NFPA 70) 314.16, Table 314.16(A) and 314.16(B), as reprinted in the Steel City (ABB) metallic box catalog.</p>
+<section class="faq" id="faq"><h2>Frequently asked questions</h2>
+<details><summary>How do I calculate box fill?</summary><div class="ans">Count conductors, then add allowances: each internal cable clamp set counts 1, each device yoke counts 2, all equipment grounding conductors together count 1 (plus 1/4 for each beyond four), each fixture stud/hickey counts 1, all based on the largest conductor (NEC 314.16(B)).</div></details>
+<details><summary>How many cubic inches per 12 AWG wire?</summary><div class="ans">2.25 in³ per conductor (Table 314.16(B)). 14 AWG is 2.00 in³ and 10 AWG is 2.50 in³.</div></details>
+<details><summary>What volume does a plastic box have?</summary><div class="ans">Nonmetallic boxes are marked with their volume by the manufacturer; use the marked value.</div></details>
+</section>
+</article>
+<aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
+<p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
+</main>
+<footer class="foot">
+ <div class="wrap foot-in">
+  <div><strong>Trade Charts</strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
+  <ul><li><a href="/trade-charts/pt-chart/">Refrigerant PT charts</a></li><li><a href="/trade-charts/superheat-calculator/">Superheat calculator</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by serial number</a></li></ul>
+  <ul><li><a href="/trade-charts/about/">About &amp; sources</a></li><li><a href="/trade-charts/contact/">Contact</a></li><li><a href="/trade-charts/privacy/">Privacy</a></li><li><a href="/trade-charts/terms/">Terms</a></li><li><a href="/trade-charts/sitemap.xml">Sitemap</a></li></ul>
+ </div>
+ <p class="wrap fine">&copy; 2026 Trade Charts. Reference only &mdash; verify with code and manufacturer data. Not affiliated with any manufacturer, NFPA or ICC; trademarks belong to their owners.</p>
+</footer>
+</body>
+</html>
