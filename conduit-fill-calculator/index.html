@@ -24,8 +24,9 @@
 <link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
 <link rel="manifest" href="/trade-charts/site.webmanifest">
-<link rel="stylesheet" href="/trade-charts/assets/site.css?v=1">
-<script src="/trade-charts/assets/app.js?v=1" defer></script>
+<script src="/trade-charts/assets/theme.js?v=2"></script>
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=2">
+<script src="/trade-charts/assets/app.js?v=2" defer></script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Conduit fill calculator","description":"NEC Chapter 9 conduit fill","url":"https://mydevspace2.github.io/trade-charts/conduit-fill-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate conduit fill?","acceptedAnswer":{"@type":"Answer","text":"Add the Table 5 areas of all conductors (including grounds) and compare with 40% of the conduit internal area from Table 4 when there are three or more conductors."}},{"@type":"Question","name":"Can I mix wire sizes?","acceptedAnswer":{"@type":"Answer","text":"Yes. Add each conductor’s area; the same-size Annex C style charts only apply when all conductors are identical."}},{"@type":"Question","name":"What about cables in conduit?","acceptedAnswer":{"@type":"Answer","text":"A multiconductor cable is treated as a single conductor using its outside diameter (Chapter 9 Note 9); an elliptical cable uses its major diameter."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"Electrical","item":"https://mydevspace2.github.io/trade-charts/electrical/"},{"@type":"ListItem","position":3,"name":"Conduit fill calculator","item":"https://mydevspace2.github.io/trade-charts/conduit-fill-calculator/"}]}</script>
 </head>
@@ -35,6 +36,7 @@
  <div class="wrap top-in">
   <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
   <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode" title="Switch light / dark mode"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
   <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/" aria-current="page">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/">Guides</a></li></ul></nav>
   <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
  </div>
@@ -48,7 +50,7 @@
 <div class="row"><label>Conduit type <select data-ct><option value="EMT" selected>EMT</option><option value="PVC-40">PVC Schedule 40</option><option value="PVC-80">PVC Schedule 80</option><option value="RMC">Rigid (RMC)</option><option value="IMC">IMC</option><option value="FMC">Flex (FMC)</option><option value="LFMC">Liquid-tight (LFMC)</option></select></label><label>Trade size <select data-cs></select></label></div>
 <div class="wires" data-wires></div>
 <button type="button" class="btn ghost" data-add>+ Add conductors</button>
-<output class="res" data-out aria-live="polite"></output>
+<div class="calcbar" hidden><button type="button" class="btn" data-calc>Calculate</button></div><output class="res" data-out aria-live="polite" tabindex="-1"></output><div class="tbar" hidden><button type="button" data-copy>Copy result</button><button type="button" data-reset>Reset</button><button type="button" data-share hidden>Share</button><span class="tmsg" role="status"></span></div>
 </div></section>
 <h2>Rules the calculator applies</h2>
 <p>Fill limits come from Chapter 9 Table 1: one conductor 53%, two conductors 31%, three or more 40% of the raceway internal area (Table 4). Conductor areas come from Table 5 for THHN/THWN/THWN-2 and XHHW/XHHW-2. Equipment grounding conductors count. The result does not include ampacity adjustment, which you must apply separately for more than three current-carrying conductors.</p>

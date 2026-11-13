@@ -127,14 +127,15 @@ def site_pages():
     pop = [('/r454b-pt-chart/', 'R-454B PT chart'), ('/r410a-pt-chart/', 'R-410A PT chart'), ('/r32-pt-chart/', 'R-32 PT chart'), ('/r22-pt-chart/', 'R-22 PT chart'),
            ('/r134a-pt-chart/', 'R-134a PT chart'), ('/r404a-pt-chart/', 'R-404A PT chart'), ('/r448a-pt-chart/', 'R-448A PT chart'), ('/r407c-pt-chart/', 'R-407C PT chart')]
     body = f'''<section class="hero"><h1>Trade charts that are fast, accurate and free</h1>
-<p class="lead">Refrigerant PT charts, superheat and subcooling, NEC conduit fill, ampacity, voltage drop, gas pipe sizing and age-by-serial decoders. Every number is sourced and checked; every page works on a phone in a crawlspace.</p>
-<div class="actions"><a class="btn" href="{url('/pt-chart/')}">PT charts</a> <a class="btn ghost" href="{url('/conduit-fill-calculator/')}">Conduit fill</a> <a class="btn ghost" href="{url('/gas-pipe-sizing/')}">Gas pipe sizing</a></div></section>
+<p class="lead">Sourced, checked reference for HVAC, electrical and gas work.</p>
+<nav class="chips" aria-label="Popular tools"><a href="{url('/pt-chart/')}">PT charts</a><a href="{url('/conduit-fill-calculator/')}">Conduit fill</a><a href="{url('/gas-pipe-sizing/')}">Gas pipe sizing</a></nav></section>
 <section class="tool"><h2>Quick PT lookup</h2>
 <div class="pt" data-tool="pt-any"><div class="row"><label>Refrigerant <select data-ref>{''.join(f'<option value="{r["slug"]}"{" selected" if r["slug"] == "r454b" else ""}>{r["name"]}</option>' for r in sorted(REFS, key=lambda x: x["name"]))}</select></label></div>
 <div class="seg" role="group" aria-label="Lookup direction"><button type="button" data-mode="t2p" aria-pressed="true">Temp &rarr; Pressure</button><button type="button" data-mode="p2t" aria-pressed="false">Pressure &rarr; Temp</button></div>
 <div class="row"><label>Value <input type="number" inputmode="decimal" step="any" data-in value="40"></label><label class="u-t">Temp unit <select data-tu><option value="F">\u00b0F</option><option value="C">\u00b0C</option></select></label>
 <label class="u-p" hidden>Pressure unit <select data-pu><option value="psig">psig</option><option value="kpa">kPa (gauge)</option><option value="bar">bar (gauge)</option></select></label></div>
 <output class="res" data-out aria-live="polite"></output></div></section>
+<p>Refrigerant PT charts, superheat and subcooling, NEC conduit fill, ampacity, voltage drop, gas pipe sizing and age-by-serial decoders. Every number is sourced and checked; every page works on a phone in a crawlspace.</p>
 <div class="grid3">
 <section class="card"><h2><a href="{url('/pt-chart/')}">Refrigerant PT charts</a></h2><p>32 refrigerants with bubble/dew columns, \u00b0F/\u00b0C, psig/kPa, print view and verification against manufacturer data.</p>{links(pop)}</section>
 <section class="card"><h2><a href="{url('/hvac-calculators/')}">HVAC calculators</a></h2><p>Superheat, subcooling and target superheat, plus side-by-side refrigerant comparisons.</p>{links([('/superheat-calculator/', 'Superheat'), ('/subcooling-calculator/', 'Subcooling'), ('/target-superheat-calculator/', 'Target superheat'), ('/r454b-vs-r410a/', 'R-454B vs R-410A'), ('/r32-vs-r454b/', 'R-32 vs R-454B')])}</section>

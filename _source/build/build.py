@@ -10,7 +10,7 @@ from core import OUT, PAGES, SITE_URL, BASE, CNAME, INDEXNOW_KEY, UPDATED, HERE
 
 def assets():
     a = os.path.join(OUT, 'assets'); os.makedirs(a, exist_ok=True)
-    for f in ('site.css', 'app.js'):
+    for f in ('site.css', 'app.js', 'theme.js'):
         shutil.copy(os.path.join(HERE, 'assets', f), a)
     svg = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="10" fill="#14202b"/>'
            '<rect x="6" y="6" width="52" height="52" rx="6" fill="none" stroke="#d9480f" stroke-width="4"/>'

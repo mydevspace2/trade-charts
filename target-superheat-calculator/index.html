@@ -24,8 +24,9 @@
 <link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
 <link rel="manifest" href="/trade-charts/site.webmanifest">
-<link rel="stylesheet" href="/trade-charts/assets/site.css?v=1">
-<script src="/trade-charts/assets/app.js?v=1" defer></script>
+<script src="/trade-charts/assets/theme.js?v=2"></script>
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=2">
+<script src="/trade-charts/assets/app.js?v=2" defer></script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Target superheat calculator","description":"Target superheat for fixed orifice systems","url":"https://mydevspace2.github.io/trade-charts/target-superheat-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is target superheat?","acceptedAnswer":{"@type":"Answer","text":"The superheat a fixed-orifice (piston or capillary) system should have at current indoor wet-bulb and outdoor dry-bulb temperatures when correctly charged."}},{"@type":"Question","name":"What formula does this calculator use?","acceptedAnswer":{"@type":"Answer","text":"Target superheat ≈ (3 × indoor wet bulb − 80 − outdoor dry bulb) ÷ 2, a widely used approximation of manufacturers’ fixed-orifice charging tables. The equipment manufacturer’s chart always takes priority."}},{"@type":"Question","name":"Does target superheat apply to TXV systems?","acceptedAnswer":{"@type":"Answer","text":"No. TXV and electronic expansion valve systems are charged by subcooling; the valve controls superheat."}},{"@type":"Question","name":"Why does the result say below 5 °F?","acceptedAnswer":{"@type":"Answer","text":"At hot outdoor and dry indoor conditions the formula gives very low numbers. Many manufacturers say not to charge by superheat there; check airflow and use the manufacturer method."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"HVAC Calcs","item":"https://mydevspace2.github.io/trade-charts/hvac-calculators/"},{"@type":"ListItem","position":3,"name":"Target superheat","item":"https://mydevspace2.github.io/trade-charts/target-superheat-calculator/"}]}</script>
 </head>
@@ -35,6 +36,7 @@
  <div class="wrap top-in">
   <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
   <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode" title="Switch light / dark mode"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
   <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/" aria-current="page">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/">Guides</a></li></ul></nav>
   <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
  </div>
@@ -47,7 +49,7 @@
 <div class="calc" data-tool="tsh"><div class="row"><label>Indoor wet bulb (°F) <input type="number" inputmode="decimal" step="any" data-wb value="63"></label>
 <label>Outdoor dry bulb (°F) <input type="number" inputmode="decimal" step="any" data-db value="85"></label>
 <label>Measured superheat (°F, optional) <input type="number" inputmode="decimal" step="any" data-sh></label></div>
-<output class="res" data-out aria-live="polite"></output></div></section>
+<div class="calcbar" hidden><button type="button" class="btn" data-calc>Calculate</button></div><output class="res" data-out aria-live="polite" tabindex="-1"></output><div class="tbar" hidden><button type="button" data-copy>Copy result</button><button type="button" data-reset>Reset</button><button type="button" data-share hidden>Share</button><span class="tmsg" role="status"></span></div></div></section>
 <h2>How the target is estimated</h2>
 <p>Fixed metering devices cannot adjust to load, so the correct superheat changes with the heat load on the evaporator (indoor wet bulb) and the condensing conditions (outdoor dry bulb). Manufacturers publish a charging table for each unit. A widely used approximation of those tables is:</p>
 <p class="formula">Target superheat ≈ (3 × WB<sub>indoor</sub> − 80 − DB<sub>outdoor</sub>) ÷ 2</p>

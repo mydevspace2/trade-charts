@@ -24,8 +24,9 @@
 <link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
 <link rel="manifest" href="/trade-charts/site.webmanifest">
-<link rel="stylesheet" href="/trade-charts/assets/site.css?v=1">
-<script src="/trade-charts/assets/app.js?v=1" defer></script>
+<script src="/trade-charts/assets/theme.js?v=2"></script>
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=2">
+<script src="/trade-charts/assets/app.js?v=2" defer></script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"MIG settings calculator","description":"MIG starting settings","url":"https://mydevspace2.github.io/trade-charts/mig-welding-settings-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (web browser)","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many amps for 1/8 inch steel MIG?","acceptedAnswer":{"@type":"Answer","text":"About 125 A by Miller’s rule of 1 amp per 0.001 in of thickness. With .030 wire that is about 250 ipm wire speed, with .035 about 200 ipm."}},{"@type":"Question","name":"What wire size should I use?","acceptedAnswer":{"@type":"Answer","text":"Miller recommends .023 in for 30–130 A, .030 in for 40–145 A, .035 in for 50–180 A and .045 in for 75–250 A. Choose the wire that covers your most common thickness."}},{"@type":"Question","name":"Is this better than my door chart?","acceptedAnswer":{"@type":"Answer","text":"No. The chart inside your welder’s door is written for that machine and should be your first reference. Use these rules when you have no chart, then fine-tune on scrap."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"Welding","item":"https://mydevspace2.github.io/trade-charts/welding/"},{"@type":"ListItem","position":3,"name":"MIG settings calculator","item":"https://mydevspace2.github.io/trade-charts/mig-welding-settings-calculator/"}]}</script>
 </head>
@@ -35,6 +36,7 @@
  <div class="wrap top-in">
   <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
   <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode" title="Switch light / dark mode"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
   <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/" aria-current="page">Welding</a></li><li><a href="/trade-charts/blog/">Guides</a></li></ul></nav>
   <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
  </div>
@@ -46,7 +48,7 @@
 <section class="tool"><h2>Starting settings</h2><div class="calc" data-tool="mig"><div class="row">
 <label>Thickness (in) <input type="number" inputmode="decimal" step="any" data-th value="0.125"></label>
 <label>Wire <select data-w><option value=".023">.023 in</option><option value=".030">.030 in</option><option value=".035" selected>.035 in</option><option value=".045">.045 in</option></select></label></div>
-<output class="res" data-out aria-live="polite"></output></div></section>
+<div class="calcbar" hidden><button type="button" class="btn" data-calc>Calculate</button></div><output class="res" data-out aria-live="polite" tabindex="-1"></output><div class="tbar" hidden><button type="button" data-copy>Copy result</button><button type="button" data-reset>Reset</button><button type="button" data-share hidden>Share</button><span class="tmsg" role="status"></span></div></div></section>
 <h2>The three rules</h2>
 <ol><li><b>Amperage from thickness:</b> about 1 amp for every 0.001 in of material (1/8 in = 125 A).</li>
 <li><b>Wire size from amperage:</b> .023 in 30–130 A; .030 in 40–145 A; .035 in 50–180 A; .045 in 75–250 A.</li>

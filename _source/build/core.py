@@ -8,7 +8,7 @@ CNAME = os.environ.get('TC_CNAME', '')
 SITE_NAME = 'Trade Charts'
 UPDATED = os.environ.get('TC_UPDATED', '2026-11-13')
 UPDATED_H = datetime.date.fromisoformat(UPDATED).strftime('%B %-d, %Y')
-ASSET_V = '1'
+ASSET_V = '2'
 INDEXNOW_KEY = '7f3c1e9a2b8d4f60a1c5e7b9d3f2a4c6'
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.environ.get('TC_OUT', os.path.join(HERE, '..', 'out'))
@@ -74,6 +74,16 @@ def nav_html(active):
     items = ''.join(f'<li><a href="{url(p)}"{" aria-current=\"page\"" if active == p else ""}>{esc(n)}</a></li>' for p, n in SECTIONS)
     return items
 
+THEME_BTN = ('<button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode" title="Switch light / dark mode">'
+             '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>'
+             '<path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>')
+OUTPUT_TAG = '<output class="res" data-out aria-live="polite"></output>'
+# Calculate button above every result; Copy / Reset (and Share on PT, superheat, subcooling tools) below it. Shown by app.js.
+TOOL_UI = ('<div class="calcbar" hidden><button type="button" class="btn" data-calc>Calculate</button></div>'
+           '<output class="res" data-out aria-live="polite" tabindex="-1"></output>'
+           '<div class="tbar" hidden><button type="button" data-copy>Copy result</button><button type="button" data-reset>Reset</button>'
+           '<button type="button" data-share hidden>Share</button><span class="tmsg" role="status"></span></div>')
+
 def page(path, title, desc, body, crumbs=None, section=None, schema=(), og_type='website', extra_head='', noindex=False):
     """Write one HTML page. crumbs: list of (name, path) excluding Home."""
     assert len(desc) <= 160, (path, len(desc))
@@ -122,6 +132,7 @@ def page(path, title, desc, body, crumbs=None, section=None, schema=(), og_type=
 <link rel="icon" href="{url('/favicon.svg')}" type="image/svg+xml">
 <link rel="apple-touch-icon" href="{url('/assets/icon-180.png')}">
 <link rel="manifest" href="{url('/site.webmanifest')}">
+<script src="{url('/assets/theme.js')}?v={ASSET_V}"></script>
 <link rel="stylesheet" href="{url('/assets/site.css')}?v={ASSET_V}">
 <script src="{url('/assets/app.js')}?v={ASSET_V}" defer></script>
 {extra_head}
@@ -133,6 +144,7 @@ def page(path, title, desc, body, crumbs=None, section=None, schema=(), og_type=
  <div class="wrap top-in">
   <a class="brand" href="{url('/')}" aria-label="{SITE_NAME} home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
   <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  {THEME_BTN}
   <nav id="nav" class="nav" aria-label="Main"><ul>{nav_html(section)}</ul></nav>
   <form class="search" role="search" action="{url('/search/')}" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg\u2026" autocomplete="off"><div class="sres" hidden></div></form>
  </div>
@@ -155,6 +167,7 @@ def page(path, title, desc, body, crumbs=None, section=None, schema=(), og_type=
 </html>
 '''
     words = len(re.sub(r'<[^>]+>', ' ', body).split())
+    head = head.replace(OUTPUT_TAG, TOOL_UI)
     PAGES.append(dict(path=path, title=title, desc=desc, section=section, words=words, noindex=noindex))
     fn = os.path.join(OUT, path.strip('/'), 'index.html') if path.endswith('/') else os.path.join(OUT, path.strip('/'))
     os.makedirs(os.path.dirname(fn), exist_ok=True)

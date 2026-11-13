@@ -24,8 +24,9 @@
 <link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
 <link rel="manifest" href="/trade-charts/site.webmanifest">
-<link rel="stylesheet" href="/trade-charts/assets/site.css?v=1">
-<script src="/trade-charts/assets/app.js?v=1" defer></script>
+<script src="/trade-charts/assets/theme.js?v=2"></script>
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=2">
+<script src="/trade-charts/assets/app.js?v=2" defer></script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Trade Charts","url":"https://mydevspace2.github.io/trade-charts/","potentialAction":{"@type":"SearchAction","target":"https://mydevspace2.github.io/trade-charts/search/?q={search_term_string}","query-input":"required name=search_term_string"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Trade Charts","url":"https://mydevspace2.github.io/trade-charts/","logo":"https://mydevspace2.github.io/trade-charts/assets/icon-512.png"}</script>
 </head>
@@ -35,6 +36,7 @@
  <div class="wrap top-in">
   <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
   <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode" title="Switch light / dark mode"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
   <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/">Guides</a></li></ul></nav>
   <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
  </div>
@@ -42,14 +44,15 @@
 <main id="main" class="wrap">
 
 <section class="hero"><h1>Trade charts that are fast, accurate and free</h1>
-<p class="lead">Refrigerant PT charts, superheat and subcooling, NEC conduit fill, ampacity, voltage drop, gas pipe sizing and age-by-serial decoders. Every number is sourced and checked; every page works on a phone in a crawlspace.</p>
-<div class="actions"><a class="btn" href="/trade-charts/pt-chart/">PT charts</a> <a class="btn ghost" href="/trade-charts/conduit-fill-calculator/">Conduit fill</a> <a class="btn ghost" href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></div></section>
+<p class="lead">Sourced, checked reference for HVAC, electrical and gas work.</p>
+<nav class="chips" aria-label="Popular tools"><a href="/trade-charts/pt-chart/">PT charts</a><a href="/trade-charts/conduit-fill-calculator/">Conduit fill</a><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></nav></section>
 <section class="tool"><h2>Quick PT lookup</h2>
 <div class="pt" data-tool="pt-any"><div class="row"><label>Refrigerant <select data-ref><option value="r12">R-12</option><option value="r123">R-123</option><option value="r1233zd">R-1233zd(E)</option><option value="r1234yf">R-1234yf</option><option value="r1234ze">R-1234ze(E)</option><option value="r134a">R-134a</option><option value="r22">R-22</option><option value="r290">R-290</option><option value="r32">R-32</option><option value="r404a">R-404A</option><option value="r407a">R-407A</option><option value="r407c">R-407C</option><option value="r407f">R-407F</option><option value="r410a">R-410A</option><option value="r417a">R-417A</option><option value="r421a">R-421A</option><option value="r422d">R-422D</option><option value="r427a">R-427A</option><option value="r438a">R-438A</option><option value="r448a">R-448A</option><option value="r449a">R-449A</option><option value="r450a">R-450A</option><option value="r452a">R-452A</option><option value="r454a">R-454A</option><option value="r454b" selected>R-454B</option><option value="r455a">R-455A</option><option value="r466a">R-466A</option><option value="r507a">R-507A</option><option value="r513a">R-513A</option><option value="r600a">R-600a</option><option value="r717">R-717</option><option value="r744">R-744</option></select></label></div>
 <div class="seg" role="group" aria-label="Lookup direction"><button type="button" data-mode="t2p" aria-pressed="true">Temp &rarr; Pressure</button><button type="button" data-mode="p2t" aria-pressed="false">Pressure &rarr; Temp</button></div>
 <div class="row"><label>Value <input type="number" inputmode="decimal" step="any" data-in value="40"></label><label class="u-t">Temp unit <select data-tu><option value="F">°F</option><option value="C">°C</option></select></label>
 <label class="u-p" hidden>Pressure unit <select data-pu><option value="psig">psig</option><option value="kpa">kPa (gauge)</option><option value="bar">bar (gauge)</option></select></label></div>
-<output class="res" data-out aria-live="polite"></output></div></section>
+<div class="calcbar" hidden><button type="button" class="btn" data-calc>Calculate</button></div><output class="res" data-out aria-live="polite" tabindex="-1"></output><div class="tbar" hidden><button type="button" data-copy>Copy result</button><button type="button" data-reset>Reset</button><button type="button" data-share hidden>Share</button><span class="tmsg" role="status"></span></div></div></section>
+<p>Refrigerant PT charts, superheat and subcooling, NEC conduit fill, ampacity, voltage drop, gas pipe sizing and age-by-serial decoders. Every number is sourced and checked; every page works on a phone in a crawlspace.</p>
 <div class="grid3">
 <section class="card"><h2><a href="/trade-charts/pt-chart/">Refrigerant PT charts</a></h2><p>32 refrigerants with bubble/dew columns, °F/°C, psig/kPa, print view and verification against manufacturer data.</p><ul class="linkgrid"><li><a href="/trade-charts/r454b-pt-chart/">R-454B PT chart</a></li><li><a href="/trade-charts/r410a-pt-chart/">R-410A PT chart</a></li><li><a href="/trade-charts/r32-pt-chart/">R-32 PT chart</a></li><li><a href="/trade-charts/r22-pt-chart/">R-22 PT chart</a></li><li><a href="/trade-charts/r134a-pt-chart/">R-134a PT chart</a></li><li><a href="/trade-charts/r404a-pt-chart/">R-404A PT chart</a></li><li><a href="/trade-charts/r448a-pt-chart/">R-448A PT chart</a></li><li><a href="/trade-charts/r407c-pt-chart/">R-407C PT chart</a></li></ul></section>
 <section class="card"><h2><a href="/trade-charts/hvac-calculators/">HVAC calculators</a></h2><p>Superheat, subcooling and target superheat, plus side-by-side refrigerant comparisons.</p><ul class="linkgrid"><li><a href="/trade-charts/superheat-calculator/">Superheat</a></li><li><a href="/trade-charts/subcooling-calculator/">Subcooling</a></li><li><a href="/trade-charts/target-superheat-calculator/">Target superheat</a></li><li><a href="/trade-charts/r454b-vs-r410a/">R-454B vs R-410A</a></li><li><a href="/trade-charts/r32-vs-r454b/">R-32 vs R-454B</a></li></ul></section>

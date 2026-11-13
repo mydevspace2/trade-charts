@@ -15,7 +15,10 @@ const fails = []; const ok = (c, m) => { if (!c) fails.push(m); };
   const mob = await b.newContext({ viewport: { width: 375, height: 800 }, isMobile: true, deviceScaleFactor: 1 });
   const p = await mob.newPage(); let errs = [];
   p.on('console', m => { if (m.type() === 'error') errs.push(m.text()); }); p.on('pageerror', e => errs.push(String(e)));
-  for (const pg of pages) {
+  // Optional split for slow sandboxes: TC_SLICE=0:70 runs only that slice of the page loop; TC_NOPAGES=1 skips the loop.
+  const sl = (process.env.TC_SLICE || '').split(':').map(Number);
+  const loop = process.env.TC_NOPAGES ? [] : process.env.TC_SLICE ? pages.slice(sl[0], sl[1]) : pages;
+  for (const pg of loop) {
     errs = [];
     await p.goto(U + pg, { waitUntil: 'networkidle' });
     const ov = await p.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
@@ -24,6 +27,7 @@ const fails = []; const ok = (c, m) => { if (!c) fails.push(m); };
     ok(res.every(t => t && !/Loading|Could not load/.test(t)), `${pg}: tool output empty/failed: ${JSON.stringify(res).slice(0, 120)}`);
     ok(errs.length === 0, `${pg}: console errors ${errs.join(' | ').slice(0, 200)}`);
   }
+  if (process.env.TC_SLICE) { await b.close(); srv.close(); console.log(`${loop.length} pages (slice ${process.env.TC_SLICE})`); if (fails.length) { console.log(fails.join('\n')); console.log(fails.length + ' BROWSER FAILURES'); process.exit(1); } console.log('BROWSER QA PASSED (slice)'); return; }
   // functional checks
   const val = async (sel) => (await p.textContent(sel)).replace(/\s+/g, ' ');
   await p.goto(U + '/r410a-pt-chart/', { waitUntil: 'networkidle' });
@@ -77,6 +81,81 @@ const fails = []; const ok = (c, m) => { if (!c) fails.push(m); };
   // print: tools hidden
   await d.emulateMedia({ media: 'print' }); await d.goto(U + '/r22-pt-chart/');
   ok(await d.evaluate(() => getComputedStyle(document.querySelector('.tool')).display === 'none' && getComputedStyle(document.querySelector('.chart')).display !== 'none'), 'print view hides tool, keeps chart');
+  // UX: Calculate button, Enter, Copy, Reset, Share, theme toggle, contrast, tap targets, input size
+  {
+    const ux = await b.newContext({ viewport: { width: 375, height: 812 }, isMobile: true, hasTouch: true, permissions: ['clipboard-read', 'clipboard-write'] });
+    const q = await ux.newPage(); const qerr = []; q.on('pageerror', e => qerr.push(String(e)));
+    const clip = () => q.evaluate(() => navigator.clipboard.readText());
+    const tools = { '/': 'pt-any', '/r410a-pt-chart/': 'pt', '/superheat-calculator/': 'sh', '/subcooling-calculator/': 'sc', '/target-superheat-calculator/': 'tsh',
+      '/conduit-fill-calculator/': 'fill', '/wire-ampacity-chart/': 'amp', '/voltage-drop-calculator/': 'vd', '/22-5-degree-offset-multiplier/': 'off', '/box-fill-calculator/': 'box',
+      '/natural-gas-pipe-sizing-chart/': 'gas', '/bradford-white-water-heater-age/': 'age', '/mig-welding-settings-calculator/': 'mig' };
+    for (const [pg, kind] of Object.entries(tools)) {
+      await q.goto(U + pg, { waitUntil: 'networkidle' }); await q.evaluate(() => localStorage.clear()); await q.reload({ waitUntil: 'networkidle' }); const R = `[data-tool="${kind}"]`;
+      ok(await q.isVisible(`${R} [data-calc]`), `${pg}: Calculate button visible`);
+      ok(await q.isVisible(`${R} [data-copy]`) && await q.isVisible(`${R} [data-reset]`), `${pg}: Copy + Reset visible`);
+      const share = await q.isVisible(`${R} [data-share]`); ok(share === /^(pt|pt-any|sh|sc)$/.test(kind), `${pg}: Share visible only on PT/SH/SC (${share})`);
+      const before = await q.textContent(`${R} output`);
+      const inp = await q.$(`${R} input[type=number], ${R} input[data-sn]`);
+      if (inp) { await inp.fill(kind === 'age' ? 'HK16433183' : kind === 'tsh' ? '64' : '7'); await inp.focus(); await q.keyboard.press('Enter'); await q.waitForTimeout(450);
+        ok(await q.evaluate(() => !/INPUT/.test(document.activeElement.tagName)), `${pg}: Enter blurs the input`);
+        const vis = await q.$eval(`${R} output`, o => { const r = o.getBoundingClientRect(); return r.top >= 0 && r.top < innerHeight; }); ok(vis, `${pg}: result in view after Enter`); }
+      await q.click(`${R} [data-copy]`); await q.waitForTimeout(100); const c = await clip();
+      ok(c.length > 10 && c.includes('http'), `${pg}: copied text "${c.slice(0, 60)}"`);
+      await q.click(`${R} [data-reset]`); await q.waitForTimeout(250);
+      ok((await q.textContent(`${R} output`)) === before, `${pg}: Reset restores default result (${(await q.textContent(`${R} output`)).slice(0, 50)} vs ${before.slice(0, 50)})`);
+      await q.click(`${R} [data-calc]`); await q.waitForTimeout(150);
+      ok(await q.evaluate(() => document.documentElement.scrollWidth - innerWidth) <= 1, `${pg}: sideways scroll after Calculate`);
+    }
+    // Share fallback (no navigator.share in headless) copies a link that restores the values
+    await q.goto(U + '/superheat-calculator/', { waitUntil: 'networkidle' });
+    await q.selectOption('[data-tool="sh"] [data-ref]', 'r410a'); await q.fill('[data-tool="sh"] [data-t]', '60');
+    const o1 = await q.textContent('[data-tool="sh"] output');
+    await q.click('[data-tool="sh"] [data-share]'); await q.waitForTimeout(100); const link = await clip();
+    ok(/ref=r410a/.test(link) && /t=60/.test(link), 'share link has values: ' + link);
+    await q.goto(link, { waitUntil: 'networkidle' }); ok((await q.textContent('[data-tool="sh"] output')) === o1, 'share link restores result');
+    await q.goto(U + '/r410a-pt-chart/?m=p2t&v=118.8&tu=F&pu=psig', { waitUntil: 'networkidle' });
+    ok(/40\.0 °F/.test(await q.textContent('[data-tool="pt"] output')), 'PT share link p2t restores');
+    ok(await q.isVisible('[data-print]'), 'Print chart kept on PT page');
+    ok(qerr.length === 0, 'UX page errors: ' + qerr.join(' | '));
+    // tap targets >= 44 px and inputs >= 16 px (controls, nav, chips, cards, crumbs, footer; inline text links excluded)
+    for (const pg of ['/', '/r410a-pt-chart/', '/conduit-fill-calculator/', '/box-fill-calculator/']) {
+      await q.goto(U + pg, { waitUntil: 'networkidle' }); await q.click('.navbtn');
+      const small = await q.evaluate(() => {
+        const sel = 'button, input, select, summary, .nav a, .chips a, .linkgrid a, .actions a, .crumbs a, .foot li a, .card h2 a, .cards a, .brand';
+        return [...document.querySelectorAll(sel)].filter(e => e.offsetParent !== null && !e.closest('.sr')).map(e => { const r = e.getBoundingClientRect(); return [e.tagName + '.' + e.className + ' ' + (e.textContent || e.getAttribute('aria-label') || '').trim().slice(0, 20), Math.round(r.width), Math.round(r.height)]; })
+          .filter(x => x[1] < 44 || x[2] < 44);
+      });
+      ok(small.length === 0, `${pg}: tap targets < 44px: ${JSON.stringify(small).slice(0, 300)}`);
+      const fs16 = await q.evaluate(() => [...document.querySelectorAll('input, select, textarea')].filter(e => parseFloat(getComputedStyle(e).fontSize) < 16).map(e => e.outerHTML.slice(0, 60)));
+      ok(fs16.length === 0, `${pg}: inputs under 16px: ${fs16.join(' ')}`);
+    }
+    // contrast >= 4.5:1 for orange text/buttons, both themes
+    for (const theme of ['light', 'dark']) {
+      await q.goto(U + '/r410a-pt-chart/', { waitUntil: 'networkidle' });
+      await q.evaluate(t => { localStorage.setItem('tc.theme', t); }, theme); await q.reload({ waitUntil: 'networkidle' });
+      const bad = await q.evaluate(() => {
+        const rgb = s => (s.match(/[\d.]+/g) || []).map(Number);
+        const lum = c => { const a = c.slice(0, 3).map(v => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); }); return .2126 * a[0] + .7152 * a[1] + .0722 * a[2]; };
+        const bgOf = e => { for (; e; e = e.parentElement) { const c = rgb(getComputedStyle(e).backgroundColor); if (c.length === 3 || (c.length === 4 && c[3] > .5)) return c; } return [255, 255, 255]; };
+        const out = [];
+        document.querySelectorAll('main a, .btn, .tbar button, .seg button, .brand b, .chips a, .calcbar .btn').forEach(e => {
+          if (e.offsetParent === null) return; const fg = rgb(getComputedStyle(e).color), bg = bgOf(e);
+          const L1 = lum(fg), L2 = lum(bg), cr = (Math.max(L1, L2) + .05) / (Math.min(L1, L2) + .05);
+          if (cr < 4.5) out.push((e.textContent || '').trim().slice(0, 20) + ' ' + cr.toFixed(2));
+        });
+        return out;
+      });
+      ok(bad.length === 0, `${theme}: contrast < 4.5: ${bad.slice(0, 8).join(', ')}`);
+    }
+    // theme toggle: default follows OS, click flips and persists
+    const tc = await b.newContext({ colorScheme: 'dark' }); const t = await tc.newPage(); await t.goto(U + '/');
+    ok((await t.evaluate(() => getComputedStyle(document.body).backgroundColor)) === 'rgb(15, 22, 29)', 'toggle: default follows OS dark');
+    ok((await t.getAttribute('.theme-toggle', 'aria-pressed')) === 'true', 'toggle pressed in dark');
+    await t.click('.theme-toggle'); ok((await t.evaluate(() => getComputedStyle(document.body).backgroundColor)) === 'rgb(244, 241, 234)', 'toggle -> light');
+    await t.reload(); ok((await t.evaluate(() => getComputedStyle(document.body).backgroundColor)) === 'rgb(244, 241, 234)', 'toggle choice persists after reload');
+    ok((await t.evaluate(() => localStorage.getItem('tc.theme'))) === 'light', 'toggle saved in localStorage');
+    await tc.close(); await ux.close();
+  }
   await b.close(); srv.close();
   console.log(`${pages.length} pages loaded at 375px; functional, dark-mode, CSP and print checks run.`);
   if (fails.length) { console.log(fails.join('\n')); console.log(fails.length + ' BROWSER FAILURES'); process.exit(1); }

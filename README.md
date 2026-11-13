@@ -12,7 +12,7 @@ Live: https://mydevspace2.github.io/trade-charts/  ·  Repo: https://github.com/
 - `_source/build/` — Python generator: `build.py` (entry), `core.py` (layout, SEO, schema), `pages_hvac.py`, `pages_elec.py`,
   `pages_misc.py` (gas, age, welding), `pages_site.py` (home, blog, legal), `extra.py` (editorial add-ons), `assets/` (CSS, JS),
   `data/` (generated JSON), `data_ref.py` (refrigerant tables), `data_elec.py` (NEC + IFGC tables).
-- `_source/qa/` — `test_data.py` (data vs sources), `test_static.py` (links, SEO, schema, sitemap), `test-browser.js` (Playwright/Chromium).
+- `_source/qa/` — `test_data.py` (data vs sources), `test_static.py` (links, SEO, schema, sitemap), `test-browser.js` (Playwright/Chromium: pages, calculators, Calculate/Enter/Copy/Reset/Share, theme toggle, contrast, tap targets), `test-fold.js` (mobile first screen). On a slow machine split the page loop: `TC_SLICE=0:70`, `TC_SLICE=70:200`, then `TC_NOPAGES=1` (run them one after another; they share port 8811).
 - `_source/src/` — parsed reference data used by the data tests. `_source/ci/indexnow.yml` — optional GitHub Action.
 
 ## Rebuild and test
@@ -24,6 +24,7 @@ python3 ../qa/test_data.py                     # must print ALL DATA CHECKS PASS
 python3 build.py                               # writes ../out (or set TC_OUT)
 python3 ../qa/test_static.py                   # links, titles/meta, canonical, CSP, JSON-LD, sitemap
 cd ../qa && npm i && npx playwright install chromium && node test-browser.js
+node test-fold.js ../out                        # 375x812: tool box + first input above the fold, no sideways scroll after a result
 ```
 Environment: `TC_SITE_URL`, `TC_BASE` (use `''` for a custom domain at the root), `TC_CNAME` (writes CNAME), `TC_GSV`
 (Google verification token, home page only), `TC_UPDATED` (date shown on pages and used for sitemap lastmod).
