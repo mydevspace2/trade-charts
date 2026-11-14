@@ -49,3 +49,35 @@ EXTRA = {
 '/blog/how-to-tell-water-heater-age/': f'''<h2>HVAC equipment too</h2>
 <p>Furnaces, air conditioners and heat pumps also hide the date in the serial number, with different formats: {L('/carrier-age-by-serial-number/', 'Carrier')}, {L('/goodman-age-by-serial-number/', 'Goodman')}, {L('/lennox-age-by-serial-number/', 'Lennox')}, {L('/trane-age-by-serial-number/', 'Trane')} and {L('/rheem-hvac-age-by-serial-number/', 'Rheem/Ruud')}.</p>''',
 }
+
+
+# ---- Phase 1 run 2026-11-14: EMT size pages, computed from data/electrical.json (NEC Ch. 9 Tables 4 and 5) ----
+def _emt_extra():
+    import json, os
+    d = json.load(open(os.path.join(os.path.dirname(__file__), 'data', 'electrical.json')))
+    wa = d['wire_area']['THHN']
+    out = {}
+    for slug, size, label in [('1-2-emt-conduit-fill', '1/2', '1/2 inch'), ('3-4-emt-conduit-fill', '3/4', '3/4 inch'),
+                              ('1-emt-conduit-fill', '1', '1 inch'), ('1-1-4-emt-conduit-fill', '1-1/4', '1-1/4 inch'),
+                              ('1-1-2-emt-conduit-fill', '1-1/2', '1-1/2 inch')]:
+        c = d['conduit']['EMT'].get(size)
+        if not c:
+            continue
+        rows = ''.join(f'<tr><td>{g} AWG THHN</td><td>{wa[g]}</td><td>{int(c["a40"] // wa[g])}</td></tr>' for g in ('14', '12', '10', '8', '6', '4'))
+        mix = 3 * wa['12'] + wa['12']  # three 12 AWG + one 12 AWG ground (same size)
+        n4 = int(c['a40'] // wa['12'])
+        out[f'/{slug}/'] = f'''<h2>How many wires fit in {label} EMT?</h2>
+<p>NEC Chapter 9, Table 4 gives {label} EMT a total internal area of {c['area']} sq in. For three or more conductors Table 1 allows 40% of that, {c['a40']} sq in. Dividing by the conductor area from Table 5 (THHN/THWN-2) gives the maximum number of identical conductors:</p>
+<table><caption>Maximum THHN conductors in {label} EMT at 40% fill</caption><thead><tr><th>Conductor</th><th>Area, sq in</th><th>Max conductors</th></tr></thead><tbody>{rows}</tbody></table>
+<h2>Worked example</h2>
+<p>A branch circuit needs three 12 AWG THHN conductors plus a 12 AWG equipment grounding conductor, four conductors in all. Total area is 4 \u00d7 {wa['12']} = {mix:.4f} sq in. The 40% allowance of {label} EMT is {c['a40']} sq in, so it {'fits' if mix <= c['a40'] else 'does not fit'} ({mix / c['area'] * 100:.0f}% of the conduit). The table above says up to {n4} 12 AWG conductors fit.</p>
+<h2>How to use this page</h2>
+<ol><li>List every conductor, including equipment grounds (NEC Chapter 9, Note 3).</li><li>Look up each insulated conductor area in Table 5; bare grounds use Table 8.</li><li>Add the areas and compare the total with the 40% column.</li><li>If it is over, step up one trade size and recheck. Use the {L('/conduit-fill-calculator/', 'conduit fill calculator')} for mixed sizes.</li></ol>
+<p>Rules that change the answer: a section of raceway 24 inches or shorter may be filled to 60% (Note 4), and different insulation types have different areas, so XHHW and THHN results differ. Read the {L('/blog/conduit-fill-40-percent-rule/', 'NEC 40% rule explained')} for the notes in full, and always check with your local inspector, because local amendments exist. Conductor derating for more than three current-carrying conductors is a separate check on the {L('/electrical/', 'electrical hub')}.</p>'''
+    return out
+
+EXTRA.update(_emt_extra())
+EXTRA['/superheat-calculator/'] = EXTRA.get('/superheat-calculator/', '') + f'''<h2>Worked example</h2>
+<p>An R-410A system reads 118 psig at the suction service valve. On the {L('/r410a-pt-chart/', 'R-410A PT chart')} that is a saturation temperature of about 40 \u00b0F. The suction line, measured at the same point, is 52 \u00b0F. Superheat is 52 \u2212 40 = 12 \u00b0F. For a blend such as R-407C or R-454B, read the dew column instead of the bubble column.</p>
+<h2>What to do with the number</h2>
+<ul><li><b>Fixed orifice (piston):</b> compare with the manufacturer\u2019s target superheat for the indoor wet bulb and outdoor dry bulb; use the {L('/target-superheat-calculator/', 'target superheat calculator')}.</li><li><b>TXV:</b> superheat is held by the valve, so charge by subcooling instead. See {L('/blog/fixed-orifice-vs-txv-how-to-tell/', 'how to tell which you have')}.</li><li>Run the system about 15\u201320 minutes first and fix airflow before judging the charge.</li></ul>'''

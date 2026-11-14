@@ -10,9 +10,9 @@
 | 7 | R-454B Service Basics for R-410A Techs | r454b service | ✔ live 2026-11-13 |
 | 8 | A2L Leak Detectors and Recovery Machines: What Changes | a2l tools | ✔ live 2026-11-13 |
 | 9 | Temperature Glide: Why Blends Have Two Pressures | refrigerant glide | ✔ live 2026-11-13 |
-| 10 | Charging a Heat Pump in Heating Mode | charge heat pump in winter | planned |
-| 11 | Fixed Orifice vs TXV: How to Tell Which You Have | piston vs txv | planned |
-| 12 | Non-Condensables: Reading High Standing Pressure | air in refrigerant system | planned |
+| 10 | Charging a Heat Pump in Heating Mode | charge heat pump in winter | ✔ live 2026-11-14 |
+| 11 | Fixed Orifice vs TXV: How to Tell Which You Have | piston vs txv | ✔ live 2026-11-14 |
+| 12 | Non-Condensables: Reading High Standing Pressure | air in refrigerant system | ✔ live 2026-11-14 |
 | 13 | EMT vs PVC vs Rigid: Choosing a Raceway | emt vs pvc | planned |
 | 14 | How Many Wires in 3/4 EMT (Worked Examples) | how many wires in 3/4 emt | planned |
 | 15 | 60 °C vs 75 °C vs 90 °C Columns Explained | 75c vs 90c ampacity | planned |

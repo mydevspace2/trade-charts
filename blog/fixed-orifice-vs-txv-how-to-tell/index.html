@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Fixed Orifice vs TXV: How to Tell Which You Have</title>
+<meta name="description" content="Piston or TXV? How to identify the metering device, why it decides whether you charge by superheat or subcooling, and what each does when charge changes.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://mydevspace2.github.io/trade-charts/blog/fixed-orifice-vs-txv-how-to-tell/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Trade Charts">
+<meta property="og:title" content="Fixed Orifice vs TXV: How to Tell Which You Have">
+<meta property="og:description" content="Piston or TXV? How to identify the metering device, why it decides whether you charge by superheat or subcooling, and what each does when charge changes.">
+<meta property="og:url" content="https://mydevspace2.github.io/trade-charts/blog/fixed-orifice-vs-txv-how-to-tell/">
+<meta property="og:image" content="https://mydevspace2.github.io/trade-charts/assets/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14202b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
+<link rel="manifest" href="/trade-charts/site.webmanifest">
+<script src="/trade-charts/assets/theme.js?v=2"></script>
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=2">
+<script src="/trade-charts/assets/app.js?v=2" defer></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Fixed Orifice vs TXV: How to Tell Which You Have","description":"Piston or TXV? How to identify the metering device, why it decides whether you charge by superheat or subcooling, and what each does when charge changes.","url":"https://mydevspace2.github.io/trade-charts/blog/fixed-orifice-vs-txv-how-to-tell/","datePublished":"2026-11-14","dateModified":"2026-11-13","inLanguage":"en-US","author":{"@type":"Organization","name":"Trade Charts","url":"https://mydevspace2.github.io/trade-charts/about/"},"publisher":{"@type":"Organization","name":"Trade Charts","logo":{"@type":"ImageObject","url":"https://mydevspace2.github.io/trade-charts/assets/icon-512.png"}},"image":"https://mydevspace2.github.io/trade-charts/assets/og.png","mainEntityOfPage":"https://mydevspace2.github.io/trade-charts/blog/fixed-orifice-vs-txv-how-to-tell/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I tell if my system has a TXV or a piston?","acceptedAnswer":{"@type":"Answer","text":"Check the rating plate, look for a sensing bulb on the suction line near the indoor coil (TXV), or a fitting at the coil liquid connection holding a piston, and read the installation manual."}},{"@type":"Question","name":"Do I charge a TXV by superheat?","acceptedAnswer":{"@type":"Answer","text":"No. The valve holds superheat nearly constant, so charge is checked by subcooling against the manufacturer target."}},{"@type":"Question","name":"Do I charge a piston system by subcooling?","acceptedAnswer":{"@type":"Answer","text":"The primary method is superheat against the manufacturer chart for the indoor wet bulb and outdoor dry bulb. Subcooling is still useful for diagnosis."}},{"@type":"Question","name":"Can a heat pump have both devices?","acceptedAnswer":{"@type":"Answer","text":"Yes. Some heat pumps have a piston in the outdoor unit for heating and another device indoors for cooling, so the mode decides which one is metering."}},{"@type":"Question","name":"Why not use one superheat number for every piston system?","acceptedAnswer":{"@type":"Answer","text":"Because target superheat changes with indoor wet bulb and outdoor dry bulb, and manufacturers publish different charts."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mydevspace2.github.io/trade-charts/blog/"},{"@type":"ListItem","position":3,"name":"Fixed Orifice vs TXV","item":"https://mydevspace2.github.io/trade-charts/blog/fixed-orifice-vs-txv-how-to-tell/"}]}</script>
+</head>
+<body data-base="/trade-charts">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+ <div class="wrap top-in">
+  <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
+  <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode" title="Switch light / dark mode"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
+  <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/" aria-current="page">Guides</a></li></ul></nav>
+  <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
+ </div>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/trade-charts/">Home</a></li><li><a href="/trade-charts/blog/">Guides</a></li><li aria-current="page">Fixed Orifice vs TXV</li></ol></nav>
+<article class="post"><h1>Fixed Orifice vs TXV: How to Tell Which You Have</h1><p class="meta">Guide · Updated November 13, 2026</p>
+<p class="lead">Before you pick a charging method you need to know what is metering refrigerant into the evaporator. A piston (fixed orifice) and a thermostatic expansion valve (TXV) respond to a change in charge in opposite ways, so charging a TXV system by superheat, or a piston system by subcooling, gives a meaningless reading. Here is how to tell them apart and what to measure on each.</p>
+<h2>What each device does</h2>
+<p>HVAC School describes the job of any metering device as creating a pressure drop between the liquid line and the evaporator. As the liquid passes through, part of it flashes to vapor and the rest boils in the coil.</p>
+<ul>
+<li>A <b>piston</b> is a brass body with a fixed bore. The smaller the bore, the less refrigerant passes. Nothing adjusts it, so flow depends on the pressure difference across it. In many heat pumps the piston is a flow-through type that unseats when the reversing valve changes direction, and there is a second metering device for the other mode. Capillary tubes are another fixed-orifice type, more common in refrigeration.</li>
+<li>A <b>TXV</b> opens and closes in response to evaporator load. A sensing bulb on the suction line pushes it open as the line warms, while a spring and an external equalizer push it closed. HVAC School calls it a constant-superheat device: it holds a relatively constant superheat at the evaporator outlet.</li>
+</ul>
+<h2>How to identify which one you have</h2>
+<ol>
+<li><b>Read the data plate.</b> Many outdoor units list the charging method and target (subcooling or a superheat chart). Check the indoor unit rating plate too.</li>
+<li><b>Look at the indoor coil.</b> A TXV has a bulb clamped to the suction line near the coil outlet and often an equalizer line. A piston sits in a fitting at the liquid line connection, usually behind a nut.</li>
+<li><b>Look at the installation manual.</b> Carrier manuals state it plainly: for TXV, use the subcooling method; for piston, use the superheat method.</li>
+<li><b>Verify, don’t assume.</b> One charging guide advises removing the front cover if the rating plate does not settle it. Replacement coils are sometimes a different type from the original.</li>
+</ol>
+<h2>Why the method follows the device</h2>
+<p>ACHR News explains that a TXV unit is charged to the subcooling leaving the condenser because the superheat is held nearly constant, typically 8–12 °F in residential air conditioning. A piston cannot regulate anything, so adding refrigerant lowers superheat and removing it raises superheat; superheat tracks the charge directly.</p>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col"></th><th scope="col">Fixed orifice (piston)</th><th scope="col">TXV</th></tr></thead><tbody><tr><th scope="row">Flow control</th><td>Fixed bore, no adjustment</td><td>Modulates to hold superheat</td></tr><tr><th scope="row">Primary charging method</th><td>Superheat vs manufacturer chart</td><td>Subcooling vs data plate target</td></tr><tr><th scope="row">Superheat as a charge indicator</th><td>Yes (changes with charge and load)</td><td>No (valve holds it)</td></tr><tr><th scope="row">Superheat target depends on</th><td>Indoor wet bulb and outdoor dry bulb</td><td>Not used for charge</td></tr><tr><th scope="row">Typical subcooling target</th><td>Diagnostic only</td><td>Per manufacturer, often 6–12 °F</td></tr><tr><th scope="row">What else to monitor</th><td>Subcooling, delta T, pressures</td><td>Superheat, delta T, pressures</td></tr></tbody></table></div>
+<p>Whichever you use, HVAC School reminds you to keep watching suction pressure, head pressure, superheat, subcooling and delta T or another airflow check.</p>
+<h2>Worked example (piston)</h2>
+<p>Suppose a piston system on R-410A reads 118 psig on the suction port, which is 40 °F saturation on the <a href="/trade-charts/r410a-pt-chart/">R-410A PT chart</a>, and the suction line temperature at the condenser is 52 °F. Superheat is 12 °F. You then compare that with the manufacturer’s chart for the indoor wet bulb and outdoor dry bulb. Do not use one fixed number for every piston system; the target changes with load. The <a href="/trade-charts/superheat-calculator/">superheat calculator</a> does the subtraction for you.</p>
+<h2>Worked example (TXV)</h2>
+<p>On a TXV system the plate says 10 °F subcooling. You read liquid pressure, convert to a saturated liquid temperature and subtract the liquid line temperature measured near the service valve. Add refrigerant to raise subcooling; recover to lower it. The <a href="/trade-charts/subcooling-calculator/">subcooling calculator</a> gives the number. Check airflow first; our guide to <a href="/trade-charts/blog/superheat-vs-subcooling/">superheat vs subcooling</a> lists the usual causes of false readings.</p>
+<h2>Heat pumps and mixed systems</h2>
+<p>Heat pumps can have a piston on one end and a TXV on the other, or a TXV at both ends with check valves. The mode you are in decides which device is metering, so check the manual for the heating-mode method and read <a href="/trade-charts/blog/charging-a-heat-pump-in-heating-mode/">charging a heat pump in heating mode</a> before you charge in winter.</p>
+<h2>Sources</h2><ul class="sources"><li><a href="http://www.hvacrschool.com/piston-vs-txv" rel="noopener">HVAC School (Bryan Orr): Piston vs. TXV Metering Devices</a></li><li><a href="https://www.achrnews.com/articles/83383-charging-methods-for-metering-devices" rel="noopener">ACHR News: Charging Methods for Metering Devices</a></li><li><a href="https://manuals.plus/carrier/25sca5-single-stage-heat-pumps-manual.pdf" rel="noopener">Carrier 25SCA5 heat pump manual (check charge: TXV subcooling, piston superheat)</a></li><li><a href="https://www.acservicetech.com/post/should-i-check-the-refrigerant-charge-with-superheat-or-subcooling" rel="noopener">AC Service Tech: Should I check the refrigerant charge with superheat or subcooling?</a></li><li><a href="https://buildingscience.com/sites/default/files/migrate/pdf/BSCInfo_608_Refrigerant_Material_rev.pdf" rel="noopener">Building Science Corporation: Information Sheet 608 (charging, superheat and subcooling)</a></li></ul><section class="faq" id="faq"><h2>Frequently asked questions</h2>
+<details><summary>How do I tell if my system has a TXV or a piston?</summary><div class="ans">Check the rating plate, look for a sensing bulb on the suction line near the indoor coil (TXV), or a fitting at the coil liquid connection holding a piston, and read the installation manual.</div></details>
+<details><summary>Do I charge a TXV by superheat?</summary><div class="ans">No. The valve holds superheat nearly constant, so charge is checked by subcooling against the manufacturer target.</div></details>
+<details><summary>Do I charge a piston system by subcooling?</summary><div class="ans">The primary method is superheat against the manufacturer chart for the indoor wet bulb and outdoor dry bulb. Subcooling is still useful for diagnosis.</div></details>
+<details><summary>Can a heat pump have both devices?</summary><div class="ans">Yes. Some heat pumps have a piston in the outdoor unit for heating and another device indoors for cooling, so the mode decides which one is metering.</div></details>
+<details><summary>Why not use one superheat number for every piston system?</summary><div class="ans">Because target superheat changes with indoor wet bulb and outdoor dry bulb, and manufacturers publish different charts.</div></details>
+</section></article>
+<aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
+<p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
+</main>
+<footer class="foot">
+ <div class="wrap foot-in">
+  <div><strong>Trade Charts</strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
+  <ul><li><a href="/trade-charts/pt-chart/">Refrigerant PT charts</a></li><li><a href="/trade-charts/superheat-calculator/">Superheat calculator</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by serial number</a></li></ul>
+  <ul><li><a href="/trade-charts/about/">About &amp; sources</a></li><li><a href="/trade-charts/contact/">Contact</a></li><li><a href="/trade-charts/privacy/">Privacy</a></li><li><a href="/trade-charts/terms/">Terms</a></li><li><a href="/trade-charts/sitemap.xml">Sitemap</a></li></ul>
+ </div>
+ <p class="wrap fine">&copy; 2026 Trade Charts. Reference only &mdash; verify with code and manufacturer data. Not affiliated with any manufacturer, NFPA or ICC; trademarks belong to their owners.</p>
+</footer>
+</body>
+</html>

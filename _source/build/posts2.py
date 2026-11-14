@@ -280,3 +280,18 @@ def related_html(path):
     if not items:
         return ''
     return '<h2>Related guides</h2><ul>' + ''.join(f'<li>{L(f"/blog/{s}/", t)}</li>' for s, t in items) + '</ul>'
+
+
+# ---- posts 10-12 (posts3.py) ----
+import posts3 as _p3
+NEW_POSTS.extend(_p3.NEW_POSTS)
+FAQS.update(_p3.FAQS)
+for _k, _v in _p3.RELATED_GUIDES.items():
+    RELATED_GUIDES.setdefault(_k, []).extend(_v)
+_orig_nb = new_bodies
+
+
+def new_bodies():
+    d = _orig_nb()
+    d.update(_p3.bodies())
+    return d

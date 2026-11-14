@@ -66,7 +66,14 @@
 <li>A nipple of 24 in. or less may be filled to 60%.</li></ul>
 <ul class="linkgrid"><li><a href="/trade-charts/emt-conduit-fill-chart/">All EMT sizes</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/wire-ampacity-chart/">Wire ampacity chart</a></li></ul>
 <p class="src">Source: NEC (NFPA 70) Chapter 9, Table 1 (fill percentages), Table 4 (conduit areas) and Table 5 (conductor areas).</p>
-<section class="faq" id="faq"><h2>Frequently asked questions</h2>
+<h2>How many wires fit in 1 inch EMT?</h2>
+<p>NEC Chapter 9, Table 4 gives 1 inch EMT a total internal area of 0.864 sq in. For three or more conductors Table 1 allows 40% of that, 0.346 sq in. Dividing by the conductor area from Table 5 (THHN/THWN-2) gives the maximum number of identical conductors:</p>
+<table><caption>Maximum THHN conductors in 1 inch EMT at 40% fill</caption><thead><tr><th>Conductor</th><th>Area, sq in</th><th>Max conductors</th></tr></thead><tbody><tr><td>14 AWG THHN</td><td>0.0097</td><td>35</td></tr><tr><td>12 AWG THHN</td><td>0.0133</td><td>26</td></tr><tr><td>10 AWG THHN</td><td>0.0211</td><td>16</td></tr><tr><td>8 AWG THHN</td><td>0.0366</td><td>9</td></tr><tr><td>6 AWG THHN</td><td>0.0507</td><td>6</td></tr><tr><td>4 AWG THHN</td><td>0.0824</td><td>4</td></tr></tbody></table>
+<h2>Worked example</h2>
+<p>A branch circuit needs three 12 AWG THHN conductors plus a 12 AWG equipment grounding conductor, four conductors in all. Total area is 4 × 0.0133 = 0.0532 sq in. The 40% allowance of 1 inch EMT is 0.346 sq in, so it fits (6% of the conduit). The table above says up to 26 12 AWG conductors fit.</p>
+<h2>How to use this page</h2>
+<ol><li>List every conductor, including equipment grounds (NEC Chapter 9, Note 3).</li><li>Look up each insulated conductor area in Table 5; bare grounds use Table 8.</li><li>Add the areas and compare the total with the 40% column.</li><li>If it is over, step up one trade size and recheck. Use the <a href="/trade-charts/conduit-fill-calculator/">conduit fill calculator</a> for mixed sizes.</li></ol>
+<p>Rules that change the answer: a section of raceway 24 inches or shorter may be filled to 60% (Note 4), and different insulation types have different areas, so XHHW and THHN results differ. Read the <a href="/trade-charts/blog/conduit-fill-40-percent-rule/">NEC 40% rule explained</a> for the notes in full, and always check with your local inspector, because local amendments exist. Conductor derating for more than three current-carrying conductors is a separate check on the <a href="/trade-charts/electrical/">electrical hub</a>.</p><section class="faq" id="faq"><h2>Frequently asked questions</h2>
 <details><summary>How many 12 AWG THHN fit in 1&quot; EMT?</summary><div class="ans">26 conductors.</div></details>
 <details><summary>How many 10 AWG THHN fit in 1&quot; EMT?</summary><div class="ans">16 conductors.</div></details>
 <details><summary>What is the 40% fill area of 1&quot; EMT?</summary><div class="ans">0.346 square inches (total internal area 0.864 in²).</div></details>
