@@ -81,3 +81,35 @@ EXTRA['/superheat-calculator/'] = EXTRA.get('/superheat-calculator/', '') + f'''
 <p>An R-410A system reads 118 psig at the suction service valve. On the {L('/r410a-pt-chart/', 'R-410A PT chart')} that is a saturation temperature of about 40 \u00b0F. The suction line, measured at the same point, is 52 \u00b0F. Superheat is 52 \u2212 40 = 12 \u00b0F. For a blend such as R-407C or R-454B, read the dew column instead of the bubble column.</p>
 <h2>What to do with the number</h2>
 <ul><li><b>Fixed orifice (piston):</b> compare with the manufacturer\u2019s target superheat for the indoor wet bulb and outdoor dry bulb; use the {L('/target-superheat-calculator/', 'target superheat calculator')}.</li><li><b>TXV:</b> superheat is held by the valve, so charge by subcooling instead. See {L('/blog/fixed-orifice-vs-txv-how-to-tell/', 'how to tell which you have')}.</li><li>Run the system about 15\u201320 minutes first and fix airflow before judging the charge.</li></ul>'''
+
+
+def _offset_extra():
+    import math
+    out = {}
+    for a, s in ((10, '10'), (15, '15'), (22.5, '22-5'), (30, '30'), (45, '45'), (60, '60')):
+        r = math.radians(a)
+        m = 1 / math.sin(r)
+        sh = math.tan(r / 2)
+        n = int(360 // (2 * a))
+        lab = f'{a:g}'
+        d1, d2 = 4, 7.5
+        other = [x for x in ('10', '15', '22-5', '30', '45', '60') if x != s]
+        out[f'/{s}-degree-offset-multiplier/'] = f'''<h2>Worked examples for a {lab}\u00b0 offset</h2>
+<p><b>Example 1: a {d1} in. offset.</b> Distance between the two bend marks = {d1} \u00d7 {m:.3f} = {d1 * m:.2f} in. The run gets shorter by {d1} \u00d7 {sh:.3f} = {d1 * sh:.2f} in. (exact; bender charts round the per-inch value). If the conduit must end exactly at a box, measure to the box, then add that {d1 * sh:.2f} in. of shrink to the first mark so the offset lands where you want it.</p>
+<p><b>Example 2: a {d2} in. offset.</b> Marks are {d2} \u00d7 {m:.3f} = {d2 * m:.2f} in. apart, and shrink is {d2 * sh:.2f} in. Notice that the spacing grows in direct proportion to the depth, so a deeper offset needs a longer clear run between the obstruction and the next fitting.</p>
+<h2>How many {lab}\u00b0 offsets fit before the 360\u00b0 limit</h2>
+<p>NEC rules for metal and nonmetallic conduit limit the total bends between pull points (conduit bodies, boxes or enclosures) to 360 degrees, including offsets. A standard offset is two bends of {lab}\u00b0, so it uses {2 * a:g}\u00b0 of that allowance. That means {n} {lab}\u00b0 offsets would use {n * 2 * a:g}\u00b0 of the 360\u00b0, and nothing is left for a 90\u00b0 stub-up. Plan the 90\u00b0 bends first, then see how many offsets still fit.</p>
+<h2>Marking and bending steps</h2>
+<ol>
+<li>Measure how far the conduit must move over (the offset depth) and mark the first bend position on the conduit.</li>
+<li>Calculate the spacing: depth \u00d7 {m:.3f}. Measure that distance from the first mark and make the second mark.</li>
+<li>Bend the first mark to {lab}\u00b0 with the bender\u2019s arrow or {lab}\u00b0 mark aligned to the first bend mark, as your bender shows.</li>
+<li>Rotate the conduit 180\u00b0 (flip it so the first bend faces the opposite direction) and keep the bends in the same plane, then bend the second mark to {lab}\u00b0.</li>
+<li>Lay the conduit on a flat floor to check that both legs are in one plane and the offset depth matches your measurement.</li>
+</ol>
+<h2>Choosing between angles</h2>
+<p>The multiplier is simply 1 \u00f7 sin({lab}\u00b0). A larger multiplier means the bends are farther apart and the conduit moves over more gradually, which is easier on a long pull; a smaller one gives a short, abrupt offset that fits in tight spots. Compare the {L(f'/{other[0]}-degree-offset-multiplier/', other[0].replace('-', '.') + '\u00b0')}, {L(f'/{other[3]}-degree-offset-multiplier/', other[3].replace('-', '.') + '\u00b0')} and other angles on the {L('/conduit-offset-multiplier-chart/', 'offset multiplier chart')}, and use the {L('/emt-conduit-fill-chart/', 'EMT fill chart')} to confirm the pipe you are bending is sized for the wire.</p>'''
+    return out
+
+
+EXTRA.update(_offset_extra())

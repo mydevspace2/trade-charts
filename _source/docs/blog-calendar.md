@@ -13,9 +13,9 @@
 | 10 | Charging a Heat Pump in Heating Mode | charge heat pump in winter | ✔ live 2026-11-14 |
 | 11 | Fixed Orifice vs TXV: How to Tell Which You Have | piston vs txv | ✔ live 2026-11-14 |
 | 12 | Non-Condensables: Reading High Standing Pressure | air in refrigerant system | ✔ live 2026-11-14 |
-| 13 | EMT vs PVC vs Rigid: Choosing a Raceway | emt vs pvc | planned |
-| 14 | How Many Wires in 3/4 EMT (Worked Examples) | how many wires in 3/4 emt | planned |
-| 15 | 60 °C vs 75 °C vs 90 °C Columns Explained | 75c vs 90c ampacity | planned |
+| 13 | EMT vs PVC vs Rigid: Choosing a Raceway | emt vs pvc | ✔ live 2026-11-15 |
+| 14 | How Many Wires in 3/4 EMT (Worked Examples) | how many wires in 3/4 emt | ✔ live 2026-11-15 |
+| 15 | 60 °C vs 75 °C vs 90 °C Columns Explained | 75c vs 90c ampacity | ✔ live 2026-11-15 |
 | 16 | Ampacity Derating for Bundled Conductors | ampacity adjustment factors | planned |
 | 17 | Sizing Wire for a Detached Garage Subpanel | wire size for subpanel 100 ft | planned |
 | 18 | Box Fill Step by Step (with a Real Box) | box fill calculation example | planned |

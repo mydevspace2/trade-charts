@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>60°C vs 75°C vs 90°C Ampacity Columns Explained (NEC 110.14(C))</title>
+<meta name="description" content="Which column of NEC Table 310.16 to use: why THHN wire is 90°C but you size to 60°C or 75°C, with 10, 6 and 3 AWG examples and the termination rule.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://mydevspace2.github.io/trade-charts/blog/60c-75c-90c-ampacity-columns-explained/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Trade Charts">
+<meta property="og:title" content="60°C vs 75°C vs 90°C Ampacity Columns Explained (NEC 110.14(C))">
+<meta property="og:description" content="Which column of NEC Table 310.16 to use: why THHN wire is 90°C but you size to 60°C or 75°C, with 10, 6 and 3 AWG examples and the termination rule.">
+<meta property="og:url" content="https://mydevspace2.github.io/trade-charts/blog/60c-75c-90c-ampacity-columns-explained/">
+<meta property="og:image" content="https://mydevspace2.github.io/trade-charts/assets/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14202b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
+<link rel="manifest" href="/trade-charts/site.webmanifest">
+<script src="/trade-charts/assets/theme.js?v=2"></script>
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=2">
+<script src="/trade-charts/assets/app.js?v=2" defer></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"60°C vs 75°C vs 90°C Ampacity Columns Explained (NEC 110.14(C))","description":"Which column of NEC Table 310.16 to use: why THHN wire is 90°C but you size to 60°C or 75°C, with 10, 6 and 3 AWG examples and the termination rule.","url":"https://mydevspace2.github.io/trade-charts/blog/60c-75c-90c-ampacity-columns-explained/","datePublished":"2026-11-15","dateModified":"2026-11-13","inLanguage":"en-US","author":{"@type":"Organization","name":"Trade Charts","url":"https://mydevspace2.github.io/trade-charts/about/"},"publisher":{"@type":"Organization","name":"Trade Charts","logo":{"@type":"ImageObject","url":"https://mydevspace2.github.io/trade-charts/assets/icon-512.png"}},"image":"https://mydevspace2.github.io/trade-charts/assets/og.png","mainEntityOfPage":"https://mydevspace2.github.io/trade-charts/blog/60c-75c-90c-ampacity-columns-explained/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why can’t I use the 90°C column for THHN?","acceptedAnswer":{"@type":"Answer","text":"Because 110.14(C) limits ampacity to the lowest temperature rating of any termination, and most terminals are rated 60°C or 75°C."}},{"@type":"Question","name":"Which column do I use for a 30 amp circuit?","acceptedAnswer":{"@type":"Answer","text":"With no other marking, the 60°C column, because the circuit is rated 100 A or less. Terminals listed and marked for 75°C allow the 75°C column."}},{"@type":"Question","name":"When is the 75°C column the default?","acceptedAnswer":{"@type":"Answer","text":"For circuits over 100 A or terminals marked for conductors larger than 1 AWG [110.14(C)(1)(b)]."}},{"@type":"Question","name":"What is the benefit of 90°C rated wire?","acceptedAnswer":{"@type":"Answer","text":"You can start ambient-temperature correction and bundling adjustment from the 90°C value, provided the final ampacity does not exceed the termination column."}},{"@type":"Question","name":"What does a 60/75°C terminal marking mean?","acceptedAnswer":{"@type":"Answer","text":"The equipment is listed for both 60°C and 75°C conductors, so 75°C-rated wire may be sized from the 75°C column."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mydevspace2.github.io/trade-charts/blog/"},{"@type":"ListItem","position":3,"name":"60°C vs 75°C vs 90°C Ampacity Columns Explained (N","item":"https://mydevspace2.github.io/trade-charts/blog/60c-75c-90c-ampacity-columns-explained/"}]}</script>
+</head>
+<body data-base="/trade-charts">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+ <div class="wrap top-in">
+  <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
+  <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode" title="Switch light / dark mode"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
+  <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/" aria-current="page">Guides</a></li></ul></nav>
+  <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
+ </div>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/trade-charts/">Home</a></li><li><a href="/trade-charts/blog/">Guides</a></li><li aria-current="page">60°C vs 75°C vs 90°C Ampacity Columns Explained (N</li></ol></nav>
+<article class="post"><h1>60°C vs 75°C vs 90°C Ampacity Columns Explained (NEC 110.14(C))</h1><p class="meta">Guide · Updated November 13, 2026</p>
+<p class="lead">NEC Table 310.16 gives three ampacities for each wire size: one under 60 °C, one under 75 °C and one under 90 °C. THHN wire is marked 90 °C, so it seems natural to read the 90 °C column. Usually you cannot. Section 110.14(C) ties the ampacity you may use to the temperature rating of the terminals at the ends of the circuit, and those are mostly rated 60 °C or 75 °C. This guide explains the rule and works three examples with our table values.</p>
+<h2>The rule in one sentence</h2>
+<p>NEC 110.14(C) says the temperature rating associated with a conductor’s ampacity must be selected and coordinated so as not to exceed the lowest temperature rating of any connected termination, conductor or device. Charles Miller, writing in Electrical Contractor, compares it to a chain: it is only as strong as the weakest link. If a 90 °C conductor has a 60 °C terminal on one end and a 75 °C terminal on the other, the 60 °C terminal governs.</p>
+<h2>Which column when you do not know the terminals</h2>
+<p>The code supplies defaults, based on the circuit rating or the conductor sizes the equipment is marked for:</p>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Equipment</th><th scope="col">Default column</th><th scope="col">Code reference</th></tr></thead><tbody><tr><th scope="row">Circuits rated 100 A or less, or terminals marked for 14 AWG through 1 AWG</th><td>60 °C</td><td>110.14(C)(1)(a)</td></tr><tr><th scope="row">Circuits rated over 100 A, or terminals marked for conductors larger than 1 AWG</th><td>75 °C</td><td>110.14(C)(1)(b)</td></tr></tbody></table></div>
+<p>A higher column is allowed only when the equipment is listed and identified for it. A common example: the terminals are marked 60/75 °C, meaning listed for both 60 °C and 75 °C conductors, so a THHN conductor may be sized from the 75 °C column. Miller also warns that very little equipment is listed and identified for use with 90 °C conductors at their 90 °C ampacity: only individual lugs, terminal bars and equipment for circuits over 600 volts. The conductor’s ampacity must also never exceed the lowest-rated termination.</p>
+<h2>So why buy 90 °C wire?</h2>
+<p>Because the 90 °C column is still useful for adjustment and correction. The code lets you start from the 90 °C ampacity when you apply ambient-temperature correction or conductor-bundling adjustment, as long as the final result does not exceed the termination column. For a hot attic, a bundle of many wires or a long conduit run in the sun, that extra starting number can save a wire size.</p>
+<h2>Worked values from the table</h2>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Copper size</th><th scope="col">60 °C</th><th scope="col">75 °C</th><th scope="col">90 °C</th></tr></thead><tbody><tr><th scope="row">10 AWG</th><td>30</td><td>35</td><td>40</td></tr><tr><th scope="row">8 AWG</th><td>40</td><td>50</td><td>55</td></tr><tr><th scope="row">6 AWG</th><td>55</td><td>65</td><td>75</td></tr><tr><th scope="row">4 AWG</th><td>70</td><td>85</td><td>95</td></tr><tr><th scope="row">3 AWG</th><td>85</td><td>100</td><td>115</td></tr><tr><th scope="row">1 AWG</th><td>110</td><td>130</td><td>145</td></tr><tr><th scope="row">1/0 AWG</th><td>125</td><td>150</td><td>170</td></tr></tbody></table></div>
+<p>Look at the full table on our <a href="/trade-charts/wire-ampacity-chart/">wire ampacity chart</a>, or pick a single size such as <a href="/trade-charts/10-awg-wire-ampacity/">10 AWG</a> or <a href="/trade-charts/6-awg-wire-ampacity/">6 AWG</a>.</p>
+<h3>Example 1: 10 AWG THHN to a 30 A breaker</h3>
+<p>Typical 30 A residential circuit, equipment marked for 14–1 AWG, no other information. The default is the 60 °C column: 10 AWG copper is rated 30 A, enough for a 30 A load. Had the equipment been listed and marked for 75 °C, the value would be 35 A, but the common 30 A overcurrent limit for 10 AWG copper still applies [240.4(D)], which is a separate rule from this table.</p>
+<h3>Example 2: 6 AWG THHN feeding a 60 A subpanel breaker</h3>
+<p>At 60 A the default is again 60 °C, so 6 AWG copper counts as 55 A. That is too small for a 60 A breaker. With 75 °C terminals (very common on modern breakers and lugs) it counts as 65 A, which works. This is why the label on the equipment matters.</p>
+<h3>Example 3: 3 AWG to a 100 A feeder</h3>
+<p>3 AWG copper reads 85 A at 60 °C, 100 A at 75 °C and 115 A at 90 °C. With 75 °C terminals the conductor carries 100 A, matching a 100 A device. The 90 °C value of 115 A could only be used as the starting point for derating, never as the final rating at the lugs.</p>
+<h2>Checklist before you size a conductor</h2>
+<ol>
+<li>Read the marked temperature rating on every breaker, lug and device on the circuit; the lowest one rules.</li>
+<li>If a rating is unknown, use the 60 °C column (100 A or less) or the 75 °C column (over 100 A).</li>
+<li>Apply ambient-temperature and bundling adjustments from the insulation’s own column, then confirm the result does not exceed the termination column.</li>
+<li>Check voltage drop on long runs with the <a href="/trade-charts/voltage-drop-calculator/">voltage drop calculator</a> and fill with the <a href="/trade-charts/conduit-fill-calculator/">conduit fill calculator</a>.</li>
+</ol>
+<p>This guide summarizes the code for learning; your adopted NEC edition and local amendments decide what is allowed on a real job.</p>
+<h2>Sources</h2><ul class="sources"><li><a href="https://ecmag.com/section/codes-standards/sizing-conductors" rel="noopener">Electrical Contractor (Charles R. Miller): Sizing Conductors, NEC Table 310.15(B)(16) and Termination Temps</a></li><li><a href="https://www.ecmag.com/magazine/articles/article-detail/codes-standards-general-installation-requirements-part-viii" rel="noopener">Electrical Contractor: General Installation Requirements, Part VIII (110.14(C))</a></li><li><a href="https://www.nfpa.org/-/media/project/storefront/catalog/files/code-or-topic-fact-sheets/NECAmpacityWorkflow.pdf" rel="noopener">NFPA: Using the NEC Ampacity Charts workflow</a></li></ul>
+<section class="faq" id="faq"><h2>Frequently asked questions</h2>
+<details><summary>Why can’t I use the 90°C column for THHN?</summary><div class="ans">Because 110.14(C) limits ampacity to the lowest temperature rating of any termination, and most terminals are rated 60°C or 75°C.</div></details>
+<details><summary>Which column do I use for a 30 amp circuit?</summary><div class="ans">With no other marking, the 60°C column, because the circuit is rated 100 A or less. Terminals listed and marked for 75°C allow the 75°C column.</div></details>
+<details><summary>When is the 75°C column the default?</summary><div class="ans">For circuits over 100 A or terminals marked for conductors larger than 1 AWG [110.14(C)(1)(b)].</div></details>
+<details><summary>What is the benefit of 90°C rated wire?</summary><div class="ans">You can start ambient-temperature correction and bundling adjustment from the 90°C value, provided the final ampacity does not exceed the termination column.</div></details>
+<details><summary>What does a 60/75°C terminal marking mean?</summary><div class="ans">The equipment is listed for both 60°C and 75°C conductors, so 75°C-rated wire may be sized from the 75°C column.</div></details>
+</section></article>
+<aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
+<p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
+</main>
+<footer class="foot">
+ <div class="wrap foot-in">
+  <div><strong>Trade Charts</strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
+  <ul><li><a href="/trade-charts/pt-chart/">Refrigerant PT charts</a></li><li><a href="/trade-charts/superheat-calculator/">Superheat calculator</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by serial number</a></li></ul>
+  <ul><li><a href="/trade-charts/about/">About &amp; sources</a></li><li><a href="/trade-charts/contact/">Contact</a></li><li><a href="/trade-charts/privacy/">Privacy</a></li><li><a href="/trade-charts/terms/">Terms</a></li><li><a href="/trade-charts/sitemap.xml">Sitemap</a></li></ul>
+ </div>
+ <p class="wrap fine">&copy; 2026 Trade Charts. Reference only &mdash; verify with code and manufacturer data. Not affiliated with any manufacturer, NFPA or ICC; trademarks belong to their owners.</p>
+</footer>
+</body>
+</html>
