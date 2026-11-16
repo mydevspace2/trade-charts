@@ -36,3 +36,8 @@
 - Light accent #d9480f -> #b8430b (links 4.84:1 on bg, white on button 5.46:1). Header/logo orange uses `--accent-hd:#ff7a3d` (7.3:1 on the dark header). Placeholder #aeb6c0. Dark accent unchanged (#ff7a3d, 6.4:1+).
 - Tap targets >= 44px (nav, crumbs, chips, link grids, footer links, search, menu, toggle); search input 16px; footer fine print 14px. ASSET_V=2.
 - New test `qa/test-fold.js` (375x812 first-screen + no sideways scroll after Calculate); `test-browser.js` gained UX checks and TC_SLICE / TC_NOPAGES split (sandbox 120 s limit).
+
+## Run 2026-11-16 (Mon)
+- Posts #16-18 live (posts5.py): derating, detached garage subpanel, box fill. 147 pages. Expanded 8 ampacity pages, 4 PVC fill pages, 2 in. EMT page to 600+ via extra.py. ~22 pages still under 600 (hubs, offset chart, welding, age hubs, legal, Home).
+- Browser tests: install libs with `sudo apt-get update` first; run in slices (TC_SLICE=0:50, 50:100, 100:150, then TC_NOPAGES=1).
+- GSC (Mon check): 0 impressions/clicks; Indexing 1 indexed/0 not; sitemap shows "Couldn't fetch" (submitted Nov 13, read empty) - Bing sitemap Success 133 URLs.

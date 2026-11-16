@@ -12,31 +12,52 @@ def assets():
     a = os.path.join(OUT, 'assets'); os.makedirs(a, exist_ok=True)
     for f in ('site.css', 'app.js', 'theme.js'):
         shutil.copy(os.path.join(HERE, 'assets', f), a)
-    svg = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="10" fill="#14202b"/>'
-           '<rect x="6" y="6" width="52" height="52" rx="6" fill="none" stroke="#d9480f" stroke-width="4"/>'
-           '<text x="32" y="42" font-family="monospace" font-weight="700" font-size="24" text-anchor="middle" fill="#d9480f">TC</text></svg>')
+    # self-hosted heading font (Barlow Condensed, SIL OFL 1.1; Latin subset woff2) - CSP font-src 'self'
+    shutil.copytree(os.path.join(HERE, 'assets', 'fonts'), os.path.join(a, 'fonts'))
+    svg = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">' + core.MARK_SVG.split('focusable="false">', 1)[1])
     open(os.path.join(OUT, 'favicon.svg'), 'w').write(svg)
     from PIL import Image, ImageDraw, ImageFont
-    def font(sz):
-        for p in ('/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf', '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'):
+    import math
+    Y, K = '#ffc20e', '#161b21'
+    def font(sz, cond=False):
+        cands = ([os.path.join(HERE, 'fonts-src', 'BarlowCondensed-Bold.ttf')] if cond else []) + [
+            '/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed-Bold.ttf', '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf']
+        for p in cands:
             if os.path.exists(p):
                 return ImageFont.truetype(p, sz)
         return ImageFont.load_default()
+    def mark(d, cx, cy, R):
+        """hex nut + gauge, R = nut circumradius"""
+        hexp = [(cx + R * math.cos(math.radians(a)), cy + R * math.sin(math.radians(a))) for a in range(-90, 270, 60)]
+        d.polygon(hexp, fill=Y)
+        r = R * .69; d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=K)
+        ra = R * .55; w = max(2, int(R * .1))
+        for ang in range(135, 406, 30):
+            t = math.radians(ang); x1, y1 = cx + ra * math.cos(t), cy + ra * math.sin(t); x2, y2 = cx + (ra - w * 1.3) * math.cos(t), cy + (ra - w * 1.3) * math.sin(t)
+            d.line([(x1, y1), (x2, y2)], fill=Y, width=max(2, w // 2 + 1))
+        t = math.radians(-45); d.line([(cx, cy), (cx + R * .42 * math.cos(t), cy + R * .42 * math.sin(t))], fill=Y, width=max(3, int(R * .16)))
+        h = R * .15; d.ellipse([cx - h, cy - h, cx + h, cy + h], fill=Y)
     for s in (180, 192, 512):
-        im = Image.new('RGB', (s, s), '#14202b'); d = ImageDraw.Draw(im)
-        m = s // 10; d.rounded_rectangle([m, m, s - m, s - m], radius=s // 12, outline='#d9480f', width=max(3, s // 22))
-        f = font(int(s * .38)); d.text((s / 2, s / 2), 'TC', font=f, fill='#d9480f', anchor='mm')
+        im = Image.new('RGB', (s, s), K); d = ImageDraw.Draw(im)
+        mark(d, s / 2, s / 2, s * .44)
         im.save(os.path.join(a, f'icon-{s}.png'))
-    im = Image.new('RGB', (1200, 630), '#14202b'); d = ImageDraw.Draw(im)
-    d.rectangle([0, 600, 1200, 630], fill='#d9480f')
-    d.text((80, 150), 'Trade Charts', font=font(96), fill='#f4f1ea')
-    d.text((80, 290), 'PT charts \u00b7 Superheat & subcooling', font=font(44), fill='#ff7a3d')
-    d.text((80, 360), 'Conduit fill \u00b7 Ampacity \u00b7 Voltage drop', font=font(44), fill='#f4f1ea')
-    d.text((80, 430), 'Gas pipe sizing \u00b7 Age by serial number', font=font(44), fill='#f4f1ea')
-    d.text((80, 520), 'Free \u00b7 sourced \u00b7 verified', font=font(32), fill='#9aa7b4')
+    im = Image.new('RGB', (1200, 630), '#1c232a'); d = ImageDraw.Draw(im)
+    for x in range(0, 1200, 24):
+        d.line([(x, 0), (x, 600)], fill='#222a32' if x % 96 else '#2c3236')
+    for y in range(0, 600, 24):
+        d.line([(0, y), (1200, y)], fill='#222a32' if y % 96 else '#2c3236')
+    for i in range(-40, 1240, 40):
+        d.polygon([(i, 630), (i + 20, 630), (i + 50, 600), (i + 30, 600)], fill=Y)
+    d.rectangle([0, 596, 1200, 600], fill=Y)
+    mark(d, 1010, 250, 150)
+    d.text((80, 120), 'TRADE', font=font(120, True), fill='#f4f5f6'); d.text((80 + d.textlength('TRADE ', font=font(120, True)), 120), 'CHARTS', font=font(120, True), fill=Y)
+    d.text((80, 290), 'PT charts \u00b7 Superheat & subcooling', font=font(44), fill=Y)
+    d.text((80, 360), 'Conduit fill \u00b7 Ampacity \u00b7 Voltage drop', font=font(44), fill='#f4f5f6')
+    d.text((80, 430), 'Gas pipe sizing \u00b7 Age by serial number', font=font(44), fill='#f4f5f6')
+    d.text((80, 515), 'Free \u00b7 sourced \u00b7 verified', font=font(32), fill='#9aa7b4')
     im.save(os.path.join(a, 'og.png'), optimize=True)
-    man = {'name': 'Trade Charts', 'short_name': 'TradeCharts', 'start_url': BASE + '/', 'display': 'standalone', 'background_color': '#14202b',
-           'theme_color': '#14202b', 'icons': [{'src': BASE + '/assets/icon-192.png', 'sizes': '192x192', 'type': 'image/png'},
+    man = {'name': 'Trade Charts', 'short_name': 'TradeCharts', 'start_url': BASE + '/', 'display': 'standalone', 'background_color': '#1c232a',
+           'theme_color': '#1c232a', 'icons': [{'src': BASE + '/assets/icon-192.png', 'sizes': '192x192', 'type': 'image/png'},
                                                 {'src': BASE + '/assets/icon-512.png', 'sizes': '512x512', 'type': 'image/png'}]}
     json.dump(man, open(os.path.join(OUT, 'site.webmanifest'), 'w'))
 

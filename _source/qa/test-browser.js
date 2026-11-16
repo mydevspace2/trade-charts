@@ -4,7 +4,7 @@
 const { chromium } = require('playwright'); const http = require('http'), fs = require('fs'), path = require('path');
 const ROOT = path.join(__dirname, '../out'); const robots = fs.readFileSync(path.join(ROOT, 'robots.txt'), 'utf8');
 const BASE = new URL(/Sitemap: (\S+)\/sitemap\.xml/.exec(robots)[1] + '/').pathname.replace(/\/$/, '');
-const T = { '.html': 'text/html; charset=utf-8', '.js': 'application/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.json': 'application/json', '.webmanifest': 'application/manifest+json' };
+const T = { '.html': 'text/html; charset=utf-8', '.js': 'application/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.woff2': 'font/woff2', '.json': 'application/json', '.webmanifest': 'application/manifest+json' };
 const srv = http.createServer((q, r) => { let p = decodeURIComponent(q.url.split('?')[0]).slice(BASE.length); if (p.endsWith('/')) p += 'index.html'; const f = path.join(ROOT, p);
   if (!fs.existsSync(f)) { r.writeHead(404, { 'content-type': 'text/html' }); return r.end(fs.readFileSync(path.join(ROOT, '404.html'))); } r.writeHead(200, { 'content-type': T[path.extname(f)] || 'text/plain' }); r.end(fs.readFileSync(f)); }).listen(8811);
 const U = 'http://127.0.0.1:8811' + BASE;
@@ -71,9 +71,9 @@ const fails = []; const ok = (c, m) => { if (!c) fails.push(m); };
   // dark mode
   const dk = await b.newContext({ viewport: { width: 1280, height: 900 }, colorScheme: 'dark' }); const d = await dk.newPage();
   await d.goto(U + '/r454b-pt-chart/'); const bg = await d.evaluate(() => getComputedStyle(document.body).backgroundColor);
-  ok(bg === 'rgb(15, 22, 29)', 'dark background ' + bg);
+  ok(bg === 'rgb(17, 21, 25)', 'dark background ' + bg);
   const lt = await (await b.newContext({ colorScheme: 'light' })).newPage(); await lt.goto(U + '/');
-  ok((await lt.evaluate(() => getComputedStyle(document.body).backgroundColor)) === 'rgb(244, 241, 234)', 'light background');
+  ok((await lt.evaluate(() => getComputedStyle(document.body).backgroundColor)) === 'rgb(240, 241, 238)', 'light background');
   // CSP enforcement: an injected inline script must be blocked
   const cspErr = []; d.on('console', m => { if (/Content Security Policy/i.test(m.text())) cspErr.push(m.text()); });
   await d.goto(U + '/'); await d.evaluate(() => { const s = document.createElement('script'); s.textContent = 'window.__x=1'; document.body.appendChild(s); });
@@ -149,10 +149,10 @@ const fails = []; const ok = (c, m) => { if (!c) fails.push(m); };
     }
     // theme toggle: default follows OS, click flips and persists
     const tc = await b.newContext({ colorScheme: 'dark' }); const t = await tc.newPage(); await t.goto(U + '/');
-    ok((await t.evaluate(() => getComputedStyle(document.body).backgroundColor)) === 'rgb(15, 22, 29)', 'toggle: default follows OS dark');
+    ok((await t.evaluate(() => getComputedStyle(document.body).backgroundColor)) === 'rgb(17, 21, 25)', 'toggle: default follows OS dark');
     ok((await t.getAttribute('.theme-toggle', 'aria-pressed')) === 'true', 'toggle pressed in dark');
-    await t.click('.theme-toggle'); ok((await t.evaluate(() => getComputedStyle(document.body).backgroundColor)) === 'rgb(244, 241, 234)', 'toggle -> light');
-    await t.reload(); ok((await t.evaluate(() => getComputedStyle(document.body).backgroundColor)) === 'rgb(244, 241, 234)', 'toggle choice persists after reload');
+    await t.click('.theme-toggle'); ok((await t.evaluate(() => getComputedStyle(document.body).backgroundColor)) === 'rgb(240, 241, 238)', 'toggle -> light');
+    await t.reload(); ok((await t.evaluate(() => getComputedStyle(document.body).backgroundColor)) === 'rgb(240, 241, 238)', 'toggle choice persists after reload');
     ok((await t.evaluate(() => localStorage.getItem('tc.theme'))) === 'light', 'toggle saved in localStorage');
     await tc.close(); await ux.close();
   }

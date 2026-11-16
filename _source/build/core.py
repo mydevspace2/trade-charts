@@ -8,7 +8,7 @@ CNAME = os.environ.get('TC_CNAME', '')
 SITE_NAME = 'Trade Charts'
 UPDATED = os.environ.get('TC_UPDATED', '2026-11-13')
 UPDATED_H = datetime.date.fromisoformat(UPDATED).strftime('%B %-d, %Y')
-ASSET_V = '2'
+ASSET_V = '3'
 INDEXNOW_KEY = '7f3c1e9a2b8d4f60a1c5e7b9d3f2a4c6'
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.environ.get('TC_OUT', os.path.join(HERE, '..', 'out'))
@@ -74,6 +74,23 @@ def nav_html(active):
     items = ''.join(f'<li><a href="{url(p)}"{" aria-current=\"page\"" if active == p else ""}>{esc(n)}</a></li>' for p, n in SECTIONS)
     return items
 
+# Logo mark: a hex nut holding a pressure gauge (safety yellow on charcoal). Used in header, footer and favicon.
+MARK_SVG = ('<svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">'
+            '<path d="M16 1.5 28.6 8.75v14.5L16 30.5 3.4 23.25V8.75z" fill="#ffc20e"/>'
+            '<circle cx="16" cy="16" r="10" fill="#161b21"/>'
+            '<path d="M9.3 21.2A8 8 0 1 1 22.7 21.2" fill="none" stroke="#ffc20e" stroke-width="1.6" stroke-dasharray="1.4 2.2"/>'
+            '<path d="M16 16 21.6 10.4" stroke="#ffc20e" stroke-width="2.4" stroke-linecap="round"/>'
+            '<circle cx="16" cy="16" r="2.3" fill="#ffc20e"/></svg>')
+# Large outline gauge shown beside the home hero on wide screens (decorative).
+HERO_GAUGE = ('<svg class="hero-gauge" viewBox="0 0 200 200" aria-hidden="true" focusable="false">'
+              '<path d="M100 8 179.7 54v92L100 192 20.3 146V54z" fill="none" stroke="currentColor" stroke-width="5"/>'
+              '<circle cx="100" cy="100" r="62" fill="rgba(0,0,0,.25)" stroke="currentColor" stroke-width="4"/>'
+              '<path d="M56.2 143.8A62 62 0 1 1 143.8 143.8" fill="none" stroke="currentColor" stroke-width="10" stroke-dasharray="3 11" opacity=".9"/>'
+              '<path d="M125 132A40 40 0 0 0 138 112" fill="none" stroke="#e8590c" stroke-width="10"/>'
+              '<path d="M100 100 134 66" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>'
+              '<circle cx="100" cy="100" r="10" fill="currentColor"/>'
+              '<text x="100" y="152" text-anchor="middle" font-family="ui-monospace,monospace" font-size="15" font-weight="700" fill="currentColor">PSIG</text></svg>')
+
 THEME_BTN = ('<button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode" title="Switch light / dark mode">'
              '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>'
              '<path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>')
@@ -84,8 +101,8 @@ TOOL_UI = ('<div class="calcbar" hidden><button type="button" class="btn" data-c
            '<div class="tbar" hidden><button type="button" data-copy>Copy result</button><button type="button" data-reset>Reset</button>'
            '<button type="button" data-share hidden>Share</button><span class="tmsg" role="status"></span></div>')
 
-def page(path, title, desc, body, crumbs=None, section=None, schema=(), og_type='website', extra_head='', noindex=False):
-    """Write one HTML page. crumbs: list of (name, path) excluding Home."""
+def page(path, title, desc, body, crumbs=None, section=None, schema=(), og_type='website', extra_head='', noindex=False, hero=''):
+    """Write one HTML page. crumbs: list of (name, path) excluding Home. hero: optional full-width band shown at the top of <main> (home page)."""
     assert len(desc) <= 160, (path, len(desc))
     from extra import EXTRA
     from posts2 import related_html
@@ -102,6 +119,10 @@ def page(path, title, desc, body, crumbs=None, section=None, schema=(), og_type=
         bc = '<nav class="crumbs" aria-label="Breadcrumb"><ol>' + ''.join(
             f'<li><a href="{url(p)}">{esc(n)}</a></li>' if i < len(allc) - 1 else f'<li aria-current="page">{esc(n)}</li>'
             for i, (n, p) in enumerate(allc)) + '</ol></nav>'
+    if hero:
+        main_open, main_close = f'<main id="main" class="has-hero">\n{hero}\n<div class="wrap">', '</div>\n</main>'
+    else:
+        main_open, main_close = '<main id="main" class="wrap">', '</main>'
     gsv = f'<meta name="google-site-verification" content="{esc(GSV)}">' if (GSV and path == '/') else ''
     robots = '<meta name="robots" content="noindex">' if noindex else '<meta name="robots" content="index,follow,max-image-preview:large">'
     csp = ("default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; "
@@ -133,6 +154,7 @@ def page(path, title, desc, body, crumbs=None, section=None, schema=(), og_type=
 <link rel="apple-touch-icon" href="{url('/assets/icon-180.png')}">
 <link rel="manifest" href="{url('/site.webmanifest')}">
 <script src="{url('/assets/theme.js')}?v={ASSET_V}"></script>
+<link rel="preload" href="{url('/assets/fonts/barlow-condensed-bold.woff2')}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{url('/assets/site.css')}?v={ASSET_V}">
 <script src="{url('/assets/app.js')}?v={ASSET_V}" defer></script>
 {extra_head}
@@ -142,22 +164,22 @@ def page(path, title, desc, body, crumbs=None, section=None, schema=(), og_type=
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
  <div class="wrap top-in">
-  <a class="brand" href="{url('/')}" aria-label="{SITE_NAME} home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
+  <a class="brand" href="{url('/')}" aria-label="{SITE_NAME} home"><span class="mark">{MARK_SVG}</span><span>Trade<b>Charts</b></span></a>
   <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
   {THEME_BTN}
   <nav id="nav" class="nav" aria-label="Main"><ul>{nav_html(section)}</ul></nav>
   <form class="search" role="search" action="{url('/search/')}" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg\u2026" autocomplete="off"><div class="sres" hidden></div></form>
  </div>
 </header>
-<main id="main" class="wrap">
+{main_open}
 {bc}
 {body}
 {DISCLAIMER}
 <p class="updated">Last reviewed {UPDATED_H}. Found an error? <a href="{url('/contact/')}">Tell us</a> and we fix it within days.</p>
-</main>
+{main_close}
 <footer class="foot">
  <div class="wrap foot-in">
-  <div><strong>{SITE_NAME}</strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
+  <div><strong class="fbrand"><span class="mark">{MARK_SVG}</span><span>Trade<b>Charts</b></span></strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
   <ul><li><a href="{url('/pt-chart/')}">Refrigerant PT charts</a></li><li><a href="{url('/superheat-calculator/')}">Superheat calculator</a></li><li><a href="{url('/conduit-fill-calculator/')}">Conduit fill calculator</a></li><li><a href="{url('/gas-pipe-sizing/')}">Gas pipe sizing</a></li><li><a href="{url('/age-by-serial-number/')}">Age by serial number</a></li></ul>
   <ul><li><a href="{url('/about/')}">About &amp; sources</a></li><li><a href="{url('/contact/')}">Contact</a></li><li><a href="{url('/privacy/')}">Privacy</a></li><li><a href="{url('/terms/')}">Terms</a></li><li><a href="{url('/sitemap.xml')}">Sitemap</a></li></ul>
  </div>

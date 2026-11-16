@@ -24,9 +24,10 @@
 <link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
 <link rel="manifest" href="/trade-charts/site.webmanifest">
-<script src="/trade-charts/assets/theme.js?v=2"></script>
-<link rel="stylesheet" href="/trade-charts/assets/site.css?v=2">
-<script src="/trade-charts/assets/app.js?v=2" defer></script>
+<script src="/trade-charts/assets/theme.js?v=3"></script>
+<link rel="preload" href="/trade-charts/assets/fonts/barlow-condensed-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=3">
+<script src="/trade-charts/assets/app.js?v=3" defer></script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Trade Charts","url":"https://mydevspace2.github.io/trade-charts/","potentialAction":{"@type":"SearchAction","target":"https://mydevspace2.github.io/trade-charts/search/?q={search_term_string}","query-input":"required name=search_term_string"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Trade Charts","url":"https://mydevspace2.github.io/trade-charts/","logo":"https://mydevspace2.github.io/trade-charts/assets/icon-512.png"}</script>
 </head>
@@ -34,18 +35,22 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
  <div class="wrap top-in">
-  <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
+  <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 1.5 28.6 8.75v14.5L16 30.5 3.4 23.25V8.75z" fill="#ffc20e"/><circle cx="16" cy="16" r="10" fill="#161b21"/><path d="M9.3 21.2A8 8 0 1 1 22.7 21.2" fill="none" stroke="#ffc20e" stroke-width="1.6" stroke-dasharray="1.4 2.2"/><path d="M16 16 21.6 10.4" stroke="#ffc20e" stroke-width="2.4" stroke-linecap="round"/><circle cx="16" cy="16" r="2.3" fill="#ffc20e"/></svg></span><span>Trade<b>Charts</b></span></a>
   <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
   <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode" title="Switch light / dark mode"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
   <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/">Guides</a></li></ul></nav>
   <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
  </div>
 </header>
-<main id="main" class="wrap">
-
-<section class="hero"><h1>Trade charts that are fast, accurate and free</h1>
+<main id="main" class="has-hero">
+<section class="hero"><div class="wrap hero-in"><div>
+<p class="kicker">HVAC &middot; Electrical &middot; Gas &middot; Welding</p>
+<h1>Trade charts that are fast, accurate and free</h1>
 <p class="lead">Sourced, checked reference for HVAC, electrical and gas work.</p>
-<nav class="chips" aria-label="Popular tools"><a href="/trade-charts/pt-chart/">PT charts</a><a href="/trade-charts/conduit-fill-calculator/">Conduit fill</a><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></nav></section>
+<nav class="chips" aria-label="Popular tools"><a href="/trade-charts/pt-chart/">PT charts</a><a href="/trade-charts/conduit-fill-calculator/">Conduit fill</a><a href="/trade-charts/wire-ampacity-chart/">Ampacity</a><a href="/trade-charts/box-fill-calculator/">Box fill</a><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></nav></div>
+<svg class="hero-gauge" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><path d="M100 8 179.7 54v92L100 192 20.3 146V54z" fill="none" stroke="currentColor" stroke-width="5"/><circle cx="100" cy="100" r="62" fill="rgba(0,0,0,.25)" stroke="currentColor" stroke-width="4"/><path d="M56.2 143.8A62 62 0 1 1 143.8 143.8" fill="none" stroke="currentColor" stroke-width="10" stroke-dasharray="3 11" opacity=".9"/><path d="M125 132A40 40 0 0 0 138 112" fill="none" stroke="#e8590c" stroke-width="10"/><path d="M100 100 134 66" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><circle cx="100" cy="100" r="10" fill="currentColor"/><text x="100" y="152" text-anchor="middle" font-family="ui-monospace,monospace" font-size="15" font-weight="700" fill="currentColor">PSIG</text></svg></div></section>
+<div class="wrap">
+
 <section class="tool"><h2>Quick PT lookup</h2>
 <div class="pt" data-tool="pt-any"><div class="row"><label>Refrigerant <select data-ref><option value="r12">R-12</option><option value="r123">R-123</option><option value="r1233zd">R-1233zd(E)</option><option value="r1234yf">R-1234yf</option><option value="r1234ze">R-1234ze(E)</option><option value="r134a">R-134a</option><option value="r22">R-22</option><option value="r290">R-290</option><option value="r32">R-32</option><option value="r404a">R-404A</option><option value="r407a">R-407A</option><option value="r407c">R-407C</option><option value="r407f">R-407F</option><option value="r410a">R-410A</option><option value="r417a">R-417A</option><option value="r421a">R-421A</option><option value="r422d">R-422D</option><option value="r427a">R-427A</option><option value="r438a">R-438A</option><option value="r448a">R-448A</option><option value="r449a">R-449A</option><option value="r450a">R-450A</option><option value="r452a">R-452A</option><option value="r454a">R-454A</option><option value="r454b" selected>R-454B</option><option value="r455a">R-455A</option><option value="r466a">R-466A</option><option value="r507a">R-507A</option><option value="r513a">R-513A</option><option value="r600a">R-600a</option><option value="r717">R-717</option><option value="r744">R-744</option></select></label></div>
 <div class="seg" role="group" aria-label="Lookup direction"><button type="button" data-mode="t2p" aria-pressed="true">Temp &rarr; Pressure</button><button type="button" data-mode="p2t" aria-pressed="false">Pressure &rarr; Temp</button></div>
@@ -68,10 +73,11 @@
 <li><b>Fast and private.</b> Static pages, no ads, no trackers, no cookies, no sign-up. Dark mode and print views built in.</li></ul></section>
 <aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
 <p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
+</div>
 </main>
 <footer class="foot">
  <div class="wrap foot-in">
-  <div><strong>Trade Charts</strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
+  <div><strong class="fbrand"><span class="mark"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 1.5 28.6 8.75v14.5L16 30.5 3.4 23.25V8.75z" fill="#ffc20e"/><circle cx="16" cy="16" r="10" fill="#161b21"/><path d="M9.3 21.2A8 8 0 1 1 22.7 21.2" fill="none" stroke="#ffc20e" stroke-width="1.6" stroke-dasharray="1.4 2.2"/><path d="M16 16 21.6 10.4" stroke="#ffc20e" stroke-width="2.4" stroke-linecap="round"/><circle cx="16" cy="16" r="2.3" fill="#ffc20e"/></svg></span><span>Trade<b>Charts</b></span></strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
   <ul><li><a href="/trade-charts/pt-chart/">Refrigerant PT charts</a></li><li><a href="/trade-charts/superheat-calculator/">Superheat calculator</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by serial number</a></li></ul>
   <ul><li><a href="/trade-charts/about/">About &amp; sources</a></li><li><a href="/trade-charts/contact/">Contact</a></li><li><a href="/trade-charts/privacy/">Privacy</a></li><li><a href="/trade-charts/terms/">Terms</a></li><li><a href="/trade-charts/sitemap.xml">Sitemap</a></li></ul>
  </div>

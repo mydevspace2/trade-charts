@@ -5,7 +5,7 @@ const { chromium } = require('playwright'); const http = require('http'), fs = r
 const ROOT = path.resolve(process.argv[2] || path.join(__dirname, '../out'));
 const robots = fs.readFileSync(path.join(ROOT, 'robots.txt'), 'utf8');
 const BASE = new URL(/Sitemap: (\S+)\/sitemap\.xml/.exec(robots)[1] + '/').pathname.replace(/\/$/, '');
-const T = { '.html': 'text/html; charset=utf-8', '.js': 'application/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.json': 'application/json' };
+const T = { '.html': 'text/html; charset=utf-8', '.js': 'application/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.woff2': 'font/woff2', '.json': 'application/json' };
 const srv = http.createServer((q, r) => { let p = decodeURIComponent(q.url.split('?')[0]).slice(BASE.length); if (p.endsWith('/')) p += 'index.html'; const f = path.join(ROOT, p);
   if (!fs.existsSync(f)) { r.writeHead(404); return r.end(''); } r.writeHead(200, { 'content-type': T[path.extname(f)] || 'text/plain' }); r.end(fs.readFileSync(f)); }).listen(8812);
 const U = 'http://127.0.0.1:8812' + BASE;

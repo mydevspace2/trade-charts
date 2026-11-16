@@ -126,10 +126,13 @@ def site_pages():
     # home
     pop = [('/r454b-pt-chart/', 'R-454B PT chart'), ('/r410a-pt-chart/', 'R-410A PT chart'), ('/r32-pt-chart/', 'R-32 PT chart'), ('/r22-pt-chart/', 'R-22 PT chart'),
            ('/r134a-pt-chart/', 'R-134a PT chart'), ('/r404a-pt-chart/', 'R-404A PT chart'), ('/r448a-pt-chart/', 'R-448A PT chart'), ('/r407c-pt-chart/', 'R-407C PT chart')]
-    body = f'''<section class="hero"><h1>Trade charts that are fast, accurate and free</h1>
+    hero = f'''<section class="hero"><div class="wrap hero-in"><div>
+<p class="kicker">HVAC &middot; Electrical &middot; Gas &middot; Welding</p>
+<h1>Trade charts that are fast, accurate and free</h1>
 <p class="lead">Sourced, checked reference for HVAC, electrical and gas work.</p>
-<nav class="chips" aria-label="Popular tools"><a href="{url('/pt-chart/')}">PT charts</a><a href="{url('/conduit-fill-calculator/')}">Conduit fill</a><a href="{url('/gas-pipe-sizing/')}">Gas pipe sizing</a></nav></section>
-<section class="tool"><h2>Quick PT lookup</h2>
+<nav class="chips" aria-label="Popular tools"><a href="{url('/pt-chart/')}">PT charts</a><a href="{url('/conduit-fill-calculator/')}">Conduit fill</a><a href="{url('/wire-ampacity-chart/')}">Ampacity</a><a href="{url('/box-fill-calculator/')}">Box fill</a><a href="{url('/gas-pipe-sizing/')}">Gas pipe sizing</a></nav></div>
+{HERO_GAUGE}</div></section>'''
+    body = f'''<section class="tool"><h2>Quick PT lookup</h2>
 <div class="pt" data-tool="pt-any"><div class="row"><label>Refrigerant <select data-ref>{''.join(f'<option value="{r["slug"]}"{" selected" if r["slug"] == "r454b" else ""}>{r["name"]}</option>' for r in sorted(REFS, key=lambda x: x["name"]))}</select></label></div>
 <div class="seg" role="group" aria-label="Lookup direction"><button type="button" data-mode="t2p" aria-pressed="true">Temp &rarr; Pressure</button><button type="button" data-mode="p2t" aria-pressed="false">Pressure &rarr; Temp</button></div>
 <div class="row"><label>Value <input type="number" inputmode="decimal" step="any" data-in value="40"></label><label class="u-t">Temp unit <select data-tu><option value="F">\u00b0F</option><option value="C">\u00b0C</option></select></label>
@@ -150,7 +153,7 @@ def site_pages():
 <li><b>Code references on the page.</b> NEC and IFGC table numbers and sources are printed with the numbers.</li>
 <li><b>Fast and private.</b> Static pages, no ads, no trackers, no cookies, no sign-up. Dark mode and print views built in.</li></ul></section>'''
     page('/', 'Trade Charts: PT Charts, Conduit Fill, Gas Pipe Sizing', 'Free field reference for US trades: refrigerant PT charts, superheat/subcooling, NEC conduit fill and ampacity, gas pipe sizing and age-by-serial decoders.',
-         body, section=None, schema=[{'@context': 'https://schema.org', '@type': 'WebSite', 'name': SITE_NAME, 'url': abs_url('/'),
+         body, section=None, hero=hero, schema=[{'@context': 'https://schema.org', '@type': 'WebSite', 'name': SITE_NAME, 'url': abs_url('/'),
                                       'potentialAction': {'@type': 'SearchAction', 'target': abs_url('/search/') + '?q={search_term_string}', 'query-input': 'required name=search_term_string'}},
                                      {'@context': 'https://schema.org', '@type': 'Organization', 'name': SITE_NAME, 'url': abs_url('/'), 'logo': abs_url('/assets/icon-512.png')}])
     about = f'''<article><h1>About Trade Charts</h1>
