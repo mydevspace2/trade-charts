@@ -113,3 +113,52 @@ def _offset_extra():
 
 
 EXTRA.update(_offset_extra())
+
+
+# ---- run 2026-11-16 expansions ----
+import json as _j, os as _o
+_ED = _j.load(open(_o.path.join(_o.path.dirname(__file__), 'data', 'electrical.json')))
+
+
+def _amp_extra2():
+    out = {}
+    A = _ED['ampacity']
+    for s, v in A.items():
+        slug = s.replace('/', '-')
+        p = f'/{slug}-awg-wire-ampacity/'
+        c = v['cu']
+        lab = f'{s} AWG' if '/' not in s else f'{s} AWG'
+        out[p] = f'''<h2>Worked example: bundling and terminals for {lab} copper</h2>
+<p>{lab} copper THHN starts at {c[2]} A in the 90 \u00b0C column. With six current-carrying conductors in one conduit the 80% factor of Table 310.15(C)(1) gives {c[2]} \u00d7 0.80 = {c[2] * 0.8:.1f} A. With nine conductors (70%) it is {c[2] * 0.7:.1f} A, and with twelve (50%) it is {c[2] * 0.5:.1f} A. The final ampacity can never exceed the termination column, which is {c[1]} A at 75 \u00b0C and {c[0]} A at 60 \u00b0C, so use the lower of the adjusted value and the terminal value. Our {L('/blog/ampacity-derating-bundled-conductors/', 'derating guide')} works through the full method, and the {L('/blog/60c-75c-90c-ampacity-columns-explained/', 'column guide')} explains why the terminals set the limit.</p>
+<h2>Checklist before you pick {lab}</h2>
+<ol><li>Read the temperature marking on the breaker and the lugs.</li><li>Count current-carrying conductors in the raceway; grounds do not count.</li><li>Apply ambient and bundling adjustments from the 90 \u00b0C value if the insulation allows.</li><li>Check voltage drop with the {L('/voltage-drop-calculator/', 'voltage drop calculator')} on long runs.</li><li>Confirm the conduit size on the {L('/conduit-fill-calculator/', 'conduit fill calculator')}.</li></ol>'''
+    return out
+
+
+EXTRA.update({k: v for k, v in _amp_extra2().items() if k not in EXTRA})
+
+
+def _pvc_extra2():
+    out = {}
+    W = _ED['wire_area']['THHN']
+    P40, P80, E = _ED['conduit']['PVC-40'], _ED['conduit']['PVC-80'], _ED['conduit']['EMT']
+    for sz in ('1/2', '3/4', '1', '1-1/4'):
+        slug = sz.replace('/', '-')
+        p = f'/{slug}-pvc-conduit-fill/'
+        n = lambda a, w: int(a // W[w])
+        rows = ''.join(f'<tr><th scope="row">{w} AWG THHN</th><td>{n(P40[sz]["a40"], w)}</td><td>{n(P80[sz]["a40"], w)}</td></tr>' for w in ('14', '12', '10', '8', '6'))
+        out[p] = f'''<h2>How many wires fit: Schedule 40 vs Schedule 80</h2>
+<p>At the 40% limit, {sz} in. Schedule 40 PVC offers {P40[sz]['a40']:.3f} sq in. of wire space and Schedule 80 offers {P80[sz]['a40']:.3f} sq in., because the thicker wall of Schedule 80 leaves a smaller opening. Dividing by the THHN conductor areas in Chapter 9 Table 5 gives the maximum number of same-size wires:</p>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Wire</th><th scope="col">Schedule 40</th><th scope="col">Schedule 80</th></tr></thead><tbody>{rows}</tbody></table></div>
+<p>Counts apply to all conductors of the same size and include grounds. For mixed sizes, add the areas and compare with the usable area, or use the {L('/conduit-fill-calculator/', 'conduit fill calculator')}.</p>
+<h2>Using PVC in practice</h2>
+<p>PVC is not a ground path, so count the equipment grounding conductor in the fill. Schedule 80 is the one to use where the conduit may be damaged, and expansion fittings are needed on long straight runs. The {L('/blog/emt-vs-pvc-vs-rigid-conduit/', 'conduit comparison guide')} covers the rules, and the {L('/blog/conduit-fill-40-percent-rule/', '40% rule guide')} explains the limit itself.</p>'''
+    # 2 EMT page
+    out['/2-emt-conduit-fill/'] = f'''<h2>How many wires fit in 2 in. EMT</h2>
+<p>The usable area at 40% for 2 in. EMT is {E['2']['a40']:.3f} sq in. Same-size THHN counts: ''' + ', '.join(f'{int(E["2"]["a40"] // W[w])} of {w} AWG' for w in ('12', '10', '8', '6', '4', '2')) + f'''. That size is common for feeders and for runs with many circuits. Remember that more than three current-carrying conductors in the raceway requires an ampacity adjustment (see the {L('/blog/ampacity-derating-bundled-conductors/', 'derating guide')}).</p>
+<h2>Tips for 2 in. runs</h2>
+<ul><li>Use a conduit body or pull box every 360\u00b0 of bends.</li><li>Lubricate for long pulls and pull the heaviest conductors first.</li><li>Check the {L('/blog/emt-vs-pvc-vs-rigid-conduit/', 'EMT vs PVC vs rigid comparison')} if the run goes outdoors or underground.</li></ul>'''
+    return out
+
+
+EXTRA.update({k: v for k, v in _pvc_extra2().items() if k not in EXTRA})

@@ -16,9 +16,9 @@
 | 13 | EMT vs PVC vs Rigid: Choosing a Raceway | emt vs pvc | ✔ live 2026-11-15 |
 | 14 | How Many Wires in 3/4 EMT (Worked Examples) | how many wires in 3/4 emt | ✔ live 2026-11-15 |
 | 15 | 60 °C vs 75 °C vs 90 °C Columns Explained | 75c vs 90c ampacity | ✔ live 2026-11-15 |
-| 16 | Ampacity Derating for Bundled Conductors | ampacity adjustment factors | planned |
-| 17 | Sizing Wire for a Detached Garage Subpanel | wire size for subpanel 100 ft | planned |
-| 18 | Box Fill Step by Step (with a Real Box) | box fill calculation example | planned |
+| 16 | Ampacity Derating for Bundled Conductors | ampacity adjustment factors | ✔ live 2026-11-16 |
+| 17 | Sizing Wire for a Detached Garage Subpanel | wire size for subpanel 100 ft | ✔ live 2026-11-16 |
+| 18 | Box Fill Step by Step (with a Real Box) | box fill calculation example | ✔ live 2026-11-16 |
 | 19 | Offset Bending: 30° vs 45° vs 22.5° | conduit offset angles | planned |
 | 20 | Kicks, Saddles and Back-to-Backs Basics | conduit saddle bend | planned |
 | 21 | 2 PSI Gas Systems Explained | 2 psi gas system | planned |

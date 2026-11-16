@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Box Fill Calculation Step by Step (NEC 314.16 with Real Boxes)</title>
+<meta name="description" content="Count conductors, clamps, devices and grounds under NEC 314.16, then compare with real box volumes. Worked examples for a receptacle and two-switch box.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://mydevspace2.github.io/trade-charts/blog/box-fill-calculation-step-by-step/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Trade Charts">
+<meta property="og:title" content="Box Fill Calculation Step by Step (NEC 314.16 with Real Boxes)">
+<meta property="og:description" content="Count conductors, clamps, devices and grounds under NEC 314.16, then compare with real box volumes. Worked examples for a receptacle and two-switch box.">
+<meta property="og:url" content="https://mydevspace2.github.io/trade-charts/blog/box-fill-calculation-step-by-step/">
+<meta property="og:image" content="https://mydevspace2.github.io/trade-charts/assets/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14202b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
+<link rel="manifest" href="/trade-charts/site.webmanifest">
+<script src="/trade-charts/assets/theme.js?v=2"></script>
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=2">
+<script src="/trade-charts/assets/app.js?v=2" defer></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Box Fill Calculation Step by Step (NEC 314.16 with Real Boxes)","description":"Count conductors, clamps, devices and grounds under NEC 314.16, then compare with real box volumes. Worked examples for a receptacle and two-switch box.","url":"https://mydevspace2.github.io/trade-charts/blog/box-fill-calculation-step-by-step/","datePublished":"2026-11-16","dateModified":"2026-11-13","inLanguage":"en-US","author":{"@type":"Organization","name":"Trade Charts","url":"https://mydevspace2.github.io/trade-charts/about/"},"publisher":{"@type":"Organization","name":"Trade Charts","logo":{"@type":"ImageObject","url":"https://mydevspace2.github.io/trade-charts/assets/icon-512.png"}},"image":"https://mydevspace2.github.io/trade-charts/assets/og.png","mainEntityOfPage":"https://mydevspace2.github.io/trade-charts/blog/box-fill-calculation-step-by-step/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many cubic inches per 12 AWG wire?","acceptedAnswer":{"@type":"Answer","text":"2.25 cubic inches per conductor, from Table 314.16(B)."}},{"@type":"Question","name":"How does a device count in box fill?","acceptedAnswer":{"@type":"Answer","text":"Each yoke counts as two conductor allowances, sized by the largest conductor connected to it."}},{"@type":"Question","name":"Do ground wires count in box fill?","acceptedAnswer":{"@type":"Answer","text":"All equipment grounding conductors together count as one allowance of the largest ground, with extra allowance when more than four enter."}},{"@type":"Question","name":"Do wire nuts or pigtails count?","acceptedAnswer":{"@type":"Answer","text":"Wire connectors need no allowance and pigtails that stay inside the box count zero."}},{"@type":"Question","name":"Do cable clamps count?","acceptedAnswer":{"@type":"Answer","text":"Internal clamps count once total at the largest conductor; external clamps count nothing."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mydevspace2.github.io/trade-charts/blog/"},{"@type":"ListItem","position":3,"name":"Box Fill Calculation Step by Step (NEC 314.16 with","item":"https://mydevspace2.github.io/trade-charts/blog/box-fill-calculation-step-by-step/"}]}</script>
+</head>
+<body data-base="/trade-charts">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+ <div class="wrap top-in">
+  <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
+  <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode" title="Switch light / dark mode"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
+  <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/" aria-current="page">Guides</a></li></ul></nav>
+  <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
+ </div>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/trade-charts/">Home</a></li><li><a href="/trade-charts/blog/">Guides</a></li><li aria-current="page">Box Fill Calculation Step by Step (NEC 314.16 with</li></ol></nav>
+<article class="post"><h1>Box Fill Calculation Step by Step (NEC 314.16 with Real Boxes)</h1><p class="meta">Guide · Updated November 13, 2026</p>
+<p class="lead">A box that is too full means crowded wires, damaged insulation and a failed inspection. NEC 314.16 sets the rule: add up the volume allowance for every conductor, clamp, device and ground, and compare it with the box’s marked volume in cubic inches. This guide shows the counting rules, then works two real examples against box volumes from Table 314.16(A).</p>
+<h2>Step 1: Know the volume per conductor</h2>
+<p>Table 314.16(B) gives each conductor size a volume allowance:</p>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Wire size</th><th scope="col">Allowance (cu in.)</th></tr></thead><tbody><tr><th scope="row">18 AWG</th><td>1.50</td></tr><tr><th scope="row">16 AWG</th><td>1.75</td></tr><tr><th scope="row">14 AWG</th><td>2.00</td></tr><tr><th scope="row">12 AWG</th><td>2.25</td></tr><tr><th scope="row">10 AWG</th><td>2.50</td></tr><tr><th scope="row">8 AWG</th><td>3.00</td></tr><tr><th scope="row">6 AWG</th><td>5.00</td></tr></tbody></table></div>
+<h2>Step 2: Count what is in the box</h2>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Item in the box</th><th scope="col">Allowances</th><th scope="col">Sized by</th></tr></thead><tbody><tr><th scope="row">Each conductor that enters and is spliced or terminated</th><td>1 each</td><td>Its own size</td></tr><tr><th scope="row">Conductor that passes through unbroken</th><td>1</td><td>Its own size</td></tr><tr><th scope="row">Loop of unbroken conductor 12 in. or longer</th><td>2</td><td>Its own size</td></tr><tr><th scope="row">Pigtail that never leaves the box</th><td>0</td><td>n/a</td></tr><tr><th scope="row">Internal cable clamps (one or many)</th><td>1 total</td><td>Largest conductor in the box</td></tr><tr><th scope="row">Luminaire stud or hickey</th><td>1 per type</td><td>Largest conductor</td></tr><tr><th scope="row">Each device yoke (switch, receptacle)</th><td>2 per yoke</td><td>Largest conductor connected to it</td></tr><tr><th scope="row">Equipment grounding conductors</th><td>1 for up to 4</td><td>Largest ground</td></tr></tbody></table></div>
+<p>Clamps that sit outside the box and plastic-box clamps already included in the marked volume add nothing. Small fittings such as locknuts and bushings need no allowance.</p>
+<h2>Example 1: A receptacle fed through</h2>
+<p>A single-gang box holds one duplex receptacle and two 12/2 NM cables with ground, with internal clamps.</p>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Item</th><th scope="col">Count</th><th scope="col">Volume</th></tr></thead><tbody><tr><th scope="row">12 AWG conductors (2 hots + 2 neutrals)</th><td>4 × 2.25</td><td>9.00</td></tr><tr><th scope="row">Internal clamps</th><td>1 × 2.25</td><td>2.25</td></tr><tr><th scope="row">Receptacle yoke</th><td>2 × 2.25</td><td>4.50</td></tr><tr><th scope="row">Grounds (2 count as one)</th><td>1 × 2.25</td><td>2.25</td></tr><tr><th scope="row">Total</th><td>8 allowances</td><td>18.00 cu in.</td></tr></tbody></table></div>
+<p>Our box table lists a 3 × 2 × 3-1/2 device box at 18.0 cu in., which fits exactly, and a 4 × 1-1/2 square box at 21.0 cu in., which fits with room to spare. A shallow 3 × 2 × 2-1/2 box (12.5 cu in.) does not.</p>
+<h2>Example 2: Two switches on three 14/2 cables</h2>
+<p>A two-gang opening holds two switches with three 14/2 cables with ground.</p>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Item</th><th scope="col">Count</th><th scope="col">Volume</th></tr></thead><tbody><tr><th scope="row">14 AWG conductors</th><td>6 × 2.00</td><td>12.00</td></tr><tr><th scope="row">Internal clamps</th><td>1 × 2.00</td><td>2.00</td></tr><tr><th scope="row">Two switch yokes</th><td>2 × 2 × 2.00</td><td>8.00</td></tr><tr><th scope="row">Grounds (3 count as one)</th><td>1 × 2.00</td><td>2.00</td></tr><tr><th scope="row">Total</th><td>12 allowances</td><td>24.00 cu in.</td></tr></tbody></table></div>
+<p>A 4-11/16 × 1-1/4 square box holds 25.5 cu in. and passes; a 4 × 1-1/2 square (21.0) does not. A 4 × 2-1/8 square at 30.3 cu in. also passes with room for a plaster ring extension.</p>
+<h2>Mixed wire sizes</h2>
+<p>When 12 AWG and 14 AWG share a box, count each conductor at its own size; clamps and grounds use the largest conductor in the box, and each device yoke uses the largest conductor connected to that device. A switch on a 14 AWG circuit counts at 2.00 even if a 12 AWG circuit is elsewhere in the box.</p>
+<h2>Common mistakes</h2>
+<ul>
+<li>Counting every ground separately; up to four count as one, and in recent editions each extra adds a quarter allowance.</li>
+<li>Counting the device as one instead of two allowances.</li>
+<li>Counting pigtails that start and end inside the box.</li>
+<li>Forgetting the volume marked on the box already includes extensions you did not install.</li>
+<li>Using a box with a barrier without calculating each space separately.</li>
+</ul>
+<h2>Use the tools</h2>
+<p>Run your own numbers with the <a href="/trade-charts/box-fill-calculator/">box fill calculator</a>. If conductors go on to conduit, check wire counts with the <a href="/trade-charts/blog/how-many-wires-in-3-4-emt/">EMT wire count guide</a>. Always confirm with the adopted NEC edition and the inspector.</p>
+<h2>Sources</h2><ul class="sources"><li><a href="https://up.codes/s/box-fill-calculations" rel="noopener">UpCodes: Box fill calculations (314.16(B))</a></li><li><a href="https://codes.iccsafe.org/s/ISEP2021P1/national-electrical-code-nec-solar-provisions/ISEP2021P1-NEC-Sec314.16" rel="noopener">ICC: NEC Section 314.16 text</a></li><li><a href="https://www.field-pm.com/charts/nec-box-fill-rules" rel="noopener">Field PM: How to calculate box fill with NEC 314.16</a></li><li><a href="https://necwire.com/box-fill-calculator" rel="noopener">NECwire: Box fill calculator worked examples</a></li></ul>
+<section class="faq" id="faq"><h2>Frequently asked questions</h2>
+<details><summary>How many cubic inches per 12 AWG wire?</summary><div class="ans">2.25 cubic inches per conductor, from Table 314.16(B).</div></details>
+<details><summary>How does a device count in box fill?</summary><div class="ans">Each yoke counts as two conductor allowances, sized by the largest conductor connected to it.</div></details>
+<details><summary>Do ground wires count in box fill?</summary><div class="ans">All equipment grounding conductors together count as one allowance of the largest ground, with extra allowance when more than four enter.</div></details>
+<details><summary>Do wire nuts or pigtails count?</summary><div class="ans">Wire connectors need no allowance and pigtails that stay inside the box count zero.</div></details>
+<details><summary>Do cable clamps count?</summary><div class="ans">Internal clamps count once total at the largest conductor; external clamps count nothing.</div></details>
+</section></article>
+<aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
+<p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
+</main>
+<footer class="foot">
+ <div class="wrap foot-in">
+  <div><strong>Trade Charts</strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
+  <ul><li><a href="/trade-charts/pt-chart/">Refrigerant PT charts</a></li><li><a href="/trade-charts/superheat-calculator/">Superheat calculator</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by serial number</a></li></ul>
+  <ul><li><a href="/trade-charts/about/">About &amp; sources</a></li><li><a href="/trade-charts/contact/">Contact</a></li><li><a href="/trade-charts/privacy/">Privacy</a></li><li><a href="/trade-charts/terms/">Terms</a></li><li><a href="/trade-charts/sitemap.xml">Sitemap</a></li></ul>
+ </div>
+ <p class="wrap fine">&copy; 2026 Trade Charts. Reference only &mdash; verify with code and manufacturer data. Not affiliated with any manufacturer, NFPA or ICC; trademarks belong to their owners.</p>
+</footer>
+</body>
+</html>

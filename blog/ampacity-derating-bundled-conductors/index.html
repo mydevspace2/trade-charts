@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Ampacity Derating for Bundled Conductors: NEC 310.15(C)(1) Explained</title>
+<meta name="description" content="How to derate wire when more than three current-carrying conductors share a raceway: the 80/70/50% factors, what counts, worked 12, 10 and 3 AWG examples.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://mydevspace2.github.io/trade-charts/blog/ampacity-derating-bundled-conductors/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Trade Charts">
+<meta property="og:title" content="Ampacity Derating for Bundled Conductors: NEC 310.15(C)(1) Explained">
+<meta property="og:description" content="How to derate wire when more than three current-carrying conductors share a raceway: the 80/70/50% factors, what counts, worked 12, 10 and 3 AWG examples.">
+<meta property="og:url" content="https://mydevspace2.github.io/trade-charts/blog/ampacity-derating-bundled-conductors/">
+<meta property="og:image" content="https://mydevspace2.github.io/trade-charts/assets/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14202b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
+<link rel="manifest" href="/trade-charts/site.webmanifest">
+<script src="/trade-charts/assets/theme.js?v=2"></script>
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=2">
+<script src="/trade-charts/assets/app.js?v=2" defer></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Ampacity Derating for Bundled Conductors: NEC 310.15(C)(1) Explained","description":"How to derate wire when more than three current-carrying conductors share a raceway: the 80/70/50% factors, what counts, worked 12, 10 and 3 AWG examples.","url":"https://mydevspace2.github.io/trade-charts/blog/ampacity-derating-bundled-conductors/","datePublished":"2026-11-16","dateModified":"2026-11-13","inLanguage":"en-US","author":{"@type":"Organization","name":"Trade Charts","url":"https://mydevspace2.github.io/trade-charts/about/"},"publisher":{"@type":"Organization","name":"Trade Charts","logo":{"@type":"ImageObject","url":"https://mydevspace2.github.io/trade-charts/assets/icon-512.png"}},"image":"https://mydevspace2.github.io/trade-charts/assets/og.png","mainEntityOfPage":"https://mydevspace2.github.io/trade-charts/blog/ampacity-derating-bundled-conductors/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When do I have to derate conductors in conduit?","acceptedAnswer":{"@type":"Answer","text":"When more than three current-carrying conductors share a raceway or cable longer than 24 inches, per Table 310.15(C)(1)."}},{"@type":"Question","name":"Do ground wires count toward derating?","acceptedAnswer":{"@type":"Answer","text":"No. Equipment grounding conductors do not count as current-carrying conductors."}},{"@type":"Question","name":"Does the neutral count?","acceptedAnswer":{"@type":"Answer","text":"Usually not on a single-phase 3-wire circuit, but yes on a 4-wire wye circuit that feeds nonlinear loads."}},{"@type":"Question","name":"What is the factor for 7 to 9 conductors?","acceptedAnswer":{"@type":"Answer","text":"70% of the Table 310.16 ampacity."}},{"@type":"Question","name":"Is derating applied to the 60°C or 90°C column?","acceptedAnswer":{"@type":"Answer","text":"Start from the insulation rating (90°C for THHN), apply the factors, and make sure the result does not exceed the termination temperature column."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mydevspace2.github.io/trade-charts/blog/"},{"@type":"ListItem","position":3,"name":"Ampacity Derating for Bundled Conductors","item":"https://mydevspace2.github.io/trade-charts/blog/ampacity-derating-bundled-conductors/"}]}</script>
+</head>
+<body data-base="/trade-charts">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+ <div class="wrap top-in">
+  <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
+  <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode" title="Switch light / dark mode"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
+  <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/" aria-current="page">Guides</a></li></ul></nav>
+  <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
+ </div>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/trade-charts/">Home</a></li><li><a href="/trade-charts/blog/">Guides</a></li><li aria-current="page">Ampacity Derating for Bundled Conductors</li></ol></nav>
+<article class="post"><h1>Ampacity Derating for Bundled Conductors: NEC 310.15(C)(1) Explained</h1><p class="meta">Guide · Updated November 13, 2026</p>
+<p class="lead">The ampacities in NEC Table 310.16 assume no more than three current-carrying conductors in a raceway or cable. Add more and they heat each other, so the code makes you reduce each conductor’s ampacity. That reduction is called derating (the code calls it an adjustment factor), and it is the step most often forgotten when a conduit is crowded with extra circuits. This guide shows the factors, what counts toward the total, and three worked examples using our table values.</p>
+<h2>The adjustment factors</h2>
+<p>Table 310.15(C)(1) gives the percentage of the Table 310.16 value you may use, based on the number of current-carrying conductors:</p>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Current-carrying conductors</th><th scope="col">Percent of table ampacity</th><th scope="col">Multiplier</th></tr></thead><tbody><tr><th scope="row">1–3</th><td>100%</td><td>1.00</td></tr><tr><th scope="row">4–6</th><td>80%</td><td>0.80</td></tr><tr><th scope="row">7–9</th><td>70%</td><td>0.70</td></tr><tr><th scope="row">10–20</th><td>50%</td><td>0.50</td></tr><tr><th scope="row">21–30</th><td>45%</td><td>0.45</td></tr><tr><th scope="row">31–40</th><td>40%</td><td>0.40</td></tr><tr><th scope="row">41 and above</th><td>35%</td><td>0.35</td></tr></tbody></table></div>
+<p>The factors apply to the Table 310.16 value “as adjusted for ambient temperature if necessary.” When both apply you multiply the table ampacity by the temperature correction and by the bundling factor. The number is counted across the whole raceway or cable, including spare conductors.</p>
+<h2>What counts as a current-carrying conductor</h2>
+<ul>
+<li><b>Hot conductors:</b> always count.</li>
+<li><b>Equipment grounding conductors:</b> never count, because they carry current only during a fault.</li>
+<li><b>Neutrals:</b> the neutral of a single-phase 3-wire circuit carries only the unbalance and does not count; the neutral of a 4-wire wye circuit feeding nonlinear loads (computers, LED drivers) does count.</li>
+<li><b>Conductors that cannot be energized together:</b> for example, the two sets of conductors of a heating and cooling changeover, are not counted.</li>
+<li><b>Paralleled sets:</b> each conductor of a paralleled set counts.</li>
+</ul>
+<h2>When you do not have to derate</h2>
+<p>The derating rule has exceptions. It does not apply to conductors in a raceway no longer than 24 in. (a nipple), and it does not apply to underground conductors entering or leaving an outdoor trench if they are protected by RMC, IMC or rigid nonmetallic conduit up to 10 ft long and there are no more than four conductors. The 24-inch nipple is also the reason the code lets you fill short nipples beyond the 40% limit, which our <a href="/trade-charts/blog/conduit-fill-40-percent-rule/">conduit fill guide</a> covers.</p>
+<h2>Example 1: 12 AWG THHN, eight conductors</h2>
+<p>You pull four 2-wire 12 AWG circuits (eight current-carrying conductors) through one conduit. THHN is rated 90 °C, so you may start from the 90 °C column: 12 AWG copper reads 30 A. Eight conductors fall in the 7–9 row, so the factor is 70%: 30 × 0.70 = 21 A. The 75 °C column gives 25 A at the terminals, which is higher, so the adjusted 21 A governs. A 20 A breaker is allowed, because 12 AWG is limited to 20 A by 240.4(D) and the adjusted ampacity of 21 A matches it.</p>
+<h2>Example 2: 10 AWG THHN, six conductors</h2>
+<p>Three 2-wire circuits in one conduit is six current-carrying conductors, an 80% factor. 10 AWG copper at 90 °C is 40 A, so the adjusted ampacity is 40 × 0.80 = 32 A. At the terminals the 75 °C value is 35 A, which is not exceeded, so 32 A is the answer. That is enough for a 30 A circuit. Had you used the 60 °C column from the start (30 A), the 80% factor would have given 24 A, which would have forced a bigger wire for no reason. This is why the <a href="/trade-charts/blog/60c-75c-90c-ampacity-columns-explained/">90 °C starting point</a> matters.</p>
+<h2>Example 3: 3 AWG feeder, six conductors, 100 A load</h2>
+<p>Two sets of three conductors share a conduit. 3 AWG copper at 90 °C reads 115 A, so adjusted: 115 × 0.80 = 92 A, and the 75 °C terminal value is 100 A. The lower number wins: 92 A. If the load is 100 A, 3 AWG fails, and you go up one size to 2 AWG: 130 × 0.80 = 104 A, which covers 100 A (the 75 °C terminal value of 115 A is also above 100 A). Without the bundling, the 75 °C column alone would have allowed 3 AWG. The lesson: bundling can cost you one or two wire sizes.</p>
+<h2>Practical ways to avoid derating</h2>
+<ol>
+<li>Split circuits across two raceways so each has three or fewer current-carrying conductors.</li>
+<li>Use a larger conduit and a larger wire only where needed; derating hits every conductor in the raceway equally.</li>
+<li>Remember that spare conductors count toward the total.</li>
+<li>Use the <a href="/trade-charts/wire-ampacity-chart/">wire ampacity chart</a> to read the base values quickly, and check fill with the <a href="/trade-charts/conduit-fill-calculator/">conduit fill calculator</a>.</li>
+</ol>
+<p>This guide summarizes the code for learning. Your adopted NEC edition and local amendments decide what is allowed on a real job.</p>
+<h2>Sources</h2><ul class="sources"><li><a href="https://www.nfpa.org/-/media/project/storefront/catalog/files/code-or-topic-fact-sheets/NECAmpacityWorkflow.pdf" rel="noopener">NFPA: Using the NEC Ampacity Charts workflow (Table 310.15(C)(1))</a></li><li><a href="https://up.codes/s/adjustment-factor-for-conductor-proximity" rel="noopener">UpCodes: Adjustment factor for conductor proximity (310.15(C)(1) exceptions)</a></li><li><a href="https://www.ecmag.com/magazine/articles/article-detail/codes-standards-what-constitutes-condition-use-considerations-and-calculations-conductors" rel="noopener">Electrical Contractor: What Constitutes Condition of Use</a></li><li><a href="https://s3.amazonaws.com/mdpelectrical.com/tables/table310-15C1.html" rel="noopener">Table 310.15(C)(1) text reproduction (mdpelectrical.com)</a></li></ul>
+<section class="faq" id="faq"><h2>Frequently asked questions</h2>
+<details><summary>When do I have to derate conductors in conduit?</summary><div class="ans">When more than three current-carrying conductors share a raceway or cable longer than 24 inches, per Table 310.15(C)(1).</div></details>
+<details><summary>Do ground wires count toward derating?</summary><div class="ans">No. Equipment grounding conductors do not count as current-carrying conductors.</div></details>
+<details><summary>Does the neutral count?</summary><div class="ans">Usually not on a single-phase 3-wire circuit, but yes on a 4-wire wye circuit that feeds nonlinear loads.</div></details>
+<details><summary>What is the factor for 7 to 9 conductors?</summary><div class="ans">70% of the Table 310.16 ampacity.</div></details>
+<details><summary>Is derating applied to the 60°C or 90°C column?</summary><div class="ans">Start from the insulation rating (90°C for THHN), apply the factors, and make sure the result does not exceed the termination temperature column.</div></details>
+</section></article>
+<aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
+<p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
+</main>
+<footer class="foot">
+ <div class="wrap foot-in">
+  <div><strong>Trade Charts</strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
+  <ul><li><a href="/trade-charts/pt-chart/">Refrigerant PT charts</a></li><li><a href="/trade-charts/superheat-calculator/">Superheat calculator</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by serial number</a></li></ul>
+  <ul><li><a href="/trade-charts/about/">About &amp; sources</a></li><li><a href="/trade-charts/contact/">Contact</a></li><li><a href="/trade-charts/privacy/">Privacy</a></li><li><a href="/trade-charts/terms/">Terms</a></li><li><a href="/trade-charts/sitemap.xml">Sitemap</a></li></ul>
+ </div>
+ <p class="wrap fine">&copy; 2026 Trade Charts. Reference only &mdash; verify with code and manufacturer data. Not affiliated with any manufacturer, NFPA or ICC; trademarks belong to their owners.</p>
+</footer>
+</body>
+</html>

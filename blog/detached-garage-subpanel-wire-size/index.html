@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Sizing Wire for a Detached Garage Subpanel (60 A at 100 ft Example)</title>
+<meta name="description" content="How to size a 4-wire feeder to a detached garage subpanel: ampacity, voltage drop at 100 ft, ground rods, neutral isolation, with a worked 60 A example.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://mydevspace2.github.io/trade-charts/blog/detached-garage-subpanel-wire-size/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Trade Charts">
+<meta property="og:title" content="Sizing Wire for a Detached Garage Subpanel (60 A at 100 ft Example)">
+<meta property="og:description" content="How to size a 4-wire feeder to a detached garage subpanel: ampacity, voltage drop at 100 ft, ground rods, neutral isolation, with a worked 60 A example.">
+<meta property="og:url" content="https://mydevspace2.github.io/trade-charts/blog/detached-garage-subpanel-wire-size/">
+<meta property="og:image" content="https://mydevspace2.github.io/trade-charts/assets/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14202b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
+<link rel="manifest" href="/trade-charts/site.webmanifest">
+<script src="/trade-charts/assets/theme.js?v=2"></script>
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=2">
+<script src="/trade-charts/assets/app.js?v=2" defer></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Sizing Wire for a Detached Garage Subpanel (60 A at 100 ft Example)","description":"How to size a 4-wire feeder to a detached garage subpanel: ampacity, voltage drop at 100 ft, ground rods, neutral isolation, with a worked 60 A example.","url":"https://mydevspace2.github.io/trade-charts/blog/detached-garage-subpanel-wire-size/","datePublished":"2026-11-16","dateModified":"2026-11-13","inLanguage":"en-US","author":{"@type":"Organization","name":"Trade Charts","url":"https://mydevspace2.github.io/trade-charts/about/"},"publisher":{"@type":"Organization","name":"Trade Charts","logo":{"@type":"ImageObject","url":"https://mydevspace2.github.io/trade-charts/assets/icon-512.png"}},"image":"https://mydevspace2.github.io/trade-charts/assets/og.png","mainEntityOfPage":"https://mydevspace2.github.io/trade-charts/blog/detached-garage-subpanel-wire-size/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What size wire for a 60 amp subpanel?","acceptedAnswer":{"@type":"Answer","text":"By ampacity, 6 AWG copper (65 A at 75°C). Check voltage drop for long runs; at 100 ft and 60 A, 6 AWG gives about 2.5% drop."}},{"@type":"Question","name":"Does a detached garage need a ground rod?","acceptedAnswer":{"@type":"Answer","text":"Generally yes: a feeder or more than one branch circuit requires a grounding electrode at the building under 250.32(A)."}},{"@type":"Question","name":"Should the neutral and ground be bonded in a garage subpanel?","acceptedAnswer":{"@type":"Answer","text":"No. With a 4-wire feeder, the neutral bar is isolated and bonding happens only at the main service."}},{"@type":"Question","name":"Can I run a 3-wire feeder to a garage?","acceptedAnswer":{"@type":"Answer","text":"Not for new work. The allowance was removed in the 2008 NEC; use two hots, a neutral and a ground."}},{"@type":"Question","name":"Is a disconnect required at the garage?","acceptedAnswer":{"@type":"Answer","text":"Yes, a disconnecting means is required at or in the separate building."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mydevspace2.github.io/trade-charts/blog/"},{"@type":"ListItem","position":3,"name":"Sizing Wire for a Detached Garage Subpanel (60 A a","item":"https://mydevspace2.github.io/trade-charts/blog/detached-garage-subpanel-wire-size/"}]}</script>
+</head>
+<body data-base="/trade-charts">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+ <div class="wrap top-in">
+  <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark" aria-hidden="true">TC</span><span>Trade<b>Charts</b></span></a>
+  <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode" title="Switch light / dark mode"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
+  <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/" aria-current="page">Guides</a></li></ul></nav>
+  <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
+ </div>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/trade-charts/">Home</a></li><li><a href="/trade-charts/blog/">Guides</a></li><li aria-current="page">Sizing Wire for a Detached Garage Subpanel (60 A a</li></ol></nav>
+<article class="post"><h1>Sizing Wire for a Detached Garage Subpanel (60 A at 100 ft Example)</h1><p class="meta">Guide · Updated November 13, 2026</p>
+<p class="lead">Running power to a detached garage or workshop is one of the most common residential projects, and the wire size is rarely just about ampacity. Over 100 feet, voltage drop often decides the size, and the code adds requirements for a separate grounding electrode and an isolated neutral at the garage. This guide walks through a 60 A, 240 V feeder over 100 ft with copper conductors, using our table data.</p>
+<h2>Step 1: Decide the feeder rating</h2>
+<p>Add up the garage loads (lights, receptacles, a compressor, a welder, an EV charger) using a load calculation and pick a feeder breaker size. We use 60 A for the example. The feeder is a 2-pole breaker in the house panel that feeds a subpanel in the garage with its own main or disconnect. A disconnecting means is required at or in the separate building.</p>
+<h2>Step 2: Check ampacity first</h2>
+<p>For a 60 A breaker that has no marked terminal rating, 110.14(C) limits you to the 60 °C column for circuits of 100 A or less unless the equipment is marked for 75 °C. Most breakers and lugs today are marked 60/75 °C, so the 75 °C column usually applies. From our <a href="/trade-charts/wire-ampacity-chart/">ampacity chart</a>, copper at 75 °C: 8 AWG = 50 A, 6 AWG = 65 A, 4 AWG = 85 A. For a 60 A load, 6 AWG copper (65 A) is the minimum, assuming no derating for bundling or temperature, which you check with the <a href="/trade-charts/blog/ampacity-derating-bundled-conductors/">derating guide</a>.</p>
+<h2>Step 3: Check voltage drop over 100 ft</h2>
+<p>The NEC recommends in informational notes that feeder and branch-circuit voltage drop each stay within 3%, and no more than 5% total (our <a href="/trade-charts/blog/voltage-drop-3-percent-rule/">3% rule guide</a> covers this). For a single-phase 2-wire feeder the drop is 2 × resistance per foot × length × current, using Chapter 9 Table 8 resistances (uncoated copper). At 60 A and 100 ft one way on 240 V:</p>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Copper size</th><th scope="col">Resistance (ohm/1000 ft)</th><th scope="col">Drop (volts)</th><th scope="col">Drop (% of 240 V)</th></tr></thead><tbody><tr><th scope="row">8 AWG</th><td>0.778</td><td>9.3</td><td>3.9%</td></tr><tr><th scope="row">6 AWG</th><td>0.491</td><td>5.9</td><td>2.5%</td></tr><tr><th scope="row">4 AWG</th><td>0.308</td><td>3.7</td><td>1.5%</td></tr><tr><th scope="row">3 AWG</th><td>0.245</td><td>2.9</td><td>1.2%</td></tr></tbody></table></div>
+<p>With 6 AWG the drop is about 2.5%, under the 3% guideline, so it works for a full 60 A load. If the garage is 200 ft away the drop doubles to about 4.9% and you would step up to 4 AWG. Check your own length with the <a href="/trade-charts/voltage-drop-calculator/">voltage drop calculator</a>. Real loads are rarely a continuous 60 A, so these are worst-case figures.</p>
+<h2>Step 4: Four wires, isolated neutral</h2>
+<p>For new work, the feeder to a detached garage has four conductors: two ungrounded (hots), a grounded neutral and a separate equipment grounding conductor [250.32(B)(1)]. At the garage panel, the neutral bar stays isolated from the enclosure and the ground bar; the neutral-to-ground bond exists only at the service in the main building. The older 3-wire feeder with a bonded neutral at the outbuilding was removed from the code for new installations in 2008. If you bonded the neutral at the garage, neutral current would flow on the ground wire and any metal conduit or piping between the buildings.</p>
+<p>The equipment grounding conductor is sized from Table 250.122 based on the feeder breaker. For a 60 A breaker that is 10 AWG copper.</p>
+<h2>Step 5: Ground rods at the garage</h2>
+<p>250.32(A) requires a grounding electrode system at a separate building supplied by a feeder or by more than one branch circuit. A concrete-encased electrode, if present, counts; otherwise two ground rods are the common solution, and the grounding electrode conductor lands on the ground bar. The only exception is a building served by a single branch circuit that includes an equipment grounding conductor.</p>
+<h2>Step 6: Wiring method, burial and GFCI</h2>
+<p>Conductors can run in PVC conduit underground or in a cable listed for direct burial; see Table 300.5 for burial depth, which depends on the wiring method and whether the run is under a driveway. THWN-2 in PVC is the usual choice, and our <a href="/trade-charts/blog/emt-vs-pvc-vs-rigid-conduit/">conduit comparison</a> covers the pros and cons. Receptacles in a garage need GFCI protection under 210.8, and the garage needs at least one 20 A circuit for receptacles [210.11(C)(4)].</p>
+<h2>Quick checklist</h2>
+<ol>
+<li>Pick the feeder size from a load calculation.</li>
+<li>Choose wire by ampacity (75 °C column), then by voltage drop at your length.</li>
+<li>Four conductors: two hots, neutral, EGC from Table 250.122.</li>
+<li>Isolate neutral and ground at the garage panel; add a disconnect.</li>
+<li>Install ground rods or a concrete-encased electrode.</li>
+<li>Get a permit and inspection; local rules and the adopted NEC edition decide.</li>
+</ol>
+<h2>Sources</h2><ul class="sources"><li><a href="https://electricaltoolbox.com/separate-structure-grounding-calculator" rel="noopener">ElectricalToolbox: Separate structure grounding (NEC 250.32)</a></li><li><a href="https://www.ecmag.com/magazine/articles/article-detail/codes-standards-equipment-and-structure-grounding-and-bonding-separate-buildings-or" rel="noopener">Electrical Contractor: Grounding and Bonding at Separate Buildings or Structures</a></li><li><a href="https://www.stpaul.gov/sites/default/files/2023-06/DSI.Bldg_Electrical_Checklist%20Garage.pdf" rel="noopener">City of St. Paul: Residential Checklist 2023 NEC (Garage)</a></li><li><a href="https://solardesignlab.com/subpanel-neutral-ground-separation" rel="noopener">Solar Design Lab: Why subpanels separate neutral and ground</a></li></ul>
+<section class="faq" id="faq"><h2>Frequently asked questions</h2>
+<details><summary>What size wire for a 60 amp subpanel?</summary><div class="ans">By ampacity, 6 AWG copper (65 A at 75°C). Check voltage drop for long runs; at 100 ft and 60 A, 6 AWG gives about 2.5% drop.</div></details>
+<details><summary>Does a detached garage need a ground rod?</summary><div class="ans">Generally yes: a feeder or more than one branch circuit requires a grounding electrode at the building under 250.32(A).</div></details>
+<details><summary>Should the neutral and ground be bonded in a garage subpanel?</summary><div class="ans">No. With a 4-wire feeder, the neutral bar is isolated and bonding happens only at the main service.</div></details>
+<details><summary>Can I run a 3-wire feeder to a garage?</summary><div class="ans">Not for new work. The allowance was removed in the 2008 NEC; use two hots, a neutral and a ground.</div></details>
+<details><summary>Is a disconnect required at the garage?</summary><div class="ans">Yes, a disconnecting means is required at or in the separate building.</div></details>
+</section></article>
+<aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
+<p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
+</main>
+<footer class="foot">
+ <div class="wrap foot-in">
+  <div><strong>Trade Charts</strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
+  <ul><li><a href="/trade-charts/pt-chart/">Refrigerant PT charts</a></li><li><a href="/trade-charts/superheat-calculator/">Superheat calculator</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by serial number</a></li></ul>
+  <ul><li><a href="/trade-charts/about/">About &amp; sources</a></li><li><a href="/trade-charts/contact/">Contact</a></li><li><a href="/trade-charts/privacy/">Privacy</a></li><li><a href="/trade-charts/terms/">Terms</a></li><li><a href="/trade-charts/sitemap.xml">Sitemap</a></li></ul>
+ </div>
+ <p class="wrap fine">&copy; 2026 Trade Charts. Reference only &mdash; verify with code and manufacturer data. Not affiliated with any manufacturer, NFPA or ICC; trademarks belong to their owners.</p>
+</footer>
+</body>
+</html>
