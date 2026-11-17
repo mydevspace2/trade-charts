@@ -153,7 +153,7 @@ def age_pages():
         for s, n, kind, typ, rule, ex, src, srcurl, example in items:
             path = f'/{s}-{suffix}/'
             wh = typ == 'Water heater'
-            title = f'{n} {"Water Heater Age" if wh else "Age"} by Serial Number (Decoder)'
+            title = f'{n} {"Water Heater Age" if wh and not n.endswith("Water Heater") else "Age"} by Serial Number (Decoder)'
             desc = f'Find the age of a {n} {"water heater" if wh else "AC, heat pump or furnace"} from its serial number. Free decoder, format examples and the manufacturer source.'
             if len(desc) > 159: desc = desc[:156].rsplit(' ', 1)[0] + '.'
             bwt = age_examples(kind, n)

@@ -48,3 +48,6 @@
 - Home hero is a full-width band: `page(..., hero=...)` renders it at the top of `<main class="has-hero">` with the page content in an inner `.wrap`. Blueprint grid + hazard stripe; chips PT charts / Conduit fill / Ampacity / Box fill / Gas pipe sizing. Decorative gauge on >700px.
 - Tokens: `--cta`/`--cta-ink` (yellow buttons, pressed segs, first chip), `--accent` = link colour (light #8a4f00, dark #ffc20e), `--slate` (hero/card headers), `--hazard` stripe. Light bg #f0f1ee, dark bg #111519 (test-browser.js asserts these). ASSET_V=3.
 - Tool boxes: yellow top bar + diamond-bullet uppercase title; results have yellow left rule; category cards have charcoal title strips; footer/disclaimer use the hazard stripe.
+
+## Run 2026-11-17
+- Posts #19,20,23 live (posts6.py, commit 83a220e), 150 pages. Posts are ~600-900 words (short of 900 target). No page expansions this run; 23 pages still under 600 words. Browser tests need apt libs installed first (see 11-16 note).

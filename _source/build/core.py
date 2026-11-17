@@ -139,7 +139,7 @@ def page(path, title, desc, body, crumbs=None, section=None, schema=(), og_type=
 <meta name="description" content="{esc(desc)}">
 {robots}
 <link rel="canonical" href="{abs_url(path)}">
-<meta property="og:type" content="{og_type}">
+{'' if noindex else f'<link rel="alternate" hreflang="en-us" href="{abs_url(path)}">' + chr(10) + f'<link rel="alternate" hreflang="x-default" href="{abs_url(path)}">' + chr(10)}<meta property="og:type" content="{og_type}">
 <meta property="og:site_name" content="{SITE_NAME}">
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
@@ -147,8 +147,7 @@ def page(path, title, desc, body, crumbs=None, section=None, schema=(), og_type=
 <meta property="og:image" content="{abs_url('/assets/og.png')}">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#14202b" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1c232a">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="{url('/favicon.svg')}" type="image/svg+xml">
 <link rel="apple-touch-icon" href="{url('/assets/icon-180.png')}">

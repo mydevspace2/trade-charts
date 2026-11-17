@@ -4,7 +4,7 @@ from pages_hvac import BY, pf, ps, REFS, COMPARISONS, glide, tp
 import json, os
 
 POSTS = [
- ('how-to-read-a-pt-chart', 'How to Read a PT Chart (Dew, Bubble and Glide Explained)', 'Step-by-step guide to reading a refrigerant PT chart: gauge vs absolute pressure, dew vs bubble for blends, glide, and worked superheat and subcooling examples.', '2026-11-13'),
+ ('how-to-read-a-pt-chart', 'How to Read a PT Chart (Dew, Bubble and Glide Explained)', 'Step-by-step guide to reading a refrigerant PT chart: gauge vs absolute pressure, dew vs bubble for blends, glide, and superheat and subcooling examples.', '2026-11-13'),
  ('superheat-vs-subcooling', 'Superheat vs Subcooling: Which to Charge By and Why', 'Superheat vs subcooling explained for HVAC techs: what each measures, TXV vs fixed orifice charging, target values and the mistakes that cause bad charges.', '2026-11-13'),
  ('conduit-fill-40-percent-rule', 'Conduit Fill Explained: The NEC 40% Rule With Examples', 'How NEC Chapter 9 conduit fill works: the 53/31/40 percent limits, Table 4 and Table 5 areas, the 0.8 round-up rule, grounds, nipples and worked examples.', '2026-11-13'),
  ('voltage-drop-3-percent-rule', 'Voltage Drop and the 3% Rule: When to Upsize Wire', 'What the NEC actually says about 3% and 5% voltage drop, how to calculate it with Table 8 resistance, and when long runs need a bigger conductor.', '2026-11-13'),
