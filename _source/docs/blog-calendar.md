@@ -19,11 +19,11 @@
 | 16 | Ampacity Derating for Bundled Conductors | ampacity adjustment factors | ✔ live 2026-11-16 |
 | 17 | Sizing Wire for a Detached Garage Subpanel | wire size for subpanel 100 ft | ✔ live 2026-11-16 |
 | 18 | Box Fill Step by Step (with a Real Box) | box fill calculation example | ✔ live 2026-11-16 |
-| 19 | Offset Bending: 30° vs 45° vs 22.5° | conduit offset angles | planned |
-| 20 | Kicks, Saddles and Back-to-Backs Basics | conduit saddle bend | planned |
+| 19 | Offset Bending: 30° vs 45° vs 22.5° | conduit offset angles | ✔ live 2026-11-17 |
+| 20 | Kicks, Saddles and Back-to-Backs Basics | conduit saddle bend | ✔ live 2026-11-17 |
 | 21 | 2 PSI Gas Systems Explained | 2 psi gas system | planned |
 | 22 | CSST Sizing and EHD Numbers | csst sizing ehd | planned |
-| 23 | Propane vs Natural Gas Pipe Sizing | propane pipe sizing vs natural gas | planned |
+| 23 | Propane vs Natural Gas Pipe Sizing | propane pipe sizing vs natural gas | ✔ live 2026-11-17 |
 | 24 | Converting Btu to CFH (and Heating Value) | btu to cfh | planned |
 | 25 | How Old Is My AC? Serial Number Basics | how old is my ac unit | planned |
 | 26 | Bradford White's 20-Year Letter Code | bradford white serial number | planned |

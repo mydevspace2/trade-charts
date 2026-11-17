@@ -322,3 +322,16 @@ def new_bodies():
     d = _orig_nb3()
     d.update(_p5.bodies())
     return d
+
+import posts6 as _p6
+NEW_POSTS.extend(_p6.NEW_POSTS)
+FAQS.update(_p6.FAQS)
+for _k, _v in _p6.RELATED_GUIDES.items():
+    RELATED_GUIDES.setdefault(_k, []).extend(_v)
+_orig_nb4 = new_bodies
+
+
+def new_bodies():
+    d = _orig_nb4()
+    d.update(_p6.bodies())
+    return d

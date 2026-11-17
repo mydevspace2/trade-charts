@@ -41,3 +41,10 @@
 - Posts #16-18 live (posts5.py): derating, detached garage subpanel, box fill. 147 pages. Expanded 8 ampacity pages, 4 PVC fill pages, 2 in. EMT page to 600+ via extra.py. ~22 pages still under 600 (hubs, offset chart, welding, age hubs, legal, Home).
 - Browser tests: install libs with `sudo apt-get update` first; run in slices (TC_SLICE=0:50, 50:100, 100:150, then TC_NOPAGES=1).
 - GSC (Mon check): 0 impressions/clicks; Indexing 1 indexed/0 not; sitemap shows "Couldn't fetch" (submitted Nov 13, read empty) - Bing sitemap Success 133 URLs.
+
+## Visual identity redesign (2026-11-16, commit dbee137)
+- Job-site look: charcoal header (#1c232a, 3px safety-yellow #ffc20e rule), hex-nut + pressure-gauge logo (`core.MARK_SVG`, also favicon/icons/og via build.py), "TRADE CHARTS" wordmark.
+- Headings/nav/buttons in Barlow Condensed (SIL OFL, self-hosted Latin-subset woff2 in `build/assets/fonts/`, copied by build.py; TTF for the OG image in `build/fonts-src/`). Body stays system sans, numbers mono.
+- Home hero is a full-width band: `page(..., hero=...)` renders it at the top of `<main class="has-hero">` with the page content in an inner `.wrap`. Blueprint grid + hazard stripe; chips PT charts / Conduit fill / Ampacity / Box fill / Gas pipe sizing. Decorative gauge on >700px.
+- Tokens: `--cta`/`--cta-ink` (yellow buttons, pressed segs, first chip), `--accent` = link colour (light #8a4f00, dark #ffc20e), `--slate` (hero/card headers), `--hazard` stripe. Light bg #f0f1ee, dark bg #111519 (test-browser.js asserts these). ASSET_V=3.
+- Tool boxes: yellow top bar + diamond-bullet uppercase title; results have yellow left rule; category cards have charcoal title strips; footer/disclaimer use the hazard stripe.
