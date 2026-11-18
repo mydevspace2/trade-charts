@@ -51,3 +51,7 @@
 
 ## Run 2026-11-17
 - Posts #19,20,23 live (posts6.py, commit 83a220e), 150 pages. Posts are ~600-900 words (short of 900 target). No page expansions this run; 23 pages still under 600 words. Browser tests need apt libs installed first (see 11-16 note).
+
+## SEO settings pass (2026-11-17 evening, commit 1162cb5; Action lastmod commit a2c1749)
+- theme-color now single #1c232a (was #14202b/#f4f1ea); hreflang en-us + x-default on indexable pages; title fix "American Water Heater Age…" (word was doubled); how-to-read-a-pt-chart desc <160. Audit clean otherwise (canonical, 1 H1, OG/Twitter, JSON-LD, alts, no orphans/broken links, 404 noindex). 8 titles are 66-69 chars (left as is).
+- GSC sitemap still "Couldn't fetch" after resubmit 17 Nov, but URL Inspection live test of sitemap.xml = 200 OK, application/xml, crawl allowed: file is fine, GSC-side lag on github.io sub-folder properties. Request Indexing: /conduit-fill-calculator/ accepted; /pt-chart/ and /r410a-pt-chart/ "Oops! Something went wrong" (retry another day). Bing sitemap resubmitted (Processing). IndexNow 148 URLs HTTP 200 (Bing dashboard for the sub-folder property shows no IndexNow data).

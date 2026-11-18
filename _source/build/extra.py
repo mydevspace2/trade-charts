@@ -162,3 +162,30 @@ def _pvc_extra2():
 
 
 EXTRA.update({k: v for k, v in _pvc_extra2().items() if k not in EXTRA})
+
+
+EXTRA['/hvac-calculators/'] = EXTRA.get('/hvac-calculators/', '') + f'''<h2>Which HVAC calculator should you use?</h2>
+<p>Superheat and subcooling are the two numbers that tell you whether a system is charged correctly. Which one you check depends on the metering device. On a fixed orifice or piston system, charge by {L('/superheat-calculator/', 'superheat')}. On a TXV or EEV system, charge by {L('/subcooling-calculator/', 'subcooling')}. Both need the refrigerant\u2019s saturation temperature at the measured pressure, which is what the {L('/pt-chart/', 'PT charts')} give you.</p>
+<h2>A basic charging workflow</h2>
+<ol>
+<li>Let the system run 10 to 15 minutes so pressures settle.</li>
+<li>Clamp a thermometer on the suction line near the service valve, and another on the liquid line.</li>
+<li>Read suction and liquid pressures and look up the saturation temperatures for the refrigerant on the nameplate.</li>
+<li>Superheat is suction line temperature minus suction saturation temperature. Subcooling is liquid saturation temperature minus liquid line temperature.</li>
+<li>Compare with the manufacturer\u2019s target. Add or recover refrigerant in small steps, waiting for readings to stabilize between each.</li>
+</ol>
+<h2>Before you blame the charge</h2>
+<p>Dirty filters, a dirty evaporator or condenser coil, low airflow and a bad blower capacitor can all mimic charge problems. Fix airflow first, then check the charge. For background, read {L('/blog/superheat-vs-subcooling/', 'superheat vs subcooling')} and {L('/blog/how-to-read-a-pt-chart/', 'how to read a PT chart')}. Always follow the equipment manufacturer\u2019s charging instructions and EPA rules for handling refrigerant.</p>
+'''
+EXTRA['/electrical/'] = EXTRA.get('/electrical/', '') + f'''<h2>How to use the electrical references together</h2>
+<p>A typical branch circuit job touches several tools in order. First pick the conductor from the ampacity tables, then check the conduit with the {L('/conduit-fill-calculator/', 'conduit fill calculator')}, and finally plan the bends with the {L('/conduit-offset-multiplier-chart/', 'offset multiplier chart')}.</p>
+<h2>Workflow for a new circuit</h2>
+<ol>
+<li>Find the load in amps and apply the 125% rule for continuous loads.</li>
+<li>Choose a wire size from the ampacity table at the correct temperature column for your terminations.</li>
+<li>If more than three current-carrying conductors share a raceway, apply derating. See {L('/blog/ampacity-derating-bundled-conductors/', 'derating bundled conductors')}.</li>
+<li>Check voltage drop on long runs, and read the {L('/blog/detached-garage-subpanel-wire-size/', 'detached garage subpanel example')}.</li>
+<li>Size the conduit by fill and the box by volume; see {L('/blog/box-fill-calculation-step-by-step/', 'box fill step by step')}.</li>
+</ol>
+<p>These pages reproduce published NEC table values for reference. Always verify against the edition of the NEC adopted where you work and follow your local inspector.</p>
+'''

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>CSST Sizing and EHD Numbers Explained (With a Worked Example)</title>
+<meta name="description" content="What the EHD number on CSST gas tubing means, why it is not a pipe size, how to pick EHD from IFGC tables by CFH and length, with a worked example.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://mydevspace2.github.io/trade-charts/blog/csst-sizing-ehd-numbers-explained/">
+<link rel="alternate" hreflang="en-us" href="https://mydevspace2.github.io/trade-charts/blog/csst-sizing-ehd-numbers-explained/">
+<link rel="alternate" hreflang="x-default" href="https://mydevspace2.github.io/trade-charts/blog/csst-sizing-ehd-numbers-explained/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Trade Charts">
+<meta property="og:title" content="CSST Sizing and EHD Numbers Explained (With a Worked Example)">
+<meta property="og:description" content="What the EHD number on CSST gas tubing means, why it is not a pipe size, how to pick EHD from IFGC tables by CFH and length, with a worked example.">
+<meta property="og:url" content="https://mydevspace2.github.io/trade-charts/blog/csst-sizing-ehd-numbers-explained/">
+<meta property="og:image" content="https://mydevspace2.github.io/trade-charts/assets/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1c232a">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
+<link rel="manifest" href="/trade-charts/site.webmanifest">
+<script src="/trade-charts/assets/theme.js?v=3"></script>
+<link rel="preload" href="/trade-charts/assets/fonts/barlow-condensed-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=3">
+<script src="/trade-charts/assets/app.js?v=3" defer></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"CSST Sizing and EHD Numbers Explained (With a Worked Example)","description":"What the EHD number on CSST gas tubing means, why it is not a pipe size, how to pick EHD from IFGC tables by CFH and length, with a worked example.","url":"https://mydevspace2.github.io/trade-charts/blog/csst-sizing-ehd-numbers-explained/","datePublished":"2026-11-18","dateModified":"2026-11-13","inLanguage":"en-US","author":{"@type":"Organization","name":"Trade Charts","url":"https://mydevspace2.github.io/trade-charts/about/"},"publisher":{"@type":"Organization","name":"Trade Charts","logo":{"@type":"ImageObject","url":"https://mydevspace2.github.io/trade-charts/assets/icon-512.png"}},"image":"https://mydevspace2.github.io/trade-charts/assets/og.png","mainEntityOfPage":"https://mydevspace2.github.io/trade-charts/blog/csst-sizing-ehd-numbers-explained/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does EHD mean in CSST?","acceptedAnswer":{"@type":"Answer","text":"Equivalent Hydraulic Diameter, a relative measure of the tubing’s hydraulic efficiency. Higher EHD means more capacity."}},{"@type":"Question","name":"Is EHD the same as pipe diameter?","acceptedAnswer":{"@type":"Answer","text":"No. It is a flow rating, not a physical size."}},{"@type":"Question","name":"How many feet do extra fittings add?","acceptedAnswer":{"@type":"Answer","text":"The IFGC note adds 1.3 ft of tubing length per additional bend or fitting beyond those built into the table."}},{"@type":"Question","name":"Which table do I use for CSST?","acceptedAnswer":{"@type":"Answer","text":"IFGC Tables 402.4(15) to 402.4(17), depending on pressure and drop."}},{"@type":"Question","name":"Can I use code tables instead of the manufacturer manual?","acceptedAnswer":{"@type":"Answer","text":"Follow the manufacturer’s listed instructions and local code; the tables are a sizing basis only."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mydevspace2.github.io/trade-charts/blog/"},{"@type":"ListItem","position":3,"name":"CSST Sizing and EHD Numbers Explained (With a Work","item":"https://mydevspace2.github.io/trade-charts/blog/csst-sizing-ehd-numbers-explained/"}]}</script>
+</head>
+<body data-base="/trade-charts">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+ <div class="wrap top-in">
+  <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 1.5 28.6 8.75v14.5L16 30.5 3.4 23.25V8.75z" fill="#ffc20e"/><circle cx="16" cy="16" r="10" fill="#161b21"/><path d="M9.3 21.2A8 8 0 1 1 22.7 21.2" fill="none" stroke="#ffc20e" stroke-width="1.6" stroke-dasharray="1.4 2.2"/><path d="M16 16 21.6 10.4" stroke="#ffc20e" stroke-width="2.4" stroke-linecap="round"/><circle cx="16" cy="16" r="2.3" fill="#ffc20e"/></svg></span><span>Trade<b>Charts</b></span></a>
+  <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode" title="Switch light / dark mode"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
+  <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/" aria-current="page">Guides</a></li></ul></nav>
+  <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
+ </div>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/trade-charts/">Home</a></li><li><a href="/trade-charts/blog/">Guides</a></li><li aria-current="page">CSST Sizing and EHD Numbers Explained (With a Work</li></ol></nav>
+<article class="post"><h1>CSST Sizing and EHD Numbers Explained (With a Worked Example)</h1><p class="meta">Guide · Updated November 13, 2026</p>
+<p class="lead">CSST, corrugated stainless steel tubing, is not sized by inches. It is sized by an EHD number such as 13, 18 or 25. A bigger EHD means more capacity. Here is what that number means and how to use it with the code tables.</p>
+<h2>What EHD means</h2>
+<p>The IFGC defines EHD as Equivalent Hydraulic Diameter, a measure of the relative hydraulic efficiency between different tubing sizes. The greater the EHD, the greater the gas capacity. Because corrugated tubing flows differently from smooth steel pipe, the EHD gives it a rating you can compare across manufacturers. It is not a physical diameter, so do not read it like a nominal pipe size.</p>
+<h2>Capacity by EHD at low pressure</h2>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Length</th><th scope="col">EHD 13</th><th scope="col">EHD 15</th><th scope="col">EHD 18</th><th scope="col">EHD 19</th><th scope="col">EHD 23</th><th scope="col">EHD 25</th></tr></thead><tbody><tr><th scope="row">10 ft</th><td>32 CFH</td><td>44 CFH</td><td>82 CFH</td><td>95 CFH</td><td>161 CFH</td><td>192 CFH</td></tr><tr><th scope="row">30 ft</th><td>18 CFH</td><td>25 CFH</td><td>47 CFH</td><td>55 CFH</td><td>96 CFH</td><td>112 CFH</td></tr><tr><th scope="row">50 ft</th><td>13 CFH</td><td>19 CFH</td><td>37 CFH</td><td>42 CFH</td><td>75 CFH</td><td>87 CFH</td></tr></tbody></table></div>
+<p>These are IFGC Table 402.4(15) values for natural gas under 2 psi with a 0.5 in. w.c. drop; the full table is on our <a href="/trade-charts/csst-gas-pipe-sizing-chart/">CSST sizing chart</a>. Notice the drop with length: EHD 18 carries 82 CFH at 10 ft but only 47 CFH at 30 ft.</p>
+<h2>How to size CSST step by step</h2>
+<ol>
+<li>Add up the CFH of every appliance on the run. For natural gas, divide each Btu/h by 1,000 (see our <a href="/trade-charts/blog/btu-to-cfh-gas-conversion/">Btu to CFH guide</a>).</li>
+<li>Measure the length from the meter or regulator to the farthest outlet.</li>
+<li>Find that length, or the next longer row, in the table.</li>
+<li>Move across the row to the first EHD with capacity at or above the load.</li>
+</ol>
+<h2>Worked example</h2>
+<p>A furnace and water heater total 60 CFH at 30 ft. The 30 ft row gives EHD 13 = 18, EHD 15 = 25, EHD 18 = 47 and EHD 19 = 55. The first that covers 60 CFH is EHD 19 (55 CFH).</p>
+<h2>Fittings and bends</h2>
+<p>The table already includes losses for four 90-degree bends and two end fittings. For each extra bend or fitting, add 1.3 ft of tubing length to your measurement (L = 1.3n) and re-read the table at the longer length.</p>
+<h2>Manufacturer rules still apply</h2>
+<p>Code tables give a general sizing basis, but each CSST brand is listed with its own installation instructions covering bonding, strike protection, support and fittings. Follow the manufacturer manual and local code, and use a certified installer. For higher pressure see the <a href="/trade-charts/2-psi-csst-gas-pipe-sizing-chart/">2 psi CSST chart</a> and <a href="/trade-charts/blog/2-psi-gas-systems-explained/">2 psi systems explained</a>; for propane use the <a href="/trade-charts/propane-csst-sizing-chart/">propane CSST chart</a>.</p>
+<h2>Why capacity drops so quickly with length</h2>
+<p>Gas flowing through a long run loses pressure to friction. Because the table holds the pressure drop fixed at 0.5 in. w.c., every extra foot reduces how much gas the tubing can pass. Doubling the run does not halve the capacity exactly, but the table shows the trend: EHD 18 carries 82 CFH at 10 ft, 47 CFH at 30 ft and 37 CFH at 50 ft. Keep trunk lines short and use home-run or branch layouts when you can.</p>
+<h2>Comparing CSST to black iron</h2>
+<p>A rough comparison helps when planning a retrofit. At 30 ft, 1/2 in. Schedule 40 pipe carries 95 CFH at low pressure, while EHD 18 CSST carries 47 CFH and EHD 25 carries 112 CFH. Manufacturers map their nominal sizes to EHD differently, so always check the brand’s own chart. You can compare pipe tables on the <a href="/trade-charts/gas-pipe-sizing/">gas pipe sizing page</a>.</p>
+<h2>Sources</h2><ul class="sources"><li><a href="https://www.seattle.gov/documents/Departments/SDCI/Codes/FuelGasCode/2021SFGCChapter4.pdf" rel="noopener">Seattle 2021 Fuel Gas Code, Chapter 4 (Table 402.4(15) notes and EHD definition)</a></li><li><a href="https://www.iccsafe.org/building-safety-journal/bsj-dives/codenotes-fuel-gas-pipe-sizing" rel="noopener">ICC CodeNotes: Fuel Gas Pipe Sizing</a></li></ul>
+<section class="faq" id="faq"><h2>Frequently asked questions</h2>
+<details><summary>What does EHD mean in CSST?</summary><div class="ans">Equivalent Hydraulic Diameter, a relative measure of the tubing’s hydraulic efficiency. Higher EHD means more capacity.</div></details>
+<details><summary>Is EHD the same as pipe diameter?</summary><div class="ans">No. It is a flow rating, not a physical size.</div></details>
+<details><summary>How many feet do extra fittings add?</summary><div class="ans">The IFGC note adds 1.3 ft of tubing length per additional bend or fitting beyond those built into the table.</div></details>
+<details><summary>Which table do I use for CSST?</summary><div class="ans">IFGC Tables 402.4(15) to 402.4(17), depending on pressure and drop.</div></details>
+<details><summary>Can I use code tables instead of the manufacturer manual?</summary><div class="ans">Follow the manufacturer’s listed instructions and local code; the tables are a sizing basis only.</div></details>
+</section></article>
+<aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
+<p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
+</main>
+<footer class="foot">
+ <div class="wrap foot-in">
+  <div><strong class="fbrand"><span class="mark"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 1.5 28.6 8.75v14.5L16 30.5 3.4 23.25V8.75z" fill="#ffc20e"/><circle cx="16" cy="16" r="10" fill="#161b21"/><path d="M9.3 21.2A8 8 0 1 1 22.7 21.2" fill="none" stroke="#ffc20e" stroke-width="1.6" stroke-dasharray="1.4 2.2"/><path d="M16 16 21.6 10.4" stroke="#ffc20e" stroke-width="2.4" stroke-linecap="round"/><circle cx="16" cy="16" r="2.3" fill="#ffc20e"/></svg></span><span>Trade<b>Charts</b></span></strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
+  <ul><li><a href="/trade-charts/pt-chart/">Refrigerant PT charts</a></li><li><a href="/trade-charts/superheat-calculator/">Superheat calculator</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by serial number</a></li></ul>
+  <ul><li><a href="/trade-charts/about/">About &amp; sources</a></li><li><a href="/trade-charts/contact/">Contact</a></li><li><a href="/trade-charts/privacy/">Privacy</a></li><li><a href="/trade-charts/terms/">Terms</a></li><li><a href="/trade-charts/sitemap.xml">Sitemap</a></li></ul>
+ </div>
+ <p class="wrap fine">&copy; 2026 Trade Charts. Reference only &mdash; verify with code and manufacturer data. Not affiliated with any manufacturer, NFPA or ICC; trademarks belong to their owners.</p>
+</footer>
+</body>
+</html>

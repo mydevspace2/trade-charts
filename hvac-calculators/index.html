@@ -56,7 +56,19 @@
 <p>All three calculators read the same saturation tables as our <a href="/trade-charts/pt-chart/">PT charts</a>: 32 refrigerants computed with a REFPROP-equivalent equation of state (or taken from the manufacturer chart) and compared point by point with Arkema, Honeywell, Hudson Technologies and NIST data. For blends, superheat uses the dew point and subcooling uses the bubble point automatically, so you do not have to remember which column applies.</p>
 <h2>Typical workflow on a service call</h2>
 <ol><li>Confirm the refrigerant and metering device from the rating plate and the indoor coil.</li><li>Check airflow, filters and coils before anything else.</li><li>Run the system 15 minutes; record suction and liquid pressures and line temperatures.</li><li>Calculate superheat and subcooling and compare with the target or rating plate.</li><li>Adjust charge slowly, wait for the system to settle, and re-measure.</li></ol>
-<p>Field notes and examples: <a href="/trade-charts/blog/superheat-vs-subcooling/">superheat vs subcooling</a>, <a href="/trade-charts/blog/how-to-read-a-pt-chart/">how to read a PT chart</a>.</p></article>
+<p>Field notes and examples: <a href="/trade-charts/blog/superheat-vs-subcooling/">superheat vs subcooling</a>, <a href="/trade-charts/blog/how-to-read-a-pt-chart/">how to read a PT chart</a>.</p><h2>Which HVAC calculator should you use?</h2>
+<p>Superheat and subcooling are the two numbers that tell you whether a system is charged correctly. Which one you check depends on the metering device. On a fixed orifice or piston system, charge by <a href="/trade-charts/superheat-calculator/">superheat</a>. On a TXV or EEV system, charge by <a href="/trade-charts/subcooling-calculator/">subcooling</a>. Both need the refrigerant’s saturation temperature at the measured pressure, which is what the <a href="/trade-charts/pt-chart/">PT charts</a> give you.</p>
+<h2>A basic charging workflow</h2>
+<ol>
+<li>Let the system run 10 to 15 minutes so pressures settle.</li>
+<li>Clamp a thermometer on the suction line near the service valve, and another on the liquid line.</li>
+<li>Read suction and liquid pressures and look up the saturation temperatures for the refrigerant on the nameplate.</li>
+<li>Superheat is suction line temperature minus suction saturation temperature. Subcooling is liquid saturation temperature minus liquid line temperature.</li>
+<li>Compare with the manufacturer’s target. Add or recover refrigerant in small steps, waiting for readings to stabilize between each.</li>
+</ol>
+<h2>Before you blame the charge</h2>
+<p>Dirty filters, a dirty evaporator or condenser coil, low airflow and a bad blower capacitor can all mimic charge problems. Fix airflow first, then check the charge. For background, read <a href="/trade-charts/blog/superheat-vs-subcooling/">superheat vs subcooling</a> and <a href="/trade-charts/blog/how-to-read-a-pt-chart/">how to read a PT chart</a>. Always follow the equipment manufacturer’s charging instructions and EPA rules for handling refrigerant.</p>
+</article>
 <aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
 <p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
 </main>

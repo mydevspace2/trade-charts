@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Converting Btu/h to CFH for Gas Pipe Sizing (Step by Step)</title>
+<meta name="description" content="How to turn appliance Btu/h input into cubic feet per hour for natural gas pipe sizing, total a multi-appliance load, and avoid the common unit mistakes.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://mydevspace2.github.io/trade-charts/blog/btu-to-cfh-gas-conversion/">
+<link rel="alternate" hreflang="en-us" href="https://mydevspace2.github.io/trade-charts/blog/btu-to-cfh-gas-conversion/">
+<link rel="alternate" hreflang="x-default" href="https://mydevspace2.github.io/trade-charts/blog/btu-to-cfh-gas-conversion/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Trade Charts">
+<meta property="og:title" content="Converting Btu/h to CFH for Gas Pipe Sizing (Step by Step)">
+<meta property="og:description" content="How to turn appliance Btu/h input into cubic feet per hour for natural gas pipe sizing, total a multi-appliance load, and avoid the common unit mistakes.">
+<meta property="og:url" content="https://mydevspace2.github.io/trade-charts/blog/btu-to-cfh-gas-conversion/">
+<meta property="og:image" content="https://mydevspace2.github.io/trade-charts/assets/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1c232a">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
+<link rel="manifest" href="/trade-charts/site.webmanifest">
+<script src="/trade-charts/assets/theme.js?v=3"></script>
+<link rel="preload" href="/trade-charts/assets/fonts/barlow-condensed-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=3">
+<script src="/trade-charts/assets/app.js?v=3" defer></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Converting Btu/h to CFH for Gas Pipe Sizing (Step by Step)","description":"How to turn appliance Btu/h input into cubic feet per hour for natural gas pipe sizing, total a multi-appliance load, and avoid the common unit mistakes.","url":"https://mydevspace2.github.io/trade-charts/blog/btu-to-cfh-gas-conversion/","datePublished":"2026-11-18","dateModified":"2026-11-13","inLanguage":"en-US","author":{"@type":"Organization","name":"Trade Charts","url":"https://mydevspace2.github.io/trade-charts/about/"},"publisher":{"@type":"Organization","name":"Trade Charts","logo":{"@type":"ImageObject","url":"https://mydevspace2.github.io/trade-charts/assets/icon-512.png"}},"image":"https://mydevspace2.github.io/trade-charts/assets/og.png","mainEntityOfPage":"https://mydevspace2.github.io/trade-charts/blog/btu-to-cfh-gas-conversion/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I convert Btu/h to CFH?","acceptedAnswer":{"@type":"Answer","text":"Divide by the gas heating value. For natural gas the IFGC procedure assumes 1,000 Btu per cubic foot."}},{"@type":"Question","name":"How many CFH is a 100,000 Btu/h furnace?","acceptedAnswer":{"@type":"Answer","text":"About 100 CFH on natural gas at 1,000 Btu per cubic foot."}},{"@type":"Question","name":"Do propane tables use CFH?","acceptedAnswer":{"@type":"Answer","text":"The IFGC propane tables use thousands of Btu per hour (MBH)."}},{"@type":"Question","name":"Should I use input or output Btu?","acceptedAnswer":{"@type":"Answer","text":"Use input rating from the nameplate."}},{"@type":"Question","name":"What if my gas has a different heating value?","acceptedAnswer":{"@type":"Answer","text":"Use the value from your gas supplier in the same division."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mydevspace2.github.io/trade-charts/blog/"},{"@type":"ListItem","position":3,"name":"Converting Btu/h to CFH for Gas Pipe Sizing (Step ","item":"https://mydevspace2.github.io/trade-charts/blog/btu-to-cfh-gas-conversion/"}]}</script>
+</head>
+<body data-base="/trade-charts">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+ <div class="wrap top-in">
+  <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 1.5 28.6 8.75v14.5L16 30.5 3.4 23.25V8.75z" fill="#ffc20e"/><circle cx="16" cy="16" r="10" fill="#161b21"/><path d="M9.3 21.2A8 8 0 1 1 22.7 21.2" fill="none" stroke="#ffc20e" stroke-width="1.6" stroke-dasharray="1.4 2.2"/><path d="M16 16 21.6 10.4" stroke="#ffc20e" stroke-width="2.4" stroke-linecap="round"/><circle cx="16" cy="16" r="2.3" fill="#ffc20e"/></svg></span><span>Trade<b>Charts</b></span></a>
+  <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode" title="Switch light / dark mode"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
+  <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/" aria-current="page">Guides</a></li></ul></nav>
+  <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
+ </div>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/trade-charts/">Home</a></li><li><a href="/trade-charts/blog/">Guides</a></li><li aria-current="page">Converting Btu/h to CFH for Gas Pipe Sizing (Step </li></ol></nav>
+<article class="post"><h1>Converting Btu/h to CFH for Gas Pipe Sizing (Step by Step)</h1><p class="meta">Guide · Updated November 13, 2026</p>
+<p class="lead">Appliance labels list gas input in Btu per hour, but natural gas pipe sizing tables are in cubic feet per hour (CFH). One simple division connects them. Getting this step wrong is the most common reason a gas line ends up the wrong size.</p>
+<h2>The formula</h2>
+<p>CFH = appliance input in Btu/h ÷ heating value of the gas in Btu per cubic foot. The IFGC sizing procedure uses a typical natural gas heating value of 1,000 Btu per cubic foot unless the gas supplier gives a different number. So a 40,000 Btu/h water heater needs 40 CFH.</p>
+<h2>Totaling several appliances</h2>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Appliance</th><th scope="col">Input (Btu/h)</th><th scope="col">CFH</th></tr></thead><tbody><tr><th scope="row">Furnace</th><td>80,000</td><td>80</td></tr><tr><th scope="row">Water heater</th><td>40,000</td><td>40</td></tr><tr><th scope="row">Range</th><td>65,000</td><td>65</td></tr><tr><th scope="row">Dryer</th><td>22,000</td><td>22</td></tr><tr><th scope="row">Total</th><td>207,000</td><td>207</td></tr></tbody></table></div>
+<p>Add the Btu/h first, then divide once. With a longest run of 40 ft, the Schedule 40 low pressure table needs a pipe carrying at least 207 CFH in the 40 ft row; check it on the <a href="/trade-charts/natural-gas-pipe-sizing-chart/">natural gas chart</a> or enter the load in the <a href="/trade-charts/gas-pipe-sizing/">calculator</a>.</p>
+<h2>Propane is different</h2>
+<p>The IFGC propane tables are written in thousands of Btu per hour (MBH). You use the Btu/h input directly, so no heating-value division is needed: 207,000 Btu/h is 207 MBH. Do not feed a propane load into a natural gas table in CFH. See <a href="/trade-charts/blog/propane-vs-natural-gas-pipe-sizing/">propane vs natural gas sizing</a>.</p>
+<h2>Step by step</h2>
+<ol>
+<li>Read the input rating (not output or efficiency) from each appliance nameplate.</li>
+<li>Add the Btu/h of all appliances on that pipe section.</li>
+<li>Divide by 1,000 for natural gas (or by the supplier’s heating value).</li>
+<li>Look up the longest length and choose a pipe that carries at least that many CFH.</li>
+</ol>
+<h2>Common mistakes</h2>
+<ul>
+<li>Using output Btu/h instead of input.</li>
+<li>Dividing each appliance and rounding down before adding.</li>
+<li>Reading MBH tables as CFH.</li>
+<li>Forgetting future appliances; a little oversizing is cheaper than redoing the line.</li>
+</ul>
+<p>For CSST the same CFH number goes into the <a href="/trade-charts/blog/csst-sizing-ehd-numbers-explained/">EHD table</a>.</p>
+<h2>Quick reference examples</h2>
+<ul>
+<li>30,000 Btu/h gas fireplace: 30 CFH.</li>
+<li>50,000 Btu/h tank water heater: 50 CFH.</li>
+<li>150,000 Btu/h tankless water heater: 150 CFH, often the biggest load in a house, so size for it first.</li>
+<li>35,000 Btu/h outdoor grill: 35 CFH.</li>
+</ul>
+<h2>Why total load matters</h2>
+<p>The IFGC longest length method sizes every section for the load it carries, using the longest run from the meter. A trunk line feeding all appliances carries the total, while a branch to one dryer carries only the dryer. Convert each appliance first, then add them section by section. A common shortcut is to add every appliance, find the longest length, and size the whole system from one row. That is conservative and often fine for houses, but it can oversize branches.</p>
+<h2>A note on units</h2>
+<p>You may see MBH on labels, meaning thousands of Btu per hour, so 80 MBH equals 80,000 Btu/h and 80 CFH of natural gas. Others write kBtu/h. Never confuse MBH with MMBtu, which is a million Btu.</p>
+<h2>Sources</h2><ul class="sources"><li><a href="https://up.codes/viewer/washington/ifgc-2021/chapter/4/gas-piping-installations" rel="noopener">UpCodes: IFGC 2021 Chapter 4, Gas Piping Installations</a></li><li><a href="https://www.iccsafe.org/building-safety-journal/bsj-dives/codenotes-fuel-gas-pipe-sizing" rel="noopener">ICC CodeNotes: Fuel Gas Pipe Sizing</a></li></ul>
+<section class="faq" id="faq"><h2>Frequently asked questions</h2>
+<details><summary>How do I convert Btu/h to CFH?</summary><div class="ans">Divide by the gas heating value. For natural gas the IFGC procedure assumes 1,000 Btu per cubic foot.</div></details>
+<details><summary>How many CFH is a 100,000 Btu/h furnace?</summary><div class="ans">About 100 CFH on natural gas at 1,000 Btu per cubic foot.</div></details>
+<details><summary>Do propane tables use CFH?</summary><div class="ans">The IFGC propane tables use thousands of Btu per hour (MBH).</div></details>
+<details><summary>Should I use input or output Btu?</summary><div class="ans">Use input rating from the nameplate.</div></details>
+<details><summary>What if my gas has a different heating value?</summary><div class="ans">Use the value from your gas supplier in the same division.</div></details>
+</section></article>
+<aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
+<p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
+</main>
+<footer class="foot">
+ <div class="wrap foot-in">
+  <div><strong class="fbrand"><span class="mark"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 1.5 28.6 8.75v14.5L16 30.5 3.4 23.25V8.75z" fill="#ffc20e"/><circle cx="16" cy="16" r="10" fill="#161b21"/><path d="M9.3 21.2A8 8 0 1 1 22.7 21.2" fill="none" stroke="#ffc20e" stroke-width="1.6" stroke-dasharray="1.4 2.2"/><path d="M16 16 21.6 10.4" stroke="#ffc20e" stroke-width="2.4" stroke-linecap="round"/><circle cx="16" cy="16" r="2.3" fill="#ffc20e"/></svg></span><span>Trade<b>Charts</b></span></strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
+  <ul><li><a href="/trade-charts/pt-chart/">Refrigerant PT charts</a></li><li><a href="/trade-charts/superheat-calculator/">Superheat calculator</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by serial number</a></li></ul>
+  <ul><li><a href="/trade-charts/about/">About &amp; sources</a></li><li><a href="/trade-charts/contact/">Contact</a></li><li><a href="/trade-charts/privacy/">Privacy</a></li><li><a href="/trade-charts/terms/">Terms</a></li><li><a href="/trade-charts/sitemap.xml">Sitemap</a></li></ul>
+ </div>
+ <p class="wrap fine">&copy; 2026 Trade Charts. Reference only &mdash; verify with code and manufacturer data. Not affiliated with any manufacturer, NFPA or ICC; trademarks belong to their owners.</p>
+</footer>
+</body>
+</html>

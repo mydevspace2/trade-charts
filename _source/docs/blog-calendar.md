@@ -21,10 +21,10 @@
 | 18 | Box Fill Step by Step (with a Real Box) | box fill calculation example | ✔ live 2026-11-16 |
 | 19 | Offset Bending: 30° vs 45° vs 22.5° | conduit offset angles | ✔ live 2026-11-17 |
 | 20 | Kicks, Saddles and Back-to-Backs Basics | conduit saddle bend | ✔ live 2026-11-17 |
-| 21 | 2 PSI Gas Systems Explained | 2 psi gas system | planned |
-| 22 | CSST Sizing and EHD Numbers | csst sizing ehd | planned |
+| 21 | 2 PSI Gas Systems Explained | 2 psi gas system | ✔ live 2026-11-18 |
+| 22 | CSST Sizing and EHD Numbers | csst sizing ehd | ✔ live 2026-11-18 |
 | 23 | Propane vs Natural Gas Pipe Sizing | propane pipe sizing vs natural gas | ✔ live 2026-11-17 |
-| 24 | Converting Btu to CFH (and Heating Value) | btu to cfh | planned |
+| 24 | Converting Btu to CFH (and Heating Value) | btu to cfh | ✔ live 2026-11-18 |
 | 25 | How Old Is My AC? Serial Number Basics | how old is my ac unit | planned |
 | 26 | Bradford White's 20-Year Letter Code | bradford white serial number | planned |
 | 27 | R-22 Systems in 2027: Repair, Retrofit or Replace | r22 retrofit | planned |
