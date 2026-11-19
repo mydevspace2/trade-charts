@@ -189,3 +189,120 @@ EXTRA['/electrical/'] = EXTRA.get('/electrical/', '') + f'''<h2>How to use the e
 </ol>
 <p>These pages reproduce published NEC table values for reference. Always verify against the edition of the NEC adopted where you work and follow your local inspector.</p>
 '''
+
+
+# ---- Phase 1 run 2026-11-19: expansions computed from site data ----
+def _run1119():
+    import json, os, math
+    from core import table
+    d = json.load(open(os.path.join(os.path.dirname(__file__), 'data', 'electrical.json')))
+    wa = d['wire_area']['THHN']
+    emt = d['conduit']['EMT']
+    order = ['1/2', '3/4', '1', '1-1/4', '1-1/2', '2', '2-1/2', '3', '3-1/2', '4']
+
+    def smallest(total):
+        for s in order:
+            if emt[s]['a40'] >= total:
+                return s
+        return None
+    out = {}
+    # conduit fill calculator
+    t1 = 6 * wa['12'] + 3 * wa['10']
+    s1 = smallest(t1)
+    t2 = 3 * wa['1/0'] + wa['6']
+    s2 = smallest(t2)
+    prev2 = order[order.index(s2) - 1]
+    out['/conduit-fill-calculator/'] = f'''<h2>Worked example 1: a mixed branch-circuit run</h2>
+<p>A run carries six 12 AWG THHN conductors and three 10 AWG THHN conductors (two circuits plus a heavier load, grounds included). Conductor areas from NEC Chapter 9 Table 5 are {wa['12']} sq in. for 12 AWG and {wa['10']} sq in. for 10 AWG. Total area = 6 \u00d7 {wa['12']} + 3 \u00d7 {wa['10']} = {t1:.4f} sq in. Nine conductors is more than two, so the 40% limit applies. The smallest EMT with a 40% area at or above that is {s1} in. ({emt[s1]['a40']} sq in. allowed, {t1 / emt[s1]['area'] * 100:.0f}% filled).</p>
+<h2>Worked example 2: a feeder with a ground</h2>
+<p>Three 1/0 AWG THHN conductors and one 6 AWG THHN equipment ground: 3 \u00d7 {wa['1/0']} + {wa['6']} = {t2:.4f} sq in. {prev2} in. EMT allows only {emt[prev2]['a40']} sq in., so it is too small; {s2} in. EMT allows {emt[s2]['a40']} sq in. and passes ({t2 / emt[s2]['area'] * 100:.0f}% of its area).</p>
+<h2>Fill limits at a glance</h2>
+{table(['Number of conductors', 'Maximum fill (NEC Ch. 9 Table 1)'], [('1', '53%'), ('2', '31%'), ('Over 2', '40%')])}
+<p>Nipples of 24 in. or less may be filled to 60% (Chapter 9 Note 4), and conductors of different insulation types need their own Table 5 areas, so do not mix THHN numbers into an XHHW run. For a ready answer for common sizes, open the {L('/1-2-emt-conduit-fill/', '1/2 in.')}, {L('/3-4-emt-conduit-fill/', '3/4 in.')} or {L('/1-emt-conduit-fill/', '1 in.')} EMT pages.</p>'''
+    # 2 in EMT
+    c = emt['2']
+    rows = [(f'{g} AWG THHN', wa[g], int(c['a40'] // wa[g])) for g in ('12', '10', '8', '6', '4', '2', '1/0', '3/0', '250')]
+    mixed = 3 * wa['4/0'] + wa['4']
+    out['/2-emt-conduit-fill/'] = f'''<h2>How many wires fit in 2 inch EMT?</h2>
+<p>NEC Chapter 9 Table 4 gives 2 in. EMT a total internal area of {c['area']} sq in. For three or more conductors the 40% allowance is {c['a40']} sq in. Dividing by the Table 5 area for each THHN/THWN-2 size gives the maximum number of identical conductors:</p>
+{table(['Conductor', 'Area, sq in.', 'Max conductors at 40%'], rows)}
+<h2>Worked example: a 200 A feeder</h2>
+<p>Three 4/0 AWG THHN conductors and a 4 AWG THHN ground are {3 * wa['4/0']:.4f} + {wa['4']} = {mixed:.4f} sq in. That is {mixed / c['area'] * 100:.0f}% of 2 in. EMT, so it passes the 40% limit ({c['a40']} sq in.). Conductor size for the load still comes from the ampacity tables, see the {L('/wire-ampacity-chart/', 'wire ampacity chart')}.</p>
+<h2>When to choose 2 in. EMT</h2>
+<p>Two inch is a common size for service and feeder runs, and for large parallel sets split across several raceways. Plan for bends: a longer run with several 90\u00b0 bends is much harder to pull than the fill percentage suggests, so go up a trade size if the pull is long. The {L('/conduit-fill-calculator/', 'conduit fill calculator')} handles mixed conductors, and the {L('/blog/conduit-fill-40-percent-rule/', '40% rule guide')} explains the notes in full.</p>'''
+    # offset chart
+    mult = {a: 1 / math.sin(math.radians(a)) for a in (22.5, 30, 45)}
+    rows = [(f'{dd} in.', f'{dd * mult[22.5]:.2f} in.', f'{dd * mult[30]:.2f} in.', f'{dd * mult[45]:.2f} in.') for dd in (2, 3, 4, 6, 8, 10, 12)]
+    out['/conduit-offset-multiplier-chart/'] = f'''<h2>Marks for common offset depths</h2>
+<p>Distance between the two bend marks equals the offset depth times the multiplier (1 \u00f7 sin of the bend angle). Using the exact multipliers {mult[22.5]:.3f} (22.5\u00b0), {mult[30]:.3f} (30\u00b0) and {mult[45]:.3f} (45\u00b0):</p>
+{table(['Offset depth', 'Marks apart at 22.5\u00b0', 'Marks apart at 30\u00b0', 'Marks apart at 45\u00b0'], rows)}
+<p>Field benders round these to 2.6, 2 and 1.4, so a deep offset measured with the rounded values comes out slightly different; for a 12 in. offset at 45\u00b0 the exact distance is {12 * mult[45]:.2f} in. and the rounded one is {12 * 1.4:.1f} in.</p>
+<h2>How to use the chart</h2>
+<ol><li>Measure the depth from the centerline of the conduit to the new centerline.</li><li>Choose the angle: 30\u00b0 is the default, 45\u00b0 for tight spaces, 22.5\u00b0 for long gentle transitions.</li><li>Read the spacing from the table or the angle page, then mark the first bend position and the second mark that distance away.</li><li>Add shrink to the overall length: the conduit is shorter by depth \u00d7 tan(angle \u00f7 2).</li></ol>
+<p>Read {L('/blog/conduit-offset-angles-30-45-22-5/', 'offset angles compared')} for worked examples and {L('/blog/conduit-saddles-kicks-basics/', 'saddles and kicks')} for obstructions that need more than a simple offset.</p>'''
+    # electrical hub
+    out['/electrical/'] = f'''<h2>Which NEC table answers which question</h2>
+{table(['Question', 'Where the answer lives', 'Page on this site'], [
+ ('How much current can this wire carry?', 'NEC Table 310.16', L('/wire-ampacity-chart/', 'Wire ampacity chart')),
+ ('How many wires fit in this conduit?', 'NEC Chapter 9, Tables 1, 4 and 5', L('/conduit-fill-calculator/', 'Conduit fill calculator')),
+ ('How much voltage will I lose on a long run?', 'Chapter 9 Table 8 resistance', L('/voltage-drop-calculator/', 'Voltage drop calculator')),
+ ('How many wires fit in this box?', 'NEC 314.16', L('/box-fill-calculator/', 'Box fill calculator')),
+ ('How do I derate for more than three conductors?', 'NEC 310.15(C)(1)', L('/blog/ampacity-derating-bundled-conductors/', 'Derating guide')),
+])}
+<h2>Common electrical mistakes these tools prevent</h2>
+<ul><li>Using the 90 \u00b0C ampacity column for a circuit whose terminals are rated 60 \u00b0C or 75 \u00b0C; read {L('/blog/60c-75c-90c-ampacity-columns-explained/', 'the temperature columns explained')}.</li>
+<li>Forgetting the equipment ground when counting conduit fill.</li>
+<li>Ignoring voltage drop on long runs such as {L('/blog/detached-garage-subpanel-wire-size/', 'a detached garage feeder')}.</li>
+<li>Choosing a conduit by fill only, without checking {L('/blog/emt-vs-pvc-vs-rigid-conduit/', 'which raceway type suits the install')}.</li></ul>
+<p>When you bend the conduit, the {L('/conduit-offset-multiplier-chart/', 'offset multiplier chart')} gives mark spacing and shrink for each angle.</p>'''
+    # hvac calculators hub
+    r = BY_REF = None
+    import pages_hvac as ph
+    r410 = ph.BY['r410a']
+    Pl = 335.0
+    tb = ph.tp(r410, Pl, 0)
+    out['/hvac-calculators/'] = f'''<h2>Worked example: reading both numbers on an R-410A system</h2>
+<p>Suction pressure 118 psig and suction line temperature 52 \u00b0F: the dew temperature at 118 psig is about 40 \u00b0F, so superheat is about 12 \u00b0F. Liquid pressure {Pl:.0f} psig and liquid line temperature 95 \u00b0F: the bubble temperature at {Pl:.0f} psig is about {tb:.0f} \u00b0F, so subcooling is about {tb - 95:.0f} \u00b0F. Compare both with the manufacturer\u2019s targets before touching the charge.</p>'''
+    # target superheat
+    ex = []
+    for wb, db in ((62, 95), (67, 90), (72, 85)):
+        ex.append((f'{wb} \u00b0F', f'{db} \u00b0F', f'{(3 * wb - 80 - db) / 2:.1f} \u00b0F'))
+    out['/target-superheat-calculator/'] = f'''<h2>Worked examples from the formula</h2>
+<p>Using target superheat \u2248 (3 \u00d7 WB \u2212 80 \u2212 DB) \u00f7 2:</p>
+{table(['Indoor wet bulb', 'Outdoor dry bulb', 'Target superheat'], ex)}
+<p>A hot, dry day with a low wet bulb gives a small target, and a mild humid day gives a large one. If your measured superheat is far above target, the system may be undercharged or short of airflow; if it is far below, it may be overcharged or have a restriction. Check airflow and coil condition first, then read {L('/blog/fixed-orifice-vs-txv-how-to-tell/', 'how to tell a fixed orifice from a TXV')} before using this page at all.</p>'''
+    return out
+
+
+for _k, _v in _run1119().items():
+    EXTRA[_k] = EXTRA.get(_k, '') + _v
+
+
+def _run1119b():
+    import json, os
+    from core import table
+    d = json.load(open(os.path.join(os.path.dirname(__file__), 'data', 'electrical.json')))
+    C = d['conduit']
+    wa = d['wire_area']['THHN']
+    out = {}
+    for slug, size, lab in (('1-2-pvc-conduit-fill', '1/2', '1/2'), ('3-4-pvc-conduit-fill', '3/4', '3/4'), ('1-pvc-conduit-fill', '1', '1'), ('1-1-4-pvc-conduit-fill', '1-1/4', '1-1/4')):
+        e, p40, p80 = C['EMT'][size], C['PVC-40'][size], C['PVC-80'][size]
+        n = lambda c: int(c['a40'] // wa['12'])
+        out[f'/{slug}/'] = f'''<h2>Schedule 40 vs Schedule 80 vs EMT at {lab} in.</h2>
+<p>Thicker walls leave less room for wire. At the same trade size, the 40% area is {p40['a40']} sq in. for Schedule 40 PVC, {p80['a40']} sq in. for Schedule 80 PVC and {e['a40']} sq in. for EMT. With 12 AWG THHN ({wa['12']} sq in. each) that is {n(p40)} conductors in Schedule 40, {n(p80)} in Schedule 80 and {n(e)} in EMT. Use the column for the wall thickness actually installed; underground and exposed runs are often Schedule 80, which holds fewer wires.</p>
+<p>See the full comparison in {L('/blog/emt-vs-pvc-vs-rigid-conduit/', 'EMT vs PVC vs rigid')}, and remember PVC expands and contracts with temperature, so long outdoor runs need expansion fittings under the NEC.</p>'''
+    out['/hvac-calculators/'] = f'''<h2>When the readings disagree</h2>
+<p>If superheat and subcooling both look wrong in the same direction, suspect airflow or a dirty coil before the charge. If they point in opposite directions, a restriction or a metering device problem is more likely than a simple low or high charge. Change one thing at a time and recheck after the system settles.</p>'''
+    out['/conduit-offset-multiplier-chart/'] = f'''<p>For exact work, check the angle with an angle finder after the first bend; a bender that is a degree or two off changes the spacing noticeably on deep offsets.</p>'''
+    out['/electrical/'] = f'''<h2>Where to start</h2>
+<p>Most residential jobs begin with the load: add up the amps, choose the wire from the {L('/wire-ampacity-chart/', 'ampacity chart')}, then size the conduit with the {L('/conduit-fill-calculator/', 'fill calculator')}, check the length against the {L('/voltage-drop-calculator/', 'voltage drop calculator')} and pick the box with the {L('/box-fill-calculator/', 'box fill calculator')}. Everything here reproduces published NEC values, so confirm the edition adopted in your area and your inspector\u2019s local amendments before you buy materials.</p>
+<p>New to the tables? Start with the {L('/blog/conduit-fill-40-percent-rule/', '40% fill rule')}, {L('/blog/voltage-drop-3-percent-rule/', 'the 3% voltage drop guideline')} and {L('/blog/box-fill-calculation-step-by-step/', 'box fill step by step')}.</p>'''
+    return out
+
+for _k, _v in _run1119b().items():
+    EXTRA[_k] = EXTRA.get(_k, '') + _v
+
+EXTRA['/blog/conduit-saddles-kicks-basics/'] = EXTRA.get('/blog/conduit-saddles-kicks-basics/', '') + f'''<h2>Related bending references</h2>
+<p>Plain offsets use the {L('/conduit-offset-multiplier-chart/', 'offset multiplier chart')}, and the {L('/blog/conduit-offset-angles-30-45-22-5/', 'offset angles guide')} compares 22.5\u00b0, 30\u00b0 and 45\u00b0. Check that the finished conduit still fits the wire using the {L('/conduit-fill-calculator/', 'conduit fill calculator')}.</p>'''
+EXTRA['/r513a-vs-r134a/'] = EXTRA.get('/r513a-vs-r134a/', '') + f'''<h2>Where to find the pressures</h2>
+<p>Use the {L('/r513a-pt-chart/', 'R-513A PT chart')} and the {L('/r134a-pt-chart/', 'R-134A PT chart')} side by side when you compare readings, and read {L('/blog/refrigerant-temperature-glide/', 'temperature glide explained')} before assuming a near-azeotropic blend behaves exactly like a single refrigerant.</p>'''

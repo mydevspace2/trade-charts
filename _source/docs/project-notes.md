@@ -55,3 +55,10 @@
 ## SEO settings pass (2026-11-17 evening, commit 1162cb5; Action lastmod commit a2c1749)
 - theme-color now single #1c232a (was #14202b/#f4f1ea); hreflang en-us + x-default on indexable pages; title fix "American Water Heater Age…" (word was doubled); how-to-read-a-pt-chart desc <160. Audit clean otherwise (canonical, 1 H1, OG/Twitter, JSON-LD, alts, no orphans/broken links, 404 noindex). 8 titles are 66-69 chars (left as is).
 - GSC sitemap still "Couldn't fetch" after resubmit 17 Nov, but URL Inspection live test of sitemap.xml = 200 OK, application/xml, crawl allowed: file is fine, GSC-side lag on github.io sub-folder properties. Request Indexing: /conduit-fill-calculator/ accepted; /pt-chart/ and /r410a-pt-chart/ "Oops! Something went wrong" (retry another day). Bing sitemap resubmitted (Processing). IndexNow 148 URLs HTTP 200 (Bing dashboard for the sub-folder property shows no IndexNow data).
+
+## Run 2026-11-19
+- Posts #25,26,27 live (build/posts8.py): how-old-is-my-ac-unit-serial-number, bradford-white-serial-number-year-letter-code, r22-systems-repair-retrofit-or-replace. 156 pages. (Run 11-18 posts 21,22,24 are in posts7.py.)
+- Expanded to 600+ words via extra.py (_run1119/_run1119b): conduit-fill-calculator, 2-emt-conduit-fill, target-superheat-calculator, conduit-offset-multiplier-chart, electrical hub, hvac-calculators, 4 PVC fill pages, saddles post, r513a-vs-r134a. Still under 600: water-heater-age, hvac-age-by-serial-number, age-by-serial-number hubs, mig/tig/welding pages, Home, About, Contact, Privacy, Terms.
+- SEO: RELATED_GUIDES from age/serial pages, R-22/R-407C/R-422D/R-438A charts to the new posts.
+- TO VERIFY: the Trane HVAC age page claims residential serials start YYWW but cites only the Trane *light commercial* help page; HVACBase (Nov 2026) says Trane/Goodman/Carrier do not publish a residential format (fits to CPSC recalls only). Post #25 hedges this; consider softening /trane-age-by-serial-number/ and /carrier-age-by-serial-number/ wording.
+- Browser tests need apt libs: sudo apt-get update && install (see 11-16 note); run slices 0:55, 55:110, 110:160, then TC_NOPAGES=1.

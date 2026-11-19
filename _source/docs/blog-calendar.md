@@ -25,9 +25,9 @@
 | 22 | CSST Sizing and EHD Numbers | csst sizing ehd | ✔ live 2026-11-18 |
 | 23 | Propane vs Natural Gas Pipe Sizing | propane pipe sizing vs natural gas | ✔ live 2026-11-17 |
 | 24 | Converting Btu to CFH (and Heating Value) | btu to cfh | ✔ live 2026-11-18 |
-| 25 | How Old Is My AC? Serial Number Basics | how old is my ac unit | planned |
-| 26 | Bradford White's 20-Year Letter Code | bradford white serial number | planned |
-| 27 | R-22 Systems in 2027: Repair, Retrofit or Replace | r22 retrofit | planned |
+| 25 | How Old Is My AC? Serial Number Basics | how old is my ac unit | ✔ live 2026-11-19 |
+| 26 | Bradford White's 20-Year Letter Code | bradford white serial number | ✔ live 2026-11-19 |
+| 27 | R-22 Systems in 2027: Repair, Retrofit or Replace | r22 retrofit | ✔ live 2026-11-19 |
 | 28 | MIG Settings Without a Door Chart | mig settings chart | planned |
 | 29 | TIG Tungsten Sizes and Amperage | tungsten size chart | planned |
 | 30 | Printable Truck Reference: Which Charts to Carry | printable pt chart | planned |
