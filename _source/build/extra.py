@@ -306,3 +306,27 @@ EXTRA['/blog/conduit-saddles-kicks-basics/'] = EXTRA.get('/blog/conduit-saddles-
 <p>Plain offsets use the {L('/conduit-offset-multiplier-chart/', 'offset multiplier chart')}, and the {L('/blog/conduit-offset-angles-30-45-22-5/', 'offset angles guide')} compares 22.5\u00b0, 30\u00b0 and 45\u00b0. Check that the finished conduit still fits the wire using the {L('/conduit-fill-calculator/', 'conduit fill calculator')}.</p>'''
 EXTRA['/r513a-vs-r134a/'] = EXTRA.get('/r513a-vs-r134a/', '') + f'''<h2>Where to find the pressures</h2>
 <p>Use the {L('/r513a-pt-chart/', 'R-513A PT chart')} and the {L('/r134a-pt-chart/', 'R-134A PT chart')} side by side when you compare readings, and read {L('/blog/refrigerant-temperature-glide/', 'temperature glide explained')} before assuming a near-azeotropic blend behaves exactly like a single refrigerant.</p>'''
+
+
+def _run1121():
+    o = {}
+    o['/mig-welding-settings-calculator/'] = f'''<h2>How to use these numbers</h2>
+<p>Enter the thickness, take the amps from Miller\u2019s 1 amp per 0.001 in rule, then pick the wire whose range covers that amperage and multiply by its factor for the wire speed. For example, 1/8 in (0.125 in) steel needs about 125 A; .035 in wire at 1.6 \u00d7 125 gives 200 ipm. Set the voltage last: raise it if the arc stubs into the work, lower it if the arc is erratic and burns at the tip.</p>
+<h2>Fine-tuning checklist</h2>
+<ul><li>Narrow, convex bead with poor tie-in: more amperage or slower travel.</li><li>Wide bead or burn-through: less amperage or faster travel.</li><li>Porosity: check the shielding gas.</li></ul>
+<p>Full walkthrough: {L('/blog/mig-settings-without-a-door-chart/', 'MIG settings without a door chart')}. For TIG, use the {L('/tig-welding-amperage-chart/', 'TIG amperage chart')}.</p>'''
+    o['/tig-welding-amperage-chart/'] = f'''<h2>Choosing the tungsten for your amps</h2>
+<p>Pick the diameter whose range covers your working current, preferring the larger size if you will run near the top of the range for long. At 125 A on 1/8 in steel, 3/32 in tungsten sits at the start of its 125\u2013200 A range. Newer Miller inverter manuals list higher ceilings (for example 3/32 in up to about 250 A on DC), so the ranges shown here are conservative.</p>
+<h2>Setup reminders</h2>
+<ul><li>Grind tungsten lengthwise to a point for DC.</li><li>Use local exhaust or a respirator when grinding, and consider ceriated or lanthanated instead of thoriated tungsten.</li><li>Argon flow of roughly 15\u201325 cfh is typical.</li></ul>
+<p>More detail in {L('/blog/tig-tungsten-sizes-and-amperage/', 'TIG tungsten sizes and amperage')} and the matching {L('/mig-welding-settings-calculator/', 'MIG settings calculator')}.</p>'''
+    o['/welding/'] = f'''<h2>Which page do I need?</h2>
+<p>Use the MIG calculator for solid wire on steel when your machine has no door chart: it gives amps, wire size and wire speed by thickness. Use the TIG chart for starting amps and the tungsten diameter that fits the current. Both rest on Miller Electric\u2019s published guidance and are starting points only; your machine manual comes first, and structural or code work needs a qualified welding procedure.</p>
+<h2>Guides</h2>
+<ul><li>{L('/blog/mig-settings-without-a-door-chart/', 'MIG settings without a door chart')}: the amps, wire and voltage method step by step.</li><li>{L('/blog/tig-tungsten-sizes-and-amperage/', 'TIG tungsten sizes and amperage')}: current ranges by diameter.</li><li>{L('/blog/printable-trade-reference-which-charts-to-carry/', 'Charts to carry in your truck')}: the full trade reference list.</li></ul>
+<h2>Safety basics</h2>
+<p>Wear a proper helmet and gloves, ventilate fumes, keep flammables clear and follow the manufacturer\u2019s instructions for your machine and consumables.</p>'''
+    return o
+
+for _k, _v in _run1121().items():
+    EXTRA[_k] = EXTRA.get(_k, '') + _v

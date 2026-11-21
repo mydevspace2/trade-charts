@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>MIG Settings Without a Door Chart: Amps, Wire Speed and Voltage</title>
+<meta name="description" content="No chart inside your MIG welder? Use Miller’s 1 amp per 0.001 in rule, wire size ranges and wire speed multipliers, with worked examples from 22 ga to 1/4 in.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://mydevspace2.github.io/trade-charts/blog/mig-settings-without-a-door-chart/">
+<link rel="alternate" hreflang="en-us" href="https://mydevspace2.github.io/trade-charts/blog/mig-settings-without-a-door-chart/">
+<link rel="alternate" hreflang="x-default" href="https://mydevspace2.github.io/trade-charts/blog/mig-settings-without-a-door-chart/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Trade Charts">
+<meta property="og:title" content="MIG Settings Without a Door Chart: Amps, Wire Speed and Voltage">
+<meta property="og:description" content="No chart inside your MIG welder? Use Miller’s 1 amp per 0.001 in rule, wire size ranges and wire speed multipliers, with worked examples from 22 ga to 1/4 in.">
+<meta property="og:url" content="https://mydevspace2.github.io/trade-charts/blog/mig-settings-without-a-door-chart/">
+<meta property="og:image" content="https://mydevspace2.github.io/trade-charts/assets/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1c232a">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
+<link rel="manifest" href="/trade-charts/site.webmanifest">
+<script src="/trade-charts/assets/theme.js?v=3"></script>
+<link rel="preload" href="/trade-charts/assets/fonts/barlow-condensed-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/trade-charts/assets/site.css?v=3">
+<script src="/trade-charts/assets/app.js?v=3" defer></script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"MIG Settings Without a Door Chart: Amps, Wire Speed and Voltage","description":"No chart inside your MIG welder? Use Miller’s 1 amp per 0.001 in rule, wire size ranges and wire speed multipliers, with worked examples from 22 ga to 1/4 in.","url":"https://mydevspace2.github.io/trade-charts/blog/mig-settings-without-a-door-chart/","datePublished":"2026-11-21","dateModified":"2026-11-13","inLanguage":"en-US","author":{"@type":"Organization","name":"Trade Charts","url":"https://mydevspace2.github.io/trade-charts/about/"},"publisher":{"@type":"Organization","name":"Trade Charts","logo":{"@type":"ImageObject","url":"https://mydevspace2.github.io/trade-charts/assets/icon-512.png"}},"image":"https://mydevspace2.github.io/trade-charts/assets/og.png","mainEntityOfPage":"https://mydevspace2.github.io/trade-charts/blog/mig-settings-without-a-door-chart/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many amps do I need to MIG weld 1/8 inch steel?","acceptedAnswer":{"@type":"Answer","text":"About 125 A by Miller’s rule of 1 amp per 0.001 inch of thickness."}},{"@type":"Question","name":"What wire speed for .030 wire?","acceptedAnswer":{"@type":"Answer","text":"Multiply the amps by 2 to get inches per minute. At 125 A that is 250 ipm."}},{"@type":"Question","name":"Which MIG wire size should I use?","acceptedAnswer":{"@type":"Answer","text":"Miller lists .023 in for 30–130 A, .030 in for 40–145 A, .035 in for 50–180 A and .045 in for 75–250 A."}},{"@type":"Question","name":"How do I know if my voltage is right?","acceptedAnswer":{"@type":"Answer","text":"Aim for a crisp, stable arc. If it stubs into the work, raise voltage; if it is erratic and burns at the tip, lower it."}},{"@type":"Question","name":"Does this work for aluminum or flux-core?","acceptedAnswer":{"@type":"Answer","text":"No. The rules are for solid wire on steel. Use the machine manual for other wires and metals."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mydevspace2.github.io/trade-charts/blog/"},{"@type":"ListItem","position":3,"name":"MIG Settings Without a Door Chart","item":"https://mydevspace2.github.io/trade-charts/blog/mig-settings-without-a-door-chart/"}]}</script>
+</head>
+<body data-base="/trade-charts">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+ <div class="wrap top-in">
+  <a class="brand" href="/trade-charts/" aria-label="Trade Charts home"><span class="mark"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 1.5 28.6 8.75v14.5L16 30.5 3.4 23.25V8.75z" fill="#ffc20e"/><circle cx="16" cy="16" r="10" fill="#161b21"/><path d="M9.3 21.2A8 8 0 1 1 22.7 21.2" fill="none" stroke="#ffc20e" stroke-width="1.6" stroke-dasharray="1.4 2.2"/><path d="M16 16 21.6 10.4" stroke="#ffc20e" stroke-width="2.4" stroke-linecap="round"/><circle cx="16" cy="16" r="2.3" fill="#ffc20e"/></svg></span><span>Trade<b>Charts</b></span></a>
+  <button class="navbtn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode" title="Switch light / dark mode"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
+  <nav id="nav" class="nav" aria-label="Main"><ul><li><a href="/trade-charts/pt-chart/">PT Charts</a></li><li><a href="/trade-charts/hvac-calculators/">HVAC Calcs</a></li><li><a href="/trade-charts/electrical/">Electrical</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas Pipe</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by Serial</a></li><li><a href="/trade-charts/welding/">Welding</a></li><li><a href="/trade-charts/blog/" aria-current="page">Guides</a></li></ul></nav>
+  <form class="search" role="search" action="/trade-charts/search/" method="get"><label class="sr" for="q">Search charts</label><input id="q" name="q" type="search" placeholder="Search: r454b, 3/4 emt, 10 awg…" autocomplete="off"><div class="sres" hidden></div></form>
+ </div>
+</header>
+<main id="main" class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/trade-charts/">Home</a></li><li><a href="/trade-charts/blog/">Guides</a></li><li aria-current="page">MIG Settings Without a Door Chart</li></ol></nav>
+<article class="post"><h1>MIG Settings Without a Door Chart: Amps, Wire Speed and Voltage</h1><p class="meta">Guide · Updated November 13, 2026</p>
+<p class="lead">Most MIG welders have a chart inside the wire door. Secondhand machines, older units and some shop rigs do not, and then you need a starting point you can trust. Miller Electric publishes a simple three-step method for solid-wire steel. It takes about a minute and gets you close enough to fine-tune on scrap.</p>
+<h2>Step 1: amps from material thickness</h2>
+<p>Miller’s rule of thumb is that each 0.001 inch of material thickness needs about 1 amp of output. Material 0.125 inch (1/8 in) thick needs about 125 amps; 0.250 inch needs about 250 amps. Convert gauge to inches first: 22 ga steel is about 0.030 in, 16 ga about 0.060 in, 14 ga about 0.075 in and 12 ga about 0.105 in. Our <a href="/trade-charts/mig-welding-settings-calculator/">MIG settings calculator</a> does the conversion for you.</p>
+<h2>Step 2: pick the wire size from the amperage</h2>
+<p>Miller ties wire diameter to the amperage range it handles well. To avoid constant wire changes, choose the size that suits the thickness you weld most often.</p>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Wire diameter</th><th scope="col">Suitable amperage</th></tr></thead><tbody><tr><th scope="row">.023 in</th><td>30–130 A</td></tr><tr><th scope="row">.030 in</th><td>40–145 A</td></tr><tr><th scope="row">.035 in</th><td>50–180 A</td></tr><tr><th scope="row">.045 in</th><td>75–250 A</td></tr></tbody></table></div>
+<h2>Step 3: wire feed speed from the multiplier</h2>
+<p>Wire feed speed controls amperage on most machines. Without a chart, multiply the amps by a factor for your wire size to get inches per minute (ipm).</p>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Wire diameter</th><th scope="col">Multiply amps by</th><th scope="col">Example at 125 A</th></tr></thead><tbody><tr><th scope="row">.023 in</th><td>3.5</td><td>437.5 ipm</td></tr><tr><th scope="row">.030 in</th><td>2</td><td>250 ipm</td></tr><tr><th scope="row">.035 in</th><td>1.6</td><td>200 ipm</td></tr><tr><th scope="row">.045 in</th><td>1</td><td>125 ipm</td></tr></tbody></table></div>
+<h2>Worked examples</h2>
+<div class="tblwrap"><table class="data"><thead><tr><th scope="col">Thickness</th><th scope="col">Amps</th><th scope="col">Wire in its range</th><th scope="col">Wire speed</th></tr></thead><tbody><tr><th scope="row">22 ga (0.030 in)</th><td>30 A</td><td>.023 in</td><td>105 ipm</td></tr><tr><th scope="row">16 ga (0.060 in)</th><td>60 A</td><td>.023 in</td><td>210 ipm</td></tr><tr><th scope="row">1/8 in (0.125 in)</th><td>125 A</td><td>.023 in</td><td>438 ipm</td></tr><tr><th scope="row">3/16 in (0.188 in)</th><td>188 A</td><td>.045 in</td><td>188 ipm</td></tr><tr><th scope="row">1/4 in (0.250 in)</th><td>250 A</td><td>.045 in</td><td>250 ipm</td></tr></tbody></table></div>
+<p>Where two wire sizes overlap, either works; the table shows the first match, so check the multiplier table if you prefer a different wire. For example, 125 A on 1/8 in plate fits .030 in wire at 250 ipm, .035 in wire at 200 ipm, or .045 in at 125 ipm.</p>
+<h2>Step 4: set the voltage by sound and look</h2>
+<p>Miller says voltage changes the height and width of the bead. Set the wire speed first, then adjust voltage for a crisp, stable arc. If the arc stubs into the work, raise the voltage. If it is erratic and burns back at the tip, lower it. Too much voltage gives poor arc control, inconsistent penetration and a turbulent puddle. Too little gives poor starts, spatter, a convex bead and poor tie-in at the toes. For a starting voltage by wire size and amperage, see the voltage chart on the <a href="/trade-charts/mig-welding-settings-calculator/">calculator page</a>.</p>
+<h2>Read the bead to fine-tune</h2>
+<ul>
+<li><b>Narrow, convex bead, poor tie-in:</b> amperage too low, or travel too fast.</li>
+<li><b>Wide bead, burn-through on thin metal:</b> amperage too high, or travel too slow.</li>
+<li><b>Porosity and pinholes:</b> little or no shielding gas.</li>
+</ul>
+<p>Change one setting at a time and note the values that work. Write them on tape inside the door and you have your own chart.</p>
+<h2>Limits of this method</h2>
+<p>The rule applies to solid wire on steel. Aluminum, stainless and flux-core need different settings, as do out-of-position welds and very thick joints. Your machine’s manual and chart come first, and any weld that carries load or must meet a code needs a qualified procedure, not a rule of thumb. For TIG, see our <a href="/trade-charts/tig-welding-amperage-chart/">TIG amperage chart</a> and the guide to <a href="/trade-charts/blog/tig-tungsten-sizes-and-amperage/">tungsten sizes and amperage</a>. All welding references are under <a href="/trade-charts/welding/">Welding charts</a>.</p>
+<h2>Sources</h2><ul class="sources"><li><a href="https://www.millerwelds.com/resources/article-library/mig-welding-setting-the-correct-parameters" rel="noopener">Miller Electric: MIG Welding: Setting the Correct Parameters</a></li></ul>
+<section class="faq" id="faq"><h2>Frequently asked questions</h2>
+<details><summary>How many amps do I need to MIG weld 1/8 inch steel?</summary><div class="ans">About 125 A by Miller’s rule of 1 amp per 0.001 inch of thickness.</div></details>
+<details><summary>What wire speed for .030 wire?</summary><div class="ans">Multiply the amps by 2 to get inches per minute. At 125 A that is 250 ipm.</div></details>
+<details><summary>Which MIG wire size should I use?</summary><div class="ans">Miller lists .023 in for 30–130 A, .030 in for 40–145 A, .035 in for 50–180 A and .045 in for 75–250 A.</div></details>
+<details><summary>How do I know if my voltage is right?</summary><div class="ans">Aim for a crisp, stable arc. If it stubs into the work, raise voltage; if it is erratic and burns at the tip, lower it.</div></details>
+<details><summary>Does this work for aluminum or flux-core?</summary><div class="ans">No. The rules are for solid wire on steel. Use the machine manual for other wires and metals.</div></details>
+</section></article>
+<aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
+<p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
+</main>
+<footer class="foot">
+ <div class="wrap foot-in">
+  <div><strong class="fbrand"><span class="mark"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M16 1.5 28.6 8.75v14.5L16 30.5 3.4 23.25V8.75z" fill="#ffc20e"/><circle cx="16" cy="16" r="10" fill="#161b21"/><path d="M9.3 21.2A8 8 0 1 1 22.7 21.2" fill="none" stroke="#ffc20e" stroke-width="1.6" stroke-dasharray="1.4 2.2"/><path d="M16 16 21.6 10.4" stroke="#ffc20e" stroke-width="2.4" stroke-linecap="round"/><circle cx="16" cy="16" r="2.3" fill="#ffc20e"/></svg></span><span>Trade<b>Charts</b></span></strong><p>Free, fast field reference for US HVAC, refrigeration, electrical, plumbing and welding trades. No sign-up, no tracking.</p></div>
+  <ul><li><a href="/trade-charts/pt-chart/">Refrigerant PT charts</a></li><li><a href="/trade-charts/superheat-calculator/">Superheat calculator</a></li><li><a href="/trade-charts/conduit-fill-calculator/">Conduit fill calculator</a></li><li><a href="/trade-charts/gas-pipe-sizing/">Gas pipe sizing</a></li><li><a href="/trade-charts/age-by-serial-number/">Age by serial number</a></li></ul>
+  <ul><li><a href="/trade-charts/about/">About &amp; sources</a></li><li><a href="/trade-charts/contact/">Contact</a></li><li><a href="/trade-charts/privacy/">Privacy</a></li><li><a href="/trade-charts/terms/">Terms</a></li><li><a href="/trade-charts/sitemap.xml">Sitemap</a></li></ul>
+ </div>
+ <p class="wrap fine">&copy; 2026 Trade Charts. Reference only &mdash; verify with code and manufacturer data. Not affiliated with any manufacturer, NFPA or ICC; trademarks belong to their owners.</p>
+</footer>
+</body>
+</html>
