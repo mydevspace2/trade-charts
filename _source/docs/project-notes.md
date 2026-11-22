@@ -62,3 +62,9 @@
 - SEO: RELATED_GUIDES from age/serial pages, R-22/R-407C/R-422D/R-438A charts to the new posts.
 - TO VERIFY: the Trane HVAC age page claims residential serials start YYWW but cites only the Trane *light commercial* help page; HVACBase (Nov 2026) says Trane/Goodman/Carrier do not publish a residential format (fits to CPSC recalls only). Post #25 hedges this; consider softening /trane-age-by-serial-number/ and /carrier-age-by-serial-number/ wording.
 - Browser tests need apt libs: sudo apt-get update && install (see 11-16 note); run slices 0:55, 55:110, 110:160, then TC_NOPAGES=1.
+
+## Run 2026-11-21
+- Posts #28-30 live (build/posts9.py, commit f26c0db): all 30 calendar posts now published. 159 pages. Expanded welding hub, MIG calc, TIG chart via extra.py (_run1121). Still under 600: water-heater-age, hvac-age-by-serial-number, age-by-serial-number hubs, Home, About, Contact, Privacy, Terms. Next runs: expand those; Phase 2 posts need new topics from Google autocomplete.
+
+## Run 2026-11-22
+- Calendar exhausted (30/30), no new posts (need Google-autocomplete topics + sourced research). Expanded water-heater-age, hvac-age-by-serial-number, age-by-serial-number, TIG chart via extra.py _run1122 (still 429-494 words). Still under 600: welding hub, Home, About, Contact, Privacy, Terms.

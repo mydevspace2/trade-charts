@@ -330,3 +330,26 @@ def _run1121():
 
 for _k, _v in _run1121().items():
     EXTRA[_k] = EXTRA.get(_k, '') + _v
+
+
+def _run1122():
+    o = {}
+    howto = f'''<h2>How to find and read the serial number</h2>
+<ol><li>Find the data plate. On a tank water heater it is a sticker on the upper side of the jacket, usually facing the front. On an outdoor AC condenser it is on the side panel near the service valves; on a furnace or air handler it is inside the door or on the cabinet side.</li>
+<li>Copy the serial number exactly, including letters and any leading zeros. Photograph the plate so you can zoom in on worn characters.</li>
+<li>Note the brand and model. Many brands share a factory or a parent company, so the maker on the label decides which decoder applies.</li>
+<li>Pick the brand page below and enter the serial. The decoder shows the manufacture date and the format rule it used.</li>
+<li>Treat the result as the manufacture date. The unit may have been installed months later, so check the install paperwork or warranty registration if the exact install date matters.</li></ol>
+<h2>Why a decoder can say the format is unknown</h2>
+<p>Manufacturers change serial formats when they change plants or ownership, and some brands do not publish a residential format at all. When a serial does not match a published rule, the page says so instead of guessing. In that case call the manufacturer with the model and serial, or check for a date stamp on the data plate, which is often printed in a separate field.</p>
+<h2>What age tells you, and what it does not</h2>
+<p>Age helps you plan repair-or-replace decisions, warranty checks and insurance paperwork, but condition matters as much as years. A well-maintained unit can outlast a neglected newer one. Use age alongside the symptoms, repair cost and efficiency. For deeper reading see {L('/blog/how-to-tell-water-heater-age/', 'how to tell the age of a water heater')} and {L('/blog/how-old-is-my-ac-unit-serial-number/', 'how old is my AC unit')}.</p>'''
+    for k in ('/water-heater-age/', '/hvac-age-by-serial-number/', '/age-by-serial-number/'):
+        o[k] = howto
+    o['/tig-welding-amperage-chart/'] = f'''<h2>Quick pre-weld checklist</h2>
+<ul><li>Clean the base metal of oil, paint and mill scale before striking an arc.</li><li>Confirm polarity: DC electrode negative for steel and stainless.</li><li>Set a small gap and fit-up that matches the joint thickness.</li><li>Run a test bead on scrap at your starting amps, then adjust one setting at a time.</li></ul>
+<p>Pair this chart with the {L('/mig-welding-settings-calculator/', 'MIG settings calculator')} if you also run a wire feeder.</p>'''
+    return o
+
+for _k, _v in _run1122().items():
+    EXTRA[_k] = EXTRA.get(_k, '') + _v
