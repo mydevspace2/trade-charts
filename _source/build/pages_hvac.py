@@ -225,6 +225,8 @@ def pt_page(r):
     rel = [(pt_slug(BY[x]), f'{BY[x]["name"]} PT chart') for x in RELATED.get(s, []) if x in BY]
     comps = [c for c in COMPARISONS if s in c[:2]]
     rel += [(f'/{a}-vs-{b}/', f'{BY[a]["name"]} vs {BY[b]["name"]}') for a, b, *_ in comps]
+    if s in METRIC:
+        rel.insert(0, (metric_slug(s), f'{n} PT chart in \u00b0C and bar'))
     rel += [('/superheat-calculator/', 'Superheat calculator'), ('/subcooling-calculator/', 'Subcooling calculator'), ('/pt-chart/', 'All PT charts')]
     faqs = []
     if e40d is not None:
@@ -249,7 +251,7 @@ def pt_page(r):
 <h1>{esc(n)} PT Chart</h1>
 {lead}
 {pt_tool(r)}
-<div class="actions"><button type="button" class="btn" data-print>Print chart</button> <a class="btn ghost" href="#chart-f">Jump to \u00b0F chart</a> <a class="btn ghost" href="#chart-c">\u00b0C chart</a></div>
+<div class="actions"><button type="button" class="btn" data-print>Print chart</button> <a class="btn ghost" href="#chart-f">Jump to \u00b0F chart</a> <a class="btn ghost" href="#chart-c">\u00b0C chart</a></div>{f'<p>Working in metric? See the <a href="{url(metric_slug(s))}">{esc(n)} chart in \u00b0C and bar</a> (every degree, gauge and absolute).</p>' if s in METRIC else ''}
 <h2>{esc(n)} key facts</h2>
 {ftable}
 <p class="safety">{SAFETY[r["safety"]]}</p>
@@ -355,6 +357,8 @@ def calc_select():
 def hvac_pages():
     for r in REFS:
         pt_page(r)
+    for s in METRIC:
+        metric_page(s)
     for a, b, s in COMPARISONS:
         comp_page(a, b, s)
     # all-refrigerant data file for calculators
@@ -512,3 +516,84 @@ def calc_pages():
 </article>'''
     page('/hvac-calculators/', 'HVAC Calculators: Superheat, Subcooling, Target SH', 'Free HVAC field calculators: superheat, subcooling and target superheat for 32 refrigerants, plus refrigerant comparisons. Fast, no sign-up.',
          body, crumbs=[('HVAC Calcs', '/hvac-calculators/')], section='/hvac-calculators/')
+
+
+# ---- Metric (°C / bar) PT page for R-410A (added 2026-11-22: GSC query "r-410a saturation pressure at 45 c bar")
+METRIC = ['r410a']
+
+def metric_slug(s): return f'/{s}-pt-chart-celsius-bar/'
+
+def bar_a(p): return (p + ATM) * 0.0689476
+def bar_g(p): return bar_a(p) - 1.01325
+
+def metric_page(s):
+    r = BY[s]; n = r['name']; path = metric_slug(s)
+    def at(C, q):
+        p = pf(r, f_of(C), q)
+        return None if p is None else p
+    cmin = math.ceil(c_of(r['t'][0])); cmax = min(65, math.floor(c_of(r['t'][-1])))
+    rows = []
+    for C in range(cmin, cmax + 1):
+        b, d = at(C, 0), at(C, 1)
+        if b is None or d is None:
+            continue
+        rows.append((f'{C}', f'{bar_g(b):.2f}', f'{bar_g(d):.2f}', f'{bar_a(b):.2f}', f'{bar_a(d):.2f}', f'{f_of(C):.1f}'))
+    b45, d45 = at(45, 0), at(45, 1)
+    b5, d5 = at(5, 0), at(5, 1)
+    b40 = at(40, 0)
+    title = f'{n} PT Chart in \u00b0C and bar: Saturation Pressure Table'
+    desc = f'{n} saturation pressure in bar for every \u00b0C from {cmin} to {cmax} \u00b0C. Bubble and dew, gauge and absolute bar, printable. At 45 \u00b0C: {bar_g(b45):.1f} bar(g).'
+    if len(desc) > 158:
+        desc = desc[:157].rsplit(' ', 1)[0] + '.'
+    lead = (f'<p class="lead">At <b>45 \u00b0C</b>, {n} has a saturation pressure of <b>{bar_g(b45):.2f} bar gauge</b> ({bar_a(b45):.2f} bar absolute) on the bubble '
+            f'(liquid) side and {bar_g(d45):.2f} bar(g) on the dew side. At 5 \u00b0C it is {bar_g(d5):.2f} bar(g) dew. The full table below covers every degree '
+            f'from {cmin} to {cmax} \u00b0C in bar gauge and bar absolute.</p>')
+    ql = []
+    for C, lab in ((0, 'Evaporator (cold coil)'), (5, 'Evaporator (A/C design)'), (10, 'Evaporator'), (20, 'Standing / ambient'), (25, 'Standing / ambient'),
+                   (35, 'Condenser'), (40, 'Condenser'), (45, 'Condenser'), (50, 'Condenser (hot day)'), (55, 'Condenser (very hot)')):
+        b, d = at(C, 0), at(C, 1)
+        if b is None:
+            continue
+        ql.append((f'{C} \u00b0C', lab, f'{bar_g(b):.2f}', f'{bar_g(d):.2f}', f'{b:,.1f}'))
+    how = (f'<h2>Gauge or absolute bar?</h2>'
+           f'<p>Manifold gauges read <b>gauge pressure</b> (bar(g)): zero at atmospheric pressure. Most European service data, compressor software and textbooks '
+           f'quote <b>absolute pressure</b> (bar(a) or bar abs), which is gauge pressure plus about 1.013 bar at sea level. If a spec sheet lists '
+           f'{n} at {bar_a(b45):.1f} bar for 45 \u00b0C, it is absolute; your gauge will show about {bar_g(b45):.1f} bar. 1 bar = 100 kPa = 0.1 MPa = 14.504 psi.</p>'
+           f'<h2>Bubble or dew?</h2>'
+           f'<p>{n} is a near-azeotropic blend of R-32 and R-125, so its bubble and dew pressures differ by only about 0.01\u20130.02 bar (glide under 0.2 K). '
+           f'Strictly, use the <b>dew</b> column for superheat (suction side) and the <b>bubble</b> column for subcooling (liquid side); in practice either is close enough.</p>')
+    ex = (f'<h2>Worked example (metric)</h2>'
+          f'<p><b>Subcooling.</b> The liquid line gauge reads {bar_g(b45):.1f} bar(g). The chart gives a saturation temperature of 45 \u00b0C. The liquid line '
+          f'thermometer reads 40 \u00b0C, so subcooling is 45 \u2212 40 = <b>5 K</b>.</p>'
+          f'<p><b>Superheat.</b> Suction pressure is {bar_g(d5):.1f} bar(g), which is 5 \u00b0C on the dew column. The suction line reads 11 \u00b0C, so superheat is '
+          f'<b>6 K</b>. Always compare with the equipment manufacturer\u2019s targets. The <a href="{url("/superheat-calculator/")}">superheat</a> and '
+          f'<a href="{url("/subcooling-calculator/")}">subcooling</a> calculators accept \u00b0C and bar.</p>')
+    faqs = [
+        (f'What is the {n} saturation pressure at 45 \u00b0C in bar?', f'{bar_g(b45):.2f} bar gauge ({bar_a(b45):.2f} bar absolute) on the bubble side, and {bar_g(d45):.2f} bar(g) on the dew side.'),
+        (f'What is the {n} pressure at 40 \u00b0C in bar?', f'{bar_g(b40):.2f} bar gauge, or {bar_a(b40):.2f} bar absolute (bubble).'),
+        (f'What is the {n} pressure at 5 \u00b0C in bar?', f'{bar_g(d5):.2f} bar gauge on the dew side ({bar_a(d5):.2f} bar absolute).'),
+        ('Are these values gauge or absolute?', 'Both are shown. Gauge (bar(g)) is what a manifold reads; absolute (bar(a)) adds 1.013 bar of atmospheric pressure at sea level.'),
+        (f'Where do these {n} numbers come from?', 'The same CoolProp 8 data as our \u00b0F chart (REFPROP-equivalent equation of state), checked against published manufacturer charts within 1 \u00b0F, then converted to \u00b0C and bar.'),
+    ]
+    rel = [(pt_slug(r), f'{n} PT chart (\u00b0F, psig)'), ('/r454b-pt-chart/', 'R-454B PT chart'), ('/r32-pt-chart/', 'R-32 PT chart'),
+           ('/superheat-calculator/', 'Superheat calculator'), ('/subcooling-calculator/', 'Subcooling calculator'), ('/pt-chart/', 'All PT charts')]
+    body = f'''<article>
+<h1>{esc(n)} PT Chart in \u00b0C and bar</h1>
+{lead}
+{pt_tool(r)}
+<div class="actions"><button type="button" class="btn" data-print>Print chart</button> <a class="btn ghost" href="#chart-bar">Jump to full table</a></div>
+<h2>{esc(n)} pressure in bar at common temperatures</h2>
+{table(['Temperature', 'Where you see it', 'Bubble bar(g)', 'Dew bar(g)', 'Bubble psig'], ql)}
+{how}
+{ex}
+<h2 id="chart-bar">{esc(n)} saturation pressure table, {cmin} to {cmax} \u00b0C (bar)</h2>
+{table(['\u00b0C', 'Bubble bar(g)', 'Dew bar(g)', 'Bubble bar(a)', 'Dew bar(a)', '\u00b0F'], rows, cls="data chart")}
+<p>Pressures at sea level. Negative gauge values mean vacuum (below atmospheric pressure).</p>
+<h2>How this chart was made and checked</h2>
+{source_para(r)}
+<h2>Related charts and tools</h2>
+{links(rel)}
+{faq_html(faqs)}
+</article>'''
+    page(path, title, desc, body, crumbs=[('PT Charts', '/pt-chart/'), (f'{n} PT chart', pt_slug(r)), ('\u00b0C and bar', path)], section='/pt-chart/',
+         schema=[app_ld(f'{n} PT chart in \u00b0C and bar', desc, path), article_ld(title, desc, path), faq_ld(faqs)])
