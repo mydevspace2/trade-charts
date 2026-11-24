@@ -31,3 +31,4 @@
 | 28 | MIG Settings Without a Door Chart | mig settings chart | ✔ live 2026-11-21 |
 | 29 | TIG Tungsten Sizes and Amperage | tungsten size chart | ✔ live 2026-11-21 |
 | 30 | Printable Truck Reference: Which Charts to Carry | printable pt chart | ✔ live 2026-11-21 |
+- wire-size-for-50-amp-breaker ✔ live 2026-11-24 (autocomplete topic, posts10.py)

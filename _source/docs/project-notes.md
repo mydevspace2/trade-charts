@@ -68,3 +68,13 @@
 
 ## Run 2026-11-22
 - Calendar exhausted (30/30), no new posts (need Google-autocomplete topics + sourced research). Expanded water-heater-age, hvac-age-by-serial-number, age-by-serial-number, TIG chart via extra.py _run1122 (still 429-494 words). Still under 600: welding hub, Home, About, Contact, Privacy, Terms.
+
+## Run 2026-11-23 — Phase 1 completion report
+- Live: 159 pages (sitemap lists 158 URLs), 30/30 calendar posts published (+6 launch posts). Live checks (home, sitemap, 4 pages) all 200.
+- Still under 600 words: welding hub, Home, About, Contact, Privacy, Terms (legal/utility pages, left short on purpose).
+- Skipped for lack of a verified source: copper tubing gas tables, small-engine age; Trane/Carrier residential serial wording flagged TO VERIFY (see 11-19).
+- GSC (11-23): 0 clicks, 23 impressions, avg pos 32.7; indexed 1, not indexed 1 (Crawled - not indexed); sitemap "Couldn't fetch" (Bing: Success, 148 URLs, 0 impressions).
+- Phase 2: 1 post/day from Google-autocomplete topics.
+
+## Run 2026-11-24
+- Post #31 live: wire-size-for-50-amp-breaker (build/posts10.py). 161 pages. Browser libs need apt install first.

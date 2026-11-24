@@ -28,3 +28,15 @@ already had 5–15 free single-purpose tool sites (most launched Jul–Nov 2026)
 
 Watch list (re-check only if trigger changes): #10 (Home Affairs OSCA adoption), #7 (only if a sub-niche like
 per-tract investor data turns out unserved).
+
+---
+
+## 2026-11-23 — nothing scored 7+, no email (light run)
+
+| # | Idea | Trigger | Competitors | Score |
+|---|---|---|---|---|
+| 1 | UK unfair dismissal 6-month qualifying period calculator | 1 Jan 2027 | notice-period-calculator.uk already live (Oct 2026) + others | 2 |
+| 2 | AU wagering-ad triple-lock compliance checker | 1 Jan 2027 ([ppc.land](https://ppc.land/australia-bans-wagering-ads-for-logged-out-users-from-january-1-2027/)) | niche B2B, no consumer search demand, unmeasured | 2 |
+| 3 | AU Medicare EMSN cap lookup (27 MBS items) | 1 Jan 2027 | tiny audience, official MBS page | 2 |
+| 4 | CA ADMT / US state AI-law deadline trackers | 1 Jan 2027 | siliconainews.com, wheresthe.ai, lawsignals.com | 2 |
+| 5 | ANZSCO→OSCA (re-check) | Home Affairs still ANZSCO as of Oct 2026 ([WIDEN](https://www.widen.com.au/osca-replaces-anzsco-what-it-means-for-your-visa-occupation)); racc.net.au has ANZSCO SOL search | unchanged | 3 |
