@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-LmXLkcUlPNZ4ZHqTHD32BkSbBQ3nsw1RQHaadB53reE='; style-src 'self' 'sha256-gM4mGwDalkaMm6rsksGSryNfjgqak5fkzi2rB5QUTmw='; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>10 AWG Wire Ampacity: Copper &amp; Aluminum (NEC 310.16)</title>
 <meta name="description" content="10 AWG ampacity per NEC Table 310.16: copper 30/35/40 A at 60/75/90 °C, aluminum 25/30/35 A. Terminal and breaker rules explained.">
@@ -25,12 +25,141 @@
 <link rel="icon" href="/trade-charts/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/trade-charts/assets/icon-180.png">
 <link rel="manifest" href="/trade-charts/site.webmanifest">
-<script src="/trade-charts/assets/theme.js?v=3"></script>
+<script>(function(){var d=document.documentElement;d.className+=' js';try{var t=localStorage.getItem('tc.theme');if(t==='light'||t==='dark')d.setAttribute('data-theme',t)}catch(e){}})();</script>
 <link rel="preload" href="/trade-charts/assets/fonts/barlow-condensed-bold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/trade-charts/assets/site.css?v=3">
+<link rel="preload" href="/trade-charts/assets/fonts/barlow-condensed-semibold.woff2" as="font" type="font/woff2" crossorigin>
+<style>/* Trade Charts – job-site identity: charcoal + safety yellow, blueprint grid, hazard stripes, condensed headings, mono numerals */
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:700;font-display:optional;src:url(/trade-charts/assets/fonts/barlow-condensed-bold.woff2) format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:600;font-display:optional;src:url(/trade-charts/assets/fonts/barlow-condensed-semibold.woff2) format("woff2")}
+:root{--bg:#f0f1ee;--paper:#fff;--ink:#161b21;--muted:#525c66;--line:#d3d6d2;--accent:#8a4f00;--accent-ink:#161b21;--accent-hd:#ffc20e;--cta:#ffc20e;--cta-ink:#161b21;--hl:#fff4cc;--ok:#2b8a3e;--bad:#c92a2a;--warn:#a35400;--head:#1c232a;--headink:#eef1f3;--slate:#232b33;--slate2:#2d3741;--code:#eceeeb;--zebra:#f6f7f4;--r:4px;--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;--sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--cond:"Barlow Condensed","Arial Narrow","Roboto Condensed",system-ui,sans-serif;--hazard:repeating-linear-gradient(-45deg,#ffc20e 0 10px,#161b21 10px 20px)}
+@media (prefers-color-scheme:dark){html:not([data-theme=light]){color-scheme:dark;--bg:#111519;--paper:#1a2026;--ink:#e7eaed;--muted:#9ba6b1;--line:#2c353e;--accent:#ffc20e;--accent-ink:#161b21;--hl:#2a2410;--ok:#69db7c;--bad:#ff8787;--warn:#ffc078;--head:#0b0e11;--headink:#e7eaed;--slate:#161c22;--slate2:#202830;--code:#1f262d;--zebra:#1d242b}}
+html[data-theme=dark]{color-scheme:dark;--bg:#111519;--paper:#1a2026;--ink:#e7eaed;--muted:#9ba6b1;--line:#2c353e;--accent:#ffc20e;--accent-ink:#161b21;--hl:#2a2410;--ok:#69db7c;--bad:#ff8787;--warn:#ffc078;--head:#0b0e11;--headink:#e7eaed;--slate:#161c22;--slate2:#202830;--code:#1f262d;--zebra:#1d242b}html[data-theme=light]{color-scheme:light}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-padding-top:4.5rem}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans)}
+a{color:var(--accent);text-underline-offset:2px}a:hover{text-decoration-thickness:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:var(--paper);padding:8px;z-index:9}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+/* header */
+.top{background:var(--head);color:var(--headink);position:sticky;top:0;z-index:5;border-bottom:3px solid var(--cta)}
+.top-in{display:flex;align-items:center;gap:12px;min-height:56px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:9px;color:var(--headink);text-decoration:none;min-height:44px;font:700 1.45rem/1 var(--cond);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.brand b,.fbrand b{color:var(--accent-hd);font-weight:700;margin-left:.2em}
+.mark{display:block;width:34px;height:34px;flex:none}.mark svg{display:block;width:100%;height:100%}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:2px;flex-wrap:wrap}
+.nav a{color:var(--headink);text-decoration:none;padding:6px 9px;border-radius:3px;font:600 1.05rem/1 var(--cond);letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center;min-height:44px;border-bottom:3px solid transparent}
+.nav a:hover{background:rgba(255,255,255,.07);color:#fff}.nav a[aria-current]{color:var(--accent-hd);border-bottom-color:var(--accent-hd);border-radius:3px 3px 0 0}
+.navbtn{display:none;margin-left:auto;background:transparent;color:var(--headink);border:1px solid rgba(255,255,255,.3);border-radius:3px;padding:6px 14px;font:600 1.05rem/1 var(--cond);letter-spacing:.06em;text-transform:uppercase;min-height:44px;cursor:pointer}
+.navbtn:hover,.navbtn[aria-expanded=true]{border-color:var(--accent-hd);color:var(--accent-hd)}
+.theme-toggle{order:9;display:inline-grid;place-items:center;width:44px;height:44px;flex:none;background:transparent;color:var(--headink);border:1px solid rgba(255,255,255,.3);border-radius:3px;padding:0;cursor:pointer}.theme-toggle svg{width:20px;height:20px}.theme-toggle:hover{border-color:var(--accent-hd);color:var(--accent-hd)}
+.search{position:relative;margin-left:auto;flex:0 1 240px;min-width:0}@media (min-width:861px){.top-in{flex-wrap:nowrap;gap:10px}.nav{min-width:0}.nav ul{flex-wrap:nowrap}.nav a{padding:6px 6px;font-size:.98rem;letter-spacing:.035em;white-space:nowrap}.search{flex-basis:190px}}
+@media (min-width:861px) and (max-width:1020px){.brand{font-size:1.25rem}.mark{width:30px;height:30px}.nav a{padding:6px 4px;font-size:.92rem;letter-spacing:.02em}.search{flex-basis:150px}}
+.search input{width:100%;padding:7px 10px;border-radius:3px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.07);color:var(--headink);font:inherit;font-size:1rem;min-height:44px}
+.search input:focus{border-color:var(--accent-hd);outline-color:var(--accent-hd)}
+.search input::placeholder{color:#aeb6c0;opacity:1}
+.sres{position:absolute;right:0;top:110%;width:min(360px,92vw);background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--cta);border-radius:var(--r);box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:9}
+.sres a,.sres span{display:block;padding:11px 12px;min-height:44px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}.sres a:hover{background:var(--hl)}
+@media (max-width:860px){.navbtn{display:block}.theme-toggle{order:0}.nav{display:none;width:100%}.navopen .nav{display:block}.nav ul{flex-direction:column;padding-bottom:8px}.nav a[aria-current]{border-bottom-color:transparent;border-left:3px solid var(--accent-hd);border-radius:0}.search{flex:1 1 100%;margin:0 0 10px}}
+main{padding-top:14px;padding-bottom:30px}
+/* home hero: full-width charcoal band, blueprint grid, hazard stripe */
+main.has-hero{padding-top:0}
+.hero{position:relative;background-color:var(--slate);color:#eef1f3;padding:26px 0 30px;margin-bottom:18px;overflow:hidden;
+ background-image:linear-gradient(rgba(255,194,14,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(255,194,14,.09) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+ background-size:96px 96px,96px 96px,24px 24px,24px 24px;background-position:-1px -1px}
+.hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:var(--hazard)}
+.hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center}.hero-in>div{min-width:0}
+.hero .kicker{margin:0 0 6px;font:600 .95rem/1.2 var(--cond);letter-spacing:.14em;text-transform:uppercase;color:var(--cta)}
+.hero h1{max-width:20ch;color:#fff;font-size:clamp(2rem,5.4vw,3.4rem);line-height:1.02;letter-spacing:.005em;text-transform:uppercase;margin:0 0 .3em}
+.hero .lead{margin:.2em 0 0;color:#cfd6dc;max-width:52ch}
+.hero .chips{margin-top:16px}
+.hero .chips a{color:#fff;border-color:rgba(255,194,14,.75);background:rgba(0,0,0,.18)}.hero .chips a:hover{background:rgba(255,194,14,.14)}
+.hero .chips a:first-child{background:var(--cta);color:var(--cta-ink);border-color:var(--cta)}
+.hero-gauge{width:190px;height:190px;color:var(--cta);opacity:.95}
+.crumbs ol{list-style:none;padding:0;margin:4px 0 10px;display:flex;flex-wrap:wrap;gap:4px;font-size:.85rem;color:var(--muted)}
+.crumbs li+li:before{content:"/";margin-right:4px;color:var(--muted)}.crumbs a{color:var(--muted);display:inline-flex;align-items:center;min-height:44px;min-width:44px;margin:-10px 0}
+h1,h2,h3{font-family:var(--cond);font-weight:700}
+h1{font-size:clamp(1.9rem,4.6vw,2.7rem);line-height:1.08;margin:.2em 0 .4em;letter-spacing:.005em}
+h2{font-size:1.6rem;line-height:1.15;margin:1.6em 0 .5em;padding-top:.45em;border-top:2px solid var(--line);position:relative}
+h2:before{content:"";position:absolute;top:-2px;left:0;width:48px;height:2px;background:var(--cta)}
+h3{font-size:1.3rem;line-height:1.2}
+h1+.lead{margin-top:0}.lead{font-size:1.1rem;color:var(--ink);max-width:70ch}
+p,li{max-width:75ch}
+/* tool box */
+.tool{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--cta);border-radius:var(--r);padding:12px 16px 16px;margin:18px 0;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.tool h2{border:0;margin:.15em 0 .5em;padding:0;font-size:1.3rem;letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.tool h2:before{content:"";position:static;flex:none;width:10px;height:10px;background:var(--cta);transform:rotate(45deg)}
+.row{display:flex;flex-wrap:wrap;gap:10px 14px;margin:8px 0}
+label{display:flex;flex-direction:column;font-size:.85rem;color:var(--muted);gap:3px;min-width:120px;flex:1 1 140px}
+input,select,button{font:inherit;color:var(--ink)}
+input,select{padding:9px 10px;border:1px solid var(--line);border-radius:3px;background:var(--bg);font-size:1rem;min-height:44px}
+input[type=number],input[data-sn]{font-family:var(--mono)}
+input:focus,select:focus,button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:1px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:4px 0}
+.seg button{border:0;background:var(--bg);padding:9px 14px;cursor:pointer;min-height:44px}
+.seg button[aria-pressed=true]{background:var(--cta);color:var(--cta-ink);font-weight:700}
+.res{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:baseline;margin-top:12px;padding:12px 14px;border-radius:3px;background:var(--hl);border-left:4px solid var(--cta);min-height:3em}
+.res .q{grid-column:1/-1;font-size:.85rem;color:var(--muted)}.res .k{font-size:.9rem;color:var(--muted)}
+.res b{font:700 1.35rem/1.3 var(--mono)}.res .w{grid-column:1/-1;font-size:.88rem}
+.res.bad b{color:var(--bad)}.res.ok b{color:var(--ink)}.res.warn{outline:1px solid var(--warn)}
+.wire{align-items:flex-end}.wire .x{min-height:44px;width:44px;border:1px solid var(--line);background:var(--bg);border-radius:3px;cursor:pointer}
+.btn{display:inline-block;background:var(--cta);color:var(--cta-ink);border:0;border-radius:3px;padding:10px 18px;font:700 1.1rem/1.2 var(--cond);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;min-height:44px;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
+.btn:hover{filter:brightness(1.06)}
+.btn.ghost{background:transparent;color:var(--accent);border:2px solid var(--accent);box-shadow:none}
+.calcbar{margin:12px 0 0}.calcbar,.tbar{display:none}html.js .calcbar{display:block}html.js .tbar{display:flex}.calcbar .btn{min-width:150px;font-size:1.15rem}
+.res[tabindex]{outline:0}
+.tbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0 0}.tbar button{min-height:44px;padding:8px 14px;border:1px solid var(--accent);background:transparent;color:var(--accent);border-radius:3px;font-weight:600;cursor:pointer}.tbar button:hover{background:var(--hl)}.tbar .tmsg{font-size:.9rem;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}.chips a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:2px solid var(--accent);border-radius:3px;text-decoration:none;font:700 1.05rem/1 var(--cond);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}.chips a:first-child{background:var(--cta);color:var(--cta-ink);border-color:var(--cta)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.hint{font-size:.9rem;color:var(--muted);margin:.6em 0 0}
+.tblwrap{overflow-x:auto;margin:10px 0 14px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:.94rem}
+th,td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--head);color:var(--headink);position:sticky;top:0;font-weight:600;font-size:.85rem;white-space:nowrap;border-bottom:2px solid var(--cta)}
+.data td,.chart td{font-family:var(--mono);white-space:nowrap}.data tbody tr:nth-child(even){background:var(--zebra)}
+.chart th[scope=row]{font-family:var(--mono)}
+.chart{font-size:.9rem}.chart td,.chart th{padding:4px 10px}
+.facts th{width:38%;color:var(--muted);font-weight:500}.facts td{font-family:var(--sans)}
+.safety{border-left:4px solid var(--warn);padding:8px 12px;background:var(--paper);border-radius:3px}
+.formula{font:600 1.05rem var(--mono);background:var(--code);padding:10px 12px;border-radius:3px;border-left:4px solid var(--cta);overflow-x:auto}
+.linkgrid{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px}
+.linkgrid a{display:flex;align-items:center;min-height:44px;padding:8px 10px;border:1px solid var(--line);border-left:3px solid var(--line);border-radius:3px;background:var(--paper);text-decoration:none;color:var(--ink)}
+.linkgrid a:hover{border-color:var(--accent);border-left-color:var(--cta);color:var(--accent)}
+.faq details{border:1px solid var(--line);border-radius:3px;background:var(--paper);margin:6px 0;padding:0 12px}
+.faq details[open]{border-left:3px solid var(--cta)}
+.faq summary{cursor:pointer;padding:10px 0;font-weight:600;min-height:44px}.faq .ans{padding:0 0 10px}
+.disclaimer{margin:28px 0 8px;padding:10px 14px 10px 18px;border:1px solid var(--line);border-left:6px solid transparent;border-image:none;background:linear-gradient(var(--paper),var(--paper)) padding-box,var(--hazard) border-box;border-radius:3px;font-size:.88rem;color:var(--muted);max-width:none}
+.updated,.src,.meta{font-size:.85rem;color:var(--muted)}
+/* category tiles (home) */
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px;margin:16px 0}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:0 14px 12px;overflow:hidden}
+.card h2{border:0;margin:0 -14px .7em;padding:2px 14px 0;font-size:1.3rem;letter-spacing:.05em;text-transform:uppercase;background:var(--slate);border-bottom:3px solid var(--cta)}
+.card h2:before{display:none}
+.card .linkgrid{grid-template-columns:1fr 1fr}.card .linkgrid a{padding:5px 8px;font-size:.9rem}.card h2 a{display:flex;align-items:center;min-height:46px;color:#fff;text-decoration:none}.card h2 a:after{content:"\2192";margin-left:auto;color:var(--cta);font-family:var(--sans)}.card h2 a:hover{color:var(--cta)}
+.ticks{padding-left:0;list-style:none}.ticks li{margin:.45em 0;padding-left:1.4em;position:relative}.ticks li:before{content:"";position:absolute;left:.15em;top:.55em;width:9px;height:9px;background:var(--cta);transform:rotate(45deg)}
+.cards{list-style:none;padding:0;display:grid;gap:10px}.cards a{display:block;padding:12px 14px;background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--cta);border-radius:var(--r);text-decoration:none;color:var(--ink)}.cards a:hover{border-color:var(--accent);border-left-color:var(--cta)}.cards span{display:block;color:var(--muted);font-size:.9rem}
+.results{padding-left:1.2em}.results p{margin:.2em 0 .8em;color:var(--muted);font-size:.9rem}
+.searchpage input{width:100%;max-width:560px}
+.big{font-size:1.25rem}
+/* footer */
+.foot{position:relative;background:var(--head);color:var(--headink);padding:30px 0 12px;margin-top:20px;font-size:.92rem}
+.foot:before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--hazard)}
+.foot-in{display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px}.foot a{color:var(--headink)}.foot li a:hover{color:var(--accent-hd)}.foot ul{list-style:none;padding:0;margin:0}.foot li{margin:0}.foot li a{display:inline-flex;align-items:center;min-height:44px;min-width:44px}
+.fbrand{display:flex;align-items:center;gap:9px;font:700 1.35rem/1 var(--cond);letter-spacing:.04em;text-transform:uppercase}
+.foot p{color:#9aa7b4}.fine{font-size:.875rem;color:#9aa7b4;margin-top:14px;border-top:1px solid rgba(255,255,255,.08);padding-top:12px}
+@media (max-width:700px){.foot-in{grid-template-columns:1fr}.res{grid-template-columns:1fr}.res b{font-size:1.2rem}.hero-in{grid-template-columns:1fr}.hero-gauge{display:none}}
+@media (max-width:600px){h1{font-size:1.85rem;margin-bottom:.3em}h2{font-size:1.45rem}.lead{font-size:1rem}main{padding-top:8px}.tool{padding:10px 12px 14px;margin:12px 0}.tool h2{font-size:1.2rem}.seg{display:flex}.seg button{flex:1 1 50%;padding:9px 6px;font-size:.92rem}.calcbar .btn{width:100%}.chips{flex-wrap:nowrap;gap:6px;overflow-x:auto}.chips a{padding:0 10px;font-size:1rem;flex:0 0 auto}.pt .row label{min-width:0;flex:1 1 90px}.crumbs ol{margin:0 0 4px}
+ .brand{font-size:1.3rem}.hero{padding:18px 0 24px;margin-bottom:12px}.hero h1{font-size:2.1rem}.hero .kicker{font-size:.85rem}.hero .chips{margin-top:12px}}
+@media print{.top,.foot,.tool,.actions,.chips,.crumbs,.faq,.linkgrid,.updated,.skip,.hero-gauge{display:none!important}body{background:#fff;color:#000;font-size:11pt}main{padding:0}
+ .hero{background:none;color:#000;padding:0}.hero:after{display:none}.hero h1{color:#000}.hero .lead{color:#000}
+ h2{border:0;break-after:avoid}h2:before{display:none}.tblwrap{border:0;overflow:visible}thead th{background:#eee!important;color:#000;position:static}table{font-size:8.5pt}.chart td,.chart th{padding:1px 6px}
+ .data tbody tr:nth-child(even){background:#f3f3f3!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}a{color:#000;text-decoration:none}.disclaimer{border:1px solid #999;background:none;color:#000}}
+.editorial{margin:20px 0 8px;padding:12px 16px;border:1px solid var(--line);border-left:6px solid var(--slate);border-radius:3px;background:var(--paper);font-size:.9rem;color:var(--muted)}.editorial h2{margin:0 0 6px;font-size:1.05rem;color:var(--ink)}.editorial p{margin:0 0 6px}.editorial ul{margin:0;padding-left:1.2em}.editorial li{margin:2px 0}
+/* reserve the result box before app.js fills it on load (measured heights at 412px / 1350px) -> no layout shift */
+@media (max-width:600px){html.js [data-tool=pt] .res:empty{min-height:158px}html.js [data-tool=pt-any] .res:empty{min-height:158px}html.js [data-tool=fill] .res:empty{min-height:173px}html.js [data-tool=sh] .res:empty{min-height:102px}html.js [data-tool=sc] .res:empty{min-height:102px}html.js [data-tool=amp] .res:empty{min-height:174px}html.js [data-tool=vd] .res:empty{min-height:148px}html.js [data-tool=box] .res:empty{min-height:193px}html.js [data-tool=gas] .res:empty{min-height:151px}html.js [data-tool=mig] .res:empty{min-height:181px}html.js [data-tool=off] .res:empty{min-height:181px}html.js [data-tool=tsh] .res:empty{min-height:76px}html.js [data-tool=age] .res:empty{min-height:103px}}
+@media (min-width:1000px){html.js [data-tool=pt] .res:empty{min-height:110px}html.js [data-tool=pt-any] .res:empty{min-height:110px}html.js [data-tool=fill] .res:empty{min-height:104px}html.js [data-tool=sh] .res:empty{min-height:78px}html.js [data-tool=sc] .res:empty{min-height:78px}html.js [data-tool=amp] .res:empty{min-height:105px}html.js [data-tool=vd] .res:empty{min-height:79px}html.js [data-tool=box] .res:empty{min-height:101px}html.js [data-tool=gas] .res:empty{min-height:104px}html.js [data-tool=mig] .res:empty{min-height:111px}html.js [data-tool=off] .res:empty{min-height:111px}html.js [data-tool=tsh] .res:empty{min-height:52px}html.js [data-tool=age] .res:empty{min-height:79px}}</style>
 <script src="/trade-charts/assets/app.js?v=3" defer></script>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"10 AWG Wire Ampacity: Copper & Aluminum (NEC 310.16)","description":"10 AWG ampacity per NEC Table 310.16: copper 30/35/40 A at 60/75/90 °C, aluminum 25/30/35 A. Terminal and breaker rules explained.","url":"https://mydevspace2.github.io/trade-charts/10-awg-wire-ampacity/","datePublished":"2026-11-13","dateModified":"2026-11-13","inLanguage":"en-US","author":{"@type":"Organization","name":"Trade Charts","url":"https://mydevspace2.github.io/trade-charts/about/"},"publisher":{"@type":"Organization","name":"Trade Charts","logo":{"@type":"ImageObject","url":"https://mydevspace2.github.io/trade-charts/assets/icon-512.png"}},"image":"https://mydevspace2.github.io/trade-charts/assets/og.png","mainEntityOfPage":"https://mydevspace2.github.io/trade-charts/10-awg-wire-ampacity/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many amps can 10 AWG copper carry?","acceptedAnswer":{"@type":"Answer","text":"Per NEC Table 310.16: 30 A (60 °C), 35 A (75 °C), 40 A (90 °C), before any correction or adjustment. Overcurrent protection for 10 AWG copper is limited to 30 A by NEC 240.4(D) in most cases."}},{"@type":"Question","name":"Which column do I use for 10 AWG?","acceptedAnswer":{"@type":"Answer","text":"Use the column matching the lowest temperature rating among the wire, the terminals and the device. Equipment 100 A or less (or 14–1 AWG) is generally 60 °C unless marked 75 °C (NEC 110.14(C)). The 90 °C column is a starting point for derating only."}},{"@type":"Question","name":"How many amps can 10 AWG aluminum carry?","acceptedAnswer":{"@type":"Answer","text":"25 A (60 °C), 30 A (75 °C), 35 A (90 °C) per NEC Table 310.16."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"Electrical","item":"https://mydevspace2.github.io/trade-charts/electrical/"},{"@type":"ListItem","position":3,"name":"Ampacity chart","item":"https://mydevspace2.github.io/trade-charts/wire-ampacity-chart/"},{"@type":"ListItem","position":4,"name":"10 AWG","item":"https://mydevspace2.github.io/trade-charts/10-awg-wire-ampacity/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"10 AWG Wire Ampacity: Copper & Aluminum (NEC 310.16)","description":"10 AWG ampacity per NEC Table 310.16: copper 30/35/40 A at 60/75/90 °C, aluminum 25/30/35 A. Terminal and breaker rules explained.","url":"https://mydevspace2.github.io/trade-charts/10-awg-wire-ampacity/","datePublished":"2026-11-13","dateModified":"2026-11-13","inLanguage":"en-US","author":{"@type":"Organization","@id":"https://mydevspace2.github.io/trade-charts/#organization","name":"Trade Charts","url":"https://mydevspace2.github.io/trade-charts/","logo":{"@type":"ImageObject","url":"https://mydevspace2.github.io/trade-charts/assets/icon-512.png","width":512,"height":512},"email":"topelitemindset1@gmail.com","publishingPrinciples":"https://mydevspace2.github.io/trade-charts/about/"},"publisher":{"@type":"Organization","@id":"https://mydevspace2.github.io/trade-charts/#organization","name":"Trade Charts","url":"https://mydevspace2.github.io/trade-charts/","logo":{"@type":"ImageObject","url":"https://mydevspace2.github.io/trade-charts/assets/icon-512.png","width":512,"height":512},"email":"topelitemindset1@gmail.com","publishingPrinciples":"https://mydevspace2.github.io/trade-charts/about/"},"image":"https://mydevspace2.github.io/trade-charts/assets/og.png","mainEntityOfPage":"https://mydevspace2.github.io/trade-charts/10-awg-wire-ampacity/"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many amps can 10 AWG copper carry?","acceptedAnswer":{"@type":"Answer","text":"Per NEC Table 310.16: 30 A (60 °C), 35 A (75 °C), 40 A (90 °C), before any correction or adjustment. Overcurrent protection for 10 AWG copper is limited to 30 A by NEC 240.4(D) in most cases."}},{"@type":"Question","name":"Which column do I use for 10 AWG?","acceptedAnswer":{"@type":"Answer","text":"Use the column matching the lowest temperature rating among the wire, the terminals and the device. Equipment 100 A or less (or 14–1 AWG) is generally 60 °C unless marked 75 °C (NEC 110.14(C)). The 90 °C column is a starting point for derating only."}},{"@type":"Question","name":"How many amps can 10 AWG aluminum carry?","acceptedAnswer":{"@type":"Answer","text":"25 A (60 °C), 30 A (75 °C), 35 A (90 °C) per NEC Table 310.16."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mydevspace2.github.io/trade-charts/"},{"@type":"ListItem","position":2,"name":"Electrical","item":"https://mydevspace2.github.io/trade-charts/electrical/"},{"@type":"ListItem","position":3,"name":"Ampacity chart","item":"https://mydevspace2.github.io/trade-charts/wire-ampacity-chart/"},{"@type":"ListItem","position":4,"name":"10 AWG","item":"https://mydevspace2.github.io/trade-charts/10-awg-wire-ampacity/"}]}</script>
 </head>
 <body data-base="/trade-charts">
 <a class="skip" href="#main">Skip to content</a>
@@ -73,7 +202,7 @@
 </section>
 </article>
 <aside class="disclaimer" role="note"><strong>Reference only.</strong> Values are for field reference and training. Always verify against the equipment manufacturer’s literature and the code edition adopted by your local authority having jurisdiction (AHJ) before charging, wiring or piping. Work on refrigerant, electrical and gas systems only if you are qualified and licensed to do so.</aside>
-<p class="updated">Last reviewed November 13, 2026. Found an error? <a href="/trade-charts/contact/">Tell us</a> and we fix it within days.</p>
+<aside class="editorial" aria-labelledby="ed-h"><h2 id="ed-h">Editorial team: how we build these tools</h2><p>Trade Charts is written and maintained by the Trade Charts editorial team, the site’s publisher. We are a reference site, not a licensed engineer or contractor, so every number has to come from a published source rather than from opinion.</p><ul><li><b>Sources:</b> NEC (NFPA 70) Chapter 9 and Table 310.16, the 2021 International Fuel Gas Code, manufacturer PT charts and serial-number documents, CoolProp/NIST refrigerant data and Miller welding guides. Each page lists the ones it uses.</li><li><b>Method:</b> tables are generated by script from the source data and checked by automated tests before publishing (PT charts must match a published chart within 1 °F). Values we cannot verify are left out.</li><li><b>Last reviewed:</b> <time datetime="2026-11-13">November 13, 2026</time>. Full method and source list: <a href="/trade-charts/about/">About &amp; sources</a>. Found an error? <a href="/trade-charts/contact/">Tell us</a>.</li></ul></aside>
 </main>
 <footer class="foot">
  <div class="wrap foot-in">

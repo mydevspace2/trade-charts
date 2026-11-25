@@ -61,6 +61,25 @@ def assets():
                                                 {'src': BASE + '/assets/icon-512.png', 'sizes': '512x512', 'type': 'image/png'}]}
     json.dump(man, open(os.path.join(OUT, 'site.webmanifest'), 'w'))
 
+def llms(idx):
+    """/llms.txt (llmstxt.org format): what the site is + its main pages, for AI assistants."""
+    sec = {}
+    for p in idx:
+        sec.setdefault(p['section'] or 'site', []).append(p)
+    names = dict(core.SECTIONS); names['site'] = 'Site'
+    out = ['# Trade Charts', '', '> Free US field reference for HVAC/R, electrical, gas piping and welding: refrigerant PT charts, superheat/subcooling, '
+           'NEC conduit fill, ampacity, voltage drop and box fill, IFGC gas pipe sizing, and equipment age by serial number. '
+           'Every value comes from a cited source (NEC, IFGC, manufacturer and NIST/CoolProp data) and is checked by automated tests.', '',
+           'All calculators run in the browser; no sign-up. Reference only: verify with the adopted code and manufacturer literature.', '']
+    for key in [s for s, _ in core.SECTIONS] + ['site']:
+        if key not in sec:
+            continue
+        out.append(f'## {names.get(key, key)}'); out.append('')
+        for p in sorted(sec[key], key=lambda x: x['path']):
+            out.append(f"- [{p['title']}]({SITE_URL}{p['path']}): {p['desc']}")
+        out.append('')
+    open(os.path.join(OUT, 'llms.txt'), 'w', encoding='utf-8').write('\n'.join(out))
+
 def finish():
     idx = [p for p in PAGES if not p['noindex']]
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
@@ -68,7 +87,11 @@ def finish():
         sm.append(f'<url><loc>{SITE_URL}{p["path"]}</loc><lastmod>{UPDATED}</lastmod></url>')
     sm.append('</urlset>')
     open(os.path.join(OUT, 'sitemap.xml'), 'w').write('\n'.join(sm) + '\n')
-    open(os.path.join(OUT, 'robots.txt'), 'w').write(f'User-agent: *\nAllow: /\nDisallow: {BASE}/search/\nDisallow: {BASE}/_source/\n\nSitemap: {SITE_URL}/sitemap.xml\n')
+    # Search engines and AI crawlers named explicitly (one group, same rules). Note: crawlers read robots.txt only at the host root,
+    # so on mydevspace2.github.io/trade-charts/ this file is informational until a root robots.txt exists (see README).
+    bots = ['*', 'Googlebot', 'Bingbot', 'GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'PerplexityBot', 'Google-Extended', 'CCBot']
+    open(os.path.join(OUT, 'robots.txt'), 'w').write(''.join(f'User-agent: {b}\n' for b in bots) + f'Allow: /\nDisallow: {BASE}/search/\nDisallow: {BASE}/_source/\n\nSitemap: {SITE_URL}/sitemap.xml\n')
+    llms(idx)
     open(os.path.join(OUT, f'{INDEXNOW_KEY}.txt'), 'w').write(INDEXNOW_KEY)
     open(os.path.join(OUT, '.nojekyll'), 'w').write('')
     if CNAME:
@@ -94,6 +117,7 @@ def main():
         sec[p['section'] or 'site'] = sec.get(p['section'] or 'site', 0) + 1
     print(len(PAGES), 'pages', sec)
     short = [(p['path'], p['words']) for p in PAGES if p['words'] < 600 and not p['noindex']]
+    print('titles over 60 chars without SEO_TITLES override:', core.LONG_TITLES)
     print('under 600 words:', len(short), short[:60])
 
 if __name__ == '__main__':

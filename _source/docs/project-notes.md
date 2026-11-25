@@ -78,3 +78,11 @@
 
 ## Run 2026-11-24
 - Post #31 live: wire-size-for-50-amp-breaker (build/posts10.py). 161 pages. Browser libs need apt install first.
+
+## Technical SEO audit (2026-11-25) — rules now in the build
+- `<title>` must be <= 60 chars: put a shorter title in `core.SEO_TITLES[path]` (H1/headline stay as written); build.py prints any title over 60 without an override.
+- CSS and the theme script are inlined in every page and allowed by sha256 hashes in the CSP (computed in `core.inline_css()` / `csp_hash()`); test_static.py fails on any inline script/style that is not hashed. Edit `build/assets/site.css` as before — the build inlines it.
+- Fonts: both Barlow Condensed weights preloaded, `font-display: optional` (no font-swap layout shift). Tool bars (Calculate/Copy/Reset) are shown by CSS `html.js` (set by the inline theme script), not by removing `hidden`; result boxes reserve their height while empty (CSS at end of site.css). Keeps CLS at 0.
+- Every indexable page ends with the "Editorial team: how we build these tools" box (`core.editorial_html(reviewed)`); posts pass `reviewed=max(post date, UPDATED)`. Article author + publisher = the site Organization (`core.org_ld()`, @id /#organization). Never add an invented person.
+- Posts get an automatic "More field guides" block (3 related posts by slug words) from `pages_site.more_guides()`.
+- robots.txt names Googlebot, Bingbot and AI crawlers explicitly; `llms.txt` is generated from the page list. Crawlers only read robots.txt at the host root (mydevspace2.github.io/robots.txt, currently 404), so these rules take effect only if a root user-site repo `mydevspace2.github.io` is created with its own robots.txt.

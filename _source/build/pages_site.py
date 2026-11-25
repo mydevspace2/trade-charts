@@ -2,6 +2,7 @@
 from core import *
 from pages_hvac import BY, pf, ps, REFS, COMPARISONS, glide, tp
 import json, os
+import core
 
 POSTS = [
  ('how-to-read-a-pt-chart', 'How to Read a PT Chart (Dew, Bubble and Glide Explained)', 'Step-by-step guide to reading a refrigerant PT chart: gauge vs absolute pressure, dew vs bubble for blends, glide, and superheat and subcooling examples.', '2026-11-13'),
@@ -104,6 +105,17 @@ def post_bodies():
 <p>Use the manufacturer\u2019s online warranty lookup with the full serial number, or call their support line. Store brands are made by one of the big manufacturers; the decoder for that maker usually works.</p>'''
     return b
 
+_STOP = {'a', 'an', 'the', 'and', 'or', 'vs', 'for', 'to', 'of', 'in', 'on', 'how', 'what', 'is', 'my', 'with', 'by', 'explained', 'basics', 'rule', 'step', 'without'}
+
+def more_guides(slug, n=3):
+    """'More field guides': n other posts sharing the most slug words (ties -> neighbours in publishing order), so every post links to related posts."""
+    words = lambda s: {w for w in s.split('-') if w not in _STOP and not w.isdigit()}
+    me = words(slug); idx = [p[0] for p in POSTS].index(slug)
+    cands = [(len(me & words(p[0])), -abs(i - idx), p) for i, p in enumerate(POSTS) if p[0] != slug]
+    cands.sort(key=lambda x: (x[0], x[1]), reverse=True)
+    items = [c[2] for c in cands[:n]]
+    return '<h2>More field guides</h2><ul>' + ''.join(f'<li><a href="{url(f"/blog/{s}/")}">{esc(t)}</a></li>' for s, t, _d, _x in items) + '</ul>'
+
 def site_pages():
     import posts2
     POSTS.extend(p for p in posts2.NEW_POSTS if p[0] not in {x[0] for x in POSTS})
@@ -115,10 +127,11 @@ def site_pages():
         if slug in posts2.EXPAND:
             main = main.replace('<h2>Sources</h2>', posts2.EXPAND[slug] + '<h2>Sources</h2>', 1) if '<h2>Sources</h2>' in main else main + posts2.EXPAND[slug]
         faqs = posts2.FAQS.get(slug, [])
-        body = f'<article class="post"><h1>{esc(title)}</h1><p class="meta">Guide \u00b7 Updated {UPDATED_H}</p>{main}{faq_html(faqs) if faqs else ""}</article>'
+        rev = max(d, UPDATED)
+        body = f'<article class="post"><h1>{esc(title)}</h1><p class="meta">Guide \u00b7 Updated <time datetime="{rev}">{core.human_date(rev)}</time></p>{main}{more_guides(slug)}{faq_html(faqs) if faqs else ""}</article>'
         sch = [article_ld(title, desc, path, d)] + ([faq_ld(faqs)] if faqs else [])
         page(path, title, desc, body, crumbs=[('Guides', '/blog/'), (title.split(':')[0][:50], path)], section='/blog/', og_type='article',
-             schema=sch)
+             schema=sch, reviewed=rev)
     body = '<article><h1>Guides</h1><p class="lead">Short, practical explanations behind the charts and calculators.</p><ul class="cards">' + ''.join(
         f'<li><a href="{url(f"/blog/{s}/")}"><b>{esc(t)}</b><span>{esc(dd)}</span></a></li>' for s, t, dd, _ in POSTS) + '</ul></article>'
     page('/blog/', 'Field Guides for HVAC, Electrical & Gas Techs', 'Practical guides for trades: reading PT charts, superheat vs subcooling, conduit fill, voltage drop, gas pipe sizing and water heater age.',
@@ -155,7 +168,7 @@ def site_pages():
     page('/', 'Trade Charts: PT Charts, Conduit Fill, Gas Pipe Sizing', 'Free field reference for US trades: refrigerant PT charts, superheat/subcooling, NEC conduit fill and ampacity, gas pipe sizing and age-by-serial decoders.',
          body, section=None, hero=hero, schema=[{'@context': 'https://schema.org', '@type': 'WebSite', 'name': SITE_NAME, 'url': abs_url('/'),
                                       'potentialAction': {'@type': 'SearchAction', 'target': abs_url('/search/') + '?q={search_term_string}', 'query-input': 'required name=search_term_string'}},
-                                     {'@context': 'https://schema.org', '@type': 'Organization', 'name': SITE_NAME, 'url': abs_url('/'), 'logo': abs_url('/assets/icon-512.png')}])
+                                     dict({'@context': 'https://schema.org'}, **core.org_ld())])
     about = f'''<article><h1>About Trade Charts</h1>
 <p class="lead">Trade Charts is a free reference site for HVAC/R technicians, electricians, plumbers, gas fitters and welders in the United States. It is built to be fast on a phone, readable in sunlight or in the dark, and honest about where every number comes from.</p>
 <h2>Data sources</h2>

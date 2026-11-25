@@ -77,7 +77,13 @@ for fn in files:
         if k not in p.meta: errs.append(f'{rel}: missing meta {k}')
     if "script-src 'self'" not in p.meta.get('Content-Security-Policy', ''): errs.append(f'{rel}: weak CSP')
     if 'class="disclaimer"' not in src: errs.append(f'{rel}: no disclaimer')
-    if re.search(r'<script(?![^>]*(src=|type="application/(ld\+)?json"))[^>]*>', src): errs.append(f'{rel}: inline script')
+    # inline <script>/<style> allowed only when its sha256 is in the page CSP (strict CSP kept, no 'unsafe-inline')
+    _csp = p.meta.get('Content-Security-Policy', '')
+    if "'unsafe-inline'" in _csp: errs.append(f'{rel}: unsafe-inline in CSP')
+    for _tag, _body in re.findall(r'<(script|style)(?![^>]*(?:src=|type="application/(?:ld\+)?json"))[^>]*>(.*?)</\1>', src, re.S):
+        import hashlib, base64
+        _h = "'sha256-" + base64.b64encode(hashlib.sha256(_body.encode('utf-8')).digest()).decode() + "'"
+        if _h not in _csp: errs.append(f'{rel}: inline {_tag} not hashed in CSP')
     if re.search(r'\sstyle="|\son[a-z]+="', src): errs.append(f'{rel}: inline style/handler (CSP)')
     for b in p.ld:
         try:
