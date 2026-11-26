@@ -86,3 +86,6 @@
 - Every indexable page ends with the "Editorial team: how we build these tools" box (`core.editorial_html(reviewed)`); posts pass `reviewed=max(post date, UPDATED)`. Article author + publisher = the site Organization (`core.org_ld()`, @id /#organization). Never add an invented person.
 - Posts get an automatic "More field guides" block (3 related posts by slug words) from `pages_site.more_guides()`.
 - robots.txt names Googlebot, Bingbot and AI crawlers explicitly; `llms.txt` is generated from the page list. Crawlers only read robots.txt at the host root (mydevspace2.github.io/robots.txt, currently 404), so these rules take effect only if a root user-site repo `mydevspace2.github.io` is created with its own robots.txt.
+
+## Run 2026-11-25
+- Post #32 live: wire-size-for-60-amp-breaker (build/posts11.py). 162 pages.
