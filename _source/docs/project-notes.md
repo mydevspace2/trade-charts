@@ -89,3 +89,6 @@
 
 ## Run 2026-11-25
 - Post #32 live: wire-size-for-60-amp-breaker (build/posts11.py). 162 pages.
+
+## Run 2026-11-26
+- Post #33 live: wire-size-for-70-amp-breaker (build/posts12.py). 163 pages.

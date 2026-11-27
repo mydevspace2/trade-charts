@@ -180,6 +180,7 @@ All calculators run in the browser; no sign-up. Reference only: verify with the 
 - [Wire Size for a 50 Amp Breaker: 6 AWG or 8 AWG Copper?](https://mydevspace2.github.io/trade-charts/blog/wire-size-for-50-amp-breaker/): What wire size does a 50 amp breaker need? 6 AWG copper in NM cable, 8 AWG only with 75 °C terminals, 4 or 6 AWG aluminum, plus ground size and voltage drop.
 - [Wire Size for a 60 Amp Breaker: 4 AWG or 6 AWG Copper?](https://mydevspace2.github.io/trade-charts/blog/wire-size-for-60-amp-breaker/): What wire size does a 60 amp breaker need? 4 AWG copper in NM cable, 6 AWG only with 75 °C terminals, 3 or 4 AWG aluminum, plus ground size and voltage drop.
 - [Wire Size for a 70 Amp Breaker (4 AWG Cu, 2 AWG Al)](https://mydevspace2.github.io/trade-charts/blog/wire-size-for-70-amp-breaker/): What wire size does a 70 amp breaker need? 4 AWG copper, 2 AWG aluminum on 60 °C terminals (3 AWG at 75 °C), 8 AWG copper ground, plus voltage drop.
+- [Wire Size for an 80 Amp Breaker (3 AWG Cu, 1 AWG Al)](https://mydevspace2.github.io/trade-charts/blog/wire-size-for-80-amp-breaker/): What wire size does an 80 amp breaker need? 3 AWG copper, 1 AWG aluminum on 60 °C terminals (2 AWG at 75 °C), 8 AWG copper ground, plus voltage drop.
 
 ## Site
 

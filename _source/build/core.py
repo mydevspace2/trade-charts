@@ -18,6 +18,7 @@ PAGES = []  # registry: dict(path, title, desc, section, words)
 # <title>/og:title overrides (<= 60 chars) for pages whose H1/headline is longer. The H1 and Article headline stay as written.
 SEO_TITLES = {
  '/blog/wire-size-for-70-amp-breaker/': 'Wire Size for a 70 Amp Breaker (4 AWG Cu, 2 AWG Al)',
+ '/blog/wire-size-for-80-amp-breaker/': 'Wire Size for an 80 Amp Breaker (3 AWG Cu, 1 AWG Al)',
     '/1-1-4-pvc-conduit-fill/': '1-1/4" PVC Sch 40 Conduit Fill: How Many Wires Fit? (NEC)',
     '/blog/60c-75c-90c-ampacity-columns-explained/': '60\u00b0C vs 75\u00b0C vs 90\u00b0C Ampacity Columns (NEC 110.14(C))',
     '/blog/a2l-tools-leak-detectors-recovery-machines/': 'A2L Tools: Leak Detectors, Recovery Machines, What Changes',
