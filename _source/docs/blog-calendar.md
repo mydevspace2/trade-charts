@@ -32,3 +32,4 @@
 | 29 | TIG Tungsten Sizes and Amperage | tungsten size chart | ✔ live 2026-11-21 |
 | 30 | Printable Truck Reference: Which Charts to Carry | printable pt chart | ✔ live 2026-11-21 |
 - wire-size-for-50-amp-breaker ✔ live 2026-11-24 (autocomplete topic, posts10.py)
+- wire-size-for-80-amp-breaker ✔ live 2026-11-27 (posts13.py)
